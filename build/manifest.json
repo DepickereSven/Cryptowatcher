@@ -1,0 +1,53 @@
+{
+  "name": "CoinChecker",
+  "short_name": "CoinChecker",
+  "lang": "nl",
+  "start_url": "/index.html",
+  "display": "fullscreen",
+  "theme_color": "#B5BAD0",
+  "icons": [
+    {
+      "src": "assets/favicons/android-icon-36x36.png",
+      "sizes": "36x36",
+      "type": "image\\/png"
+    },
+    {
+      "src": "assets/favicons/android-icon-48x48.png",
+      "sizes": "48x48",
+      "type": "image\\/png"
+    },
+    {
+      "src": "assets/favicons/android-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image\\/png"
+    },
+    {
+      "src": "assets/favicons/android-icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image\\/png"
+    },
+    {
+      "src": "assets/favicons/android-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image\\/png"
+    },
+    {
+      "src": "assets/favicons/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image\\/png"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "checker.coin.crypto.wingcrony.by.cryptocoinchecker",
+      "url": "https://play.google.com/store/apps/details?id=checker.coin.crypto.wingcrony.by.cryptocoinchecker"
+    },
+    {
+      "platform": "play",
+      "id": "webview.world.hello.wingcrony.by.cryptochecker",
+      "url": "https://play.google.com/store/apps/details?id=webview.world.hello.wingcrony.by.cryptochecker"
+    }
+  ],
+  "prefer_related_applications": true
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coin Checker</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="CoinChecker">
+    <meta name="apple-mobile-web-app-title" content="CoinChecker">
+    <meta name="theme-color" content="#B5BAD0">
+    <meta name="msapplication-navbutton-color" content="#B5BAD0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/coinChecker.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Wingcrony"/>
+    <meta name="Description" content="CoinChecker">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="stylesheet" type="text/css" href="assets/libraries/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/libraries/font-awesome/css/fontawesome-all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
+</head>
+<body>
+<ul class="nav nav-pills" id="top">
+    <li role="presentation"><a class="" href="index.html"><i class="fas fa-fw fa-home" aria-hidden="true"></i></a></li>
+    <li><h1>CoinChecker</h1></li>
+</ul>
+<div class="container">
+    <div id="header-form-button">
+        <div id="form-exchange">
+            <div class="form-group">
+                <label class="sr-only" for="searchBar"></label>
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fas fa-fw fa-search"></i></div>
+                    <input type="text" class="form-control" id="searchBar" placeholder="Search by example: BTC or Bitcoin">
+                </div>
+            </div>
+        </div>
+        <nav class='navbar navbar-default' id='header-all-new'>
+            <a href='#' class='navbar-brand btn active' id='All'>All</a>
+            <a href='#' class='navbar-brand btn' id='New'>New</a>
+        </nav>
+    </div>
+    <div id="all-coins">
+
+    </div>
+    <div id="all-new-coins">
+
+    </div>
+    <div id="search-items">
+
+    </div>
+    <div id="coin-info">
+        <div id="the-sell-form">
+        </div>
+        <form id="gform" METHOD="post" class="form-horizontal" action="https://script.google.com/macros/s/AKfycbyPfC_K0OLSXMQyzBDPtcejCqLGyaT2TBXZV5akG226ZBnhU8KN/exec">
+            <div class="form-group">
+                <label for="coinName"></label>
+                <input type="text" name="coinName" id="coinName">
+                <label for="select-element"></label>
+                <select name="select-element" id="select-element" class="form-control">
+                    <option value="Update the photo">Update the photo</option>
+                    <option value="Update the shortname">Update the shortname</option>
+                    <option value="Update the longname">Update the longname</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="answerOnTheSelected"></label>
+                <input type="text" class="form-control" name="answerOnTheSelected" id="answerOnTheSelected">
+            </div>
+            <button type="submit" class="btn btn-default"><i class="fas fa-fw fa-paper-plane"></i>Submit the info</button>
+        </form>
+        <div class="list-exchanges">
+        </div>
+    </div>
+    <div id="thankyou_message">
+        <h1>Thank you for submitting the info!</h1>
+        <p>We will fix it soon!</p>
+        <button class="btn btn-coinchecker get-back">Get back</button>
+    </div>
+</div>
+<div class="modal bs-example-modal-lg" tabindex="-5" role="dialog" id="show-more-graph">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li id="24HM"><a href="#" data-val="24">1D</a></li>
+                        <li id="48HM"><a href="#" data-val="48">2D</a></li>
+                        <li id="120HM"><a href="#" data-val="120">5D</a></li>
+                        <li id="168HM"><a href="#" data-val="168">7D</a></li>
+                        <li id="336HM"><a href="#" data-val="336">14D</a></li>
+                        <li id="744HM"><a href="#" data-val="744">1M</a></li>
+                    </ul>
+                </nav>
+                <div id='showGraphCoin'></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-coinchecker pull-right"  data-dismiss="modal">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script data-cfasync="false" type="text/javascript"
+        src="https://cdn.rawgit.com/dwyl/learn-to-send-email-via-google-script-html-no-server/master/form-submission-handler.js"></script>
+<script src="assets/libraries/jquery/jquery-3.2.0.min.js"></script>
+<script src="assets/libraries/moment/moment.js"></script>
+<script src="assets/libraries/candleStick-chart/amcharts.js"></script>
+<script src="assets/libraries/candleStick-chart/responsive.min.js"></script>
+<script src="assets/libraries/candleStick-chart/serial.js"></script>
+<script src="assets/libraries/candleStick-chart/light.js"></script>
+<script src="assets/libraries/bootstrap/js/bootstrap.min.js"></script>
+<script src="build/bundle.app.min.js"></script>
+</html>
