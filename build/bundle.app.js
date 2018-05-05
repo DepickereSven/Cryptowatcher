@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "https://www.cryptowatcher.nu/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 167);
@@ -11918,7 +11918,7 @@ module.exports = function () {
         var shortName = object.shortName;
         return "\n        <div class=\"row\" id=\"" + counter + "\">\n            <div class=\"col-xs-6\">\n            " + controleImageName(fullName, getImageNames.coinformatNames.find(function (el) {
             return shortName === el.shortName;
-        }), shortName) + "\n                <div class=\"media-body\">\n                    <h3 class='media-heading'>" + fullName + "</h3>\n                    <p> [" + shortName + "]</p>\n                </div>\n                <div class='media-right'>\n                    <h4 class='media-heading red'></h4>\n                    <button class='btn btn-coinchecker' data-val='" + fullName + "' data-extra='" + shortName + "'>Add</button>\n                </div>\n            </div>\n        </div>\n";
+        }), shortName) + "\n                <div class=\"media-body\">\n                    <h3 class='media-heading'>" + fullName + "</h3>\n                    <p> [" + shortName + "]</p>\n                </div>\n                <div class='media-right'>\n                    <h4 class='media-heading red'></h4>\n                    <button class='btn btn-coinchecker' data-val='" + fullName + "' data-extra='" + shortName + "'>More info</button>\n                </div>\n            </div>\n        </div>\n";
     }
 
     function controleImageName(oldName, fullName, shortName) {
@@ -24589,7 +24589,7 @@ module.exports = function () {
     }
 
     function createOneElement(el) {
-        return '\n            <div class="exchange-element">\n                <p>' + el.exchange + '</p>\n                <button class="btn btn-coinchecker">\n                    <a href="' + el.publicURL + '" target="_blank">Buy</a>\n                </button>\n            </div>\n            \n        ';
+        return '\n            <div class="exchange-element">\n                <p>' + el.exchange + '</p>\n                <a class="btn btn-coinchecker" role="button" href="' + el.publicURL + '" target="_blank">Buy</a>\n            </div>\n            \n        ';
     }
 
     return {
