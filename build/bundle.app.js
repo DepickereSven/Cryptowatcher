@@ -18851,7 +18851,7 @@ var init = function init() {
     _module.init();
     var url = window.location.href;
     var moduleOfPage = initModule.htmlPages.find(function (el) {
-        return url.indexOf(el.html) > 1;
+        return 'http://localhost:8080/index.html'.indexOf(el.html) > 1;
     });
     moduleOfPage.init.init();
 };
@@ -27548,7 +27548,7 @@ module.exports = function () {
     function startToHideIt() {
         var url = window.location.href;
         var elements = initModule.htmlPages.find(function (el) {
-            return url.indexOf(el.html) > 1;
+            return 'http://localhost:8080/index.html'.indexOf(el.html) > 1;
         });
         elements.elementsToHide.hide();
     }
