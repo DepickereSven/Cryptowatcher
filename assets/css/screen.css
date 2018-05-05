@@ -25,6 +25,10 @@ a:active, a:hover, a:focus{
     outline: none;
 }
 
+a{
+    color: #fff;
+}
+
 /*********************************************STANDAARD_ELEMENTS********************************************/
 
 .disabled {
@@ -99,10 +103,14 @@ h1, h2, h3 {
     outline: none;
 }
 
+.btn:focus, .btn:hover{
+    color: #fff;
+}
+
 .btn-coinchecker {
     color: #ffffff;
-    background-color: #7389AE;
-    border-color: #7389AE;
+    background-color: #445879;
+    border-color: #445879;
 }
 
 .btn-coinchecker:active,.btn-coinchecker:focus, .btn-coinchecker.active{
@@ -190,8 +198,8 @@ h1.info-many-coins{
 }
 
 .navbar-default, body .nav-pills {
-    background-color: #B5BAD0;
-    border-color: #B5BAD0;
+    background-color: #4c5376;
+    border-color: #4c5376;
     text-align: center;
 }
 
@@ -212,6 +220,23 @@ h1.info-many-coins{
     width: 50%;
 }
 
+#header-all-new{
+    border-color: #4c5376;
+    border-width: 6px;
+}
+
+#header-all-new a:active{
+    border: 0px;
+    border-radius: 0px;
+}
+
+#header-all-new a{
+    border: 0px;
+    border-radius: 0px;
+    border-color: #4c5376;
+    background-color: #4c5376;
+}
+
 #header-form-button .navbar{
     margin-bottom: 10px;
     min-height: 35px;
@@ -223,7 +248,8 @@ h1.info-many-coins{
 }
 
 #header-form-button .navbar .btn.active{
-    background-color: #7389AE;
+    background-color: #fff;
+    color: #445879;
 }
 
 #header-form-button .navbar .btn{
