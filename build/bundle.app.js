@@ -12971,7 +12971,7 @@ var coinCheckerModule = __webpack_require__(370);
 
 module.exports = function () {
 
-    var hideItcoinCheckerModule = $('');
+    var hideItcoinCheckerModule = $('.alert');
 
     var htmlPages = [{ html: "index.html", elementsToHide: hideItcoinCheckerModule, init: coinCheckerModule }];
 
@@ -24208,6 +24208,15 @@ module.exports = function () {
         $('#thankyou_message').hide();
     }
 
+    function isOffline() {
+        var $alert = $('.alert');
+        if (navigator.onLine) {
+            $alert.hide();
+        } else {
+            $alert.show();
+        }
+    }
+
     var init = function init() {
         $('.container #form-exchange').on('change keyup paste click', '#searchBar', doSearch.forACertainCoin);
         $('.container #header-all-new').on('click', '.navbar-brand', changeToNewOrAllCoins.andBack);
@@ -24221,6 +24230,8 @@ module.exports = function () {
         loadAllNewCoins.loadNewCoins();
         loadAllCurrentCoins.loadAllCoins();
         atTopLevel.controleAtTopLevel();
+        window.addEventListener('offline', isOffline);
+        window.addEventListener('online', isOffline);
         // createOneObjectWithAllCoins.createOneBigObject();
     };
 
@@ -24518,7 +24529,7 @@ module.exports = function () {
 
     var createTopHTMLForSellForm = function () {
         var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(coinData) {
-            var longName, shortName, $resultaatString, requestFormat, the24Change, hist;
+            var longName, shortName, $resultaatString, the24Change, hist, requestFormat;
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
                 while (1) {
                     switch (_context2.prev = _context2.next) {
@@ -24528,18 +24539,35 @@ module.exports = function () {
                             $resultaatString = '\n            <div id="the-sell-form">\n                <div class="media-left">\n                    ' + GUIModule.controleImageName(longName, getImageNames.coinformatNames.find(function (el) {
                                 return shortName === el.shortName;
                             }), shortName) + '\n                </div>\n                <div class="media-body">\n                    <h3 class="media-heading">' + longName + '</h3>\n                    <p>' + shortName + '</p>\n                </div>';
+                            the24Change = void 0;
+                            hist = void 0;
+
+                            if (!navigator.onLine) {
+                                _context2.next = 13;
+                                break;
+                            }
+
                             requestFormat = request.requestFormat.find(function (el) {
                                 return el.key === '24';
                             });
-                            _context2.next = 6;
+                            _context2.next = 9;
                             return requestFormat.request(requestFormat.url.replace('{SYM}', shortName).replace('{TSYM}', 'BTC').replace('{time}', 24));
 
-                        case 6:
+                        case 9:
                             the24Change = _context2.sent;
-                            hist = the24Change.Data;
 
+                            hist = the24Change.Data;
+                            _context2.next = 14;
+                            break;
+
+                        case 13:
+                            the24Change = {
+                                Type: 92562
+                            };
+
+                        case 14:
                             if (!(the24Change.Type === 100)) {
-                                _context2.next = 13;
+                                _context2.next = 19;
                                 break;
                             }
 
@@ -24551,10 +24579,18 @@ module.exports = function () {
                             });
                             return _context2.abrupt('return', $resultaatString += '\n                <div class="media-right">\n                   <button class="btn btn-coinchecker" id="get-chart">\n                        <i class="fas fa-fw fa-chart-line"></i>\n                   </button>\n                </div>\n            </div>\n            ');
 
-                        case 13:
+                        case 19:
+                            if (!(the24Change.Type === 92562)) {
+                                _context2.next = 23;
+                                break;
+                            }
+
+                            return _context2.abrupt('return', $resultaatString += '\n            <div class="media-right">\n                   <button class="btn btn-coinchecker disabled" id="get-chart">\n                        <i class="fas fa-fw fa-chart-line"></i>\n                   </button>\n                </div>\n            </div>');
+
+                        case 23:
                             return _context2.abrupt('return', $resultaatString);
 
-                        case 14:
+                        case 24:
                         case 'end':
                             return _context2.stop();
                     }
