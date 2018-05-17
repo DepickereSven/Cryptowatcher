@@ -18792,10 +18792,10 @@ module.exports = function () {
                             return _context.finish(47);
 
                         case 55:
-                            console.log(newCoinVars.newCoinArray);
+                            //console.log(newCoinVars.newCoinArray);
                             createABigObjectOfit(newCoinVars.newCoinArray, continueOrNot);
 
-                        case 57:
+                        case 56:
                         case 'end':
                             return _context.stop();
                     }
