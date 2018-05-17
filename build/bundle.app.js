@@ -11881,11 +11881,11 @@ var GUIModule = __webpack_require__(95);
 
 module.exports = function () {
 
-    function toGenerate(coins, counter) {
+    function toGenerate(coins, counter, newOrAllCoins) {
         var $resultaatString = "";
         var maxValue = counter + 25;
         for (counter; counter < maxValue; counter++) {
-            $resultaatString += "" + GUIModule.generateTheHTMLOfFullAndShortName(coins[counter], counter);
+            $resultaatString += "" + GUIModule.generateTheHTMLOfFullAndShortName(coins[counter], counter, newOrAllCoins);
         }
         return {
             $resultaatString: $resultaatString,
@@ -11913,18 +11913,19 @@ var getImageNames = __webpack_require__(134);
 
 module.exports = function () {
 
-    function generateTheHTMLOfFullAndShortName(object, counter) {
+    function generateTheHTMLOfFullAndShortName(object, counter, newOrAllCoins) {
         var fullName = object.longName;
         var shortName = object.shortName;
-        return "\n        <div class=\"row\" id=\"" + counter + "\">\n            <div class=\"col-xs-6\">\n            " + controleImageName(fullName, getImageNames.coinformatNames.find(function (el) {
+        var $resultaatString = '';
+        return '\n        <div class="row" id="' + newOrAllCoins + counter + '">\n            <div class="col-xs-6">\n            ' + controleImageName(fullName, getImageNames.coinformatNames.find(function (el) {
             return shortName === el.shortName;
-        }), shortName) + "\n                <div class=\"media-body\">\n                    <h3 class='media-heading'>" + fullName + "</h3>\n                    <p> [" + shortName + "]</p>\n                </div>\n                <div class='media-right'>\n                    <h4 class='media-heading red'></h4>\n                    <button class='btn btn-coinchecker' data-val='" + fullName + "' data-extra='" + shortName + "'>More info</button>\n                </div>\n            </div>\n        </div>\n";
+        }), shortName) + '\n                <div class="media-body">\n                    <h3 class=\'media-heading\'>' + fullName + '</h3>\n                    <p> [' + shortName + ']</p>\n                </div>\n                <div class=\'media-right\'>\n                    <h4 class=\'media-heading red\'></h4>\n                    <button class=\'btn btn-coinchecker\' data-val=\'' + fullName + '\' data-extra=\'' + shortName + '\'>More info</button>\n                </div>\n            </div>\n        </div>\n';
     }
 
     function controleImageName(oldName, fullName, shortName) {
         switch (fullName) {
             case undefined:
-                return "<div class=\"media-left\"><img class='media-object' src='assets/media/" + oldName + ".jpg' alt=\"" + oldName + "\" title=\"" + shortName + "\"></div>";
+                return '<div class="media-left"><img class=\'media-object\' src=\'assets/media/' + oldName + '.jpg\' alt="' + oldName + '" title="' + shortName + '"></div>';
             default:
                 var name = void 0;
                 if (fullName.shortName === "BTM") {
@@ -11932,7 +11933,7 @@ module.exports = function () {
                 } else {
                     name = fullName.photoName;
                 }
-                return "<div class=\"media-left\"><img class='media-object' src='assets/media/" + name + ".jpg' alt=\"" + name + "\" title=\"" + name + "\"></div>";
+                return '<div class="media-left"><img class=\'media-object\' src=\'assets/media/' + name + '.jpg\' alt="' + name + '" title="' + name + '"></div>';
         }
     }
 
@@ -17904,7 +17905,7 @@ module.exports = function () {
             $('#all-new-coins').html(generateRefreshHTML.generateRefreshHTML());
         } else {
             var coinData = loadTheNewCoins.getTheNewCoins();
-            var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins);
+            var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins, 'n');
             globalVars.var.counterNewCoins = value.counter;
             $("#all-new-coins").html('\n                   <div class="newInfo">\n                       <h1 class="info-many-coins">Current ' + coinData.length + ' new listing of coins</h1>\n                       <div class="refresh">\n                           <button type="button" class="btn btn-coinchecker"><i class="fas fa-fw fa-sync"></i></button>\n                       </div>\n                   </div>\n                   ' + value.$resultaatString + '\n                   <button class="btn btn-coinchecker load-more-new" id="generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
         }
@@ -24210,7 +24211,7 @@ module.exports = function () {
 
     function isOffline() {
         var $alert = $('.alert');
-        if (navigator.onLine) {
+        if (window.navigator.onLine) {
             $alert.hide();
         } else {
             $alert.show();
@@ -24258,7 +24259,7 @@ var globalVars = __webpack_require__(96);
 module.exports = function () {
 
     function loadAllCoins() {
-        var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins);
+        var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins, 'a');
         globalVars.var.counterAllCoins = value.counter;
         $("#all-coins").html('\n        <h1 class="info-many-coins">Current ' + allCoinData.allCoins.length + ' coins available</h1>\n       ' + value.$resultaatString + '\n       <button class="btn btn-coinchecker load-more-all" id="generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
     }
@@ -24402,14 +24403,14 @@ module.exports = function () {
 
     function moreNewCoins() {
         var coinData = loadTheNewCoins.getTheNewCoins();
-        var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins);
+        var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins, 'n');
         globalVars.var.counterNewCoins = value.counter;
         console.log(value.counter);
         $("#all-new-coins").append('\n           ' + value.$resultaatString + '\n           <button class="btn btn-coinchecker load-more-new" id="generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
     }
 
     function moreAllCoins() {
-        var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins);
+        var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins, 'a');
         globalVars.var.counterAllCoins = value.counter;
         console.log(value.counter);
         $("#all-coins").append('\n           ' + value.$resultaatString + '\n           <button class="btn btn-coinchecker load-more-all" id="generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
@@ -24448,8 +24449,10 @@ module.exports = function () {
         $('#coin-info, .list-exchanges').show(generateRefreshHTML.generateRefreshHTML());
         var data = '';
         if (allOrNew) {
+            elNumber = elNumber.replace('a', '');
             data = allCoinData.allCoins[elNumber];
         } else {
+            elNumber = elNumber.replace('n', '');
             data = loadTheNewCoins.getTheNewCoins();
             data = data[elNumber];
         }
@@ -24542,7 +24545,7 @@ module.exports = function () {
                             the24Change = void 0;
                             hist = void 0;
 
-                            if (!navigator.onLine) {
+                            if (!window.navigator.onLine) {
                                 _context2.next = 13;
                                 break;
                             }
