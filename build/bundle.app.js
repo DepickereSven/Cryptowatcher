@@ -301,9 +301,9 @@ module.exports = function () {
         return fetch(request).then(function (resp) {
             return resp.json();
         }).then(function (data) {
-            console.log(data.query.results);
+            console.log(data.query.results, url);
             if (data.query.results === null) {
-                fetchRequestForGettingTheNamesTroughProxy(exchangeUrl);
+                return data.query.results;
             } else {
                 if (exchangeUrl.indexOf('ex.trade') > 1 || exchangeUrl.indexOf('api.liqui.io') > 1) {
                     return data.query.results;
@@ -18661,22 +18661,23 @@ var orderTheCoin = __webpack_require__(453);
 module.exports = function () {
     var allNewCoins = function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(continueOrNot) {
-            var data, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, item;
+            var data, controleData, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, item;
 
             return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
                     switch (_context.prev = _context.next) {
                         case 0:
                             data = [];
+                            controleData = void 0;
                             _iteratorNormalCompletion = true;
                             _didIteratorError = false;
                             _iteratorError = undefined;
-                            _context.prev = 4;
+                            _context.prev = 5;
                             _iterator = exchangeModule.exchangeForNames[Symbol.iterator]();
 
-                        case 6:
+                        case 7:
                             if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-                                _context.next = 32;
+                                _context.next = 41;
                                 break;
                             }
 
@@ -18685,94 +18686,121 @@ module.exports = function () {
                             item = item.getNamesForList;
 
                             if (!(item.needReq === true)) {
-                                _context.next = 27;
+                                _context.next = 36;
                                 break;
                             }
 
                             if (!(item.req.multi === true)) {
-                                _context.next = 19;
+                                _context.next = 17;
                                 break;
                             }
 
-                            _context.t0 = item;
                             _context.next = 14;
                             return item.req.fun([item.req.url.url1, item.req.url.url2]);
 
                         case 14:
-                            _context.t1 = _context.sent;
-                            _context.next = 17;
-                            return _context.t0.newNames.call(_context.t0, _context.t1);
-
-                        case 17:
-                            _context.next = 25;
+                            controleData = _context.sent;
+                            _context.next = 20;
                             break;
 
-                        case 19:
-                            _context.t2 = item;
-                            _context.next = 22;
+                        case 17:
+                            _context.next = 19;
                             return item.req.fun(item.req.url.url1);
 
-                        case 22:
-                            _context.t3 = _context.sent;
-                            _context.next = 25;
-                            return _context.t2.newNames.call(_context.t2, _context.t3);
+                        case 19:
+                            controleData = _context.sent;
 
-                        case 25:
-                            _context.next = 29;
+                        case 20:
+                            if (!(controleData === null || controleData[0] === null || controleData[1] === null)) {
+                                _context.next = 32;
+                                break;
+                            }
+
+                            if (!(item.req.multi === true)) {
+                                _context.next = 27;
+                                break;
+                            }
+
+                            _context.next = 24;
+                            return item.req.fun([item.req.url.url1, item.req.url.url2]);
+
+                        case 24:
+                            controleData = _context.sent;
+                            _context.next = 30;
                             break;
 
                         case 27:
                             _context.next = 29;
-                            return item.newNames();
+                            return item.req.fun(item.req.url.url1);
 
                         case 29:
-                            _iteratorNormalCompletion = true;
-                            _context.next = 6;
+                            controleData = _context.sent;
+
+                        case 30:
+                            _context.next = 34;
                             break;
 
                         case 32:
+                            _context.next = 34;
+                            return item.newNames(controleData);
+
+                        case 34:
                             _context.next = 38;
                             break;
 
-                        case 34:
-                            _context.prev = 34;
-                            _context.t4 = _context['catch'](4);
-                            _didIteratorError = true;
-                            _iteratorError = _context.t4;
+                        case 36:
+                            _context.next = 38;
+                            return item.newNames();
 
                         case 38:
-                            _context.prev = 38;
-                            _context.prev = 39;
+                            _iteratorNormalCompletion = true;
+                            _context.next = 7;
+                            break;
+
+                        case 41:
+                            _context.next = 47;
+                            break;
+
+                        case 43:
+                            _context.prev = 43;
+                            _context.t0 = _context['catch'](5);
+                            _didIteratorError = true;
+                            _iteratorError = _context.t0;
+
+                        case 47:
+                            _context.prev = 47;
+                            _context.prev = 48;
 
                             if (!_iteratorNormalCompletion && _iterator.return) {
                                 _iterator.return();
                             }
 
-                        case 41:
-                            _context.prev = 41;
+                        case 50:
+                            _context.prev = 50;
 
                             if (!_didIteratorError) {
-                                _context.next = 44;
+                                _context.next = 53;
                                 break;
                             }
 
                             throw _iteratorError;
 
-                        case 44:
-                            return _context.finish(41);
+                        case 53:
+                            return _context.finish(50);
 
-                        case 45:
-                            return _context.finish(38);
+                        case 54:
+                            return _context.finish(47);
 
-                        case 46:
+                        case 55:
+                            console.log(newCoinVars.newCoinArray);
                             createABigObjectOfit(newCoinVars.newCoinArray, continueOrNot);
 
-                        case 47:
+                        case 57:
                         case 'end':
                             return _context.stop();
                     }
                 }
-            }, _callee, this, [[4, 34, 38, 46], [39,, 41, 45]]);
+            }, _callee, this, [[5, 43, 47, 55], [48,, 50, 54]]);
         }));
 
         return function allNewCoins(_x) {
