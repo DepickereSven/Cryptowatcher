@@ -262,7 +262,7 @@ h1.info-many-coins{
 
 /*********************************************COIN_INFO********************************************/
 
-#generateMoreHtml{
+.generateMoreHtml{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
