@@ -301,7 +301,7 @@ module.exports = function () {
         return fetch(request).then(function (resp) {
             return resp.json();
         }).then(function (data) {
-            console.log(data.query.results, url);
+            //console.log(data.query.results, url);
             if (data.query.results === null) {
                 return data.query.results;
             } else {
@@ -17907,7 +17907,7 @@ module.exports = function () {
             var coinData = loadTheNewCoins.getTheNewCoins();
             var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins, 'n');
             globalVars.var.counterNewCoins = value.counter;
-            $("#all-new-coins").html('\n                   <div class="newInfo">\n                       <h1 class="info-many-coins">Current ' + coinData.length + ' new listing of coins</h1>\n                       <div class="refresh">\n                           <button type="button" class="btn btn-coinchecker"><i class="fas fa-fw fa-sync"></i></button>\n                       </div>\n                   </div>\n                   ' + value.$resultaatString + '\n                   <button class="btn btn-coinchecker load-more-new" id="generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+            $("#all-new-coins").html('\n                   <div class="newInfo">\n                       <h1 class="info-many-coins">Current ' + coinData.length + ' new listing of coins</h1>\n                       <div class="refresh">\n                           <button type="button" class="btn btn-coinchecker"><i class="fas fa-fw fa-sync"></i></button>\n                       </div>\n                   </div>\n                   ' + value.$resultaatString + '\n                   <button class="btn btn-coinchecker load-more-new generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
         }
     }
 
@@ -24249,7 +24249,7 @@ module.exports = function () {
     var init = function init() {
         $('.container #form-exchange').on('change keyup paste click', '#searchBar', doSearch.forACertainCoin);
         $('.container #header-all-new').on('click', '.navbar-brand', changeToNewOrAllCoins.andBack);
-        $('.container').on('click', '#generateMoreHtml', add.moreCoins);
+        $('.container').on('click', '.generateMoreHtml', add.moreCoins);
         $('.container').on('click', '.row', generate.theInfoForTheCertainCoin);
         $('.container').on('click', '.update-info', showTheForm);
         $('.container .get-back').on('click', goBackToView);
@@ -24289,7 +24289,7 @@ module.exports = function () {
     function loadAllCoins() {
         var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins, 'a');
         globalVars.var.counterAllCoins = value.counter;
-        $("#all-coins").html('\n        <h1 class="info-many-coins">Current ' + allCoinData.allCoins.length + ' coins available</h1>\n       ' + value.$resultaatString + '\n       <button class="btn btn-coinchecker load-more-all" id="generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+        $("#all-coins").html('\n        <h1 class="info-many-coins">Current ' + allCoinData.allCoins.length + ' coins available</h1>\n       ' + value.$resultaatString + '\n       <button class="btn btn-coinchecker load-more-all generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
     }
 
     return {
@@ -24433,15 +24433,13 @@ module.exports = function () {
         var coinData = loadTheNewCoins.getTheNewCoins();
         var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins, 'n');
         globalVars.var.counterNewCoins = value.counter;
-        console.log(value.counter);
-        $("#all-new-coins").append('\n           ' + value.$resultaatString + '\n           <button class="btn btn-coinchecker load-more-new" id="generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+        $("#all-new-coins").append('\n           ' + value.$resultaatString + '\n           <button class="btn btn-coinchecker load-more-new generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
     }
 
     function moreAllCoins() {
         var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins, 'a');
         globalVars.var.counterAllCoins = value.counter;
-        console.log(value.counter);
-        $("#all-coins").append('\n           ' + value.$resultaatString + '\n           <button class="btn btn-coinchecker load-more-all" id="generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+        $("#all-coins").append('\n           ' + value.$resultaatString + '\n           <button class="btn btn-coinchecker load-more-all generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
     }
 
     return {
