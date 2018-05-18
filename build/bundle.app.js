@@ -24239,10 +24239,14 @@ module.exports = function () {
 
     function isOffline() {
         var $alert = $('.alert');
+        var $sync = $('.refresh .btn');
+        console.log($sync);
         if (window.navigator.onLine) {
             $alert.hide();
+            $sync.prop('disabled', false).removeClass('disabled');
         } else {
             $alert.show();
+            $sync.prop('disabled', true).addClass('disabled');
         }
     }
 
@@ -24253,7 +24257,7 @@ module.exports = function () {
         $('.container').on('click', '.row', generate.theInfoForTheCertainCoin);
         $('.container').on('click', '.update-info', showTheForm);
         $('.container .get-back').on('click', goBackToView);
-        $('.container #all-new-coins').on('click', '.refresh', refresh.theNewCoins);
+        $('.container #all-new-coins').on('click', '.refresh .btn', refresh.theNewCoins);
         $('.container').on('click', '#get-chart', showModal.showModal);
         $('#show-more-graph .pagination').on('click', 'a', updateGraphForLocalStorage.getDataToUpdateChart);
         loadAllNewCoins.loadNewCoins();
@@ -24537,7 +24541,11 @@ module.exports = function () {
                             Object.keys(htmlData).forEach(function (el) {
                                 return $resultaatString += htmlData[el];
                             });
-                            $resultaatString += "</div><button class='btn btn-coinchecker update-info'>Update info</button>";
+                            if (window.navigator.onLine) {
+                                $resultaatString += "</div><button class='btn btn-coinchecker update-info'>Update info</button>";
+                            } else {
+                                $resultaatString += "</div><button class='btn btn-coinchecker update-info disabled'>Update info</button>";
+                            }
                             if (!allOrNew) {
                                 $resultaatString += "<p>Some info is missing!</p>";
                             }
