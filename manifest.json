@@ -5,7 +5,7 @@
   "start_url": "/index.html",
   "display": "fullscreen",
   "theme_color": "#4c5376",
-  "background-color": "#4c5376",
+  "background_color": "#4c5376",
   "icons": [
     {
       "src": "assets/favicons/android-icon-36x36.png",
