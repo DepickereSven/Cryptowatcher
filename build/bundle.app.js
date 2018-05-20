@@ -2032,6 +2032,12 @@ module.exports = function () {
             "list": ["CCex"]
         }
     }, {
+        "shortName": "RTB",
+        "longName": "AB-CHAIN RTB token",
+        "exchanges": {
+            "list": ["Livecoin"]
+        }
+    }, {
         "shortName": "AC3",
         "longName": "AC3",
         "exchanges": {
@@ -2078,6 +2084,12 @@ module.exports = function () {
         "longName": "AMLBitcoin",
         "exchanges": {
             "list": ["CCex", "CoinEgg"]
+        }
+    }, {
+        "shortName": "APR",
+        "longName": "APR Coin",
+        "exchanges": {
+            "list": ["CoinExchange"]
         }
     }, {
         "shortName": "APX",
@@ -2137,7 +2149,7 @@ module.exports = function () {
         "shortName": "ADA",
         "longName": "Ada",
         "exchanges": {
-            "list": ["Binance", "Bittrex"]
+            "list": ["Binance", "Bittrex", "Huobi", "HitBtc"]
         }
     }, {
         "shortName": "ACC",
@@ -2179,7 +2191,7 @@ module.exports = function () {
         "shortName": "ARN",
         "longName": "Aeron",
         "exchanges": {
-            "list": ["Binance", "BitZ", "HitBtc"]
+            "list": ["Binance", "BitZ", "HitBtc", "Kucoin", "Kucoin"]
         }
     }, {
         "shortName": "AE",
@@ -2203,7 +2215,7 @@ module.exports = function () {
         "shortName": "AID",
         "longName": "AidCoin",
         "exchanges": {
-            "list": ["Bitfinex"]
+            "list": ["Bitfinex", "Bittrex"]
         }
     }, {
         "shortName": "ADK",
@@ -2308,6 +2320,12 @@ module.exports = function () {
             "list": ["CoinExchange"]
         }
     }, {
+        "shortName": "AMN",
+        "longName": "Amon",
+        "exchanges": {
+            "list": ["Cryptopia"]
+        }
+    }, {
         "shortName": "ACP",
         "longName": "AnarchistsPrime",
         "exchanges": {
@@ -2365,7 +2383,7 @@ module.exports = function () {
         "shortName": "ANT",
         "longName": "Aragon",
         "exchanges": {
-            "list": ["Bittrex", "HitBtc", "Liqui", "Livecoin"]
+            "list": ["Bitfinex", "Bittrex", "HitBtc", "Liqui", "Livecoin"]
         }
     }, {
         "shortName": "ARC",
@@ -2431,7 +2449,7 @@ module.exports = function () {
         "shortName": "ATX",
         "longName": "ArtexCoin",
         "exchanges": {
-            "list": ["CoinExchange", "Livecoin"]
+            "list": ["Coinbene", "CoinExchange", "Livecoin"]
         }
     }, {
         "shortName": "XAS",
@@ -2485,7 +2503,7 @@ module.exports = function () {
         "shortName": "REP",
         "longName": "Augur",
         "exchanges": {
-            "list": ["Bitfinex", "Bittrex", "Cryptopia", "HitBtc", "Kraken", "Liqui", "Livecoin", "Poloniex"]
+            "list": ["Binance", "Bitfinex", "Bittrex", "Cryptopia", "HitBtc", "Kraken", "Liqui", "Livecoin", "Poloniex"]
         }
     }, {
         "shortName": "AURS",
@@ -2533,7 +2551,7 @@ module.exports = function () {
         "shortName": "KB3",
         "longName": "B3Coin",
         "exchanges": {
-            "list": ["CoinExchange"]
+            "list": ["CoinExchange", "CoinExchange"]
         }
     }, {
         "shortName": "BAKED",
@@ -2701,7 +2719,7 @@ module.exports = function () {
         "shortName": "BEZ",
         "longName": "Bezop",
         "exchanges": {
-            "list": ["HitBtc"]
+            "list": ["Coinbene", "HitBtc"]
         }
     }, {
         "shortName": "BBP",
@@ -2863,7 +2881,7 @@ module.exports = function () {
         "shortName": "BTS",
         "longName": "BitShares",
         "exchanges": {
-            "list": ["Binance", "CoinEgg", "EXX", "Livecoin", "Poloniex"]
+            "list": ["Binance", "CoinEgg", "EXX", "Huobi", "Livecoin", "Poloniex"]
         }
     }, {
         "shortName": "BSR",
@@ -2887,7 +2905,7 @@ module.exports = function () {
         "shortName": "BTBC",
         "longName": "Bitbase",
         "exchanges": {
-            "list": ["CoinExchange"]
+            "list": ["CoinExchange", "CoinExchange"]
         }
     }, {
         "shortName": "BXC",
@@ -2941,7 +2959,7 @@ module.exports = function () {
         "shortName": "BTG",
         "longName": "Bitcoin Gold",
         "exchanges": {
-            "list": ["Binance", "Bitfinex", "Bittrex", "BitZ", "Cryptopia", "EXX", "Huobi", "HitBtc", "Kucoin"]
+            "list": ["Binance", "Bitfinex", "Bittrex", "BitZ", "Cryptopia", "Exmo", "EXX", "Huobi", "HitBtc", "Kucoin"]
         }
     }, {
         "shortName": "BITG",
@@ -2980,6 +2998,12 @@ module.exports = function () {
             "list": ["CoinEgg", "EXX"]
         }
     }, {
+        "shortName": "BBC",
+        "longName": "Bitcoin core",
+        "exchanges": {
+            "list": ["HitBtc"]
+        }
+    }, {
         "shortName": "BTCD",
         "longName": "BitcoinDark",
         "exchanges": {
@@ -2996,6 +3020,12 @@ module.exports = function () {
         "longName": "BitcoinHashcore",
         "exchanges": {
             "list": ["CCex"]
+        }
+    }, {
+        "shortName": "BCI",
+        "longName": "BitcoinInterest",
+        "exchanges": {
+            "list": ["Bitfinex"]
         }
     }, {
         "shortName": "BCM",
@@ -3088,6 +3118,12 @@ module.exports = function () {
             "list": ["CoinExchange"]
         }
     }, {
+        "shortName": "BTV",
+        "longName": "Bitvote",
+        "exchanges": {
+            "list": ["BitZ"]
+        }
+    }, {
         "shortName": "BIXC",
         "longName": "Bixc",
         "exchanges": {
@@ -3176,6 +3212,12 @@ module.exports = function () {
         "longName": "Blocktix",
         "exchanges": {
             "list": ["Bittrex", "Cryptopia"]
+        }
+    }, {
+        "shortName": "BLT",
+        "longName": "Bloom",
+        "exchanges": {
+            "list": ["Bittrex"]
         }
     }, {
         "shortName": "BLUE",
@@ -3283,7 +3325,7 @@ module.exports = function () {
         "shortName": "BRD",
         "longName": "Bread",
         "exchanges": {
-            "list": ["Binance"]
+            "list": ["Binance", "Kucoin"]
         }
     }, {
         "shortName": "BRK",
@@ -3373,7 +3415,7 @@ module.exports = function () {
         "shortName": "BCN",
         "longName": "Bytecoin",
         "exchanges": {
-            "list": ["HitBtc", "Poloniex"]
+            "list": ["Binance", "HitBtc", "Poloniex"]
         }
     }, {
         "shortName": "GBYTE",
@@ -3392,6 +3434,12 @@ module.exports = function () {
         "longName": "CACHeCoin",
         "exchanges": {
             "list": ["CoinExchange", "Cryptopia"]
+        }
+    }, {
+        "shortName": "CAZ",
+        "longName": "CAZ Coin",
+        "exchanges": {
+            "list": ["CoinExchange"]
         }
     }, {
         "shortName": "XCT",
@@ -3476,6 +3524,12 @@ module.exports = function () {
         "longName": "CanYa",
         "exchanges": {
             "list": ["Cryptopia", "Kucoin"]
+        }
+    }, {
+        "shortName": "CNB",
+        "longName": "Canabio",
+        "exchanges": {
+            "list": ["Livecoin"]
         }
     }, {
         "shortName": "CDN",
@@ -3649,13 +3703,13 @@ module.exports = function () {
         "shortName": "TIME",
         "longName": "Chronobank",
         "exchanges": {
-            "list": ["HitBtc", "Liqui", "Livecoin"]
+            "list": ["HitBtc", "Kucoin", "Liqui", "Livecoin"]
         }
     }, {
         "shortName": "DAY",
         "longName": "Chronologic",
         "exchanges": {
-            "list": ["Livecoin"]
+            "list": ["HitBtc", "Livecoin"]
         }
     }, {
         "shortName": "CRX",
@@ -3697,7 +3751,7 @@ module.exports = function () {
         "shortName": "CLOAK",
         "longName": "CloakCoin",
         "exchanges": {
-            "list": ["Bittrex", "Cryptopia", "Livecoin"]
+            "list": ["Binance", "Bittrex", "Cryptopia", "Livecoin"]
         }
     }, {
         "shortName": "CLD",
@@ -3739,7 +3793,7 @@ module.exports = function () {
         "shortName": "CTIC3",
         "longName": "Coimatic 3.0",
         "exchanges": {
-            "list": ["CCex", "Cryptopia"]
+            "list": ["CCex", "CoinExchange", "Cryptopia"]
         }
     }, {
         "shortName": "CTIC2",
@@ -3982,6 +4036,12 @@ module.exports = function () {
             "list": ["CCex"]
         }
     }, {
+        "shortName": "CIF",
+        "longName": "Crypto Improvement Fund",
+        "exchanges": {
+            "list": ["CoinExchange"]
+        }
+    }, {
         "shortName": "C20",
         "longName": "Crypto20",
         "exchanges": {
@@ -4022,6 +4082,12 @@ module.exports = function () {
         "longName": "CryptoJacksCoin",
         "exchanges": {
             "list": ["CCex", "CoinExchange", "Cryptopia"]
+        }
+    }, {
+        "shortName": "CNZ",
+        "longName": "CryptoNationZ",
+        "exchanges": {
+            "list": ["CoinExchange"]
         }
     }, {
         "shortName": "PING",
@@ -4135,7 +4201,7 @@ module.exports = function () {
         "shortName": "DCT",
         "longName": "DECENT",
         "exchanges": {
-            "list": ["HitBtc", "Liqui"]
+            "list": ["Bittrex", "HitBtc", "Liqui"]
         }
     }, {
         "shortName": "DFS",
@@ -4267,7 +4333,7 @@ module.exports = function () {
         "shortName": "MANA",
         "longName": "Decentraland",
         "exchanges": {
-            "list": ["Binance", "Bitfinex", "Bittrex", "Huobi", "HitBtc", "Liqui"]
+            "list": ["Binance", "Bitfinex", "Bittrex", "Huobi", "HitBtc", "Kucoin", "Liqui"]
         }
     }, {
         "shortName": "HST",
@@ -4321,7 +4387,7 @@ module.exports = function () {
         "shortName": "DCN",
         "longName": "Dentacoin",
         "exchanges": {
-            "list": ["CoinExchange", "Cryptopia"]
+            "list": ["CoinExchange", "Cryptopia", "HitBtc"]
         }
     }, {
         "shortName": "DSR",
@@ -4334,6 +4400,12 @@ module.exports = function () {
         "longName": "DetectorToken",
         "exchanges": {
             "list": ["CoinExchange"]
+        }
+    }, {
+        "shortName": "DTH",
+        "longName": "Dether",
+        "exchanges": {
+            "list": ["Bitfinex"]
         }
     }, {
         "shortName": "DEUS",
@@ -4411,7 +4483,7 @@ module.exports = function () {
         "shortName": "DIG",
         "longName": "Dignity",
         "exchanges": {
-            "list": ["Livecoin"]
+            "list": ["CCex", "Livecoin"]
         }
     }, {
         "shortName": "DIME",
@@ -4508,6 +4580,12 @@ module.exports = function () {
         "longName": "Dubaicoin",
         "exchanges": {
             "list": ["Livecoin"]
+        }
+    }, {
+        "shortName": "DUC",
+        "longName": "Ducat",
+        "exchanges": {
+            "list": ["Coinbene"]
         }
     }, {
         "shortName": "DUTCH",
@@ -4609,7 +4687,7 @@ module.exports = function () {
         "shortName": "EOS",
         "longName": "EOS",
         "exchanges": {
-            "list": ["Binance", "Bitfinex", "BitZ", "CoinEgg", "CoinExchange", "EXX", "Huobi", "HitBtc", "Kraken", "Kucoin", "Liqui", "Livecoin"]
+            "list": ["Binance", "Bitfinex", "BitZ", "CoinEgg", "CoinExchange", "Cryptopia", "Exmo", "EXX", "Huobi", "HitBtc", "Kraken", "Kucoin", "Liqui", "Livecoin"]
         }
     }, {
         "shortName": "ERA",
@@ -4640,6 +4718,12 @@ module.exports = function () {
         "longName": "EWangBiCoin",
         "exchanges": {
             "list": ["CoinExchange"]
+        }
+    }, {
+        "shortName": "EZT",
+        "longName": "EZToken",
+        "exchanges": {
+            "list": ["Coinbene"]
         }
     }, {
         "shortName": "EAC",
@@ -4771,7 +4855,7 @@ module.exports = function () {
         "shortName": "ELI",
         "longName": "Elisor Coin",
         "exchanges": {
-            "list": ["CCex"]
+            "list": ["CCex", "Livecoin"]
         }
     }, {
         "shortName": "1337",
@@ -4786,10 +4870,10 @@ module.exports = function () {
             "list": ["CoinExchange", "Kucoin"]
         }
     }, {
-        "shortName": "ELLA",
+        "shortName": "SHE",
         "longName": "Ellaism",
         "exchanges": {
-            "list": ["Cryptopia"]
+            "list": ["Coinbene", "Cryptopia"]
         }
     }, {
         "shortName": "ELS",
@@ -4834,6 +4918,12 @@ module.exports = function () {
             "list": ["CCex", "Cryptopia"]
         }
     }, {
+        "shortName": "NRG",
+        "longName": "Energi",
+        "exchanges": {
+            "list": ["CoinExchange"]
+        }
+    }, {
         "shortName": "TSL",
         "longName": "Energo Labs",
         "exchanges": {
@@ -4852,6 +4942,12 @@ module.exports = function () {
             "list": ["Bittrex"]
         }
     }, {
+        "shortName": "EGCC",
+        "longName": "Engine Chain Coin",
+        "exchanges": {
+            "list": ["BitZ"]
+        }
+    }, {
         "shortName": "ENG",
         "longName": "Enigma",
         "exchanges": {
@@ -4861,7 +4957,7 @@ module.exports = function () {
         "shortName": "ENJ",
         "longName": "Enjin Coin",
         "exchanges": {
-            "list": ["Binance", "Cryptopia", "HitBtc", "Kucoin", "Livecoin"]
+            "list": ["Binance", "Cryptopia", "HitBtc", "Kucoin", "Liqui", "Livecoin"]
         }
     }, {
         "shortName": "ENTRC",
@@ -4930,6 +5026,12 @@ module.exports = function () {
             "list": ["HitBtc"]
         }
     }, {
+        "shortName": "ETZ",
+        "longName": "EtherZero",
+        "exchanges": {
+            "list": ["Cryptopia"]
+        }
+    }, {
         "shortName": "ETH",
         "longName": "Ethereum",
         "exchanges": {
@@ -4951,7 +5053,7 @@ module.exports = function () {
         "shortName": "EETT",
         "longName": "Ethereum EncryptoTel",
         "exchanges": {
-            "list": ["Livecoin"]
+            "list": ["Livecoin", "Livecoin"]
         }
     }, {
         "shortName": "ETHG",
@@ -4987,7 +5089,7 @@ module.exports = function () {
         "shortName": "ETN",
         "longName": "Ethernex",
         "exchanges": {
-            "list": ["CoinExchange", "Cryptopia"]
+            "list": ["CoinExchange", "Cryptopia", "Kucoin"]
         }
     }, {
         "shortName": "DICE",
@@ -5068,6 +5170,12 @@ module.exports = function () {
             "list": ["EXX", "HitBtc"]
         }
     }, {
+        "shortName": "EXCC",
+        "longName": "ExchangeCoin",
+        "exchanges": {
+            "list": ["CoinExchange"]
+        }
+    }, {
         "shortName": "EXN",
         "longName": "Exchangen",
         "exchanges": {
@@ -5092,6 +5200,12 @@ module.exports = function () {
             "list": ["Cryptopia", "EXX"]
         }
     }, {
+        "shortName": "EXT",
+        "longName": "Exsolution",
+        "exchanges": {
+            "list": ["CoinExchange"]
+        }
+    }, {
         "shortName": "EXTN",
         "longName": "ExtensiveCoin",
         "exchanges": {
@@ -5100,6 +5214,12 @@ module.exports = function () {
     }, {
         "shortName": "FAP",
         "longName": "FAPcoin",
+        "exchanges": {
+            "list": ["CoinExchange"]
+        }
+    }, {
+        "shortName": "FLANDERS",
+        "longName": "FLANDERS",
         "exchanges": {
             "list": ["CoinExchange"]
         }
@@ -5136,6 +5256,18 @@ module.exports = function () {
     }, {
         "shortName": "FAIR",
         "longName": "Faircoin",
+        "exchanges": {
+            "list": ["CoinExchange"]
+        }
+    }, {
+        "shortName": "FANS",
+        "longName": "Fantasy Cash",
+        "exchanges": {
+            "list": ["Cryptopia"]
+        }
+    }, {
+        "shortName": "FGC",
+        "longName": "FantasyGold",
         "exchanges": {
             "list": ["CoinExchange"]
         }
@@ -5194,6 +5326,12 @@ module.exports = function () {
             "list": ["Cryptopia"]
         }
     }, {
+        "shortName": "FLOT",
+        "longName": "FireLotto",
+        "exchanges": {
+            "list": ["Livecoin"]
+        }
+    }, {
         "shortName": "FRC",
         "longName": "FireRoosterCoin",
         "exchanges": {
@@ -5215,7 +5353,7 @@ module.exports = function () {
         "shortName": "FIRSTBLOOD",
         "longName": "FirstBlood",
         "exchanges": {
-            "list": ["Livecoin"]
+            "list": ["Livecoin", "Livecoin"]
         }
     }, {
         "shortName": "ETF",
@@ -5232,6 +5370,12 @@ module.exports = function () {
     }, {
         "shortName": "FIT",
         "longName": "FitCoin",
+        "exchanges": {
+            "list": ["CoinExchange"]
+        }
+    }, {
+        "shortName": "FRV",
+        "longName": "Fitrova",
         "exchanges": {
             "list": ["CoinExchange"]
         }
@@ -5263,7 +5407,7 @@ module.exports = function () {
         "shortName": "FLO",
         "longName": "Florincoin",
         "exchanges": {
-            "list": ["Poloniex"]
+            "list": ["Bittrex", "Poloniex"]
         }
     }, {
         "shortName": "FLN",
@@ -5396,6 +5540,12 @@ module.exports = function () {
         "longName": "Futurxe",
         "exchanges": {
             "list": ["CoinExchange"]
+        }
+    }, {
+        "shortName": "FXT",
+        "longName": "FuzeX",
+        "exchanges": {
+            "list": ["Livecoin"]
         }
     }, {
         "shortName": "FUZZ",
@@ -5566,6 +5716,12 @@ module.exports = function () {
             "list": ["CCex"]
         }
     }, {
+        "shortName": "GCC",
+        "longName": "Global Cryptocurrency",
+        "exchanges": {
+            "list": ["Cryptopia"]
+        }
+    }, {
         "shortName": "BSTY",
         "longName": "GlobalBoost-Y",
         "exchanges": {
@@ -5599,7 +5755,7 @@ module.exports = function () {
         "shortName": "GBX",
         "longName": "GoByte",
         "exchanges": {
-            "list": ["CoinExchange", "Cryptopia"]
+            "list": ["CoinExchange", "Cryptopia", "HitBtc"]
         }
     }, {
         "shortName": "GB",
@@ -5659,7 +5815,7 @@ module.exports = function () {
         "shortName": "GNT",
         "longName": "Golem",
         "exchanges": {
-            "list": ["Bitfinex", "Bittrex", "CoinExchange", "Cryptopia", "Huobi", "Liqui", "Livecoin", "Poloniex", "TuxExchange"]
+            "list": ["Binance", "Bitfinex", "Bittrex", "CoinExchange", "Cryptopia", "Huobi", "HitBtc", "Liqui", "Livecoin", "Poloniex", "TuxExchange"]
         }
     }, {
         "shortName": "GOLF",
@@ -5707,7 +5863,7 @@ module.exports = function () {
         "shortName": "GET",
         "longName": "GreenEnergyToken",
         "exchanges": {
-            "list": ["CoinExchange"]
+            "list": ["CoinExchange", "HitBtc"]
         }
     }, {
         "shortName": "GREENF",
@@ -5794,6 +5950,12 @@ module.exports = function () {
             "list": ["Coinbene"]
         }
     }, {
+        "shortName": "HPB",
+        "longName": "HPB Blockchain",
+        "exchanges": {
+            "list": ["BitZ", "Kucoin"]
+        }
+    }, {
         "shortName": "HSR",
         "longName": "HSHARE",
         "exchanges": {
@@ -5857,7 +6019,7 @@ module.exports = function () {
         "shortName": "HAV",
         "longName": "Havecoin",
         "exchanges": {
-            "list": ["Cryptopia"]
+            "list": ["Cryptopia", "Kucoin"]
         }
     }, {
         "shortName": "HAT",
@@ -5882,6 +6044,12 @@ module.exports = function () {
         "longName": "HealthyWormCoin",
         "exchanges": {
             "list": ["CoinExchange"]
+        }
+    }, {
+        "shortName": "HB",
+        "longName": "HeartBout",
+        "exchanges": {
+            "list": ["Livecoin"]
         }
     }, {
         "shortName": "HEAT",
@@ -5918,12 +6086,6 @@ module.exports = function () {
         "longName": "HiCoin",
         "exchanges": {
             "list": ["CCex"]
-        }
-    }, {
-        "shortName": "HPB",
-        "longName": "High Performance Blockchain",
-        "exchanges": {
-            "list": ["Kucoin"]
         }
     }, {
         "shortName": "HIGH",
@@ -6052,6 +6214,12 @@ module.exports = function () {
             "list": ["CoinExchange"]
         }
     }, {
+        "shortName": "HPY",
+        "longName": "HyperPay",
+        "exchanges": {
+            "list": ["EXX"]
+        }
+    }, {
         "shortName": "HYP",
         "longName": "HyperStake",
         "exchanges": {
@@ -6068,6 +6236,12 @@ module.exports = function () {
         "longName": "I0Coin",
         "exchanges": {
             "list": ["Cryptopia"]
+        }
+    }, {
+        "shortName": "IBT",
+        "longName": "IBTCOIN",
+        "exchanges": {
+            "list": ["CoinExchange"]
         }
     }, {
         "shortName": "ICO",
@@ -6130,16 +6304,22 @@ module.exports = function () {
             "list": ["CoinExchange"]
         }
     }, {
+        "shortName": "IOS",
+        "longName": "IOSToken",
+        "exchanges": {
+            "list": ["Bitfinex"]
+        }
+    }, {
         "shortName": "IOST",
         "longName": "IOStoken",
         "exchanges": {
-            "list": ["Binance", "Bitfinex", "Huobi", "Kucoin"]
+            "list": ["Binance", "Huobi", "Kucoin"]
         }
     }, {
         "shortName": "IOTA",
         "longName": "IOTA",
         "exchanges": {
-            "list": ["Binance", "Bitfinex"]
+            "list": ["Binance", "Bitfinex", "Huobi", "HitBtc"]
         }
     }, {
         "shortName": "IPBC",
@@ -6355,7 +6535,7 @@ module.exports = function () {
         "shortName": "IFT",
         "longName": "InvestFeed",
         "exchanges": {
-            "list": ["CoinExchange", "Cryptopia"]
+            "list": ["CoinExchange", "Cryptopia", "HitBtc"]
         }
     }, {
         "shortName": "IOT",
@@ -6410,6 +6590,12 @@ module.exports = function () {
         "longName": "JapanCoin",
         "exchanges": {
             "list": ["CoinExchange"]
+        }
+    }, {
+        "shortName": "JAVC",
+        "longName": "JavaCoin",
+        "exchanges": {
+            "list": ["CCex"]
         }
     }, {
         "shortName": "JEDI",
@@ -6505,7 +6691,7 @@ module.exports = function () {
         "shortName": "KICK",
         "longName": "KickCoin",
         "exchanges": {
-            "list": ["Exmo", "HitBtc", "Livecoin"]
+            "list": ["Exmo", "HitBtc", "Kucoin", "Livecoin"]
         }
     }, {
         "shortName": "KLC",
@@ -6541,7 +6727,7 @@ module.exports = function () {
         "shortName": "KMD",
         "longName": "Komodo",
         "exchanges": {
-            "list": ["Binance", "CoinExchange", "Cryptopia", "HitBtc"]
+            "list": ["Binance", "Bittrex", "CoinExchange", "Cryptopia", "HitBtc"]
         }
     }, {
         "shortName": "KORE",
@@ -6595,13 +6781,13 @@ module.exports = function () {
         "shortName": "KNC",
         "longName": "KyberNetworkCrystal",
         "exchanges": {
-            "list": ["Binance", "Cryptopia", "Huobi", "Kucoin", "Liqui", "Livecoin"]
+            "list": ["Binance", "Bitfinex", "CoinExchange", "Cryptopia", "Huobi", "Kucoin", "Liqui", "Livecoin"]
         }
     }, {
         "shortName": "LDC",
         "longName": "LADACoin",
         "exchanges": {
-            "list": ["Cryptopia", "Livecoin"]
+            "list": ["Cryptopia", "HitBtc", "Liqui", "Livecoin"]
         }
     }, {
         "shortName": "LA",
@@ -6640,6 +6826,12 @@ module.exports = function () {
             "list": ["Kucoin"]
         }
     }, {
+        "shortName": "LWF",
+        "longName": "LWF",
+        "exchanges": {
+            "list": ["Cryptopia"]
+        }
+    }, {
         "shortName": "LAMBO",
         "longName": "Lambocoin",
         "exchanges": {
@@ -6655,7 +6847,7 @@ module.exports = function () {
         "shortName": "PIX",
         "longName": "Lampix",
         "exchanges": {
-            "list": ["CoinExchange", "HitBtc"]
+            "list": ["BitZ", "CoinExchange", "HitBtc"]
         }
     }, {
         "shortName": "LANA",
@@ -6757,7 +6949,7 @@ module.exports = function () {
         "shortName": "LINDA",
         "longName": "LindaCoin",
         "exchanges": {
-            "list": ["CoinExchange", "Cryptopia"]
+            "list": ["CCex", "CoinExchange", "Cryptopia"]
         }
     }, {
         "shortName": "LET",
@@ -6775,7 +6967,7 @@ module.exports = function () {
         "shortName": "LSK",
         "longName": "Lisk",
         "exchanges": {
-            "list": ["Binance", "Bittrex", "BitZ", "CoinEgg", "Huobi", "HitBtc", "Livecoin", "Poloniex"]
+            "list": ["Binance", "Bittrex", "BitZ", "CoinEgg", "Cryptopia", "Huobi", "HitBtc", "Livecoin", "Poloniex"]
         }
     }, {
         "shortName": "LTB",
@@ -6814,6 +7006,12 @@ module.exports = function () {
             "list": ["Cryptopia"]
         }
     }, {
+        "shortName": "LIVE",
+        "longName": "Live Stars Token",
+        "exchanges": {
+            "list": ["Cryptopia"]
+        }
+    }, {
         "shortName": "LIZ",
         "longName": "Lizus Payments",
         "exchanges": {
@@ -6835,7 +7033,7 @@ module.exports = function () {
         "shortName": "LOOM",
         "longName": "Loom Network",
         "exchanges": {
-            "list": ["CoinExchange"]
+            "list": ["Binance", "CoinExchange"]
         }
     }, {
         "shortName": "LRC",
@@ -6877,7 +7075,7 @@ module.exports = function () {
         "shortName": "XLM",
         "longName": "Lumen",
         "exchanges": {
-            "list": ["Binance", "Bittrex", "CoinEgg", "Kraken"]
+            "list": ["Binance", "Bitfinex", "Bittrex", "CoinEgg", "HitBtc", "Kraken"]
         }
     }, {
         "shortName": "LUNA",
@@ -6932,6 +7130,12 @@ module.exports = function () {
         "longName": "MKTCoin",
         "exchanges": {
             "list": ["CCex"]
+        }
+    }, {
+        "shortName": "MTCoin",
+        "longName": "MTCoin",
+        "exchanges": {
+            "list": ["Livecoin"]
         }
     }, {
         "shortName": "MUN",
@@ -7012,6 +7216,12 @@ module.exports = function () {
             "list": ["Cryptopia", "HitBtc", "Poloniex"]
         }
     }, {
+        "shortName": "MKR",
+        "longName": "Maker",
+        "exchanges": {
+            "list": ["Bitfinex"]
+        }
+    }, {
         "shortName": "MALC",
         "longName": "MalaysiaCoin",
         "exchanges": {
@@ -7058,6 +7268,12 @@ module.exports = function () {
         "longName": "MarxCoin",
         "exchanges": {
             "list": ["Cryptopia"]
+        }
+    }, {
+        "shortName": "MASS",
+        "longName": "MassCryp",
+        "exchanges": {
+            "list": ["CCex"]
         }
     }, {
         "shortName": "MTNC",
@@ -7177,7 +7393,7 @@ module.exports = function () {
         "shortName": "ETP",
         "longName": "Metaverse",
         "exchanges": {
-            "list": ["Bitfinex", "BitZ", "HitBtc"]
+            "list": ["Bitfinex", "BitZ", "Coinbene", "EXX", "HitBtc"]
         }
     }, {
         "shortName": "AMM",
@@ -7228,10 +7444,10 @@ module.exports = function () {
             "list": ["CoinExchange", "Cryptopia"]
         }
     }, {
-        "shortName": "MITH",
+        "shortName": "MIT",
         "longName": "Mithril",
         "exchanges": {
-            "list": ["CoinExchange"]
+            "list": ["Bitfinex", "CoinExchange"]
         }
     }, {
         "shortName": "MBL",
@@ -7255,7 +7471,7 @@ module.exports = function () {
         "shortName": "MTRC",
         "longName": "ModulTrade",
         "exchanges": {
-            "list": ["Livecoin"]
+            "list": ["Livecoin", "Livecoin"]
         }
     }, {
         "shortName": "MOD",
@@ -7435,13 +7651,13 @@ module.exports = function () {
         "shortName": "NANO",
         "longName": "NANO",
         "exchanges": {
-            "list": ["Binance"]
+            "list": ["Binance", "HitBtc"]
         }
     }, {
         "shortName": "ENAU",
         "longName": "NAU",
         "exchanges": {
-            "list": ["CoinExchange"]
+            "list": ["CoinExchange", "CoinExchange"]
         }
     }, {
         "shortName": "NAV",
@@ -7454,6 +7670,12 @@ module.exports = function () {
         "longName": "NEM",
         "exchanges": {
             "list": ["Binance", "Bittrex", "Cryptopia", "Huobi", "HitBtc", "Livecoin", "Poloniex"]
+        }
+    }, {
+        "shortName": "NR1",
+        "longName": "NR1",
+        "exchanges": {
+            "list": ["CoinExchange"]
         }
     }, {
         "shortName": "NXT",
@@ -7624,6 +7846,12 @@ module.exports = function () {
             "list": ["CCex", "CoinExchange", "Cryptopia"]
         }
     }, {
+        "shortName": "NOAH",
+        "longName": "Noah Coin",
+        "exchanges": {
+            "list": ["Livecoin"]
+        }
+    }, {
         "shortName": "NOBL",
         "longName": "NobleCoin",
         "exchanges": {
@@ -7672,6 +7900,12 @@ module.exports = function () {
             "list": ["Binance"]
         }
     }, {
+        "shortName": "NLX",
+        "longName": "NulleX",
+        "exchanges": {
+            "list": ["Cryptopia"]
+        }
+    }, {
         "shortName": "NULS",
         "longName": "Nuls",
         "exchanges": {
@@ -7704,6 +7938,12 @@ module.exports = function () {
     }, {
         "shortName": "OGN",
         "longName": "OGNCoin",
+        "exchanges": {
+            "list": ["CoinExchange"]
+        }
+    }, {
+        "shortName": "OLV",
+        "longName": "OLDV",
         "exchanges": {
             "list": ["CoinExchange"]
         }
@@ -7753,7 +7993,7 @@ module.exports = function () {
         "shortName": "ODEM",
         "longName": "Odem",
         "exchanges": {
-            "list": ["Bitfinex"]
+            "list": ["Bitfinex", "Bitfinex"]
         }
     }, {
         "shortName": "OCN",
@@ -7849,7 +8089,7 @@ module.exports = function () {
         "shortName": "ORME",
         "longName": "OrmeusCoin",
         "exchanges": {
-            "list": ["CCex", "CoinExchange", "Cryptopia", "HitBtc", "Livecoin"]
+            "list": ["CCex", "Coinbene", "CoinExchange", "Cryptopia", "HitBtc", "Livecoin"]
         }
     }, {
         "shortName": "OTC",
@@ -7861,7 +8101,7 @@ module.exports = function () {
         "shortName": "OXY",
         "longName": "Oxycoin",
         "exchanges": {
-            "list": ["BitZ", "Livecoin"]
+            "list": ["BitZ", "Cryptopia", "Livecoin"]
         }
     }, {
         "shortName": "PRL",
@@ -7903,7 +8143,7 @@ module.exports = function () {
         "shortName": "POA",
         "longName": "POA Network",
         "exchanges": {
-            "list": ["Binance"]
+            "list": ["Binance", "Bitfinex"]
         }
     }, {
         "shortName": "PRC",
@@ -8032,6 +8272,12 @@ module.exports = function () {
             "list": ["Cryptopia"]
         }
     }, {
+        "shortName": "PNT",
+        "longName": "Penta",
+        "exchanges": {
+            "list": ["BitZ"]
+        }
+    }, {
         "shortName": "PEPECASH",
         "longName": "Pepe Cash",
         "exchanges": {
@@ -8068,10 +8314,10 @@ module.exports = function () {
             "list": ["Cryptopia"]
         }
     }, {
-        "shortName": "PHX",
+        "shortName": "PXC",
         "longName": "PhoenixCoin",
         "exchanges": {
-            "list": ["CCex", "Cryptopia"]
+            "list": ["BitZ", "CCex", "Cryptopia"]
         }
     }, {
         "shortName": "PHR",
@@ -8287,7 +8533,7 @@ module.exports = function () {
         "shortName": "POWR",
         "longName": "PowerLedger",
         "exchanges": {
-            "list": ["Binance", "Bittrex", "Cryptopia", "Huobi", "Kucoin"]
+            "list": ["Binance", "Bittrex", "CoinExchange", "Cryptopia", "Huobi", "Kucoin"]
         }
     }, {
         "shortName": "PRE",
@@ -8332,6 +8578,12 @@ module.exports = function () {
             "list": ["CoinExchange"]
         }
     }, {
+        "shortName": "PRA",
+        "longName": "ProChain",
+        "exchanges": {
+            "list": ["BitZ"]
+        }
+    }, {
         "shortName": "PROC",
         "longName": "ProCurrency",
         "exchanges": {
@@ -8364,6 +8616,12 @@ module.exports = function () {
     }, {
         "shortName": "PR",
         "longName": "Prototanium",
+        "exchanges": {
+            "list": ["Cryptopia"]
+        }
+    }, {
+        "shortName": "PROUD",
+        "longName": "ProudMoney",
         "exchanges": {
             "list": ["Cryptopia"]
         }
@@ -8474,6 +8732,12 @@ module.exports = function () {
         "longName": "QuazarCoin",
         "exchanges": {
             "list": ["HitBtc"]
+        }
+    }, {
+        "shortName": "QUBE",
+        "longName": "Qube",
+        "exchanges": {
+            "list": ["BitZ"]
         }
     }, {
         "shortName": "Q2C",
@@ -8890,6 +9154,12 @@ module.exports = function () {
             "list": ["Binance", "HitBtc", "Kucoin", "Liqui"]
         }
     }, {
+        "shortName": "SRCOIN",
+        "longName": "SRCOIN",
+        "exchanges": {
+            "list": ["Coinbene"]
+        }
+    }, {
         "shortName": "SST",
         "longName": "SSTCoin",
         "exchanges": {
@@ -8899,7 +9169,7 @@ module.exports = function () {
         "shortName": "STEEM",
         "longName": "STEEM",
         "exchanges": {
-            "list": ["Binance", "Bittrex", "HitBtc", "Liqui", "Poloniex"]
+            "list": ["Binance", "Bittrex", "Huobi", "HitBtc", "Liqui", "Poloniex"]
         }
     }, {
         "shortName": "STK",
@@ -8917,7 +9187,7 @@ module.exports = function () {
         "shortName": "STORM",
         "longName": "STORM",
         "exchanges": {
-            "list": ["Binance", "HitBtc"]
+            "list": ["Binance", "Bittrex", "HitBtc"]
         }
     }, {
         "shortName": "SFE",
@@ -9151,7 +9421,7 @@ module.exports = function () {
         "shortName": "SRN",
         "longName": "Sirin Token",
         "exchanges": {
-            "list": ["Bittrex", "Huobi", "Liqui"]
+            "list": ["Bittrex", "Cryptopia", "Huobi", "Liqui"]
         }
     }, {
         "shortName": "_11",
@@ -9184,10 +9454,22 @@ module.exports = function () {
             "list": ["Cryptopia"]
         }
     }, {
+        "shortName": "SKCH",
+        "longName": "Skychain",
+        "exchanges": {
+            "list": ["Livecoin"]
+        }
+    }, {
         "shortName": "SKY",
         "longName": "Skycoin",
         "exchanges": {
             "list": ["Cryptopia"]
+        }
+    }, {
+        "shortName": "SDC12",
+        "longName": "Skydynastycoin",
+        "exchanges": {
+            "list": ["CCex"]
         }
     }, {
         "shortName": "SLEVIN",
@@ -9337,7 +9619,7 @@ module.exports = function () {
         "shortName": "SPK",
         "longName": "SpankChain",
         "exchanges": {
-            "list": ["Bitfinex", "Cryptopia"]
+            "list": ["Bitfinex", "CoinExchange", "Cryptopia"]
         }
     }, {
         "shortName": "SPN",
@@ -9358,10 +9640,16 @@ module.exports = function () {
             "list": ["Bittrex"]
         }
     }, {
+        "shortName": "SPD",
+        "longName": "Spindle",
+        "exchanges": {
+            "list": ["Livecoin"]
+        }
+    }, {
         "shortName": "SPF",
         "longName": "SportyFi",
         "exchanges": {
-            "list": ["Livecoin"]
+            "list": ["Kucoin", "Livecoin"]
         }
     }, {
         "shortName": "SPT",
@@ -9397,7 +9685,7 @@ module.exports = function () {
         "shortName": "XSN",
         "longName": "StakeNet",
         "exchanges": {
-            "list": ["Livecoin"]
+            "list": ["Cryptopia", "Livecoin"]
         }
     }, {
         "shortName": "STARS",
@@ -9460,6 +9748,12 @@ module.exports = function () {
             "list": ["Cryptopia"]
         }
     }, {
+        "shortName": "STJ",
+        "longName": "Storj",
+        "exchanges": {
+            "list": ["Bitfinex"]
+        }
+    }, {
         "shortName": "STX",
         "longName": "Stox",
         "exchanges": {
@@ -9487,7 +9781,7 @@ module.exports = function () {
         "shortName": "SUB",
         "longName": "Substratum",
         "exchanges": {
-            "list": ["Binance", "HitBtc", "Kucoin"]
+            "list": ["Binance", "CoinExchange", "HitBtc", "Kucoin"]
         }
     }, {
         "shortName": "SGR",
@@ -9505,13 +9799,19 @@ module.exports = function () {
         "shortName": "SNC",
         "longName": "SunContract",
         "exchanges": {
-            "list": ["Huobi", "HitBtc"]
+            "list": ["Huobi", "HitBtc", "Kucoin"]
         }
     }, {
         "shortName": "SBTC",
         "longName": "Super Bitcoin",
         "exchanges": {
             "list": ["CoinEgg", "EXX", "Huobi"]
+        }
+    }, {
+        "shortName": "SGCC",
+        "longName": "Super Game Chain",
+        "exchanges": {
+            "list": ["BitZ"]
         }
     }, {
         "shortName": "SUPER",
@@ -9595,7 +9895,7 @@ module.exports = function () {
         "shortName": "SYNX",
         "longName": "Syndicate",
         "exchanges": {
-            "list": ["CoinExchange"]
+            "list": ["Bittrex", "CoinExchange"]
         }
     }, {
         "shortName": "AMP",
@@ -9634,12 +9934,6 @@ module.exports = function () {
             "list": ["Cryptopia"]
         }
     }, {
-        "shortName": "TKY",
-        "longName": "THEKEY",
-        "exchanges": {
-            "list": ["Kucoin"]
-        }
-    }, {
         "shortName": "TOA",
         "longName": "TOA Coin",
         "exchanges": {
@@ -9649,7 +9943,7 @@ module.exports = function () {
         "shortName": "TPI",
         "longName": "TPICoin",
         "exchanges": {
-            "list": ["CoinExchange"]
+            "list": ["CoinExchange", "Livecoin"]
         }
     }, {
         "shortName": "TRIG",
@@ -9712,6 +10006,12 @@ module.exports = function () {
             "list": ["Kucoin"]
         }
     }, {
+        "shortName": "TLL",
+        "longName": "Tellion",
+        "exchanges": {
+            "list": ["CoinExchange"]
+        }
+    }, {
         "shortName": "TELL",
         "longName": "Tellurion",
         "exchanges": {
@@ -9770,6 +10070,12 @@ module.exports = function () {
         "longName": "The Basis",
         "exchanges": {
             "list": ["CoinExchange"]
+        }
+    }, {
+        "shortName": "TKY",
+        "longName": "TheKey",
+        "exchanges": {
+            "list": ["BitZ", "Kucoin"]
         }
     }, {
         "shortName": "TWC",
@@ -9850,6 +10156,12 @@ module.exports = function () {
             "list": ["Coinbene"]
         }
     }, {
+        "shortName": "TEAM",
+        "longName": "TokenStars",
+        "exchanges": {
+            "list": ["BitZ"]
+        }
+    }, {
         "shortName": "TKS",
         "longName": "Tokes",
         "exchanges": {
@@ -9898,10 +10210,22 @@ module.exports = function () {
             "list": ["CoinExchange"]
         }
     }, {
+        "shortName": "TNS",
+        "longName": "Transcodium",
+        "exchanges": {
+            "list": ["Livecoin"]
+        }
+    }, {
         "shortName": "TX",
         "longName": "TransferCoin",
         "exchanges": {
             "list": ["Bittrex", "CoinEgg", "Cryptopia", "Livecoin"]
+        }
+    }, {
+        "shortName": "TRF",
+        "longName": "Travelflex",
+        "exchanges": {
+            "list": ["Coinbene"]
         }
     }, {
         "shortName": "TRUX",
@@ -9982,6 +10306,12 @@ module.exports = function () {
             "list": ["CCex", "Cryptopia", "Livecoin"]
         }
     }, {
+        "shortName": "TTT",
+        "longName": "TrustNote",
+        "exchanges": {
+            "list": ["BitZ"]
+        }
+    }, {
         "shortName": "TRUST",
         "longName": "TrustPlus",
         "exchanges": {
@@ -10033,7 +10363,7 @@ module.exports = function () {
         "shortName": "UNC",
         "longName": "UNCoin",
         "exchanges": {
-            "list": ["Livecoin"]
+            "list": ["HitBtc", "Livecoin"]
         }
     }, {
         "shortName": "UR",
@@ -10064,6 +10394,12 @@ module.exports = function () {
         "longName": "Ubiq",
         "exchanges": {
             "list": ["Bittrex", "Cryptopia"]
+        }
+    }, {
+        "shortName": "UCT",
+        "longName": "Ubique Chain of Things",
+        "exchanges": {
+            "list": ["BitZ"]
         }
     }, {
         "shortName": "ULA",
@@ -10112,6 +10448,12 @@ module.exports = function () {
         "longName": "UnikoinGold",
         "exchanges": {
             "list": ["Bittrex", "Kucoin"]
+        }
+    }, {
+        "shortName": "UCOM",
+        "longName": "United Crypto Community",
+        "exchanges": {
+            "list": ["Coinbene"]
         }
     }, {
         "shortName": "UTT",
@@ -10237,13 +10579,13 @@ module.exports = function () {
         "shortName": "XVC",
         "longName": "Vcash",
         "exchanges": {
-            "list": ["Poloniex"]
+            "list": ["Bittrex", "Poloniex"]
         }
     }, {
         "shortName": "VEN",
         "longName": "VeChain",
         "exchanges": {
-            "list": ["Binance", "CoinExchange", "Huobi", "HitBtc", "Kucoin", "Liqui", "Livecoin"]
+            "list": ["Binance", "Bitfinex", "CoinExchange", "Huobi", "HitBtc", "Kucoin", "Liqui", "Livecoin"]
         }
     }, {
         "shortName": "MVDSC",
@@ -10261,7 +10603,7 @@ module.exports = function () {
         "shortName": "XVG",
         "longName": "Verge",
         "exchanges": {
-            "list": ["Binance", "Bittrex", "CoinExchange", "Cryptopia", "HitBtc"]
+            "list": ["Binance", "Bitfinex", "Bittrex", "CoinExchange", "Cryptopia", "HitBtc"]
         }
     }, {
         "shortName": "XVGCT",
@@ -10351,7 +10693,7 @@ module.exports = function () {
         "shortName": "VIU",
         "longName": "Viuly",
         "exchanges": {
-            "list": ["BitZ"]
+            "list": ["BitZ", "Livecoin"]
         }
     }, {
         "shortName": "VIVO",
@@ -10396,6 +10738,12 @@ module.exports = function () {
             "list": ["Binance"]
         }
     }, {
+        "shortName": "WGR",
+        "longName": "Wagerr",
+        "exchanges": {
+            "list": ["Livecoin"]
+        }
+    }, {
         "shortName": "WTC",
         "longName": "Walton",
         "exchanges": {
@@ -10423,7 +10771,7 @@ module.exports = function () {
         "shortName": "WETT",
         "longName": "Waves EncryptoTel",
         "exchanges": {
-            "list": ["Livecoin"]
+            "list": ["Livecoin", "Livecoin"]
         }
     }, {
         "shortName": "WAX",
@@ -10477,7 +10825,7 @@ module.exports = function () {
         "shortName": "WILD",
         "longName": "WildCrypto",
         "exchanges": {
-            "list": ["Cryptopia"]
+            "list": ["Cryptopia", "HitBtc"]
         }
     }, {
         "shortName": "WC",
@@ -10663,7 +11011,7 @@ module.exports = function () {
         "shortName": "YOC",
         "longName": "Yocoin",
         "exchanges": {
-            "list": ["Livecoin"]
+            "list": ["CCex", "Livecoin"]
         }
     }, {
         "shortName": "YOYO",
@@ -10738,10 +11086,16 @@ module.exports = function () {
             "list": ["Bittrex", "Cryptopia"]
         }
     }, {
+        "shortName": "ZDC",
+        "longName": "ZenDao",
+        "exchanges": {
+            "list": ["Coinbene"]
+        }
+    }, {
         "shortName": "ZGC",
         "longName": "ZenGold",
         "exchanges": {
-            "list": ["BitZ"]
+            "list": ["BitZ", "Coinbene"]
         }
     }, {
         "shortName": "ZENI",
@@ -10867,7 +11221,13 @@ module.exports = function () {
         "shortName": "ERT",
         "longName": "eSports",
         "exchanges": {
-            "list": ["CCex", "CoinExchange"]
+            "list": ["CCex", "CoinExchange", "HitBtc"]
+        }
+    }, {
+        "shortName": "EOSDAC",
+        "longName": "eosDAC",
+        "exchanges": {
+            "list": ["Livecoin"]
         }
     }, {
         "shortName": "ICE",
@@ -10891,7 +11251,7 @@ module.exports = function () {
         "shortName": "IDH",
         "longName": "indaHash",
         "exchanges": {
-            "list": ["HitBtc", "Livecoin"]
+            "list": ["Cryptopia", "HitBtc", "Livecoin"]
         }
     }, {
         "shortName": "LCP",
@@ -10927,7 +11287,7 @@ module.exports = function () {
         "shortName": "ELF",
         "longName": "ælf",
         "exchanges": {
-            "list": ["Binance", "Bitfinex", "Huobi"]
+            "list": ["Binance", "Bitfinex", "Huobi", "Kucoin"]
         }
     }];
 
@@ -18063,7 +18423,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var BINANCE = [["Ada", " ", "ADA"], ["AdEx", " ", "ADX"], ["Aion", " ", "AION"], ["Amber", " ", "AMB"], ["Ark", " ", "ARK"], ["Aeron", " ", "ARN"], ["AirSwap", " ", "AST"], ["Basic Attention Token", " ", "BAT"], ["Bitcoin Diamond", " ", "BCD"], ["BlockMason", " ", "BCPT"], ["Binance Coin", " ", "BNB"], ["Bancor", " ", "BNT"], ["Ethos", " ", "BQX"], ["Bread", " ", "BRD"], ["Bitcoin Gold", " ", "BTG"], ["BitShares", " ", "BTS"], ["Coindash", " ", "CDT"], ["CometCoin", " ", "CMT"], ["Cindicator", " ", "CND"], ["Centra", " ", "CTR"], ["Dash", " ", "DASH"], ["Digix DAO", " ", "DGD"], ["Agrello", " ", "DLT"], ["district0x", " ", "DNT"], ["ElaCoin", " ", "ELC"], ["ælf", " ", "ELF"], ["Enigma", " ", "ENG"], ["Enjin Coin", " ", "ENJ"], ["EOS", " ", "EOS"], ["Ethereum Classic", " ", "ETC"], ["Ethereum", " ", "ETH"], ["Everex", " ", "EVX"], ["Ethos", " ", "Ethos"], ["FuelCoin", " ", "FUEL"], ["FunFair", " ", "FUN"], ["Gas", " ", "GAS"], ["Gifto", " ", "GTO"], ["Genesis Vision", " ", "GVT"], ["GXShares", " ", "GXS"], ["Health Care Chain", " ", "HCC"], ["HSHARE", " ", "HSR"], ["Iconomi", " ", "ICN"], ["ICON", " ", "ICX"], ["IOTA", " ", "IOTA"], ["Komodo", " ", "KMD"], ["KyberNetworkCrystal", " ", "KNC"], ["EthLend", " ", "LEND"], ["ChainLink", " ", "LINK"], ["LLToken", " ", "LLT"], ["Loopring", " ", "LRC"], ["Lisk", " ", "LSK"], ["Litecoin", " ", "LTC"], ["Decentraland", " ", "MANA"], ["Monaco", " ", "MCO"], ["Moeda Loyalty Points", " ", "MDA"], ["Modum", " ", "MOD"], ["Monetha", " ", "MTH"], ["METAL", " ", "MTL"], ["Neblio", " ", "NEBL"], ["Neo", " ", "NEO"], ["Nuls", " ", "NULS"], ["OpenAnx", " ", "OAX"], ["OmiseGO", " ", "OMG"], ["Simple Token", " ", "OST"], ["Po.et", " ", "POE"], ["PowerLedger", " ", "POWR"], ["Populous", " ", "PPT"], ["Quantstamp", " ", "QSP"], ["Qtum", " ", "QTUM"], ["Ripio Credit Network", " ", "RCN"], ["Raiden Network Token", " ", "RDN"], ["Request Network", " ", "REQ"], ["Salt", " ", "SALT"], ["SingularDTV", " ", "SNGLS"], ["SONM", " ", "SNM"], ["Status Network Token", " ", "SNT"], ["STORJ", " ", "STORJ"], ["Stratis", " ", "STRAT"], ["Substratum", " ", "SUB"], ["Time New Bank", " ", "TNB"], ["Tierion", " ", "TNT"], ["TRON", " ", "TRX"], ["VeChain", " ", "VEN"], ["Viberate", " ", "VIB"], ["WaBi", " ", "WABI"], ["Waves", " ", "WAVES"], ["Walton", " ", "WTC"], ["Lumen", " ", "XLM"], ["Monero", " ", "XMR"], ["Ripple", " ", "XRP"], ["Verge", " ", "XVG"], ["ZCoin", " ", "XZC"], ["Yoyow", " ", "YOYO"], ["Zcash", " ", "ZEC"], ["0x", " ", "ZRX"], ["Bitcoin Cash", " ", "BCC"], ["Eidoo", " ", "EDO"], ["Wings DAO", " ", "WINGS"], ["NAVCoin", " ", "NAV"], ["Lunyr", " ", "LUN"], ["TRIG Token", " ", "TRIG"], ["AppCoins", " ", "APPC"], ["Vibe Coin", " ", "VIBE"], ["iEx.ec", " ", "RLC"], ["INS Ecosystem", " ", "INS"], ["Pivx", " ", "PIVX"], ["IOStoken", " ", "IOST"], ["Chat", " ", "CHAT"], ["STEEM", " ", "STEEM"], ["NANO", " ", "NANO"], ["Viacoin", " ", "VIA"], ["Bluzelle", " ", "BLZ"], ["Aeternity", " ", "AE"], ["Red Pulse", " ", "RPX"], ["Nucleus Vision", " ", "NCASH"], ["POA Network", " ", "POA"], ["Zilliqa", " ", "ZIL"], ["Ontology", " ", "ONT"], ["STORM", " ", "STORM"], ["NEM", " ", "XEM"], ["Wancoin", " ", "WAN"], ["WePower", " ", "WPR"], ["Qlink", " ", "QLC"], ["Syscoin", " ", "SYS"], ["Groestlcoin", " ", "GRS"]];
+    var BINANCE = [["Ada", " ", "ADA"], ["AdEx", " ", "ADX"], ["Aion", " ", "AION"], ["Amber", " ", "AMB"], ["Ark", " ", "ARK"], ["Aeron", " ", "ARN"], ["AirSwap", " ", "AST"], ["Basic Attention Token", " ", "BAT"], ["Bitcoin Diamond", " ", "BCD"], ["BlockMason", " ", "BCPT"], ["Binance Coin", " ", "BNB"], ["Bancor", " ", "BNT"], ["Ethos", " ", "BQX"], ["Bread", " ", "BRD"], ["Bitcoin Gold", " ", "BTG"], ["BitShares", " ", "BTS"], ["Coindash", " ", "CDT"], ["CometCoin", " ", "CMT"], ["Cindicator", " ", "CND"], ["Centra", " ", "CTR"], ["Dash", " ", "DASH"], ["Digix DAO", " ", "DGD"], ["Agrello", " ", "DLT"], ["district0x", " ", "DNT"], ["ElaCoin", " ", "ELC"], ["ælf", " ", "ELF"], ["Enigma", " ", "ENG"], ["Enjin Coin", " ", "ENJ"], ["EOS", " ", "EOS"], ["Ethereum Classic", " ", "ETC"], ["Ethereum", " ", "ETH"], ["Everex", " ", "EVX"], ["Ethos", " ", "Ethos"], ["FuelCoin", " ", "FUEL"], ["FunFair", " ", "FUN"], ["Gas", " ", "GAS"], ["Gifto", " ", "GTO"], ["Genesis Vision", " ", "GVT"], ["GXShares", " ", "GXS"], ["Health Care Chain", " ", "HCC"], ["HSHARE", " ", "HSR"], ["Iconomi", " ", "ICN"], ["ICON", " ", "ICX"], ["IOTA", " ", "IOTA"], ["Komodo", " ", "KMD"], ["KyberNetworkCrystal", " ", "KNC"], ["EthLend", " ", "LEND"], ["ChainLink", " ", "LINK"], ["LLToken", " ", "LLT"], ["Loopring", " ", "LRC"], ["Lisk", " ", "LSK"], ["Litecoin", " ", "LTC"], ["Decentraland", " ", "MANA"], ["Monaco", " ", "MCO"], ["Moeda Loyalty Points", " ", "MDA"], ["Modum", " ", "MOD"], ["Monetha", " ", "MTH"], ["METAL", " ", "MTL"], ["Neblio", " ", "NEBL"], ["Neo", " ", "NEO"], ["Nuls", " ", "NULS"], ["OpenAnx", " ", "OAX"], ["OmiseGO", " ", "OMG"], ["Simple Token", " ", "OST"], ["Po.et", " ", "POE"], ["PowerLedger", " ", "POWR"], ["Populous", " ", "PPT"], ["Quantstamp", " ", "QSP"], ["Qtum", " ", "QTUM"], ["Ripio Credit Network", " ", "RCN"], ["Raiden Network Token", " ", "RDN"], ["Request Network", " ", "REQ"], ["Salt", " ", "SALT"], ["SingularDTV", " ", "SNGLS"], ["SONM", " ", "SNM"], ["Status Network Token", " ", "SNT"], ["STORJ", " ", "STORJ"], ["Stratis", " ", "STRAT"], ["Substratum", " ", "SUB"], ["Time New Bank", " ", "TNB"], ["Tierion", " ", "TNT"], ["TRON", " ", "TRX"], ["VeChain", " ", "VEN"], ["Viberate", " ", "VIB"], ["WaBi", " ", "WABI"], ["Waves", " ", "WAVES"], ["Walton", " ", "WTC"], ["Lumen", " ", "XLM"], ["Monero", " ", "XMR"], ["Ripple", " ", "XRP"], ["Verge", " ", "XVG"], ["ZCoin", " ", "XZC"], ["Yoyow", " ", "YOYO"], ["Zcash", " ", "ZEC"], ["0x", " ", "ZRX"], ["Bitcoin Cash", " ", "BCC"], ["Eidoo", " ", "EDO"], ["Wings DAO", " ", "WINGS"], ["NAVCoin", " ", "NAV"], ["Lunyr", " ", "LUN"], ["TRIG Token", " ", "TRIG"], ["AppCoins", " ", "APPC"], ["Vibe Coin", " ", "VIBE"], ["iEx.ec", " ", "RLC"], ["INS Ecosystem", " ", "INS"], ["Pivx", " ", "PIVX"], ["IOStoken", " ", "IOST"], ["Chat", " ", "CHAT"], ["STEEM", " ", "STEEM"], ["NANO", " ", "NANO"], ["Viacoin", " ", "VIA"], ["Bluzelle", " ", "BLZ"], ["Aeternity", " ", "AE"], ["Red Pulse", " ", "RPX"], ["Nucleus Vision", " ", "NCASH"], ["POA Network", " ", "POA"], ["Zilliqa", " ", "ZIL"], ["Ontology", " ", "ONT"], ["STORM", " ", "STORM"], ["NEM", " ", "XEM"], ["Wancoin", " ", "WAN"], ["WePower", " ", "WPR"], ["Qlink", " ", "QLC"], ["Syscoin", " ", "SYS"], ["Groestlcoin", " ", "GRS"], ["CloakCoin", " ", "CLOAK"], ["Golem", " ", "GNT"], ["Loom Network", " ", "LOOM"], ["Bytecoin", " ", "BCN"], ["Augur", " ", "REP"]];
 
     return {
         BINANCE: BINANCE
@@ -18083,7 +18443,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var BITFINEX = [['Bitcoin', 'BTCUSD', 'BTC'], ["LiteCoin", "ltcbtc", "LTC"], ["Ethereum", "ethbtc", "ETH"], ["Ethereum Classic", "etcbtc", "ETC"], ["Recovery Right Tokens", "rrtbtc", "RRT"], ["Zcash", "zecbtc", "ZEC"], ["Monero", "xmrbtc", "XMR"], ["Dash", "dshbtc", "DSH"], ["Ripple", "xrpbtc", "XRP"], ["IOTA", "iotbtc", "IOTA"], ["EOS", "eosbtc", "EOS"], ["Santiment", "sanbtc", "SAN"], ["OmiseGO", "omgbtc", "OMG"], ["Bitcoin Cash", "bchbtc", "BCH"], ["NEO", "neobtc", "NEO"], ["Metaverse", "etpbtc", "ETP"], ["Qtum", "qtmbtc", "QTM"], ["Aventus", "avtbtc", "AVT"], ["Eidoo", "edobtc", "EDO"], ["Bitcoin Gold", "btgbtc", "BTG"], ["Streamr", "datbtc", "DAT"], ["QASH", "qshbtc", "QSH"], ["YOYOW", "yywbtc", "YYW"], ["Golem", "gntbtc", "GNT"], ["Status", "sntbtc", "SNT"], ["Time New Bank", "batbtc", "BAT"], ["Decentraland", "mnabtc", "MNA"], ["FunFair", "funbtc", "FUN"], ["0x", "zrxbtc", "ZRX"], ["Time New Bank", "tnbbtc", "TNB"], ["SpankChain", "spkbtc", "SPK"], ["Tron", "trxbtc", "TRX"], ["RCN", "rcnbtc", "RCN"], ["iExec", "rlcbtc", "RLC"], ["AidCoin", "aidbtc", "AID"], ["SingularDTV", "sngbtc", "SNG"], ["Augur", "repbtc", "REP"], ["aelf", "elfbtc", "ELF"], ["Aion", "aionbtc", "AION"], ["IOSToken", "iostbtc", "IOST"], ["Request Network", "reqbtc", "REQ"], ["Raiden Network", "rdnbtc", "RDN"], ["Loopring", "lrcbtc", "LRC"], ["BnkToTheFuture", "bftbtc", "BFT"], ["Cofound it", "cfibtc", "CFI"], ["Wax", "waxbtc", "WAX"], ["SingularityNET", "agibtc", "AGI"], ["MedicalChain", "mtnbtc", "MTN"], ["Odem", "odembtc", "ODEM"], ["Dai Stablecoin", "daibtc", "DAI"]];
+    var BITFINEX = [['Bitcoin', 'BTCUSD', 'BTC'], ["LiteCoin", "ltcbtc", "LTC"], ["Ethereum", "ethbtc", "ETH"], ["Ethereum Classic", "etcbtc", "ETC"], ["Recovery Right Tokens", "rrtbtc", "RRT"], ["Zcash", "zecbtc", "ZEC"], ["Monero", "xmrbtc", "XMR"], ["Dash", "dshbtc", "DSH"], ["Ripple", "xrpbtc", "XRP"], ["IOTA", "iotbtc", "IOTA"], ["EOS", "eosbtc", "EOS"], ["Santiment", "sanbtc", "SAN"], ["OmiseGO", "omgbtc", "OMG"], ["Bitcoin Cash", "bchbtc", "BCH"], ["NEO", "neobtc", "NEO"], ["Metaverse", "etpbtc", "ETP"], ["Qtum", "qtmbtc", "QTM"], ["Aventus", "avtbtc", "AVT"], ["Eidoo", "edobtc", "EDO"], ["Bitcoin Gold", "btgbtc", "BTG"], ["Streamr", "datbtc", "DAT"], ["QASH", "qshbtc", "QSH"], ["YOYOW", "yywbtc", "YYW"], ["Golem", "gntbtc", "GNT"], ["Status", "sntbtc", "SNT"], ["Time New Bank", "batbtc", "BAT"], ["Decentraland", "mnabtc", "MNA"], ["FunFair", "funbtc", "FUN"], ["0x", "zrxbtc", "ZRX"], ["Time New Bank", "tnbbtc", "TNB"], ["SpankChain", "spkbtc", "SPK"], ["Tron", "trxbtc", "TRX"], ["RCN", "rcnbtc", "RCN"], ["iExec", "rlcbtc", "RLC"], ["AidCoin", "aidbtc", "AID"], ["SingularDTV", "sngbtc", "SNG"], ["Augur", "repbtc", "REP"], ["aelf", "elfbtc", "ELF"], ["Request Network", "reqbtc", "REQ"], ["Raiden Network", "rdnbtc", "RDN"], ["Loopring", "lrcbtc", "LRC"], ["BnkToTheFuture", "bftbtc", "BFT"], ["Cofound it", "cfibtc", "CFI"], ["Wax", "waxbtc", "WAX"], ["SingularityNET", "agibtc", "AGI"], ["MedicalChain", "mtnbtc", "MTN"], ["Odem", "odembtc", "ODEM"], ["Dai Stablecoin", "daibtc", "DAI"], ["IOSToken", "iosbtc", "IOS"], ["Aion", "aiobtc", "AIO"], ["Odem", "odebtc", "ODE"], ["Aragon", "antbtc", "ANT"], ["Dether", "dthbtc", "DTH"], ["Mithril", "mitbtc", "MIT"], ["Storj", "stjbtc", "STJ"], ["Lumen", "xlmbtc", "XLM"], ["Verge", "xvgbtc", "XVG"], ["BitcoinInterest", "bcibtc", "BCI"], ["Maker", "mkrbtc", "MKR"], ["VeChain", "venbtc", "VEN"], ["KyberNetworkCrystal", "kncbtc", "KNC"], ["POA Network", "poabtc", "POA"]];
 
     return {
         BITFINEX: BITFINEX
@@ -18123,7 +18483,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var BITTREX = [["2GIVE", "", "2GIVE"], ["ArtByte", "", "ABY"], ["Ada", "", "ADA"], ["adToken", "", "ADT"], ["AdEx", "", "ADX"], ["Aeon", "", "AEON"], ["SynereoAmp", "", "AMP"], ["Aragon", "", "ANT"], ["Ardor", "", "ARDR"], ["Ark", "", "ARK"], ["AuroraCoin", "", "AUR"], ["Basic Attention Token", "", "BAT"], ["BitBay", "", "BAY"], ["Bitcoin Cash", "", "BCC"], ["BlockMason Credit Protocol", "", "BCPT"], ["BitCrystals", "", "BCY"], ["BitBean", "", "BITB"], ["Blitzcash", "", "BLITZ"], ["BlackCoin", "", "BLK"], ["Blocknet", "", "BLOCK"], ["Bancor", "", "BNT"], ["Breakout", "", "BRK"], ["Breakout Stake", "", "BRX"], ["BitSend", "", "BSD"], ["Bitcoin Gold", "", "BTG"], ["BURST", "", "BURST"], ["Bytecent", "", "BYC"], ["CannabisCoin", "", "CANN"], ["Cofound.it", "", "CFI"], ["CLAMs", "", "CLAM"], ["CloakCoin", "", "CLOAK"], ["Circuits of Value", "", "COVAL"], ["CreditBit", "", "CRB"], ["Crown", "", "CRW"], ["CureCoin", "", "CURE"], ["Civic", "", "CVC"], ["Dash", "", "DASH"], ["Decred", "", "DCR"], ["Digibyte", "", "DGB"], ["Diamond", "", "DMD"], ["DMarket", "", "DMT"], ["district0x", "", "DNT"], ["Dogecoin", "", "DOGE"], ["DopeCoin", "", "DOPE"], ["Databits", "", "DTB"], ["Dynamic", "", "DYN"], ["eBoost", "", "EBST"], ["Edgeless", "", "EDG"], ["ElectronicGulden", "", "EFL"], ["EverGreenCoin", "", "EGC"], ["EmerCoin", "", "EMC"], ["Einsteinium", "", "EMC2"], ["Enigma", "", "ENG"], ["EnergyCoin", "", "ENRG"], ["EuropeCoin", "", "ERC"], ["Ethereum Classic", "", "ETC"], ["Ethereum", "", "ETH"], ["ExclusiveCoin", "", "EXCL"], ["Expanse", "", "EXP"], ["Factom", "", "FCT"], ["FoldingCoin", "", "FLDC"], ["Feathercoin", "", "FTC"], ["Gambit", "", "GAM"], ["GameCredits", "", "GAME"], ["Gbg", "", "GBG"], ["Bytes", "", "GBYTE"], ["GeoCoin", "", "GEO"], ["GoldCoin", "", "GLD"], ["Gnosis", "", "GNO"], ["Golem", "", "GNT"], ["Golos", "", "GOLOS"], ["GridCoin", "", "GRC"], ["Groestlcoin", "", "GRS"], ["Guppy", "", "GUP"], ["Humaniq", "", "HMQ"], ["Ignis", "", "IGNIS"], ["Incent", "", "INCNT"], ["I/OCoin", "", "IOC"], ["Ion", "", "ION"], ["Internet Of People", "", "IOP"], ["Kore", "", "KORE"], ["LBRY Credits", "", "LBC"], ["Legends", "", "LGD"], ["Lomocoin", "", "LMC"], ["Loopring", "", "LRC"], ["Lisk", "", "LSK"], ["Litecoin", "", "LTC"], ["Lunyr", "", "LUN"], ["Decentraland", "", "MANA"], ["Monaco", "", "MCO"], ["Memetic", "", "MEME"], ["Mercury", "", "MER"], ["Melon", "", "MLN"], ["MonaCoin", "", "MONA"], ["MonetaryUnit", "", "MUE"], ["Musicoin", "", "MUSIC"], ["NAVCoin", "", "NAV"], ["Nubits", "", "NBT"], ["Neo", "", "NEO"], ["NeosCoin", "", "NEOS"], ["Gulden", "", "NLG"], ["Numeraire", "", "NMR"], ["Nexium", "", "NXC"], ["Nexus", "", "NXS"], ["NXT", "", "NXT"], ["OkCash", "", "OK"], ["OmiseGO", "", "OMG"], ["OmniCoin", "", "OMNI"], ["Particl", "", "PART"], ["TenX Pay Token", "", "PAY"], ["PinkCoin", "", "PINK"], ["Pivx", "", "PIVX"], ["Polymath", "", "POLY"], ["PotCoin", "", "POT"], ["PowerLedger", "", "POWR"], ["Peercoin", "", "PPC"], ["Propy", "", "PRO"], ["PesetaCoin ", "", "PTC"], ["Patientory", "", "PTOY"], ["Quantum Resistant Ledger", "", "QRL"], ["Qtum", "", "QTUM"], ["Qwark", "", "QWARK"], ["Radium", "", "RADS"], ["RubyCoin", "", "RBY"], ["Ripio Credit Network", "", "RCN"], ["ReddCoin", "", "RDD"], ["Augur", "", "REP"], ["iEx.ec", "", "RLC"], ["RevolutionVR", "", "RVR"], ["Salt", "", "SALT"], ["SteemDollars", "", "SBD"], ["Siacoin", "", "SC"], ["Sequence", "", "SEQ"], ["Shift", "", "SHIFT"], ["Siberian Chervonets", "", "SIB"], ["SolarCoin", "", "SLR"], ["SaluS", "", "SLS"], ["Synergy", "", "SNRG"], ["Status Network Token", "", "SNT"], ["Sphere", "", "SPHR"], ["SpreadCoin", "", "SPR"], ["Sirin Token", "", "SRN"], ["STEEM", "", "STEEM"], ["STORJ", "", "STORJ"], ["Stratis", "", "STRAT"], ["Bitswift", "", "SWIFT"], ["Swarm City Token", "", "SWT"], ["SysCoin", "", "SYS"], ["HempCoin", "", "THC"], ["Blocktix", "", "TIX"], ["Tokes", "", "TKS"], ["Trustcoin", "", "TRST"], ["TrustPlus", "", "TRUST"], ["Tron", "", "TRX"], ["TrueUSD", "", "TUSD"], ["TransferCoin", "", "TX"], ["Ubiq", "", "UBQ"], ["UnikoinGold", "", "UKG"], ["UpToken", "", "UP"], ["BLOCKv", "", "VEE"], ["ViaCoin", "", "VIA"], ["Viberate", "", "VIB"], ["VeriCoin", "", "VRC"], ["Verium", "", "VRM"], ["Vertcoin", "", "VTC"], ["vTorrent", "", "VTR"], ["Waves", "", "WAVES"], ["Worldwide Asset Exchange", "", "WAX"], ["Wings DAO", "", "WINGS"], ["Counterparty", "", "XCP"], ["DigitalNote", "", "XDN"], ["Elastic", "", "XEL"], ["NewEconomyMovement", "", "XEM"], ["Lumen", "", "XLM"], ["Magi", "", "XMG"], ["Monero", "", "XMR"], ["Myriad", "", "XMY"], ["Ripple", "", "XRP"], ["StealthCoin", "", "XST"], ["Verge", "", "XVG"], ["WhiteCoin", "", "XWC"], ["ZCoin", "", "XZC"], ["Zclassic", "", "ZCL"], ["ZCash", "", "ZEC"], ["ZenCash", "", "ZEN"], ["0x Protocol", "", "ZRX"]];
+    var BITTREX = [["2GIVE", "", "2GIVE"], ["ArtByte", "", "ABY"], ["Ada", "", "ADA"], ["adToken", "", "ADT"], ["AdEx", "", "ADX"], ["Aeon", "", "AEON"], ["SynereoAmp", "", "AMP"], ["Aragon", "", "ANT"], ["Ardor", "", "ARDR"], ["Ark", "", "ARK"], ["AuroraCoin", "", "AUR"], ["Basic Attention Token", "", "BAT"], ["BitBay", "", "BAY"], ["Bitcoin Cash", "", "BCC"], ["BlockMason Credit Protocol", "", "BCPT"], ["BitCrystals", "", "BCY"], ["BitBean", "", "BITB"], ["Blitzcash", "", "BLITZ"], ["BlackCoin", "", "BLK"], ["Blocknet", "", "BLOCK"], ["Bancor", "", "BNT"], ["Breakout", "", "BRK"], ["Breakout Stake", "", "BRX"], ["BitSend", "", "BSD"], ["Bitcoin Gold", "", "BTG"], ["BURST", "", "BURST"], ["Bytecent", "", "BYC"], ["CannabisCoin", "", "CANN"], ["Cofound.it", "", "CFI"], ["CLAMs", "", "CLAM"], ["CloakCoin", "", "CLOAK"], ["Circuits of Value", "", "COVAL"], ["CreditBit", "", "CRB"], ["Crown", "", "CRW"], ["CureCoin", "", "CURE"], ["Civic", "", "CVC"], ["Dash", "", "DASH"], ["Decred", "", "DCR"], ["Digibyte", "", "DGB"], ["Diamond", "", "DMD"], ["DMarket", "", "DMT"], ["district0x", "", "DNT"], ["Dogecoin", "", "DOGE"], ["DopeCoin", "", "DOPE"], ["Databits", "", "DTB"], ["Dynamic", "", "DYN"], ["eBoost", "", "EBST"], ["Edgeless", "", "EDG"], ["ElectronicGulden", "", "EFL"], ["EverGreenCoin", "", "EGC"], ["EmerCoin", "", "EMC"], ["Einsteinium", "", "EMC2"], ["Enigma", "", "ENG"], ["EnergyCoin", "", "ENRG"], ["EuropeCoin", "", "ERC"], ["Ethereum Classic", "", "ETC"], ["Ethereum", "", "ETH"], ["ExclusiveCoin", "", "EXCL"], ["Expanse", "", "EXP"], ["Factom", "", "FCT"], ["FoldingCoin", "", "FLDC"], ["Feathercoin", "", "FTC"], ["Gambit", "", "GAM"], ["GameCredits", "", "GAME"], ["Gbg", "", "GBG"], ["Bytes", "", "GBYTE"], ["GeoCoin", "", "GEO"], ["GoldCoin", "", "GLD"], ["Gnosis", "", "GNO"], ["Golem", "", "GNT"], ["Golos", "", "GOLOS"], ["GridCoin", "", "GRC"], ["Groestlcoin", "", "GRS"], ["Guppy", "", "GUP"], ["Humaniq", "", "HMQ"], ["Ignis", "", "IGNIS"], ["Incent", "", "INCNT"], ["I/OCoin", "", "IOC"], ["Ion", "", "ION"], ["Internet Of People", "", "IOP"], ["Kore", "", "KORE"], ["LBRY Credits", "", "LBC"], ["Legends", "", "LGD"], ["Lomocoin", "", "LMC"], ["Loopring", "", "LRC"], ["Lisk", "", "LSK"], ["Litecoin", "", "LTC"], ["Lunyr", "", "LUN"], ["Decentraland", "", "MANA"], ["Monaco", "", "MCO"], ["Memetic", "", "MEME"], ["Mercury", "", "MER"], ["Melon", "", "MLN"], ["MonaCoin", "", "MONA"], ["MonetaryUnit", "", "MUE"], ["Musicoin", "", "MUSIC"], ["NAVCoin", "", "NAV"], ["Nubits", "", "NBT"], ["Neo", "", "NEO"], ["NeosCoin", "", "NEOS"], ["Gulden", "", "NLG"], ["Numeraire", "", "NMR"], ["Nexium", "", "NXC"], ["Nexus", "", "NXS"], ["NXT", "", "NXT"], ["OkCash", "", "OK"], ["OmiseGO", "", "OMG"], ["OmniCoin", "", "OMNI"], ["Particl", "", "PART"], ["TenX Pay Token", "", "PAY"], ["PinkCoin", "", "PINK"], ["Pivx", "", "PIVX"], ["Polymath", "", "POLY"], ["PotCoin", "", "POT"], ["PowerLedger", "", "POWR"], ["Peercoin", "", "PPC"], ["Propy", "", "PRO"], ["PesetaCoin ", "", "PTC"], ["Patientory", "", "PTOY"], ["Quantum Resistant Ledger", "", "QRL"], ["Qtum", "", "QTUM"], ["Qwark", "", "QWARK"], ["Radium", "", "RADS"], ["RubyCoin", "", "RBY"], ["Ripio Credit Network", "", "RCN"], ["ReddCoin", "", "RDD"], ["Augur", "", "REP"], ["iEx.ec", "", "RLC"], ["RevolutionVR", "", "RVR"], ["Salt", "", "SALT"], ["SteemDollars", "", "SBD"], ["Siacoin", "", "SC"], ["Sequence", "", "SEQ"], ["Shift", "", "SHIFT"], ["Siberian Chervonets", "", "SIB"], ["SolarCoin", "", "SLR"], ["SaluS", "", "SLS"], ["Synergy", "", "SNRG"], ["Status Network Token", "", "SNT"], ["Sphere", "", "SPHR"], ["SpreadCoin", "", "SPR"], ["Sirin Token", "", "SRN"], ["STEEM", "", "STEEM"], ["STORJ", "", "STORJ"], ["Stratis", "", "STRAT"], ["Bitswift", "", "SWIFT"], ["Swarm City Token", "", "SWT"], ["SysCoin", "", "SYS"], ["HempCoin", "", "THC"], ["Blocktix", "", "TIX"], ["Tokes", "", "TKS"], ["Trustcoin", "", "TRST"], ["TrustPlus", "", "TRUST"], ["Tron", "", "TRX"], ["TrueUSD", "", "TUSD"], ["TransferCoin", "", "TX"], ["Ubiq", "", "UBQ"], ["UnikoinGold", "", "UKG"], ["UpToken", "", "UP"], ["BLOCKv", "", "VEE"], ["ViaCoin", "", "VIA"], ["Viberate", "", "VIB"], ["VeriCoin", "", "VRC"], ["Verium", "", "VRM"], ["Vertcoin", "", "VTC"], ["vTorrent", "", "VTR"], ["Waves", "", "WAVES"], ["Worldwide Asset Exchange", "", "WAX"], ["Wings DAO", "", "WINGS"], ["Counterparty", "", "XCP"], ["DigitalNote", "", "XDN"], ["Elastic", "", "XEL"], ["NewEconomyMovement", "", "XEM"], ["Lumen", "", "XLM"], ["Magi", "", "XMG"], ["Monero", "", "XMR"], ["Myriad", "", "XMY"], ["Ripple", "", "XRP"], ["StealthCoin", "", "XST"], ["Verge", "", "XVG"], ["WhiteCoin", "", "XWC"], ["ZCoin", "", "XZC"], ["Zclassic", "", "ZCL"], ["ZCash", "", "ZEC"], ["ZenCash", "", "ZEN"], ["0x Protocol", "", "ZRX"], ["AidCoin", "", "AID"], ["Bloom", "", "BLT"], ["DECENT", "", "DCT"], ["Florincoin", "", "FLO"], ["Komodo", "", "KMD"], ["STORM", "", "STORM"], ["Syndicate", "", "SYNX"], ["Vcash", "", "XVC"]];
 
     return {
         BITTREX: BITTREX
@@ -18143,7 +18503,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var BITZ = [["Litecoin", " ", "LTC"], ["Ethereum", " ", "ETH"], ["ZCash", " ", "ZEC"], ["Factom", " ", "FCT"], ["Lisk", " ", "LSK"], ["BitCore", " ", "BTX"], ["Bitcoin Cash", " ", "BCH"], ["Qtum", " ", "QTUM"], ["Dash", " ", "DASH"], ["GameCredits", " ", "GAME"], ["Ark", " ", "ARK"], ["Sharechain", " ", "SSS"], ["LeoCoin", " ", "LEO"], ["Viuly", " ", "VIU"], ["DigiByte", " ", "DGB"], ["Particl", " ", "PART"], ["Bitcoin Gold", " ", "BTG"], ["Bitcoin Diamond", " ", "BCD"], ["TRON", " ", "TRX"], ["Aeron", " ", "ARN"], ["HollyWoodCoin", " ", "HWC"], ["Oxycoin", " ", "OXY"], ["Monaco", " ", "MCO"], ["UniversalCurrency", " ", "UNIT"], ["Pylon Network", " ", "PYLNT"], ["Nano", " ", "XRB"], ["Metaverse", " ", "ETP"], ["Rebellious", " ", "REBL"], ["AI Doctor", " ", "AIDOC"], ["Data Delivery Network", " ", "DDN"], ["PutinCoin", " ", "PUT"], ["ATMChain", " ", "ATM"], ["ZenGold", " ", "ZGC"], ["SophiaTX", " ", "SPHTX"], ["Nework", " ", "NKC"], ["OceanChain", " ", "OC"], ["Odyssey", " ", "OCN"], ["Bounty0x", " ", "BNTY"], ["Ink", " ", "INK"], ["EDUCare", " ", "EKT"], ["Primecoin", " ", "XPM"], ["Dogecoin", " ", "DOGE"], ["Ethereum Classic", " ", "ETC"], ["MazaCoin", " ", "MZC"], ["GXShares", " ", "GXS"], ["HSHARE", " ", "HSR"], ["BlackCoin", " ", "BLK"], ["Nuls", " ", "NULS"], ["VOISE", " ", "VOISE"], ["TenX Pay Token", " ", "PAY"], ["EOS", " ", "EOS"], ["OmiseGO", " ", "OMG"], ["YBCoin Token", " ", "YBCT"], ["Open Trading Network", " ", "OTN"], ["Peercoin", " ", "PPC"], ["Asch", " ", "XAS"]];
+    var BITZ = [["Litecoin", " ", "LTC"], ["Ethereum", " ", "ETH"], ["ZCash", " ", "ZEC"], ["Factom", " ", "FCT"], ["Lisk", " ", "LSK"], ["BitCore", " ", "BTX"], ["Bitcoin Cash", " ", "BCH"], ["Qtum", " ", "QTUM"], ["Dash", " ", "DASH"], ["GameCredits", " ", "GAME"], ["Ark", " ", "ARK"], ["Sharechain", " ", "SSS"], ["LeoCoin", " ", "LEO"], ["Viuly", " ", "VIU"], ["DigiByte", " ", "DGB"], ["Particl", " ", "PART"], ["Bitcoin Gold", " ", "BTG"], ["Bitcoin Diamond", " ", "BCD"], ["TRON", " ", "TRX"], ["Aeron", " ", "ARN"], ["HollyWoodCoin", " ", "HWC"], ["Oxycoin", " ", "OXY"], ["Monaco", " ", "MCO"], ["UniversalCurrency", " ", "UNIT"], ["Pylon Network", " ", "PYLNT"], ["Nano", " ", "XRB"], ["Metaverse", " ", "ETP"], ["Rebellious", " ", "REBL"], ["AI Doctor", " ", "AIDOC"], ["Data Delivery Network", " ", "DDN"], ["PutinCoin", " ", "PUT"], ["ATMChain", " ", "ATM"], ["ZenGold", " ", "ZGC"], ["SophiaTX", " ", "SPHTX"], ["Nework", " ", "NKC"], ["OceanChain", " ", "OC"], ["Odyssey", " ", "OCN"], ["Bounty0x", " ", "BNTY"], ["Ink", " ", "INK"], ["EDUCare", " ", "EKT"], ["Primecoin", " ", "XPM"], ["Dogecoin", " ", "DOGE"], ["Ethereum Classic", " ", "ETC"], ["MazaCoin", " ", "MZC"], ["GXShares", " ", "GXS"], ["HSHARE", " ", "HSR"], ["BlackCoin", " ", "BLK"], ["Nuls", " ", "NULS"], ["VOISE", " ", "VOISE"], ["TenX Pay Token", " ", "PAY"], ["EOS", " ", "EOS"], ["OmiseGO", " ", "OMG"], ["YBCoin Token", " ", "YBCT"], ["Open Trading Network", " ", "OTN"], ["Peercoin", " ", "PPC"], ["Asch", " ", "XAS"], ["Engine Chain Coin", " ", "EGCC"], ["PhoenixCoin", " ", "PXC"], ["Bitvote", " ", "BTV"], ["Qube", " ", "QUBE"], ["Lampix", " ", "PIX"], ["Super Game Chain", " ", "SGCC"], ["Ubique Chain of Things", " ", "UCT"], ["HPB Blockchain", " ", "HPB"], ["TheKey", " ", "TKY"], ["Penta", " ", "PNT"], ["TrustNote", " ", "TTT"], ["ProChain", " ", "PRA"], ["TokenStars", " ", "TEAM"]];
 
     return {
         BITZ: BITZ
@@ -18163,7 +18523,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var CCEX = [["SixEleven", " ", "_11"], ["9Coin", " ", "_COIN"], ["Alphabit", " ", "ABC"], ["AMLBitcoin", " ", "ABTC"], ["AnarchistsPrime", " ", "ACP"], ["Asiadigicoin", " ", "ADCN"], ["Adelphoi", " ", "ADL"], ["AdvancedInternetBlock", " ", "AIB"], ["PolyAI", " ", "PAI"], ["AllInOne", " ", "AIO"], ["Altcoin", " ", "ALT"], ["AlpaCoin", " ", "APC"], ["ArcticCoin", " ", "ARC"], ["Aureus", " ", "AURS"], ["LuckChain", " ", "BASH"], ["BitBay", " ", "BAY"], ["Biblepay", " ", "BBP"], ["BitcoinDiamond", " ", "BCD"], ["BitBee", " ", "BEE"], ["First Bitcoin Capital", " ", "BITCF"], ["BizCoin", " ", "BIZ"], ["Cryptobullcoin", " ", "BLC"], ["Bonpay", " ", "BON"], ["BoostCoin", " ", "BOST"], ["Bitqy", " ", "BQ"], ["Bsdbwealth", " ", "BSDB"], ["BritCoin", " ", "BRIT"], ["BitcoinHashcore", " ", "BTCHC"], ["BitcoinScrypt", " ", "BTCS"], ["BitcoinZ", " ", "BTCZ"], ["BitLuckCoin", " ", "BTLC"], ["Bitquark", " ", "BTQ"], ["Burst", " ", "BURST"], ["CaliphCoin", " ", "CALC"], ["CryptoCashCoin", " ", "CCH"], ["CryptoCarbon", " ", "CCRB"], ["CryptoEscudo", " ", "CESC"], ["CryptoJacksCoin", " ", "CJ"], ["Centurion", " ", "CNT"], ["CoreCoin", " ", "CRC"], ["Credits", " ", "CRE"], ["CereiPayCoin", " ", "CRPC"], ["CROWN", " ", "CRW"], ["Coimatic 3.0", " ", "CTIC3"], ["Crypto", " ", "CTO"], ["DA$", " ", "DAS"], ["Dash", " ", "DASH"], ["DazzleCoin", " ", "DAZZ"], ["Deep", " ", "DEEP"], ["DeusCoin", " ", "DEUS"], ["Dekadocoin", " ", "DKD"], ["DogeCoin", " ", "DOGE"], ["Droidz", " ", "DRZ"], ["GA Coin", " ", "GAC"], ["EACoin", " ", "EAG"], ["EBlackHole", " ", "EBH"], ["eBoost", " ", "EBST"], ["Eclipse", " ", "EC"], ["ElCoin", " ", "EL"], ["Elisor Coin", " ", "ELI"], ["eSports", " ", "ERT"], ["EchoSoraCoin", " ", "ESRC"], ["Ethereum Classic", " ", "ETC"], ["Ethereum", " ", "ETH"], ["Ethereum Gold", " ", "ETHG"], ["EncryptoTel", " ", "ETT"], ["Etherex", " ", "ETX"], ["Everus", " ", "EVR"], ["FastCash", " ", "FCH"], ["Fork Coin", " ", "FORK"], ["FutCoin", " ", "FUTC"], ["President Johnson", " ", "GARY"], ["Global Crypto", " ", "GCC24"], ["GD Premium", " ", "GD2"], ["GelukCoin", " ", "GELUK"], ["GlobalTradeCoin", " ", "GLTC"], ["Goldmaxcoin", " ", "GMX"], ["Gridcoin", " ", "GRC"], ["Groestlcoin", " ", "GRS"], ["Growers International", " ", "GRWI"], ["GoldUnionCoin", " ", "GUC"], ["Hoppin", " ", "HOP"], ["Hshare", " ", "HSR"], ["ICOCoin", " ", "ICOBI"], ["ILCoin", " ", "ILC"], ["InternetOfPeople", " ", "IOP"], ["IoTcoin", " ", "IOT"], ["KiloCoin", " ", "KLC"], ["Keplershares", " ", "KPL"], ["WoodCoin", " ", "LOG"], ["Loyalty", " ", "LOYAL"], ["Litecoin", " ", "LTC"], ["LEOcoin", " ", "LEO"], ["Luxmi", " ", "LUX"], ["MobileCash", " ", "MBL"], ["mcAP", " ", "MCAP"], ["Macro", " ", "MCR"], ["MIX", " ", "MIX"], ["MKTCoin", " ", "MLM"], ["Moin", " ", "MOIN"], ["Vehiclechain", " ", "MVDSC"], ["NeverdieCoin", " ", "NDC"], ["Newbium", " ", "NEWB"], ["NoLimitCoin 2.0", " ", "NLC2"], ["NovaCoin", " ", "NVC"], ["NXT", " ", "NXT"], ["OpenDollar", " ", "OD"], ["Obsidian", " ", "ODN"], ["OnlineGameToken", " ", "OGT"], ["Omni", " ", "OMNI"], ["OpinionCoin", " ", "OPNC"], ["OrmeusCoin", " ", "ORME"], ["OttoCoin", " ", "OTC"], ["OTCCoin", " ", "OTX"], ["OX Fina", " ", "OX"], ["PabyosiCoin Special", " ", "PCS"], ["PlusGoldUnionCoin", " ", "PGUC"], ["PhoenixCoin", " ", "PHX"], ["PiZZAcoin", " ", "PIZZA"], ["PRCoin", " ", "PRC"], ["President Trump", " ", "PRES"], ["Propy token", " ", "PROPY"], ["PitisCoin", " ", "PTS"], ["Pura", " ", "PURA"], ["R token", " ", "R"], ["Rubies", " ", "RBIES"], ["RG Coin", " ", "RGC"], ["RoyalKingdomCoin", " ", "RKC"], ["Revenu", " ", "REV"], ["RHFCoin", " ", "RHFC"], ["SBCcoin", " ", "SBC"], ["SFI Coin", " ", "SFI"], ["SIGMA coin", " ", "SGC"], ["SibCoin", " ", "SIB"], ["Sikka", " ", "SIKKA"], ["SmileyCoin", " ", "SMLY"], ["Shopzcoin", " ", "SZC"], ["Etheriya", " ", "RIYA"], ["TengRi", " ", "TERI"], ["TeslaCoilCoin", " ", "TESLA"], ["TOA Coin", " ", "TOA"], ["TerraCoin", " ", "TRC"], ["TrumpCoin", " ", "TRUMP"], ["Unobtanium", " ", "UNO"], ["Tether", " ", "USDT"], ["VitalCoin", " ", "VIT"], ["VEROS", " ", "VRS"], ["VirtaUniqueCoin", " ", "VUC"], ["WA Space", " ", "WA"], ["WinCoin", " ", "WC"], ["Withcoin", " ", "WTHC"], ["WorldPay", " ", "WOP"], ["Xaurum", " ", "XAUR"], ["Bitcoin U.F.", " ", "XB"], ["BlackPearl", " ", "XBP"], ["BitcoinEvo", " ", "XBTE"], ["XtraBYtes", " ", "XBY"], ["CoinonatX", " ", "XCXT"], ["GoldenBird", " ", "XGB"], ["HiCoin", " ", "XHI"], ["International Diamond", " ", "XID"], ["XNCCoin", " ", "XNC"], ["InternetOfMoney", " ", "XOM"], ["InternetOfThings", " ", "XOT"], ["Tao", " ", "XTO"], ["Isotope", " ", "XTP"], ["Verge refund token", " ", "XVGCT"], ["Bonanza", " ", "XZA"], ["BitZeny", " ", "ZNY"], ["Zeusshield Coin", " ", "ZSC"], ["ZoZoCoin", " ", "ZZC"]];
+    var CCEX = [["SixEleven", " ", "_11"], ["9Coin", " ", "_COIN"], ["Alphabit", " ", "ABC"], ["AMLBitcoin", " ", "ABTC"], ["AnarchistsPrime", " ", "ACP"], ["Asiadigicoin", " ", "ADCN"], ["Adelphoi", " ", "ADL"], ["AdvancedInternetBlock", " ", "AIB"], ["PolyAI", " ", "PAI"], ["AllInOne", " ", "AIO"], ["Altcoin", " ", "ALT"], ["AlpaCoin", " ", "APC"], ["ArcticCoin", " ", "ARC"], ["Aureus", " ", "AURS"], ["LuckChain", " ", "BASH"], ["BitBay", " ", "BAY"], ["Biblepay", " ", "BBP"], ["BitcoinDiamond", " ", "BCD"], ["BitBee", " ", "BEE"], ["First Bitcoin Capital", " ", "BITCF"], ["BizCoin", " ", "BIZ"], ["Cryptobullcoin", " ", "BLC"], ["Bonpay", " ", "BON"], ["BoostCoin", " ", "BOST"], ["Bitqy", " ", "BQ"], ["Bsdbwealth", " ", "BSDB"], ["BritCoin", " ", "BRIT"], ["BitcoinHashcore", " ", "BTCHC"], ["BitcoinScrypt", " ", "BTCS"], ["BitcoinZ", " ", "BTCZ"], ["BitLuckCoin", " ", "BTLC"], ["Bitquark", " ", "BTQ"], ["Burst", " ", "BURST"], ["CaliphCoin", " ", "CALC"], ["CryptoCashCoin", " ", "CCH"], ["CryptoCarbon", " ", "CCRB"], ["CryptoEscudo", " ", "CESC"], ["CryptoJacksCoin", " ", "CJ"], ["Centurion", " ", "CNT"], ["CoreCoin", " ", "CRC"], ["Credits", " ", "CRE"], ["CereiPayCoin", " ", "CRPC"], ["CROWN", " ", "CRW"], ["Coimatic 3.0", " ", "CTIC3"], ["Crypto", " ", "CTO"], ["DA$", " ", "DAS"], ["Dash", " ", "DASH"], ["DazzleCoin", " ", "DAZZ"], ["Deep", " ", "DEEP"], ["DeusCoin", " ", "DEUS"], ["Dekadocoin", " ", "DKD"], ["DogeCoin", " ", "DOGE"], ["Droidz", " ", "DRZ"], ["GA Coin", " ", "GAC"], ["EACoin", " ", "EAG"], ["EBlackHole", " ", "EBH"], ["eBoost", " ", "EBST"], ["Eclipse", " ", "EC"], ["ElCoin", " ", "EL"], ["Elisor Coin", " ", "ELI"], ["eSports", " ", "ERT"], ["EchoSoraCoin", " ", "ESRC"], ["Ethereum Classic", " ", "ETC"], ["Ethereum", " ", "ETH"], ["Ethereum Gold", " ", "ETHG"], ["EncryptoTel", " ", "ETT"], ["Etherex", " ", "ETX"], ["Everus", " ", "EVR"], ["FastCash", " ", "FCH"], ["Fork Coin", " ", "FORK"], ["FutCoin", " ", "FUTC"], ["President Johnson", " ", "GARY"], ["Global Crypto", " ", "GCC24"], ["GD Premium", " ", "GD2"], ["GelukCoin", " ", "GELUK"], ["GlobalTradeCoin", " ", "GLTC"], ["Goldmaxcoin", " ", "GMX"], ["Gridcoin", " ", "GRC"], ["Groestlcoin", " ", "GRS"], ["Growers International", " ", "GRWI"], ["GoldUnionCoin", " ", "GUC"], ["Hoppin", " ", "HOP"], ["Hshare", " ", "HSR"], ["ICOCoin", " ", "ICOBI"], ["ILCoin", " ", "ILC"], ["InternetOfPeople", " ", "IOP"], ["IoTcoin", " ", "IOT"], ["KiloCoin", " ", "KLC"], ["Keplershares", " ", "KPL"], ["WoodCoin", " ", "LOG"], ["Loyalty", " ", "LOYAL"], ["Litecoin", " ", "LTC"], ["LEOcoin", " ", "LEO"], ["Luxmi", " ", "LUX"], ["MobileCash", " ", "MBL"], ["mcAP", " ", "MCAP"], ["Macro", " ", "MCR"], ["MIX", " ", "MIX"], ["MKTCoin", " ", "MLM"], ["Moin", " ", "MOIN"], ["Vehiclechain", " ", "MVDSC"], ["NeverdieCoin", " ", "NDC"], ["Newbium", " ", "NEWB"], ["NoLimitCoin 2.0", " ", "NLC2"], ["NovaCoin", " ", "NVC"], ["NXT", " ", "NXT"], ["OpenDollar", " ", "OD"], ["Obsidian", " ", "ODN"], ["OnlineGameToken", " ", "OGT"], ["Omni", " ", "OMNI"], ["OpinionCoin", " ", "OPNC"], ["OrmeusCoin", " ", "ORME"], ["OttoCoin", " ", "OTC"], ["OTCCoin", " ", "OTX"], ["OX Fina", " ", "OX"], ["PabyosiCoin Special", " ", "PCS"], ["PlusGoldUnionCoin", " ", "PGUC"], ["PhoenixCoin", " ", "PHX"], ["PiZZAcoin", " ", "PIZZA"], ["PRCoin", " ", "PRC"], ["President Trump", " ", "PRES"], ["Propy token", " ", "PROPY"], ["PitisCoin", " ", "PTS"], ["Pura", " ", "PURA"], ["R token", " ", "R"], ["Rubies", " ", "RBIES"], ["RG Coin", " ", "RGC"], ["RoyalKingdomCoin", " ", "RKC"], ["Revenu", " ", "REV"], ["RHFCoin", " ", "RHFC"], ["SBCcoin", " ", "SBC"], ["SFI Coin", " ", "SFI"], ["SIGMA coin", " ", "SGC"], ["SibCoin", " ", "SIB"], ["Sikka", " ", "SIKKA"], ["SmileyCoin", " ", "SMLY"], ["Shopzcoin", " ", "SZC"], ["Etheriya", " ", "RIYA"], ["TengRi", " ", "TERI"], ["TeslaCoilCoin", " ", "TESLA"], ["TOA Coin", " ", "TOA"], ["TerraCoin", " ", "TRC"], ["TrumpCoin", " ", "TRUMP"], ["Unobtanium", " ", "UNO"], ["Tether", " ", "USDT"], ["VitalCoin", " ", "VIT"], ["VEROS", " ", "VRS"], ["VirtaUniqueCoin", " ", "VUC"], ["WA Space", " ", "WA"], ["WinCoin", " ", "WC"], ["Withcoin", " ", "WTHC"], ["WorldPay", " ", "WOP"], ["Xaurum", " ", "XAUR"], ["Bitcoin U.F.", " ", "XB"], ["BlackPearl", " ", "XBP"], ["BitcoinEvo", " ", "XBTE"], ["XtraBYtes", " ", "XBY"], ["CoinonatX", " ", "XCXT"], ["GoldenBird", " ", "XGB"], ["HiCoin", " ", "XHI"], ["International Diamond", " ", "XID"], ["XNCCoin", " ", "XNC"], ["InternetOfMoney", " ", "XOM"], ["InternetOfThings", " ", "XOT"], ["Tao", " ", "XTO"], ["Isotope", " ", "XTP"], ["Verge refund token", " ", "XVGCT"], ["Bonanza", " ", "XZA"], ["BitZeny", " ", "ZNY"], ["Zeusshield Coin", " ", "ZSC"], ["ZoZoCoin", " ", "ZZC"], ["Dignity", " ", "DIG"], ["JavaCoin", " ", "JAVC"], ["LindaCoin", " ", "LINDA"], ["MassCryp", " ", "MASS"], ["Skydynastycoin", " ", "SDC12"], ["Yocoin", " ", "YOC"]];
 
     return {
         CCEX: CCEX
@@ -18183,7 +18543,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var COINBENE = [["Leek Coin", " ", "LEEK"], ["TokenClub", " ", "TCT"], ["HEROcoin", " ", "PLAY"], ["Litecoin", " ", "LTC"], ["Ethereum", " ", "ETH"], ["AI Doctor", " ", "AIDOC"]];
+    var COINBENE = [["Leek Coin", " ", "LEEK"], ["TokenClub", " ", "TCT"], ["HEROcoin", " ", "PLAY"], ["Litecoin", " ", "LTC"], ["Ethereum", " ", "ETH"], ["AI Doctor", " ", "AIDOC"], ["EZToken", " ", "EZT"], ["Bezop", " ", "BEZ"], ["United Crypto Community", " ", "UCOM"], ["Ducat", " ", "DUC"], ["Travelflex", " ", "TRF"], ["ArtexCoin", " ", "ATX"], ["OrmeusCoin", " ", "ORME"], ["ZenDao", " ", "ZDC"], ["SRCOIN", " ", "SRCOIN"], ["Ellaism", " ", "SHE"], ["Metaverse", " ", "ETP"], ["ZenGold", " ", "ZGC"]];
 
     return {
         COINBENE: COINBENE
@@ -18223,7 +18583,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var COINEXCHANGE = [["Litecoin", " ", "LTC"], ["Unobtanium", " ", "UNO"], ["Dogecoin", " ", "DOGE"], ["Kobocoin", " ", "KOBO"], ["Digitalcoin", " ", "DGC"], ["Megacoin", " ", "MEC"], ["Bigup", " ", "BIGUP"], ["Memetic", " ", "MEME"], ["CzechoSlovak KORUNA", " ", "KORUNA"], ["XxXCoin", " ", "XXX"], ["DubaiCoin", " ", "DBIC"], ["Ubercoin", " ", "XBU"], ["Postcoin", " ", "POST"], ["IXCoin", " ", "IXC"], ["MarteXcoin", " ", "MXT"], ["Mojocoin", " ", "MOJO"], ["Moincoin", " ", "MOIN"], ["Argentum", " ", "ARG"], ["EvoPoints", " ", "XEV"], ["GoldMaxCoin", " ", "GMX"], ["MachineCoin", " ", "MAC"], ["eMark", " ", "DEM"], ["Sprouts", " ", "SPRTS"], ["PURA", " ", "PURA"], ["SuperCoin", " ", "SUPER"], ["Elite", " ", "1337"], ["RubbleCoin", " ", "RUB"], ["SafeCoin", " ", "SFE"], ["PiggyCoin", " ", "PIGGY"], ["GoldBlocks", " ", "GB"], ["KubosCoin", " ", "KUBO"], ["ChiliCoin", " ", "CHILI"], ["SolarCoin", " ", "SLR"], ["SilkCoin2", " ", "SILK2"], ["KiloCoin", " ", "KLC"], ["Zeitcoin", " ", "ZEIT"], ["CryptoJacksCoin", " ", "CJ"], ["Emercoin", " ", "EMC"], ["Feathercoin", " ", "FTC"], ["Belacoin", " ", "BELA"], ["Syndicate", " ", "SYNX"], ["EDRCoin", " ", "EDRC"], ["Quotient", " ", "XQN"], ["EmiratesGoldCoin", " ", "EMIRG"], ["Ethereum", " ", "ETH"], ["EthereumClassic", " ", "ETC"], ["BitSynq", " ", "SYNQ"], ["Bon PeKaO", " ", "BON"], ["AsiaDigiCoin", " ", "ADCN"], ["CrownCoin", " ", "CRW"], ["Saham", " ", "SHM"], ["SecureCoin", " ", "SRC"], ["AcesCoin", " ", "ACES"], ["Rhodiumcoin", " ", "RHO"], ["AngelaMerkelCoin", " ", "AMC"], ["UGAIN", " ", "GAIN"], ["BitPokemonGo", " ", "BPOK"], ["ELcoin", " ", "ELCO"], ["EverGreenCoin", " ", "EGC"], ["TheMermaidCoin", " ", "MER"], ["Trollpayment", " ", "TPG"], ["Betacoin", " ", "BET"], ["Bitbean", " ", "BITB"], ["Blackcoin", " ", "BLK"], ["Britcoin", " ", "BRIT"], ["CannabisCoin", " ", "CANN"], ["Peepcoin", " ", "PCN"], ["Bittoken", " ", "BXT"], ["HyperStake", " ", "HYP"], ["ArtexCoin", " ", "ATX"], ["XP", " ", "XP"], ["Frost", " ", "FSX"], ["DigiCube", " ", "CUBE"], ["ZcCoin", " ", "ZCC"], ["BenjiRolls", " ", "BENJI"], ["SaveTheOceanCoin", " ", "STO"], ["BitCloud", " ", "BTDX"], ["AurumCoin", " ", "AU"], ["JinCoin", " ", "JIN"], ["MustangCoin", " ", "MST"], ["Digibyte", " ", "DGB"], ["Golfcoin", " ", "GOLF"], ["DigitalRupees", " ", "DRS"], ["Tellurion", " ", "TELL"], ["PoloBittShares", " ", "POLOB"], ["LevoCoin", " ", "LEVO"], ["MoonShot", " ", "SHOT"], ["AtomicCoin", " ", "ATOM"], ["CheCoin", " ", "XCHE"], ["Fortesque", " ", "FRT"], ["Adzcoin", " ", "ADZ"], ["ZCoin", " ", "XZC"], ["Mintcoin", " ", "MINT"], ["Espers", " ", "ESP"], ["DynamicCoin", " ", "DMC"], ["ENZOLimited", " ", "ENZO"], ["SSTCoin", " ", "SST"], ["ExclusiveCoin", " ", "EXCL"], ["Potcoin", " ", "POT"], ["WashingtonCoin", " ", "WASH"], ["LoMoCoin", " ", "LMC"], ["Gulden", " ", "NLG"], ["netBit", " ", "NBIT"], ["Xde2", " ", "XDE2"], ["ZMicron", " ", "ZMC"], ["Zoin", " ", "ZOI"], ["Rega", " ", "REGA"], ["ZcoinDark", " ", "XZCD"], ["Zcash", " ", "ZEC"], ["Zclassic", " ", "ZCL"], ["Conquestcoin", " ", "CQST"], ["LevoPlus", " ", "LVPS"], ["Simplecash", " ", "SIMP"], ["Kurrent", " ", "KURT"], ["Safetradecoin", " ", "XSTC"], ["IOECoin", " ", "IOE"], ["Wrapper", " ", "WRP"], ["Faircoin", " ", "FAIR"], ["Pabyosicoin Special", " ", "PCS"], ["Bullshitcoin", " ", "BULLS"], ["NetBit", " ", "NBX"], ["Wowclassic", " ", "WCL"], ["ALLION", " ", "ALL"], ["Uniform Fiscal Object", " ", "UFO"], ["Fedoracoin", " ", "TIPS"], ["Tatoocoin", " ", "TSE"], ["BitcoinPlus", " ", "XBC"], ["Greencoin", " ", "GRE"], ["Lunacoin", " ", "LUNA"], ["Eryllium", " ", "ERY"], ["HealthyWormCoin", " ", "WORM"], ["TrumPenceCoin", " ", "TPC"], ["BizCoin", " ", "BIZ"], ["Printerium", " ", "PRX"], ["PureVidz", " ", "VIDZ"], ["Caliphcoin", " ", "CALC"], ["Magnumcoin", " ", "MGM"], ["Komodo", " ", "KMD"], ["Elysium", " ", "ELS"], ["PascalClassic", " ", "XPASC"], ["VirtualCoin", " ", "VC"], ["Hollyweed", " ", "HOLLY"], ["CoronaCoin", " ", "CRN"], ["Centurion Future", " ", "CNTF"], ["GirlsTokenCoin", " ", "XGTC"], ["SolarflareCoin", " ", "SFC"], ["Boat", " ", "BOAT"], ["Geertcoin", " ", "GEERT"], ["Neuron", " ", "NRN"], ["RenosCoin", " ", "RNS"], ["Arguscoin", " ", "ARGUS"], ["GlobalTourCoin", " ", "GTC"], ["BAKEDcoin", " ", "BAKED"], ["CoochieCoin", " ", "COOC"], ["Maxicoin", " ", "MAXI"], ["OneCoin", " ", "OC"], ["AnarchistsPrime", " ", "ACP"], ["GlobalToken", " ", "GLT"], ["Honey", " ", "HONEY"], ["Gambleo", " ", "GMB"], ["ScryptDashCoin", " ", "SDASH"], ["MasterSwisCoin", " ", "MSCN"], ["EbitTreeCoin", " ", "EBT"], ["TristarCoin", " ", "TSTR"], ["Huncoin", " ", "HNC"], ["Zsecoin", " ", "ZSE"], ["ImpactCoin", " ", "IMX"], ["MonetaryUnit", " ", "MUE"], ["Dash", " ", "DASH"], ["OGNCoin", " ", "OGN"], ["Coinonat", " ", "CXT"], ["TattoocoinLimitedEdition", " ", "TLE"], ["PutinCoin", " ", "PUT"], ["MentalHealthCoin", " ", "MENTAL"], ["BlazerCoin", " ", "BLAZR"], ["Solaris", " ", "XLR"], ["TorCoin", " ", "TOR"], ["Beonpush", " ", "BOPS"], ["Happycoin", " ", "HPC"], ["Cannation", " ", "CNNC"], ["Vsync", " ", "XVS"], ["Guficoin", " ", "GFC"], ["UnitCurrency", " ", "UNIT"], ["ECC", " ", "ECC"], ["Rupee", " ", "RUP"], ["Pivx", " ", "PIVX"], ["Groestlcoin", " ", "GRS"], ["Trancecoin", " ", "TRANCE"], ["MiloCoin", " ", "MILO"], ["Hodlcoin", " ", "HODL"], ["Condensate", " ", "RAIN"], ["Halloweencoin", " ", "HALLO"], ["PoSWCoin", " ", "POSW"], ["Equitrader", " ", "EQT"], ["CreativeCoin", " ", "CREA"], ["TopazCoin", " ", "TOPAZ"], ["TreauxCoin", " ", "TRUX"], ["Zennies", " ", "ZENI"], ["InsaneCoin", " ", "INSN"], ["DigitalMoneyBits", " ", "DMB"], ["T-Coin", " ", "TCOIN"], ["Mooncoin", " ", "MOON"], ["CACHeCoin", " ", "CACH"], ["CoinMiningIndex", " ", "CMX"], ["GreenFingers", " ", "GREENF"], ["Coupecoin", " ", "COUPE"], ["E-Coin", " ", "ECN"], ["TerraNovaCoin", " ", "TER"], ["Ammo Reloaded", " ", "AMMO"], ["PirateBlocks", " ", "SKULL"], ["Neuro", " ", "NRO"], ["Linx", " ", "LINX"], ["RuneStoneCoin", " ", "RUNE"], ["CBit", " ", "XCT"], ["SixEleven", " ", "611"], ["HarmonyCoin", " ", "HMC"], ["CheapCoin", " ", "CHEAP"], ["RevolutionVR", " ", "RVR"], ["BitcoinPlanet", " ", "BTPL"], ["Antimatter", " ", "ANTX"], ["RoundCoin", " ", "RDC"], ["DariCoin", " ", "DARI"], ["StackBIT", " ", "SBIT"], ["TurboCoin", " ", "TURBO"], ["EuropeUnited", " ", "EUROP"], ["Remicoin", " ", "RMC"], ["Denarius", " ", "DNR"], ["CycloneCoin", " ", "CYCLONE"], ["Futurxe", " ", "FXE"], ["Slevin", " ", "SLEVIN"], ["GoldPieces", " ", "GP"], ["WomenCoin", " ", "WOMEN"], ["USACoin", " ", "USA"], ["SurgeCoin", " ", "SURGE"], ["Token-as-a-Service", " ", "TAAS"], ["Shitcoin", " ", "SHIT"], ["Goodomy", " ", "GOOD"], ["Primulon", " ", "PRIMU"], ["KangarooBits", " ", "KGB"], ["LindaCoin", " ", "LINDA"], ["Skoincoin", " ", "SKOIN"], ["Dimecoin", " ", "DIME"], ["iDice", " ", "ICE"], ["Crimsoncoin", " ", "CRMSN"], ["NoLimitCoin", " ", "NLC2"], ["CampusCoin", " ", "CMPCO"], ["Ethernex", " ", "ETN"], ["UpscaleToken", " ", "UP"], ["Boleno", " ", "BLN"], ["Hubcoin", " ", "HUB"], ["Ethos", " ", "ETHOS"], ["Coimatic2", " ", "CTIC2"], ["EthereumLink", " ", "LNK"], ["JediCoin", " ", "JEDI"], ["BitSoar", " ", "BSR"], ["Disse", " ", "DSE"], ["Hyper", " ", "HYPER"], ["InfoCoin", " ", "INFO"], ["BirdsCoin", " ", "BIRDS"], ["BitcoinMetal", " ", "BCM"], ["JapanCoin", " ", "JAPAN"], ["MarsBux", " ", "MARS"], ["BCash", " ", "BCH"], ["WinkCoin", " ", "WINK"], ["Koicoin", " ", "KOI"], ["ILCoin", " ", "ILC"], ["SmartCash", " ", "SMART"], ["JynErso", " ", "ERSO"], ["RCoin", " ", "IBC"], ["AgriNovusCoin", " ", "AGRI"], ["Etheriya", " ", "RIYA"], ["Visio", " ", "VISIO"], ["Runners", " ", "RUNNERS"], ["CoinonatX", " ", "XCXT"], ["NumusCash", " ", "NUMUS"], ["Aseancoin", " ", "ASN"], ["Buzzcoin", " ", "BUZZ"], ["PlayerCoin", " ", "PLACO"], ["IndiaCoin", " ", "INDIA"], ["SnowCoin", " ", "SNOW"], ["XTDCoin", " ", "XTD"], ["Bixc", " ", "BIXC"], ["LasVegasCoin", " ", "VGS"], ["MyBit Token", " ", "MYB"], ["MarsBux2", " ", "MARS2"], ["Brother", " ", "BRAT"], ["PeaceCoin3.6", " ", "PEC"], ["HealthyFoodProgram", " ", "HEALTHY"], ["eBullionCoin", " ", "EBC"], ["Protean", " ", "PRN"], ["TheresaMayCoin", " ", "MAY"], ["UlaTech", " ", "ULA"], ["Phillion", " ", "PHN"], ["InvestFeed", " ", "IFT"], ["Cyder", " ", "CYDER"], ["Bitdeal", " ", "BDL"], ["XYZCoin", " ", "XYZ"], ["VsyncX", " ", "VSX"], ["Fujinto", " ", "NTO"], ["DaleCoin", " ", "DALC"], ["DutchCoin", " ", "DUTCH"], ["Terracoin", " ", "TRC"], ["UKCoin", " ", "UK"], ["Hopecoin", " ", "HOPE"], ["Bitqy", " ", "BQ"], ["Pariscoin", " ", "PARIS"], ["Dentacoin", " ", "DCN"], ["DigitalPrice", " ", "DP"], ["Adshares", " ", "ADST"], ["Magnatum", " ", "MGT"], ["Daneton", " ", "DNE"], ["Iquant", " ", "IQT"], ["AnyChain", " ", "ANC"], ["LIFE", " ", "LIFE"], ["Chips", " ", "CHIPS"], ["Beerhouse", " ", "BEER"], ["Adcoin", " ", "ACC"], ["Monetha", " ", "MTH"], ["Mothership", " ", "MSP"], ["ProspectorsGold", " ", "PGL"], ["Neulaut", " ", "NUA"], ["Kayicoin", " ", "KAYI"], ["Playwincoin", " ", "PWC"], ["Unify", " ", "UNIFY"], ["DFSCoin", " ", "DFS"], ["Targetcoin", " ", "TGT"], ["GreenEnergyToken", " ", "GET"], ["Elixir", " ", "ELIX"], ["Vulcanocoin", " ", "VULCANO"], ["Monoeci", " ", "XMCC"], ["Lampix", " ", "PIX"], ["Mobozcoin", " ", "MBC"], ["Porntoken", " ", "PT"], ["CryptoBank", " ", "CBANK"], ["Ethbits", " ", "ETBS"], ["Loopring", " ", "LRC"], ["RoyalBritishLegion", " ", "RBL"], ["The Basis", " ", "TBS"], ["ALIS", " ", "ALIS"], ["Regalcoin", " ", "REC"], ["DetectorToken", " ", "DTCT"], ["Voise", " ", "VOISE"], ["Jetcoin", " ", "JET"], ["Internxt", " ", "INXT"], ["Bastone", " ", "BSN"], ["GoldenCryptoCoin", " ", "GDC"], ["Flik", " ", "FLIK"], ["Social", " ", "SCL"], ["Natcoin", " ", "NTC"], [" imbrex", " ", "REX"], ["TPICoin", " ", "TPI"], ["MalaysiaCoin", " ", "MALC"], ["AkuyaCoin", " ", "AKY"], ["Luckcoin", " ", "LUCK"], ["Minex", " ", "MINEX"], ["Roofs", " ", "ROOFS"], ["EthereumGold", " ", "ETG"], ["FAPcoin", " ", "FAP"], ["Qtum", " ", "QTUM"], ["Bitbase", " ", "BTBC"], ["Highgain", " ", "HIGH"], ["Postoken", " ", "POS"], ["Pure", " ", "PURE"], ["Lambocoin", " ", "LAMBO"], ["Initial Coin Offering Token", " ", "ICOT"], ["StarCash", " ", "STARS"], ["GlassCoin", " ", "GLS"], ["ACoin", " ", "ACO"], ["Code47", " ", "C47"], ["BitSerial", " ", "BTE"], ["GreenMed", " ", "GRMD"], ["NeoGold", " ", "NEOG"], ["Magnet", " ", "MAG"], ["Solar", " ", "SOLAR"], ["SISA", " ", "SISA"], ["ZoZoCoin", " ", "ZZC"], ["SugarExchange", " ", "SGR"], ["PlexCoin", " ", "PLX"], ["Manutax", " ", "MUX"], ["LAToken", " ", "LA"], ["BillionaireToken", " ", "XBL"], ["CredenceCoin", " ", "CRDNC"], ["CommodityAdNetwork", " ", "CDX"], ["GoldRewardToken", " ", "GRX"], ["TigerCoin", " ", "TIGER"], ["Zlancer", " ", "ZCG"], ["Stox", " ", "STX"], ["Blue Protocol", " ", "BLUE"], ["PlaykeyToken", " ", "PKT"], ["ELTCoin", " ", "ELT"], ["PitisCoin", " ", "PTS"], ["SMSCoin", " ", "SMS"], ["MIPSToken", " ", "MIPS"], ["BitcoinRed", " ", "BTCRED"], ["ClimateCoin", " ", "CO2"], ["DashGold", " ", "DAG"], ["UquidCoin", " ", "UQC"], ["GoByte", " ", "GBX"], ["HarvestCoin", " ", "HC"], ["eSportsRewardToken", " ", "ERT"], ["Superman", " ", "SUPERMAN"], ["Microbyte", " ", "MCB"], ["Bonpay", " ", "BONPAY"], ["BinaryCoin", " ", "BRC"], ["Equal", " ", "EQL"], ["BitFinTech", " ", "BFI"], ["Presearch", " ", "PRE"], ["MatrixCoin", " ", "MXC"], ["Nucleon", " ", "NEON"], ["Xgox", " ", "XGOX"], ["DavorCoin", " ", "DAV"], ["EnterCoin", " ", "ENTRC"], ["B2B", " ", "B2B"], ["OysterPearl", " ", "PRL"], ["ExtensiveCoin", " ", "EXTN"], ["HomeBlockCoin", " ", "HBC"], ["DragonChain", " ", "DRGN"], ["Swisscoin", " ", "SIC"], ["SwisscoinCash", " ", "SWC"], ["Scorecoin", " ", "SCORE"], ["Steneum", " ", "STN"], ["B3Coin", " ", "KB3"], ["Crackers", " ", "CRACKERS"], ["MinexCoin", " ", "MNX"], ["Lizus Payments", " ", "LIZ"], ["Flash", " ", "FLASH"], ["Desire", " ", "DSR"], ["Diverse", " ", "DVRS"], ["MUNcoin", " ", "MUN"], ["eBitcoin", " ", "EBTC"], ["EcoToken", " ", "ECOT"], ["Accelerator", " ", "ACCL"], ["Crave", " ", "CRAVE"], ["Quantum Resistance Ledger", " ", "QRL"], ["Tune", " ", "TUN"], ["Shield", " ", "XSH"], ["Draftcoin", " ", "DFT"], ["Gainer Coin", " ", "GNR"], ["Qurito", " ", "QURO"], ["Foodcoin", " ", "FOOD"], ["Worldcore", " ", "WRC"], ["Argo", " ", "ARGO"], ["Bitclave", " ", "CAT"], ["Bitcoin Hush", " ", "BTCH"], ["Simplicity", " ", "SPL"], ["BitRewards", " ", "XBR"], ["BitCrownCoin", " ", "BCW"], ["Cropcoin", " ", "CROP"], ["Mamcoin", " ", "MAM"], ["BITTX", " ", "BX"], ["Trident Group", " ", "TRDT"], ["Upfiring", " ", "UFR"], ["Infinex", " ", "IFX"], ["Valuto", " ", "VLU"], ["Bitcoin Green", " ", "BITG"], ["ALQO", " ", "ALQO"], ["Coinlancer", " ", "CL"], ["Jesus Coin", " ", "JC"], ["DV7 Coin", " ", "DV7"], ["SBucksToken", " ", "SBT"], ["Folm", " ", "FLM"], ["HADE Platform", " ", "HADE"], ["Loom Network", " ", "LOOM"], ["Deviant", " ", "DEV"], ["NANJCOIN", " ", "NANJ"], ["WorldBTC", " ", "WBTC"], ["ATFS", " ", "ATFS"], ["Nomad", " ", "NMD"], ["BarterDEX", " ", "DEX"], ["SuperNET", " ", "UNITY"], ["EWangBiCoin", " ", "EWC"], ["Arion", " ", "ARION"], ["Nihilo Coin", " ", "NIHL"], ["Apollon", " ", "XAP"], ["NAU", " ", "ENAU"], ["Ignition", " ", "IC"], ["Bitcore", " ", "BTX"], ["BitSend", " ", "BSD"], ["EuropeCoin", " ", "ERC"], ["HousingCoin", " ", "HOUSING"], ["Hara", " ", "HRC"], ["Paycentos", " ", "PYN"], ["Ormeus Coin", " ", "ORME"], ["Request Network", " ", "REQ"], ["OmiseGO", " ", "OMG"], ["EOS", " ", "EOS"], ["VeChain", " ", "VEN"], ["Pulsar", " ", "PLSR"], ["TRON", " ", "TRX"], ["PACcoin", " ", "PAC"], ["Verge", " ", "XVG"], ["Japan Brand Coin", " ", "JBC"], ["ERA", " ", "ERA"], ["SipsCo", " ", "SIPS"], ["Mithril", " ", "MITH"], ["Golem", " ", "GNT"], ["Populous", " ", "PPT"], ["FitCoin", " ", "FIT"], ["Vereum", " ", "VMC"], ["SENYO", " ", "SENYO"], ["SyncFab", " ", "MFG"], ["VIPSTARCOIN", " ", "VIPS"]];
+    var COINEXCHANGE = [["Litecoin", " ", "LTC"], ["Unobtanium", " ", "UNO"], ["Dogecoin", " ", "DOGE"], ["Kobocoin", " ", "KOBO"], ["Digitalcoin", " ", "DGC"], ["Megacoin", " ", "MEC"], ["Bigup", " ", "BIGUP"], ["Memetic", " ", "MEME"], ["CzechoSlovak KORUNA", " ", "KORUNA"], ["XxXCoin", " ", "XXX"], ["DubaiCoin", " ", "DBIC"], ["Ubercoin", " ", "XBU"], ["Postcoin", " ", "POST"], ["IXCoin", " ", "IXC"], ["MarteXcoin", " ", "MXT"], ["Mojocoin", " ", "MOJO"], ["Moincoin", " ", "MOIN"], ["Argentum", " ", "ARG"], ["EvoPoints", " ", "XEV"], ["GoldMaxCoin", " ", "GMX"], ["MachineCoin", " ", "MAC"], ["eMark", " ", "DEM"], ["Sprouts", " ", "SPRTS"], ["PURA", " ", "PURA"], ["SuperCoin", " ", "SUPER"], ["Elite", " ", "1337"], ["RubbleCoin", " ", "RUB"], ["SafeCoin", " ", "SFE"], ["PiggyCoin", " ", "PIGGY"], ["GoldBlocks", " ", "GB"], ["KubosCoin", " ", "KUBO"], ["ChiliCoin", " ", "CHILI"], ["SolarCoin", " ", "SLR"], ["SilkCoin2", " ", "SILK2"], ["KiloCoin", " ", "KLC"], ["Zeitcoin", " ", "ZEIT"], ["CryptoJacksCoin", " ", "CJ"], ["Emercoin", " ", "EMC"], ["Feathercoin", " ", "FTC"], ["Belacoin", " ", "BELA"], ["Syndicate", " ", "SYNX"], ["EDRCoin", " ", "EDRC"], ["Quotient", " ", "XQN"], ["EmiratesGoldCoin", " ", "EMIRG"], ["Ethereum", " ", "ETH"], ["EthereumClassic", " ", "ETC"], ["BitSynq", " ", "SYNQ"], ["Bon PeKaO", " ", "BON"], ["AsiaDigiCoin", " ", "ADCN"], ["CrownCoin", " ", "CRW"], ["Saham", " ", "SHM"], ["SecureCoin", " ", "SRC"], ["AcesCoin", " ", "ACES"], ["Rhodiumcoin", " ", "RHO"], ["AngelaMerkelCoin", " ", "AMC"], ["UGAIN", " ", "GAIN"], ["BitPokemonGo", " ", "BPOK"], ["ELcoin", " ", "ELCO"], ["EverGreenCoin", " ", "EGC"], ["TheMermaidCoin", " ", "MER"], ["Trollpayment", " ", "TPG"], ["Betacoin", " ", "BET"], ["Bitbean", " ", "BITB"], ["Blackcoin", " ", "BLK"], ["Britcoin", " ", "BRIT"], ["CannabisCoin", " ", "CANN"], ["Peepcoin", " ", "PCN"], ["Bittoken", " ", "BXT"], ["HyperStake", " ", "HYP"], ["ArtexCoin", " ", "ATX"], ["XP", " ", "XP"], ["Frost", " ", "FSX"], ["DigiCube", " ", "CUBE"], ["ZcCoin", " ", "ZCC"], ["BenjiRolls", " ", "BENJI"], ["SaveTheOceanCoin", " ", "STO"], ["BitCloud", " ", "BTDX"], ["AurumCoin", " ", "AU"], ["JinCoin", " ", "JIN"], ["MustangCoin", " ", "MST"], ["Digibyte", " ", "DGB"], ["Golfcoin", " ", "GOLF"], ["DigitalRupees", " ", "DRS"], ["Tellurion", " ", "TELL"], ["PoloBittShares", " ", "POLOB"], ["LevoCoin", " ", "LEVO"], ["MoonShot", " ", "SHOT"], ["AtomicCoin", " ", "ATOM"], ["CheCoin", " ", "XCHE"], ["Fortesque", " ", "FRT"], ["Adzcoin", " ", "ADZ"], ["ZCoin", " ", "XZC"], ["Mintcoin", " ", "MINT"], ["Espers", " ", "ESP"], ["DynamicCoin", " ", "DMC"], ["ENZOLimited", " ", "ENZO"], ["SSTCoin", " ", "SST"], ["ExclusiveCoin", " ", "EXCL"], ["Potcoin", " ", "POT"], ["WashingtonCoin", " ", "WASH"], ["LoMoCoin", " ", "LMC"], ["Gulden", " ", "NLG"], ["netBit", " ", "NBIT"], ["Xde2", " ", "XDE2"], ["ZMicron", " ", "ZMC"], ["Zoin", " ", "ZOI"], ["Rega", " ", "REGA"], ["ZcoinDark", " ", "XZCD"], ["Zcash", " ", "ZEC"], ["Zclassic", " ", "ZCL"], ["Conquestcoin", " ", "CQST"], ["LevoPlus", " ", "LVPS"], ["Simplecash", " ", "SIMP"], ["Kurrent", " ", "KURT"], ["Safetradecoin", " ", "XSTC"], ["IOECoin", " ", "IOE"], ["Wrapper", " ", "WRP"], ["Faircoin", " ", "FAIR"], ["Pabyosicoin Special", " ", "PCS"], ["Bullshitcoin", " ", "BULLS"], ["NetBit", " ", "NBX"], ["Wowclassic", " ", "WCL"], ["ALLION", " ", "ALL"], ["Uniform Fiscal Object", " ", "UFO"], ["Fedoracoin", " ", "TIPS"], ["Tatoocoin", " ", "TSE"], ["BitcoinPlus", " ", "XBC"], ["Greencoin", " ", "GRE"], ["Lunacoin", " ", "LUNA"], ["Eryllium", " ", "ERY"], ["HealthyWormCoin", " ", "WORM"], ["TrumPenceCoin", " ", "TPC"], ["BizCoin", " ", "BIZ"], ["Printerium", " ", "PRX"], ["PureVidz", " ", "VIDZ"], ["Caliphcoin", " ", "CALC"], ["Magnumcoin", " ", "MGM"], ["Komodo", " ", "KMD"], ["Elysium", " ", "ELS"], ["PascalClassic", " ", "XPASC"], ["VirtualCoin", " ", "VC"], ["Hollyweed", " ", "HOLLY"], ["CoronaCoin", " ", "CRN"], ["Centurion Future", " ", "CNTF"], ["GirlsTokenCoin", " ", "XGTC"], ["SolarflareCoin", " ", "SFC"], ["Boat", " ", "BOAT"], ["Geertcoin", " ", "GEERT"], ["Neuron", " ", "NRN"], ["RenosCoin", " ", "RNS"], ["Arguscoin", " ", "ARGUS"], ["GlobalTourCoin", " ", "GTC"], ["BAKEDcoin", " ", "BAKED"], ["CoochieCoin", " ", "COOC"], ["Maxicoin", " ", "MAXI"], ["OneCoin", " ", "OC"], ["AnarchistsPrime", " ", "ACP"], ["GlobalToken", " ", "GLT"], ["Honey", " ", "HONEY"], ["Gambleo", " ", "GMB"], ["ScryptDashCoin", " ", "SDASH"], ["MasterSwisCoin", " ", "MSCN"], ["EbitTreeCoin", " ", "EBT"], ["TristarCoin", " ", "TSTR"], ["Huncoin", " ", "HNC"], ["Zsecoin", " ", "ZSE"], ["ImpactCoin", " ", "IMX"], ["MonetaryUnit", " ", "MUE"], ["Dash", " ", "DASH"], ["OGNCoin", " ", "OGN"], ["Coinonat", " ", "CXT"], ["TattoocoinLimitedEdition", " ", "TLE"], ["PutinCoin", " ", "PUT"], ["MentalHealthCoin", " ", "MENTAL"], ["BlazerCoin", " ", "BLAZR"], ["Solaris", " ", "XLR"], ["TorCoin", " ", "TOR"], ["Beonpush", " ", "BOPS"], ["Happycoin", " ", "HPC"], ["Cannation", " ", "CNNC"], ["Vsync", " ", "XVS"], ["Guficoin", " ", "GFC"], ["UnitCurrency", " ", "UNIT"], ["ECC", " ", "ECC"], ["Rupee", " ", "RUP"], ["Pivx", " ", "PIVX"], ["Groestlcoin", " ", "GRS"], ["Trancecoin", " ", "TRANCE"], ["MiloCoin", " ", "MILO"], ["Hodlcoin", " ", "HODL"], ["Condensate", " ", "RAIN"], ["Halloweencoin", " ", "HALLO"], ["PoSWCoin", " ", "POSW"], ["Equitrader", " ", "EQT"], ["CreativeCoin", " ", "CREA"], ["TopazCoin", " ", "TOPAZ"], ["TreauxCoin", " ", "TRUX"], ["Zennies", " ", "ZENI"], ["InsaneCoin", " ", "INSN"], ["DigitalMoneyBits", " ", "DMB"], ["T-Coin", " ", "TCOIN"], ["Mooncoin", " ", "MOON"], ["CACHeCoin", " ", "CACH"], ["CoinMiningIndex", " ", "CMX"], ["GreenFingers", " ", "GREENF"], ["Coupecoin", " ", "COUPE"], ["E-Coin", " ", "ECN"], ["TerraNovaCoin", " ", "TER"], ["Ammo Reloaded", " ", "AMMO"], ["PirateBlocks", " ", "SKULL"], ["Neuro", " ", "NRO"], ["Linx", " ", "LINX"], ["RuneStoneCoin", " ", "RUNE"], ["CBit", " ", "XCT"], ["SixEleven", " ", "611"], ["HarmonyCoin", " ", "HMC"], ["CheapCoin", " ", "CHEAP"], ["RevolutionVR", " ", "RVR"], ["BitcoinPlanet", " ", "BTPL"], ["Antimatter", " ", "ANTX"], ["RoundCoin", " ", "RDC"], ["DariCoin", " ", "DARI"], ["StackBIT", " ", "SBIT"], ["TurboCoin", " ", "TURBO"], ["EuropeUnited", " ", "EUROP"], ["Remicoin", " ", "RMC"], ["Denarius", " ", "DNR"], ["CycloneCoin", " ", "CYCLONE"], ["Futurxe", " ", "FXE"], ["Slevin", " ", "SLEVIN"], ["GoldPieces", " ", "GP"], ["WomenCoin", " ", "WOMEN"], ["USACoin", " ", "USA"], ["SurgeCoin", " ", "SURGE"], ["Token-as-a-Service", " ", "TAAS"], ["Shitcoin", " ", "SHIT"], ["Goodomy", " ", "GOOD"], ["Primulon", " ", "PRIMU"], ["KangarooBits", " ", "KGB"], ["LindaCoin", " ", "LINDA"], ["Skoincoin", " ", "SKOIN"], ["Dimecoin", " ", "DIME"], ["iDice", " ", "ICE"], ["Crimsoncoin", " ", "CRMSN"], ["NoLimitCoin", " ", "NLC2"], ["CampusCoin", " ", "CMPCO"], ["Ethernex", " ", "ETN"], ["UpscaleToken", " ", "UP"], ["Boleno", " ", "BLN"], ["Hubcoin", " ", "HUB"], ["Ethos", " ", "ETHOS"], ["Coimatic2", " ", "CTIC2"], ["EthereumLink", " ", "LNK"], ["JediCoin", " ", "JEDI"], ["BitSoar", " ", "BSR"], ["Disse", " ", "DSE"], ["Hyper", " ", "HYPER"], ["InfoCoin", " ", "INFO"], ["BirdsCoin", " ", "BIRDS"], ["BitcoinMetal", " ", "BCM"], ["JapanCoin", " ", "JAPAN"], ["MarsBux", " ", "MARS"], ["BCash", " ", "BCH"], ["WinkCoin", " ", "WINK"], ["Koicoin", " ", "KOI"], ["ILCoin", " ", "ILC"], ["SmartCash", " ", "SMART"], ["JynErso", " ", "ERSO"], ["RCoin", " ", "IBC"], ["AgriNovusCoin", " ", "AGRI"], ["Etheriya", " ", "RIYA"], ["Visio", " ", "VISIO"], ["Runners", " ", "RUNNERS"], ["CoinonatX", " ", "XCXT"], ["NumusCash", " ", "NUMUS"], ["Aseancoin", " ", "ASN"], ["Buzzcoin", " ", "BUZZ"], ["PlayerCoin", " ", "PLACO"], ["IndiaCoin", " ", "INDIA"], ["SnowCoin", " ", "SNOW"], ["XTDCoin", " ", "XTD"], ["Bixc", " ", "BIXC"], ["LasVegasCoin", " ", "VGS"], ["MyBit Token", " ", "MYB"], ["MarsBux2", " ", "MARS2"], ["Brother", " ", "BRAT"], ["PeaceCoin3.6", " ", "PEC"], ["HealthyFoodProgram", " ", "HEALTHY"], ["eBullionCoin", " ", "EBC"], ["Protean", " ", "PRN"], ["TheresaMayCoin", " ", "MAY"], ["UlaTech", " ", "ULA"], ["Phillion", " ", "PHN"], ["InvestFeed", " ", "IFT"], ["Cyder", " ", "CYDER"], ["Bitdeal", " ", "BDL"], ["XYZCoin", " ", "XYZ"], ["VsyncX", " ", "VSX"], ["Fujinto", " ", "NTO"], ["DaleCoin", " ", "DALC"], ["DutchCoin", " ", "DUTCH"], ["Terracoin", " ", "TRC"], ["UKCoin", " ", "UK"], ["Hopecoin", " ", "HOPE"], ["Bitqy", " ", "BQ"], ["Pariscoin", " ", "PARIS"], ["Dentacoin", " ", "DCN"], ["DigitalPrice", " ", "DP"], ["Adshares", " ", "ADST"], ["Magnatum", " ", "MGT"], ["Daneton", " ", "DNE"], ["Iquant", " ", "IQT"], ["AnyChain", " ", "ANC"], ["LIFE", " ", "LIFE"], ["Chips", " ", "CHIPS"], ["Beerhouse", " ", "BEER"], ["Adcoin", " ", "ACC"], ["Monetha", " ", "MTH"], ["Mothership", " ", "MSP"], ["ProspectorsGold", " ", "PGL"], ["Neulaut", " ", "NUA"], ["Kayicoin", " ", "KAYI"], ["Playwincoin", " ", "PWC"], ["Unify", " ", "UNIFY"], ["DFSCoin", " ", "DFS"], ["Targetcoin", " ", "TGT"], ["GreenEnergyToken", " ", "GET"], ["Elixir", " ", "ELIX"], ["Vulcanocoin", " ", "VULCANO"], ["Monoeci", " ", "XMCC"], ["Lampix", " ", "PIX"], ["Mobozcoin", " ", "MBC"], ["Porntoken", " ", "PT"], ["CryptoBank", " ", "CBANK"], ["Ethbits", " ", "ETBS"], ["Loopring", " ", "LRC"], ["RoyalBritishLegion", " ", "RBL"], ["The Basis", " ", "TBS"], ["ALIS", " ", "ALIS"], ["Regalcoin", " ", "REC"], ["DetectorToken", " ", "DTCT"], ["Voise", " ", "VOISE"], ["Jetcoin", " ", "JET"], ["Internxt", " ", "INXT"], ["Bastone", " ", "BSN"], ["GoldenCryptoCoin", " ", "GDC"], ["Flik", " ", "FLIK"], ["Social", " ", "SCL"], ["Natcoin", " ", "NTC"], [" imbrex", " ", "REX"], ["TPICoin", " ", "TPI"], ["MalaysiaCoin", " ", "MALC"], ["AkuyaCoin", " ", "AKY"], ["Luckcoin", " ", "LUCK"], ["Minex", " ", "MINEX"], ["Roofs", " ", "ROOFS"], ["EthereumGold", " ", "ETG"], ["FAPcoin", " ", "FAP"], ["Qtum", " ", "QTUM"], ["Bitbase", " ", "BTBC"], ["Highgain", " ", "HIGH"], ["Postoken", " ", "POS"], ["Pure", " ", "PURE"], ["Lambocoin", " ", "LAMBO"], ["Initial Coin Offering Token", " ", "ICOT"], ["StarCash", " ", "STARS"], ["GlassCoin", " ", "GLS"], ["ACoin", " ", "ACO"], ["Code47", " ", "C47"], ["BitSerial", " ", "BTE"], ["GreenMed", " ", "GRMD"], ["NeoGold", " ", "NEOG"], ["Magnet", " ", "MAG"], ["Solar", " ", "SOLAR"], ["SISA", " ", "SISA"], ["ZoZoCoin", " ", "ZZC"], ["SugarExchange", " ", "SGR"], ["PlexCoin", " ", "PLX"], ["Manutax", " ", "MUX"], ["LAToken", " ", "LA"], ["BillionaireToken", " ", "XBL"], ["CredenceCoin", " ", "CRDNC"], ["CommodityAdNetwork", " ", "CDX"], ["GoldRewardToken", " ", "GRX"], ["TigerCoin", " ", "TIGER"], ["Zlancer", " ", "ZCG"], ["Stox", " ", "STX"], ["Blue Protocol", " ", "BLUE"], ["PlaykeyToken", " ", "PKT"], ["ELTCoin", " ", "ELT"], ["PitisCoin", " ", "PTS"], ["SMSCoin", " ", "SMS"], ["MIPSToken", " ", "MIPS"], ["BitcoinRed", " ", "BTCRED"], ["ClimateCoin", " ", "CO2"], ["DashGold", " ", "DAG"], ["UquidCoin", " ", "UQC"], ["GoByte", " ", "GBX"], ["HarvestCoin", " ", "HC"], ["eSportsRewardToken", " ", "ERT"], ["Superman", " ", "SUPERMAN"], ["Microbyte", " ", "MCB"], ["Bonpay", " ", "BONPAY"], ["BinaryCoin", " ", "BRC"], ["Equal", " ", "EQL"], ["BitFinTech", " ", "BFI"], ["Presearch", " ", "PRE"], ["MatrixCoin", " ", "MXC"], ["Nucleon", " ", "NEON"], ["Xgox", " ", "XGOX"], ["DavorCoin", " ", "DAV"], ["EnterCoin", " ", "ENTRC"], ["B2B", " ", "B2B"], ["OysterPearl", " ", "PRL"], ["ExtensiveCoin", " ", "EXTN"], ["HomeBlockCoin", " ", "HBC"], ["DragonChain", " ", "DRGN"], ["Swisscoin", " ", "SIC"], ["SwisscoinCash", " ", "SWC"], ["Scorecoin", " ", "SCORE"], ["Steneum", " ", "STN"], ["B3Coin", " ", "KB3"], ["Crackers", " ", "CRACKERS"], ["MinexCoin", " ", "MNX"], ["Lizus Payments", " ", "LIZ"], ["Flash", " ", "FLASH"], ["Desire", " ", "DSR"], ["Diverse", " ", "DVRS"], ["MUNcoin", " ", "MUN"], ["eBitcoin", " ", "EBTC"], ["EcoToken", " ", "ECOT"], ["Accelerator", " ", "ACCL"], ["Crave", " ", "CRAVE"], ["Quantum Resistance Ledger", " ", "QRL"], ["Tune", " ", "TUN"], ["Shield", " ", "XSH"], ["Draftcoin", " ", "DFT"], ["Gainer Coin", " ", "GNR"], ["Qurito", " ", "QURO"], ["Foodcoin", " ", "FOOD"], ["Worldcore", " ", "WRC"], ["Argo", " ", "ARGO"], ["Bitclave", " ", "CAT"], ["Bitcoin Hush", " ", "BTCH"], ["Simplicity", " ", "SPL"], ["BitRewards", " ", "XBR"], ["BitCrownCoin", " ", "BCW"], ["Cropcoin", " ", "CROP"], ["Mamcoin", " ", "MAM"], ["BITTX", " ", "BX"], ["Trident Group", " ", "TRDT"], ["Upfiring", " ", "UFR"], ["Infinex", " ", "IFX"], ["Valuto", " ", "VLU"], ["Bitcoin Green", " ", "BITG"], ["ALQO", " ", "ALQO"], ["Coinlancer", " ", "CL"], ["Jesus Coin", " ", "JC"], ["DV7 Coin", " ", "DV7"], ["SBucksToken", " ", "SBT"], ["Folm", " ", "FLM"], ["HADE Platform", " ", "HADE"], ["Loom Network", " ", "LOOM"], ["Deviant", " ", "DEV"], ["NANJCOIN", " ", "NANJ"], ["WorldBTC", " ", "WBTC"], ["ATFS", " ", "ATFS"], ["Nomad", " ", "NMD"], ["BarterDEX", " ", "DEX"], ["SuperNET", " ", "UNITY"], ["EWangBiCoin", " ", "EWC"], ["Arion", " ", "ARION"], ["Nihilo Coin", " ", "NIHL"], ["Apollon", " ", "XAP"], ["NAU", " ", "ENAU"], ["Ignition", " ", "IC"], ["Bitcore", " ", "BTX"], ["BitSend", " ", "BSD"], ["EuropeCoin", " ", "ERC"], ["HousingCoin", " ", "HOUSING"], ["Hara", " ", "HRC"], ["Paycentos", " ", "PYN"], ["Ormeus Coin", " ", "ORME"], ["Request Network", " ", "REQ"], ["OmiseGO", " ", "OMG"], ["EOS", " ", "EOS"], ["VeChain", " ", "VEN"], ["Pulsar", " ", "PLSR"], ["TRON", " ", "TRX"], ["PACcoin", " ", "PAC"], ["Verge", " ", "XVG"], ["Japan Brand Coin", " ", "JBC"], ["ERA", " ", "ERA"], ["SipsCo", " ", "SIPS"], ["Mithril", " ", "MITH"], ["Golem", " ", "GNT"], ["Populous", " ", "PPT"], ["FitCoin", " ", "FIT"], ["Vereum", " ", "VMC"], ["SENYO", " ", "SENYO"], ["SyncFab", " ", "MFG"], ["VIPSTARCOIN", " ", "VIPS"], ["OLDV", " ", "OLV"], ["Bitbase", " ", "BTBc"], ["B3Coin", " ", "kB3"], ["Crypto Improvement Fund", " ", "CIF"], ["ExchangeCoin", " ", "EXCC"], ["NAU", " ", "eNAU"], ["KyberNetworkCrystal", " ", "KNC"], ["SpankChain", " ", "SPANK"], ["PowerLedger", " ", "POWR"], ["Substratum", " ", "SUB"], ["CryptoNationZ", " ", "CNZ"], ["FantasyGold", " ", "FGC"], ["Coimatic 3", " ", "CTIC3"], ["FLANDERS", " ", "FLANDERS"], ["Tellion", " ", "TLL"], ["APR Coin", " ", "APR"], ["CAZ Coin", " ", "CAZ"], ["Exsolution", " ", "EXT"], ["Energi", " ", "NRG"], ["Fitrova", " ", "FRV"], ["NR1", " ", "NR1"], ["IBTCOIN", " ", "IBT"]];
 
     return {
         COINEXCHANGE: COINEXCHANGE
@@ -18243,7 +18603,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var CRYPTOPIA = [["Money", " ", "$$$"], ["$PAC", " ", "$PAC"], ["Elite", " ", "1337"], ["21Million", " ", "21M"], ["300 Token", " ", "300"], ["42-coin", " ", "42"], ["SixEleven", " ", "611"], ["808", " ", "808"], ["OctoCoin", " ", "888"], ["8Bit", " ", "8BIT"], ["Alphabit", " ", "ABC"], ["ArtByte", " ", "ABY"], ["Asiacoin", " ", "AC"], ["AC3", " ", "AC3"], ["Adcoin", " ", "ACC"], ["ACoin", " ", "ACOIN"], ["AudioCoin", " ", "ADC"], ["Adshares", " ", "ADST"], ["AmigaCoin", " ", "AGA"], ["Alexandrite", " ", "ALEX"], ["ALIS", " ", "ALIS"], ["Allion", " ", "ALL"], ["AltCoin", " ", "ALT"], ["Synereo AMP", " ", "AMP"], ["AnimeCoin", " ", "ANI"], ["APX", " ", "APX"], ["ArcticCoin", " ", "ARC"], ["AquariusCoin", " ", "ARCO"], ["Argentum", " ", "ARG"], ["ArgusCoin", " ", "ARGUS"], ["Aricoin", " ", "ARI"], ["Ark", " ", "ARK"], ["Athenian Warrior Token", " ", "ATH"], ["Atmos", " ", "ATMOS"], ["Atomiccoin", " ", "ATOM"], ["AurumCoin", " ", "AU"], ["AuroraCoin", " ", "AUR"], ["Aureus", " ", "AURS"], ["BatCoin", " ", "BAT"], ["BitBay", " ", "BAY"], ["Bitcoin Fast", " ", "BCF"], ["BCash", " ", "BCH"], ["BlockMason", " ", "BCPT"], ["BitDeal", " ", "BDL"], ["Bean Cash", " ", "BEAN"], ["BeezerCoin", " ", "BEEZ"], ["BenjiRolls", " ", "BENJI"], ["BERNcash", " ", "BERN"], ["BestChain", " ", "BEST"], ["Bongger", " ", "BGR"], ["BipCoin", " ", "BIP"], ["BirdCoin", " ", "BIRD"], ["Bismuth", " ", "BIS"], ["Bitcoin Green", " ", "BITG"], ["Bitstar", " ", "BITS"], ["BlockCat", " ", "BKCAT"], ["Blakecoin", " ", "BLC"], ["BlackCoin", " ", "BLK"], ["Blocknet", " ", "BLOCK"], ["BlazeCoin", " ", "BLZ"], ["BraveNewCoin", " ", "BNC"], ["BnrtxCoin", " ", "BNX"], ["BolivarCoin", " ", "BOLI"], ["Bonpay", " ", "BON"], ["BlockOptions", " ", "BOP"], ["Blockpool", " ", "BPL"], ["BorgCoin", " ", "BRG"], ["Bitradio", " ", "BRO"], ["BitSend", " ", "BSD"], ["GlobalBoost-Y", " ", "BSTY"], ["BATA", " ", "BTA"], ["BitBar", " ", "BTB"], ["BitcoinDark", " ", "BTCD"], ["Bitcoin Scrypt", " ", "BTCS"], ["Bitcloud", " ", "BTDX"], ["Bitgem", " ", "BTG"], ["Bytom", " ", "BTM"], ["BitCore", " ", "BTX"], ["SwagBucks", " ", "BUCKS"], ["Bumbacoin", " ", "BUMBA"], ["BunnyCoin", " ", "BUN"], ["BVBCoin", " ", "BVB"], ["Bulwark", " ", "BWK"], ["Bitcedi", " ", "BXC"], ["Coin2", " ", "C2"], ["CacheCoin", " ", "CACH"], ["CanYa", " ", "CAN"], ["Cannabiscoin", " ", "CANN"], ["Cappasity", " ", "CAPP"], ["CareerCoin", " ", "CAR"], ["Catcoin", " ", "CAT"], ["Bullion", " ", "CBX"], ["CoolInDarkCoin", " ", "CC"], ["CryptoClub", " ", "CCB"], ["CannaCoin", " ", "CCN"], ["Canada eCoin", " ", "CDN"], ["CryptopiaFeeShare", " ", "CEFS"], ["Centrality", " ", "CENNZ"], ["CoffeeCoin", " ", "CFC"], ["ChanCoin", " ", "CHAN"], ["ChainCoin", " ", "CHC"], ["ChessCoin", " ", "CHESS"], ["CryptoJacks", " ", "CJ"], ["Coinlancer", " ", "CL"], ["ClamCoin", " ", "CLAM"], ["CloakCoin", " ", "CLOAK"], ["CompCoin", " ", "CMP"], ["CampusCoin", " ", "CMPCO"], ["CometCoin", " ", "CMT"], ["Cannation", " ", "CNNC"], ["Coino", " ", "CNO"], ["Bitcoal", " ", "COAL"], ["ColossusXT", " ", "COLX"], ["Compound Coin", " ", "COMP"], ["PayCon", " ", "CON"], ["CopperCoin", " ", "COPPER"], ["Corion", " ", "COR"], ["CompuCoin", " ", "CPN"], ["ConquestCoin", " ", "CQST"], ["Crave", " ", "CRAVE"], ["CrowdCoin", " ", "CRC"], ["CreativeCoin", " ", "CREA"], ["CREAMcoin", " ", "CRM"], ["CryptoRuble", " ", "CRUR"], ["ChronosCoin", " ", "CRX"], ["CryptCoin", " ", "CRYPT"], ["Coimatic 3", " ", "CTIC3"], ["Coinonat", " ", "CXT"], ["DALECOIN", " ", "DALC"], ["DARK", " ", "DARK"], ["DA$", " ", "DAS"], ["Dash", " ", "DASH"], ["DaxxCoin", " ", "DAXX"], ["DecentBet", " ", "DBET"], ["DubaiCoin", " ", "DBIX"], ["Dentacoin", " ", "DCN"], ["Decred", " ", "DCR"], ["DinastyCoin", " ", "DCY"], ["DDF", " ", "DDF"], ["Deutsche eMark", " ", "DEM"], ["Deuscoin", " ", "DEUS"], ["Deviant", " ", "DEV"], ["DigiByte", " ", "DGB"], ["Digitalcoin", " ", "DGC"], ["DigiPulse", " ", "DGPT"], ["Dimecoin", " ", "DIME"], ["Divi Exchange Token", " ", "DIVX"], ["GeneChain", " ", "DNA"], ["Denarius", " ", "DNR"], ["Dogecoin", " ", "DOGE"], ["DonationCoin", " ", "DON"], ["DopeCoin", " ", "DOPE"], ["Dotcoin", " ", "DOT"], ["DigitalPrice", " ", "DP"], ["DA Power Play", " ", "DPP"], ["DCORP", " ", "DRP"], ["DRP Utility", " ", "DRPU"], ["Droxne", " ", "DRXNE"], ["Parallelcoin", " ", "DUO"], ["EmbargoCoin", " ", "EBG"], ["Eclipse", " ", "EC"], ["Electra", " ", "ECA"], ["ECOcoin", " ", "ECO"], ["EcoBit", " ", "ECOB"], ["EducoinV", " ", "EDC"], ["Eddiecoin", " ", "EDDIE"], ["EDRcoin", " ", "EDRC"], ["E-Gulden", " ", "EFL"], ["EverGreenCoin", " ", "EGC"], ["ElaCoin", " ", "ELC"], ["Ellaism", " ", "ELLA"], ["Elements", " ", "ELM"], ["EmerCoin", " ", "EMC"], ["Einsteinium", " ", "EMC2"], ["Emerald Crypto", " ", "EMD"], ["Enjin Coin", " ", "ENJ"], ["ExperienceCoin", " ", "EPC"], ["Equitrade", " ", "EQT"], ["Eryllium", " ", "ERY"], ["Ethereum Classic", " ", "ETC"], ["Ethereum", " ", "ETH"], ["Ethereum Dark", " ", "ETHD"], ["Electroneum", " ", "ETN"], ["EncryptoTel", " ", "ETT"], ["Eurocoin", " ", "EUC"], ["Evilcoin", " ", "EVIL"], ["Evotion", " ", "EVO"], ["Everus", " ", "EVR"], ["Expanse", " ", "EXP"], ["FuelCoin", " ", "FC2"], ["FacileCoin", " ", "FCN"], ["Factom", " ", "FCT"], ["FireFlyCoin", " ", "FFC"], ["FujiCoin", " ", "FJC"], ["FLASH", " ", "FLASH"], ["Flaxscript", " ", "FLAX"], ["FloripaCoin", " ", "FLN"], ["FlutterCoin", " ", "FLT"], ["FonzieCoin", " ", "FONZ"], ["Fortcoin", " ", "FORT"], ["FireRoosterCoin", " ", "FRC"], ["Francs", " ", "FRN"], ["FastCoin", " ", "FST"], ["Feathercoin", " ", "FTC"], ["FeatherCoinClassic", " ", "FTCC"], ["Cypherfunks", " ", "FUNK"], ["Futereum X", " ", "FUTX"], ["FuzzBalls", " ", "FUZZ"], ["GaiaCoin", " ", "GAIA"], ["GameCredits", " ", "GAME"], ["Gapcoin", " ", "GAP"], ["GayMoney", " ", "GAY"], ["GoByte", " ", "GBX"], ["Byteball Bytes", " ", "GBYTE"], ["GCoin", " ", "GCN"], ["GrandCoin", " ", "GDC"], ["GeertCoin", " ", "GEERT"], ["GeoCoin", " ", "GEO"], ["GoldCoin", " ", "GLD"], ["Gnosis", " ", "GNO"], ["Gainer", " ", "GNR"], ["Golem", " ", "GNT"], ["GoldPieces", " ", "GP"], ["GoldPressedLatinum ", " ", "GPL"], ["GPUCoin", " ", "GPU"], ["Granite", " ", "GRN"], ["Groestlcoin", " ", "GRS"], ["GrowthCoin", " ", "GRW"], ["Growers Intl", " ", "GRWI"], ["GunCoin", " ", "GUN"], ["GroinCoin", " ", "GXG"], ["Hackspace", " ", "HAC"], ["Halcyon", " ", "HAL"], ["Havecoin", " ", "HAV"], ["HomeblockCoin", " ", "HBC"], ["HoboNickels", " ", "HBN"], ["HarvestCoin", " ", "HC"], ["HodlBucks", " ", "HDLB"], ["HeatLedger", " ", "HEAT"], ["Helium", " ", "HLM"], ["InterstellarHoldings", " ", "HOLD"], ["HSHARE", " ", "HSR"], ["Decision Token", " ", "HST"], ["Hush", " ", "HUSH"], ["HexxCoin", " ", "HXX"], ["HyperStake", " ", "HYP"], ["I0Coin", " ", "I0C"], ["IgnitionCoin", " ", "IC"], ["ICOBid", " ", "ICOB"], ["InflationCoin", " ", "IFLT"], ["investFeed", " ", "IFT"], ["Independent Money System", " ", "IMS"], ["InCoin", " ", "IN"], ["Influxcoin", " ", "INFX"], ["Innova", " ", "INN"], ["InPay", " ", "INPAY"], ["Insane", " ", "INSN"], ["Iquant Chain", " ", "IQT"], ["IrishCoin", " ", "IRL"], ["ItiCoin", " ", "ITI"], ["IXCoin", " ", "IXC"], ["IZEcoin", " ", "IZE"], ["KashCoin", " ", "KASH"], ["Kayicoin", " ", "KAYI"], ["Kubera", " ", "KBR"], ["KlondikeCoin", " ", "KDC"], ["Darsek", " ", "KED"], ["Kekcoin", " ", "KEK"], ["KangarooBits", " ", "KGB"], ["King93", " ", "KING"], ["Komodo", " ", "KMD"], ["KyberNetworkCrystal", " ", "KNC"], ["KoboCoin", " ", "KOBO"], ["Karbo", " ", "KRB"], ["Kronecoin", " ", "KRONE"], ["KumaCoin", " ", "KUMA"], ["Kurrent", " ", "KURT"], ["KushCoin", " ", "KUSH"], ["LanaCoin", " ", "LANA"], ["LBRY Credits", " ", "LBC"], ["LiteBitcoin", " ", "LBTC"], ["litecoinPlus", " ", "LCP"], ["LADACoin", " ", "LDC"], ["LiteDoge", " ", "LDOGE"], ["LeaCoin", " ", "LEA"], ["Leafcoin", " ", "LEAF"], ["LemonCoin", " ", "LEMON"], ["LFTCCoin", " ", "LFTC"], ["Lina", " ", "LINA"], ["LindaCoin", " ", "LINDA"], ["Linx", " ", "LINX"], ["Lithiumcoin", " ", "LIT"], ["LiZi", " ", "LIZI"], ["Lottocoin", " ", "LOT"], ["LiteBar", " ", "LTB"], ["Litecoin", " ", "LTC"], ["LitecoinUltra", " ", "LTCU"], ["Luxcoin", " ", "LUX"], ["Lycancoin", " ", "LYC"], ["Lynx", " ", "LYNX"], ["MachineCoin", " ", "MAC"], ["Magnet", " ", "MAG"], ["MagicCoin", " ", "MAGE"], ["MagnetCoin", " ", "MAGN"], ["MaidSafeCoin", " ", "MAID"], ["MarijuanaCoin", " ", "MAR"], ["Bitmark", " ", "MARKS"], ["Mars", " ", "MARS"], ["MarxCoin", " ", "MARX"], ["MatrixCoin", " ", "MATRX"], ["Embers", " ", "MBRS"], ["Musiconomi", " ", "MCI"], ["Macron", " ", "MCRN"], ["MegaCoin", " ", "MEC"], ["MobileGo", " ", "MGO"], ["MegaX", " ", "MGX"], ["Minex", " ", "MINEX"], ["Mintcoin", " ", "MINT"], ["Melite", " ", "MLITE"], ["Minereum", " ", "MNE"], ["Mineum", " ", "MNM"], ["MOIN", " ", "MOIN"], ["MojoCoin", " ", "MOJO"], ["MonkeyProject", " ", "MONK"], ["MotoCoin", " ", "MOTO"], ["Mothership", " ", "MSP"], ["Mustangcoin", " ", "MST"], ["Metal", " ", "MTL"], ["MetalMusicCoin", " ", "MTLMC"], ["MasterNodeCoin", " ", "MTNC"], ["Musicoin", " ", "MUSIC"], ["MyBit", " ", "MYB"], ["MazaCoin", " ", "MZC"], ["NAMO COIN", " ", "NAMO"], ["NavCoin", " ", "NAV"], ["NeuroDAO", " ", "NDAO"], ["Neblio", " ", "NEBL"], ["Neo", " ", "NEO"], ["NetCoin", " ", "NET"], ["Netko", " ", "NETKO"], ["NevaCoin", " ", "NEVA"], ["Incakoin", " ", "NKA"], ["NoLimitCoin", " ", "NLC2"], ["NameCoin", " ", "NMC"], ["Numus", " ", "NMS"], ["NobleCoin", " ", "NOBL"], ["Neutron", " ", "NTRN"], ["NovaCoin", " ", "NVC"], ["Nexus", " ", "NXS"], ["NyanCoin", " ", "NYAN"], ["Obsidian", " ", "ODN"], ["Cthulhu Offerings", " ", "OFF"], ["OKCash", " ", "OK"], ["OmiseGo", " ", "OMG"], ["DeepOnion", " ", "ONION"], ["Om", " ", "OOO"], ["Opalcoin", " ", "OPAL"], ["OP Coin", " ", "OPC"], ["OrbitCoin", " ", "ORB"], ["Galactrum", " ", "ORE"], ["OrmeusCoin", " ", "ORME"], ["Open Source Coin", " ", "OSC"], ["Open Trading Network", " ", "OTN"], ["OX Fina", " ", "OX"], ["OzzieCoin", " ", "OZC"], ["PakCoin", " ", "PAK"], ["PascalLite", " ", "PASL"], ["TenX", " ", "PAY"], ["Publica", " ", "PBL"], ["PolishCoin", " ", "PCC"], ["PioneerCoin", " ", "PCOIN"], ["Penguin", " ", "PENG"], ["PepeCoin", " ", "PEPE"], ["Photon", " ", "PHO"], ["Phore", " ", "PHR"], ["PhilosopherStone", " ", "PHS"], ["PiggyCoin", " ", "PIGGY"], ["PinkCoin", " ", "PINK"], ["Pirl", " ", "PIRL"], ["PIVX", " ", "PIVX"], ["Polcoin", " ", "PLC"], ["Pillar", " ", "PLR"], ["PlexCoin", " ", "PLX"], ["PandaCoin", " ", "PND"], ["Polis", " ", "POLIS"], ["ClearPoll", " ", "POLL"], ["PopularCoin", " ", "POP"], ["PostCoin", " ", "POST"], ["Potcoin", " ", "POT"], ["PowerLedger", " ", "POWR"], ["PeerCoin", " ", "PPC"], ["Prototanium", " ", "PR"], ["OysterPearl", " ", "PRL"], ["ProCurrency", " ", "PROC"], ["PesetaCoin", " ", "PTC"], ["Pura", " ", "PURA"], ["PutinCoin", " ", "PUT"], ["PhoenixCoin", " ", "PXC"], ["Prime-XI", " ", "PXI"], ["Qubitcoin", " ", "Q2C"], ["Cubits", " ", "QBT"], ["Quark", " ", "QRK"], ["Quatloo", " ", "QTL"], ["Qwark", " ", "QWARK"], ["Revain", " ", "R"], ["Condensate", " ", "RAIN"], ["Rabbitcoin", " ", "RBBT"], ["Rimbit", " ", "RBT"], ["RubyCoin", " ", "RBY"], ["RussiaCoin", " ", "RC"], ["Reddcoin", " ", "RDD"], ["RedCoin", " ", "RED"], ["Augur", " ", "REP"], ["PickleRicks", " ", "RICKS"], ["Etheriya", " ", "RIYA"], ["RoyalKingdomCoin", " ", "RKC"], ["RenosCoin", " ", "RNS"], ["RonPaulCoin", " ", "RPC"], ["Rupee", " ", "RUP"], ["SagaCoin", " ", "SAGA"], ["SharkCoin", " ", "SAK"], ["BeachCoin", " ", "SAND"], ["SBC Coin", " ", "SBC"], ["Sociall", " ", "SCL"], ["Soma", " ", "SCT"], ["Senderon", " ", "SDRN"], ["Selencoin", " ", "SEL"], ["SocialSend", " ", "SEND"], ["SolarflareCoin", " ", "SFC"], ["SHACoin2", " ", "SHA"], ["Shrooms", " ", "SHRM"], ["SiberianChervonets", " ", "SIB"], ["SJWCoin", " ", "SJW"], ["SkeinCoin", " ", "SKC"], ["SkinCoin", " ", "SKIN"], ["SakuraCoin", " ", "SKR"], ["Skrilla", " ", "SKRL"], ["Skycoin", " ", "SKY"], ["Sterlingcoin", " ", "SLG"], ["SlothCoin", " ", "SLOTH"], ["SmartCoin", " ", "SMC"], ["SoilCoin", " ", "SOIL"], ["Songcoin", " ", "SONG"], ["SoonCoin", " ", "SOON"], ["SpaceCoin", " ", "SPACE"], ["SpankChain", " ", "SPANK"], ["SpartanCoin", " ", "SPN"], ["SpreadCoin", " ", "SPR"], ["Spots", " ", "SPT"], ["SquallCoin", " ", "SQL"], ["SecureCoin", " ", "SRC"], ["StartCoin", " ", "START"], ["StopTrumpCoin", " ", "STC"], ["Steneum", " ", "STN"], ["Stratis", " ", "STRAT"], ["StarCredits", " ", "STRC"], ["Sativacoin", " ", "STV"], ["Sumokoin", " ", "SUMO"], ["Swingcoin", " ", "SWING"], ["Sexcoin", " ", "SXC"], ["Tajcoin", " ", "TAJ"], ["TEKcoin", " ", "TEK"], ["TerraNova", " ", "TER"], ["TeslaCoin", " ", "TES"], ["TigerCoin", " ", "TGC"], ["TitCoin", " ", "TIT"], ["Blocktix", " ", "TIX"], ["TOACoin", " ", "TOA"], ["TokugawaCoin", " ", "TOK"], ["TopCoin", " ", "TOP"], ["TurboStake", " ", "TRBO"], ["TerraCoin", " ", "TRC"], ["Triangles", " ", "TRI"], ["TruckCoin", " ", "TRK"], ["Trumpcoin", " ", "TRUMP"], ["Tron", " ", "TRX"], ["TattooCoin", " ", "TSE"], ["TittieCoin", " ", "TTC"], ["Trinity", " ", "TTY"], ["TransferCoin", " ", "TX"], ["Trezarcoin", " ", "TZC"], ["Ubiq", " ", "UBQ"], ["Upfiring", " ", "UFR"], ["Unitus", " ", "UIS"], ["UniversalMolecule", " ", "UMO"], ["UniCoin", " ", "UNIC"], ["Unify", " ", "UNIFY"], ["UniversalCurrency", " ", "UNIT"], ["GameUnits", " ", "UNITS"], ["Unobtanium", " ", "UNO"], ["UR", " ", "UR"], ["Ultracoin", " ", "UTC"], ["Version", " ", "V"], ["Vade", " ", "VADE"], ["VaderCorpCoin", " ", "VCC"], ["PureVidz", " ", "VIDZ"], ["Vice Industry Token", " ", "VIT"], ["Vivo", " ", "VIVO"], ["VOISE", " ", "VOISE"], ["VapersCoin", " ", "VPRC"], ["VeriCoin", " ", "VRC"], ["Verium", " ", "VRM"], ["VirtaUniqueCoin", " ", "VUC"], ["Wincoin", " ", "WC"], ["WorldCoin", " ", "WDC"], ["Weed", " ", "WEED"], ["WildCrypto", " ", "WILD"], ["MyWishToken", " ", "WISH"], ["WirelessCoin", " ", "WLC"], ["WarCoin", " ", "WRC"], ["Wispr", " ", "WSP"], ["WeAreSatoshi", " ", "WSX"], ["WayaWolfCoin", " ", "WW"], ["BitcoinPlus", " ", "XBC"], ["Billionaire Token", " ", "XBL"], ["BeatCoin", " ", "XBTS"], ["XTRABYTES", " ", "XBY"], ["Xcoin", " ", "XCO"], ["COPICO", " ", "XCPO"], ["Creatio", " ", "XCRE"], ["C-bit", " ", "XCT"], ["CoinonatX", " ", "XCXT"], ["NewEconomyMovement", " ", "XEM"], ["FootyCash", " ", "XFT"], ["XGOX", " ", "XGOX"], ["Sphre", " ", "XID"], ["JouleCoin", " ", "XJO"], ["LeviarCoin", " ", "XLC"], ["Monoeci", " ", "XMCC"], ["Magi", " ", "XMG"], ["Monero", " ", "XMR"], ["Myriad", " ", "XMY"], ["Experience Points", " ", "XP"], ["PetroDollar", " ", "XPD"], ["PrimeCoin", " ", "XPM"], ["PlatinumBar", " ", "XPTX"], ["RateCoin", " ", "XRA"], ["Revolvercoin", " ", "XRE"], ["Royalties", " ", "XRY"], ["SpectreCoin", " ", "XSPEC"], ["StealthCoin", " ", "XST"], ["Verge", " ", "XVG"], ["ZCoin", " ", "XZC"], ["YobitCoin", " ", "YOVI"], ["Zap", " ", "ZAP"], ["Zclassic", " ", "ZCL"], ["ZCash", " ", "ZEC"], ["ZeitCoin", " ", "ZEIT"], ["ZenCash", " ", "ZEN"], ["Zero", " ", "ZER"], ["ZetaCoin", " ", "ZET"], ["BitZeny", " ", "ZNY"], ["Zoin", " ", "ZOI"], ["ZSEcoin", " ", "ZSE"]];
+    var CRYPTOPIA = [["Money", " ", "$$$"], ["$PAC", " ", "$PAC"], ["Elite", " ", "1337"], ["21Million", " ", "21M"], ["300 Token", " ", "300"], ["42-coin", " ", "42"], ["SixEleven", " ", "611"], ["808", " ", "808"], ["OctoCoin", " ", "888"], ["8Bit", " ", "8BIT"], ["Alphabit", " ", "ABC"], ["ArtByte", " ", "ABY"], ["Asiacoin", " ", "AC"], ["AC3", " ", "AC3"], ["Adcoin", " ", "ACC"], ["ACoin", " ", "ACOIN"], ["AudioCoin", " ", "ADC"], ["Adshares", " ", "ADST"], ["AmigaCoin", " ", "AGA"], ["Alexandrite", " ", "ALEX"], ["ALIS", " ", "ALIS"], ["Allion", " ", "ALL"], ["AltCoin", " ", "ALT"], ["Synereo AMP", " ", "AMP"], ["AnimeCoin", " ", "ANI"], ["APX", " ", "APX"], ["ArcticCoin", " ", "ARC"], ["AquariusCoin", " ", "ARCO"], ["Argentum", " ", "ARG"], ["ArgusCoin", " ", "ARGUS"], ["Aricoin", " ", "ARI"], ["Ark", " ", "ARK"], ["Athenian Warrior Token", " ", "ATH"], ["Atmos", " ", "ATMOS"], ["Atomiccoin", " ", "ATOM"], ["AurumCoin", " ", "AU"], ["AuroraCoin", " ", "AUR"], ["Aureus", " ", "AURS"], ["BatCoin", " ", "BAT"], ["BitBay", " ", "BAY"], ["Bitcoin Fast", " ", "BCF"], ["BCash", " ", "BCH"], ["BlockMason", " ", "BCPT"], ["BitDeal", " ", "BDL"], ["Bean Cash", " ", "BEAN"], ["BeezerCoin", " ", "BEEZ"], ["BenjiRolls", " ", "BENJI"], ["BERNcash", " ", "BERN"], ["BestChain", " ", "BEST"], ["Bongger", " ", "BGR"], ["BipCoin", " ", "BIP"], ["BirdCoin", " ", "BIRD"], ["Bismuth", " ", "BIS"], ["Bitcoin Green", " ", "BITG"], ["Bitstar", " ", "BITS"], ["BlockCat", " ", "BKCAT"], ["Blakecoin", " ", "BLC"], ["BlackCoin", " ", "BLK"], ["Blocknet", " ", "BLOCK"], ["BlazeCoin", " ", "BLZ"], ["BraveNewCoin", " ", "BNC"], ["BnrtxCoin", " ", "BNX"], ["BolivarCoin", " ", "BOLI"], ["Bonpay", " ", "BON"], ["BlockOptions", " ", "BOP"], ["Blockpool", " ", "BPL"], ["BorgCoin", " ", "BRG"], ["Bitradio", " ", "BRO"], ["BitSend", " ", "BSD"], ["GlobalBoost-Y", " ", "BSTY"], ["BATA", " ", "BTA"], ["BitBar", " ", "BTB"], ["BitcoinDark", " ", "BTCD"], ["Bitcoin Scrypt", " ", "BTCS"], ["Bitcloud", " ", "BTDX"], ["Bitgem", " ", "BTG"], ["Bytom", " ", "BTM"], ["BitCore", " ", "BTX"], ["SwagBucks", " ", "BUCKS"], ["Bumbacoin", " ", "BUMBA"], ["BunnyCoin", " ", "BUN"], ["BVBCoin", " ", "BVB"], ["Bulwark", " ", "BWK"], ["Bitcedi", " ", "BXC"], ["Coin2", " ", "C2"], ["CacheCoin", " ", "CACH"], ["CanYa", " ", "CAN"], ["Cannabiscoin", " ", "CANN"], ["Cappasity", " ", "CAPP"], ["CareerCoin", " ", "CAR"], ["Catcoin", " ", "CAT"], ["Bullion", " ", "CBX"], ["CoolInDarkCoin", " ", "CC"], ["CryptoClub", " ", "CCB"], ["CannaCoin", " ", "CCN"], ["Canada eCoin", " ", "CDN"], ["CryptopiaFeeShare", " ", "CEFS"], ["Centrality", " ", "CENNZ"], ["CoffeeCoin", " ", "CFC"], ["ChanCoin", " ", "CHAN"], ["ChainCoin", " ", "CHC"], ["ChessCoin", " ", "CHESS"], ["CryptoJacks", " ", "CJ"], ["Coinlancer", " ", "CL"], ["ClamCoin", " ", "CLAM"], ["CloakCoin", " ", "CLOAK"], ["CompCoin", " ", "CMP"], ["CampusCoin", " ", "CMPCO"], ["CometCoin", " ", "CMT"], ["Cannation", " ", "CNNC"], ["Coino", " ", "CNO"], ["Bitcoal", " ", "COAL"], ["ColossusXT", " ", "COLX"], ["Compound Coin", " ", "COMP"], ["PayCon", " ", "CON"], ["CopperCoin", " ", "COPPER"], ["Corion", " ", "COR"], ["CompuCoin", " ", "CPN"], ["ConquestCoin", " ", "CQST"], ["Crave", " ", "CRAVE"], ["CrowdCoin", " ", "CRC"], ["CreativeCoin", " ", "CREA"], ["CREAMcoin", " ", "CRM"], ["CryptoRuble", " ", "CRUR"], ["ChronosCoin", " ", "CRX"], ["CryptCoin", " ", "CRYPT"], ["Coimatic 3", " ", "CTIC3"], ["Coinonat", " ", "CXT"], ["DALECOIN", " ", "DALC"], ["DARK", " ", "DARK"], ["DA$", " ", "DAS"], ["Dash", " ", "DASH"], ["DaxxCoin", " ", "DAXX"], ["DecentBet", " ", "DBET"], ["DubaiCoin", " ", "DBIX"], ["Dentacoin", " ", "DCN"], ["Decred", " ", "DCR"], ["DinastyCoin", " ", "DCY"], ["DDF", " ", "DDF"], ["Deutsche eMark", " ", "DEM"], ["Deuscoin", " ", "DEUS"], ["Deviant", " ", "DEV"], ["DigiByte", " ", "DGB"], ["Digitalcoin", " ", "DGC"], ["DigiPulse", " ", "DGPT"], ["Dimecoin", " ", "DIME"], ["Divi Exchange Token", " ", "DIVX"], ["GeneChain", " ", "DNA"], ["Denarius", " ", "DNR"], ["Dogecoin", " ", "DOGE"], ["DonationCoin", " ", "DON"], ["DopeCoin", " ", "DOPE"], ["Dotcoin", " ", "DOT"], ["DigitalPrice", " ", "DP"], ["DA Power Play", " ", "DPP"], ["DCORP", " ", "DRP"], ["DRP Utility", " ", "DRPU"], ["Droxne", " ", "DRXNE"], ["Parallelcoin", " ", "DUO"], ["EmbargoCoin", " ", "EBG"], ["Eclipse", " ", "EC"], ["Electra", " ", "ECA"], ["ECOcoin", " ", "ECO"], ["EcoBit", " ", "ECOB"], ["EducoinV", " ", "EDC"], ["Eddiecoin", " ", "EDDIE"], ["EDRcoin", " ", "EDRC"], ["E-Gulden", " ", "EFL"], ["EverGreenCoin", " ", "EGC"], ["ElaCoin", " ", "ELC"], ["Ellaism", " ", "ELLA"], ["Elements", " ", "ELM"], ["EmerCoin", " ", "EMC"], ["Einsteinium", " ", "EMC2"], ["Emerald Crypto", " ", "EMD"], ["Enjin Coin", " ", "ENJ"], ["ExperienceCoin", " ", "EPC"], ["Equitrade", " ", "EQT"], ["Eryllium", " ", "ERY"], ["Ethereum Classic", " ", "ETC"], ["Ethereum", " ", "ETH"], ["Ethereum Dark", " ", "ETHD"], ["Electroneum", " ", "ETN"], ["EncryptoTel", " ", "ETT"], ["Eurocoin", " ", "EUC"], ["Evilcoin", " ", "EVIL"], ["Evotion", " ", "EVO"], ["Everus", " ", "EVR"], ["Expanse", " ", "EXP"], ["FuelCoin", " ", "FC2"], ["FacileCoin", " ", "FCN"], ["Factom", " ", "FCT"], ["FireFlyCoin", " ", "FFC"], ["FujiCoin", " ", "FJC"], ["FLASH", " ", "FLASH"], ["Flaxscript", " ", "FLAX"], ["FloripaCoin", " ", "FLN"], ["FlutterCoin", " ", "FLT"], ["FonzieCoin", " ", "FONZ"], ["Fortcoin", " ", "FORT"], ["FireRoosterCoin", " ", "FRC"], ["Francs", " ", "FRN"], ["FastCoin", " ", "FST"], ["Feathercoin", " ", "FTC"], ["FeatherCoinClassic", " ", "FTCC"], ["Cypherfunks", " ", "FUNK"], ["Futereum X", " ", "FUTX"], ["FuzzBalls", " ", "FUZZ"], ["GaiaCoin", " ", "GAIA"], ["GameCredits", " ", "GAME"], ["Gapcoin", " ", "GAP"], ["GayMoney", " ", "GAY"], ["GoByte", " ", "GBX"], ["Byteball Bytes", " ", "GBYTE"], ["GCoin", " ", "GCN"], ["GrandCoin", " ", "GDC"], ["GeertCoin", " ", "GEERT"], ["GeoCoin", " ", "GEO"], ["GoldCoin", " ", "GLD"], ["Gnosis", " ", "GNO"], ["Gainer", " ", "GNR"], ["Golem", " ", "GNT"], ["GoldPieces", " ", "GP"], ["GoldPressedLatinum ", " ", "GPL"], ["GPUCoin", " ", "GPU"], ["Granite", " ", "GRN"], ["Groestlcoin", " ", "GRS"], ["GrowthCoin", " ", "GRW"], ["Growers Intl", " ", "GRWI"], ["GunCoin", " ", "GUN"], ["GroinCoin", " ", "GXG"], ["Hackspace", " ", "HAC"], ["Halcyon", " ", "HAL"], ["Havecoin", " ", "HAV"], ["HomeblockCoin", " ", "HBC"], ["HoboNickels", " ", "HBN"], ["HarvestCoin", " ", "HC"], ["HodlBucks", " ", "HDLB"], ["HeatLedger", " ", "HEAT"], ["Helium", " ", "HLM"], ["InterstellarHoldings", " ", "HOLD"], ["HSHARE", " ", "HSR"], ["Decision Token", " ", "HST"], ["Hush", " ", "HUSH"], ["HexxCoin", " ", "HXX"], ["HyperStake", " ", "HYP"], ["I0Coin", " ", "I0C"], ["IgnitionCoin", " ", "IC"], ["ICOBid", " ", "ICOB"], ["InflationCoin", " ", "IFLT"], ["investFeed", " ", "IFT"], ["Independent Money System", " ", "IMS"], ["InCoin", " ", "IN"], ["Influxcoin", " ", "INFX"], ["Innova", " ", "INN"], ["InPay", " ", "INPAY"], ["Insane", " ", "INSN"], ["Iquant Chain", " ", "IQT"], ["IrishCoin", " ", "IRL"], ["ItiCoin", " ", "ITI"], ["IXCoin", " ", "IXC"], ["IZEcoin", " ", "IZE"], ["KashCoin", " ", "KASH"], ["Kayicoin", " ", "KAYI"], ["Kubera", " ", "KBR"], ["KlondikeCoin", " ", "KDC"], ["Darsek", " ", "KED"], ["Kekcoin", " ", "KEK"], ["KangarooBits", " ", "KGB"], ["King93", " ", "KING"], ["Komodo", " ", "KMD"], ["KyberNetworkCrystal", " ", "KNC"], ["KoboCoin", " ", "KOBO"], ["Karbo", " ", "KRB"], ["Kronecoin", " ", "KRONE"], ["KumaCoin", " ", "KUMA"], ["Kurrent", " ", "KURT"], ["KushCoin", " ", "KUSH"], ["LanaCoin", " ", "LANA"], ["LBRY Credits", " ", "LBC"], ["LiteBitcoin", " ", "LBTC"], ["litecoinPlus", " ", "LCP"], ["LADACoin", " ", "LDC"], ["LiteDoge", " ", "LDOGE"], ["LeaCoin", " ", "LEA"], ["Leafcoin", " ", "LEAF"], ["LemonCoin", " ", "LEMON"], ["LFTCCoin", " ", "LFTC"], ["Lina", " ", "LINA"], ["LindaCoin", " ", "LINDA"], ["Linx", " ", "LINX"], ["Lithiumcoin", " ", "LIT"], ["LiZi", " ", "LIZI"], ["Lottocoin", " ", "LOT"], ["LiteBar", " ", "LTB"], ["Litecoin", " ", "LTC"], ["LitecoinUltra", " ", "LTCU"], ["Luxcoin", " ", "LUX"], ["Lycancoin", " ", "LYC"], ["Lynx", " ", "LYNX"], ["MachineCoin", " ", "MAC"], ["Magnet", " ", "MAG"], ["MagicCoin", " ", "MAGE"], ["MagnetCoin", " ", "MAGN"], ["MaidSafeCoin", " ", "MAID"], ["MarijuanaCoin", " ", "MAR"], ["Bitmark", " ", "MARKS"], ["Mars", " ", "MARS"], ["MarxCoin", " ", "MARX"], ["MatrixCoin", " ", "MATRX"], ["Embers", " ", "MBRS"], ["Musiconomi", " ", "MCI"], ["Macron", " ", "MCRN"], ["MegaCoin", " ", "MEC"], ["MobileGo", " ", "MGO"], ["MegaX", " ", "MGX"], ["Minex", " ", "MINEX"], ["Mintcoin", " ", "MINT"], ["Melite", " ", "MLITE"], ["Minereum", " ", "MNE"], ["Mineum", " ", "MNM"], ["MOIN", " ", "MOIN"], ["MojoCoin", " ", "MOJO"], ["MonkeyProject", " ", "MONK"], ["MotoCoin", " ", "MOTO"], ["Mothership", " ", "MSP"], ["Mustangcoin", " ", "MST"], ["Metal", " ", "MTL"], ["MetalMusicCoin", " ", "MTLMC"], ["MasterNodeCoin", " ", "MTNC"], ["Musicoin", " ", "MUSIC"], ["MyBit", " ", "MYB"], ["MazaCoin", " ", "MZC"], ["NAMO COIN", " ", "NAMO"], ["NavCoin", " ", "NAV"], ["NeuroDAO", " ", "NDAO"], ["Neblio", " ", "NEBL"], ["Neo", " ", "NEO"], ["NetCoin", " ", "NET"], ["Netko", " ", "NETKO"], ["NevaCoin", " ", "NEVA"], ["Incakoin", " ", "NKA"], ["NoLimitCoin", " ", "NLC2"], ["NameCoin", " ", "NMC"], ["Numus", " ", "NMS"], ["NobleCoin", " ", "NOBL"], ["Neutron", " ", "NTRN"], ["NovaCoin", " ", "NVC"], ["Nexus", " ", "NXS"], ["NyanCoin", " ", "NYAN"], ["Obsidian", " ", "ODN"], ["Cthulhu Offerings", " ", "OFF"], ["OKCash", " ", "OK"], ["OmiseGo", " ", "OMG"], ["DeepOnion", " ", "ONION"], ["Om", " ", "OOO"], ["Opalcoin", " ", "OPAL"], ["OP Coin", " ", "OPC"], ["OrbitCoin", " ", "ORB"], ["Galactrum", " ", "ORE"], ["OrmeusCoin", " ", "ORME"], ["Open Source Coin", " ", "OSC"], ["Open Trading Network", " ", "OTN"], ["OX Fina", " ", "OX"], ["OzzieCoin", " ", "OZC"], ["PakCoin", " ", "PAK"], ["PascalLite", " ", "PASL"], ["TenX", " ", "PAY"], ["Publica", " ", "PBL"], ["PolishCoin", " ", "PCC"], ["PioneerCoin", " ", "PCOIN"], ["Penguin", " ", "PENG"], ["PepeCoin", " ", "PEPE"], ["Photon", " ", "PHO"], ["Phore", " ", "PHR"], ["PhilosopherStone", " ", "PHS"], ["PiggyCoin", " ", "PIGGY"], ["PinkCoin", " ", "PINK"], ["Pirl", " ", "PIRL"], ["PIVX", " ", "PIVX"], ["Polcoin", " ", "PLC"], ["Pillar", " ", "PLR"], ["PlexCoin", " ", "PLX"], ["PandaCoin", " ", "PND"], ["Polis", " ", "POLIS"], ["ClearPoll", " ", "POLL"], ["PopularCoin", " ", "POP"], ["PostCoin", " ", "POST"], ["Potcoin", " ", "POT"], ["PowerLedger", " ", "POWR"], ["PeerCoin", " ", "PPC"], ["Prototanium", " ", "PR"], ["OysterPearl", " ", "PRL"], ["ProCurrency", " ", "PROC"], ["PesetaCoin", " ", "PTC"], ["Pura", " ", "PURA"], ["PutinCoin", " ", "PUT"], ["PhoenixCoin", " ", "PXC"], ["Prime-XI", " ", "PXI"], ["Qubitcoin", " ", "Q2C"], ["Cubits", " ", "QBT"], ["Quark", " ", "QRK"], ["Quatloo", " ", "QTL"], ["Qwark", " ", "QWARK"], ["Revain", " ", "R"], ["Condensate", " ", "RAIN"], ["Rabbitcoin", " ", "RBBT"], ["Rimbit", " ", "RBT"], ["RubyCoin", " ", "RBY"], ["RussiaCoin", " ", "RC"], ["Reddcoin", " ", "RDD"], ["RedCoin", " ", "RED"], ["Augur", " ", "REP"], ["PickleRicks", " ", "RICKS"], ["Etheriya", " ", "RIYA"], ["RoyalKingdomCoin", " ", "RKC"], ["RenosCoin", " ", "RNS"], ["RonPaulCoin", " ", "RPC"], ["Rupee", " ", "RUP"], ["SagaCoin", " ", "SAGA"], ["SharkCoin", " ", "SAK"], ["BeachCoin", " ", "SAND"], ["SBC Coin", " ", "SBC"], ["Sociall", " ", "SCL"], ["Soma", " ", "SCT"], ["Senderon", " ", "SDRN"], ["Selencoin", " ", "SEL"], ["SocialSend", " ", "SEND"], ["SolarflareCoin", " ", "SFC"], ["SHACoin2", " ", "SHA"], ["Shrooms", " ", "SHRM"], ["SiberianChervonets", " ", "SIB"], ["SJWCoin", " ", "SJW"], ["SkeinCoin", " ", "SKC"], ["SkinCoin", " ", "SKIN"], ["SakuraCoin", " ", "SKR"], ["Skrilla", " ", "SKRL"], ["Skycoin", " ", "SKY"], ["Sterlingcoin", " ", "SLG"], ["SlothCoin", " ", "SLOTH"], ["SmartCoin", " ", "SMC"], ["SoilCoin", " ", "SOIL"], ["Songcoin", " ", "SONG"], ["SoonCoin", " ", "SOON"], ["SpaceCoin", " ", "SPACE"], ["SpankChain", " ", "SPANK"], ["SpartanCoin", " ", "SPN"], ["SpreadCoin", " ", "SPR"], ["Spots", " ", "SPT"], ["SquallCoin", " ", "SQL"], ["SecureCoin", " ", "SRC"], ["StartCoin", " ", "START"], ["StopTrumpCoin", " ", "STC"], ["Steneum", " ", "STN"], ["Stratis", " ", "STRAT"], ["StarCredits", " ", "STRC"], ["Sativacoin", " ", "STV"], ["Sumokoin", " ", "SUMO"], ["Swingcoin", " ", "SWING"], ["Sexcoin", " ", "SXC"], ["Tajcoin", " ", "TAJ"], ["TEKcoin", " ", "TEK"], ["TerraNova", " ", "TER"], ["TeslaCoin", " ", "TES"], ["TigerCoin", " ", "TGC"], ["TitCoin", " ", "TIT"], ["Blocktix", " ", "TIX"], ["TOACoin", " ", "TOA"], ["TokugawaCoin", " ", "TOK"], ["TopCoin", " ", "TOP"], ["TurboStake", " ", "TRBO"], ["TerraCoin", " ", "TRC"], ["Triangles", " ", "TRI"], ["TruckCoin", " ", "TRK"], ["Trumpcoin", " ", "TRUMP"], ["Tron", " ", "TRX"], ["TattooCoin", " ", "TSE"], ["TittieCoin", " ", "TTC"], ["Trinity", " ", "TTY"], ["TransferCoin", " ", "TX"], ["Trezarcoin", " ", "TZC"], ["Ubiq", " ", "UBQ"], ["Upfiring", " ", "UFR"], ["Unitus", " ", "UIS"], ["UniversalMolecule", " ", "UMO"], ["UniCoin", " ", "UNIC"], ["Unify", " ", "UNIFY"], ["UniversalCurrency", " ", "UNIT"], ["GameUnits", " ", "UNITS"], ["Unobtanium", " ", "UNO"], ["UR", " ", "UR"], ["Ultracoin", " ", "UTC"], ["Version", " ", "V"], ["Vade", " ", "VADE"], ["VaderCorpCoin", " ", "VCC"], ["PureVidz", " ", "VIDZ"], ["Vice Industry Token", " ", "VIT"], ["Vivo", " ", "VIVO"], ["VOISE", " ", "VOISE"], ["VapersCoin", " ", "VPRC"], ["VeriCoin", " ", "VRC"], ["Verium", " ", "VRM"], ["VirtaUniqueCoin", " ", "VUC"], ["Wincoin", " ", "WC"], ["WorldCoin", " ", "WDC"], ["Weed", " ", "WEED"], ["WildCrypto", " ", "WILD"], ["MyWishToken", " ", "WISH"], ["WirelessCoin", " ", "WLC"], ["WarCoin", " ", "WRC"], ["Wispr", " ", "WSP"], ["WeAreSatoshi", " ", "WSX"], ["WayaWolfCoin", " ", "WW"], ["BitcoinPlus", " ", "XBC"], ["Billionaire Token", " ", "XBL"], ["BeatCoin", " ", "XBTS"], ["XTRABYTES", " ", "XBY"], ["Xcoin", " ", "XCO"], ["COPICO", " ", "XCPO"], ["Creatio", " ", "XCRE"], ["C-bit", " ", "XCT"], ["CoinonatX", " ", "XCXT"], ["NewEconomyMovement", " ", "XEM"], ["FootyCash", " ", "XFT"], ["XGOX", " ", "XGOX"], ["Sphre", " ", "XID"], ["JouleCoin", " ", "XJO"], ["LeviarCoin", " ", "XLC"], ["Monoeci", " ", "XMCC"], ["Magi", " ", "XMG"], ["Monero", " ", "XMR"], ["Myriad", " ", "XMY"], ["Experience Points", " ", "XP"], ["PetroDollar", " ", "XPD"], ["PrimeCoin", " ", "XPM"], ["PlatinumBar", " ", "XPTX"], ["RateCoin", " ", "XRA"], ["Revolvercoin", " ", "XRE"], ["Royalties", " ", "XRY"], ["SpectreCoin", " ", "XSPEC"], ["StealthCoin", " ", "XST"], ["Verge", " ", "XVG"], ["ZCoin", " ", "XZC"], ["YobitCoin", " ", "YOVI"], ["Zap", " ", "ZAP"], ["Zclassic", " ", "ZCL"], ["ZCash", " ", "ZEC"], ["ZeitCoin", " ", "ZEIT"], ["ZenCash", " ", "ZEN"], ["Zero", " ", "ZER"], ["ZetaCoin", " ", "ZET"], ["BitZeny", " ", "ZNY"], ["Zoin", " ", "ZOI"], ["ZSEcoin", " ", "ZSE"], ["Amon", " ", "AMN"], ["EOS", " ", "EOS"], ["EtherZero", " ", "ETZ"], ["Fantasy Cash", " ", "FANS"], ["Global Cryptocurrency", " ", "GCC"], ["indaHash", " ", "IDH"], ["Live Stars Token", " ", "LIVE"], ["Lisk", " ", "LSK"], ["LWF", " ", "LWF"], ["NulleX", " ", "NLX"], ["Oxycoin", " ", "OXY"], ["ProudMoney", " ", "PROUD"], ["Sirin Labs Token", " ", "SRN"], ["StakeNet", " ", "XSN"]];
 
     return {
         CRYPTOPIA: CRYPTOPIA
@@ -18263,7 +18623,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var EXMO = [["Bitcoin Cash", " ", "BCH"], ["Dash", " ", "DASH"], ["Ethereum", " ", "ETH"], ["Ethereum Classic", " ", "ETC"], ["Litecoin", " ", "LTC"], ["Zcash", " ", "ZEC"], ["Ripple", " ", "XRP"], ["Monero", " ", "XMR"], ["Dogecoin", " ", "DOGE"], ["Waves", " ", "WAVES"], ["KickCoin", " ", "KICK"]];
+    var EXMO = [["Bitcoin Cash", " ", "BCH"], ["Dash", " ", "DASH"], ["Ethereum", " ", "ETH"], ["Ethereum Classic", " ", "ETC"], ["Litecoin", " ", "LTC"], ["Zcash", " ", "ZEC"], ["Ripple", " ", "XRP"], ["Monero", " ", "XMR"], ["Dogecoin", " ", "DOGE"], ["Waves", " ", "WAVES"], ["KickCoin", " ", "KICK"], ["Bitcoin Gold", "", "BTG"], ["EOS", " ", "EOS"]];
 
     return {
         EXMO: EXMO
@@ -18303,7 +18663,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var EXX = [["Super Bitcoin", " ", "SBTC"], ["Chat", " ", "CHAT"], ["Exchange Union", " ", "XUC"], ["Borderless", " ", "BDS"], ["Bitmark", " ", "BTM"], ["Ethereum Classic", " ", "ETC"], ["Ink", " ", "INK"], ["Ethereum", " ", "ETH"], ["BitcoinPay", " ", "BTP"], ["Ti-Value", " ", "TV"], ["Gram", " ", "GRAM"], ["Litecoin", " ", "LTC"], ["SpaceChain", " ", "SPC"], ["Bitcoin Cash", " ", "BCC"], ["FirstCryptoETF", " ", "ETF"], ["LiteBitcoin", " ", "LBTC"], ["Electronic PK Chain", " ", "EPC"], ["Bitcoin King", " ", "BCK"], ["UnitedBitcoin", " ", "UBTC"], ["CFUN", " ", "CFUN"], ["EOS", " ", "EOS"], ["Qtum", " ", "QTUM"], ["Energo Labs", " ", "TSL"], ["BitShares", " ", "BTS"], ["HSHARE", " ", "HSR"], ["WhiteCoin", " ", "XWC"], ["Bitcoin Gold", " ", "BTG"], ["Bitcoin Diamond", " ", "BCD"], ["Bitcoin Wonder", " ", "BTW"], ["Monaco", " ", "MCO"]];
+    var EXX = [["Super Bitcoin", " ", "SBTC"], ["Chat", " ", "CHAT"], ["Exchange Union", " ", "XUC"], ["Borderless", " ", "BDS"], ["Bitmark", " ", "BTM"], ["Ethereum Classic", " ", "ETC"], ["Ink", " ", "INK"], ["Ethereum", " ", "ETH"], ["BitcoinPay", " ", "BTP"], ["Ti-Value", " ", "TV"], ["Gram", " ", "GRAM"], ["Litecoin", " ", "LTC"], ["SpaceChain", " ", "SPC"], ["Bitcoin Cash", " ", "BCC"], ["FirstCryptoETF", " ", "ETF"], ["LiteBitcoin", " ", "LBTC"], ["Electronic PK Chain", " ", "EPC"], ["Bitcoin King", " ", "BCK"], ["UnitedBitcoin", " ", "UBTC"], ["CFUN", " ", "CFUN"], ["EOS", " ", "EOS"], ["Qtum", " ", "QTUM"], ["Energo Labs", " ", "TSL"], ["BitShares", " ", "BTS"], ["HSHARE", " ", "HSR"], ["WhiteCoin", " ", "XWC"], ["Bitcoin Gold", " ", "BTG"], ["Bitcoin Diamond", " ", "BCD"], ["Bitcoin Wonder", " ", "BTW"], ["Monaco", " ", "MCO"], ["Metaverse", " ", "ETP"], ["HyperPay", " ", "HPY"]];
 
     return {
         EXX: EXX
@@ -18365,7 +18725,7 @@ module.exports = function () {
 
     var HITBTC = [["Bytecoin", " ", "BCN"], ["Dash", " ", "DASH"], ["Dogecoin", " ", "DOGE"], ["DashCoin", " ", "DSH"], ["EmerCoin", " ", "EMC"], ["Ethereum", " ", "ETH"], ["FacileCoin", " ", "FCN"], ["Lisk", " ", "LSK"], ["Litecoin", " ", "LTC"], ["NXT", " ", "NXT"], ["QuazarCoin", " ", "QCN"], ["Steem Dollars", " ", "SBD"], ["Siacoin", " ", "SC"], ["STEEM", " ", "STEEM"], ["DigitalNote", " ", "XDN"], ["NEM", " ", "XEM"], ["Monero", " ", "XMR"], ["Ardor", " ", "ARDR"], ["Zcash", " ", "ZEC"], ["Waves", " ", "WAVES"], ["MaidSafeCoin", " ", "MAID"], ["Synereo AMP", " ", "AMP"], ["Bus token", " ", "BUS"], ["Digix DAO", " ", "DGD"], ["Iconomi", " ", "ICN"], ["SingularDTV", " ", "SNGLS"], ["Firstblood", " ", "1ST"], ["Trustcoin", " ", "TRST"], ["Chronobank", " ", "TIME"], ["Gnosis", " ", "GNO"], ["Augur", " ", "REP"], ["ZrCoin", " ", "ZRC"], ["BOScoin", " ", "BOS"], ["DECENT", " ", "DCT"], ["Aragon", " ", "ANT"], ["Aeon", " ", "AEON"], ["Guppy", " ", "GUP"], ["Pluton", " ", "PLU"], ["Lunyr", " ", "LUN"], ["Token-as-a-Service", " ", "TAAS"], ["Nexium", " ", "NXC"], ["Edgeless", " ", "EDG"], ["iEx.ec", " ", "RLC"], ["Swarm City Token", " ", "SWT"], ["TokenCard", " ", "TKN"], ["Wings DAO", " ", "WINGS"], ["Xaurum", " ", "XAUR"], ["Aeternity", " ", "AE"], ["Patientory", " ", "PTOY"], ["Ethereum Classic", " ", "ETC"], ["Cofound.it", " ", "CFI"], ["Polybius", " ", "PLBT"], ["Bancor", " ", "BNT"], ["IdontKnow", " ", "XDNCO"], ["Tezos", " ", "XTZ"], ["Etheroll", " ", "DICE"], ["Ripple", " ", "XRP"], ["Stratis", " ", "STRAT"], ["EOS", " ", "EOS"], ["Minereum", " ", "MNE"], ["Agrello", " ", "DLT"], ["Quantum", " ", "QAU"], ["district0x", " ", "DNT"], ["Flypme", " ", "FYP"], ["Opus", " ", "OPT"], ["Stox", " ", "STX"], ["Tierion", " ", "TNT"], ["Catcoin", " ", "CAT"], ["Bitcoin Cash", " ", "BCH"], ["SunContract", " ", "SNC"], ["OpenANX", " ", "OAX"], ["0x", " ", "ZRX"], ["Rivetz", " ", "RVT"], ["ICOBox", " ", "ICOS"], ["Peercoin", " ", "PPC"], ["Veritaseum", " ", "VERI"], ["Paragon", " ", "PRG"], ["Black Moon", " ", "BMC"], ["Cindicator", " ", "CND"], ["SkinCoin", " ", "SKIN"], ["MobileGo", " ", "EMGO"], ["FunFair", " ", "FUN"], ["Hive Project", " ", "HVN"], ["FuelCoin", " ", "FUEL"], ["Po.et", " ", "POE"], ["MCAP", " ", "MCAP"], ["Airtoken", " ", "AIR"], ["Ambrosus", " ", "AMB"], ["Fujinto", " ", "NTO"], ["ICOBI", " ", "ICO"], ["CryptoPing", " ", "PING"], ["GameCredits", " ", "GAME"], ["Happycoin", " ", "HPC"], ["Monetha", " ", "MTH"], ["MobileGo", " ", "WMGO"], ["Loopring", " ", "LRC"], ["ICON", " ", "ICX"], ["Neo", " ", "NEO"], ["BitDice", " ", "CSNO"], ["OrmeusCoin", " ", "ORME"], ["Lampix", " ", "PIX"], ["KickCoin", " ", "KICK"], ["YOYOW", " ", "YOYOW"], ["MIPSToken", " ", "MIPS"], ["Coindash", " ", "CDT"], ["Verge", " ", "XVG"], ["DigiByte", " ", "DGB"], ["Latium", " ", "LAT"], ["Vibe Coin", " ", "VIBE"], ["VOISE", " ", "VOISE"], ["Enjin Coin", " ", "ENJ"], ["Zeus Shield Coin", " ", "ZSC"], ["EthBits", " ", "ETBS"], ["TRON", " ", "TRX"], ["VeChain", " ", "VEN"], ["Maecenas", " ", "ART"], ["Everex", " ", "EVX"], ["BetKing Bankroll Token", " ", "BKB"], ["Exchangen", " ", "EXN"], ["Target Coin", " ", "TGT"], ["UG Token", " ", "UGT"], ["Centra", " ", "CTR"], ["BMChain", " ", "BMT"], ["Substratum", " ", "SUB"], ["Walton", " ", "WTC"], ["Cryptonex", " ", "CNX"], ["ATB Coin", " ", "ATB"], ["Obsidian", " ", "ODN"], ["Bitmark", " ", "BTM"], ["SegWit2x", " ", "B2X"], ["ATMChain", " ", "ATM"], ["Viberate", " ", "VIB"], ["OmiseGO", " ", "OMG"], ["TenX Pay Token", " ", "PAY"], ["COSS", " ", "COSS"], ["Populous", " ", "PPT"], ["Status Network Token", " ", "SNT"], ["Bitcoin Gold", " ", "BTG"], ["SmartCash", " ", "SMART"], ["Exchange Union", " ", "XUC"], ["Coinlancer", " ", "CL"], ["Cloud With Me", " ", "CLD"], ["Elements", " ", "ELM"], ["Eidoo", " ", "EDO"], ["ClearPoll", " ", "POLL"], ["iXledger", " ", "IXT"], ["Authorship Token", " ", "ATS"], ["Social", " ", "SCL"], ["ATLANT Token", " ", "ATL"], ["Metaverse", " ", "ETP"], ["Octanox", " ", "OTX"], ["DRP Utility", " ", "DRPU"], ["Neblio", " ", "NEBL"], ["Hackspace", " ", "HAC"], ["Car Taxi", " ", "CTX"], ["Elementrem", " ", "ELE"], ["Aeron", " ", "ARN"], ["SISA Token", " ", "SISA"], ["Student Coin", " ", "STU"], ["Indicoin", " ", "INDI"], ["BitCore", " ", "BTX"], ["Pillar", " ", "PLR"], ["Suretly", " ", "SUR"], ["Ethos", " ", "BQX"],
     // ["IdontKnow"," ","ITS"],
-    ["MicroMoney", " ", "AMM"], ["DubaiCoin", " ", "DBIX"], ["Presearch", " ", "PRE"], ["Kubera", " ", "KBR"], ["TBOT", " ", "TBT"], ["EROSCOIN", " ", "ERO"], ["SMSCoin", " ", "SMS"], ["Zap", " ", "ZAP"], ["DOVU", " ", "DOV"], ["Farad", " ", "FRD"], ["Open Trading Network", " ", "OTN"], ["HSHARE", " ", "HSR"], ["EthLend", " ", "LEND"], ["WarCoin", " ", "WRC"], ["LockChain", " ", "LOC"], ["SwftCoin", " ", "SWFTC"], ["STORM", " ", "STORM"], ["DIMCOIN", " ", "DIM"], ["NAGA", " ", "NGC"], ["Monaco", " ", "MCO"], ["Decentraland", " ", "MANA"], ["EtherEcash", " ", "ECH"], ["DATA", " ", "DATA"], ["United Traders Token", " ", "UTT"], ["Komodo", " ", "KMD"], ["Qtum", " ", "QTUM"], ["EchoLink", " ", "EKO"], ["AdEx", " ", "ADX"], ["Trade Token", " ", "TIO"], ["IdontKnow", " ", "WAX"], ["UltimateCoin", " ", "ULTC"], ["Energy Eco Token", " ", "EET"], ["Crypto20", " ", "C20"], ["indaHash", " ", "IDH"], ["InsurePal", " ", "IPL"], ["Covesting", " ", "COV"], ["Sentinel", " ", "SENT"], ["SmartMesh", " ", "SMT"], ["W3coin", " ", "W3C"], ["Cashaa", " ", "CAS"], ["Chat", " ", "CHAT"], ["GreenMed", " ", "GRMD"], ["Animation Vision Cash", " ", "AVH"], ["Peculium", " ", "PCL"], ["Clout", " ", "CLOUT"], ["Utrust", " ", "UTK"], ["SwissBorg", " ", "CHSB"], ["Neumark", " ", "NEU"], ["Lamden", " ", "TAU"], ["Teky", " ", "MEK"], ["Titanium Blockchain", " ", "BAR"], ["FLIP token", " ", "FLP"], ["PlaykeyToken", " ", "PKT"], ["Wolk", " ", "WLK"], ["Envion", " ", "EVN"], ["Castle Peak", " ", "CPG"], ["BetterBetting", " ", "BETR"], ["IdontKnow", " ", "ARCT"], ["DecentBet", " ", "DBET"], ["Bit Public Talent Network", " ", "BPTN"], ["Bezop", " ", "BEZ"], ["Universa", " ", "UTNP"], ["Career Trust Ecosystem", " ", "CTE"], ["COPYTRACK", " ", "CPY"], ["BlockMason", " ", "BCPT"], ["SONM", " ", "SNM"], ["Achain", " ", "ACT"], ["LIFEtoken", " ", "LIFE"]];
+    ["MicroMoney", " ", "AMM"], ["DubaiCoin", " ", "DBIX"], ["Presearch", " ", "PRE"], ["Kubera", " ", "KBR"], ["TBOT", " ", "TBT"], ["EROSCOIN", " ", "ERO"], ["SMSCoin", " ", "SMS"], ["Zap", " ", "ZAP"], ["DOVU", " ", "DOV"], ["Farad", " ", "FRD"], ["Open Trading Network", " ", "OTN"], ["HSHARE", " ", "HSR"], ["EthLend", " ", "LEND"], ["WarCoin", " ", "WRC"], ["LockChain", " ", "LOC"], ["SwftCoin", " ", "SWFTC"], ["STORM", " ", "STORM"], ["DIMCOIN", " ", "DIM"], ["NAGA", " ", "NGC"], ["Monaco", " ", "MCO"], ["Decentraland", " ", "MANA"], ["EtherEcash", " ", "ECH"], ["DATA", " ", "DATA"], ["United Traders Token", " ", "UTT"], ["Komodo", " ", "KMD"], ["Qtum", " ", "QTUM"], ["EchoLink", " ", "EKO"], ["AdEx", " ", "ADX"], ["Trade Token", " ", "TIO"], ["IdontKnow", " ", "WAX"], ["UltimateCoin", " ", "ULTC"], ["Energy Eco Token", " ", "EET"], ["Crypto20", " ", "C20"], ["indaHash", " ", "IDH"], ["InsurePal", " ", "IPL"], ["Covesting", " ", "COV"], ["Sentinel", " ", "SENT"], ["SmartMesh", " ", "SMT"], ["W3coin", " ", "W3C"], ["Cashaa", " ", "CAS"], ["Chat", " ", "CHAT"], ["GreenMed", " ", "GRMD"], ["Animation Vision Cash", " ", "AVH"], ["Peculium", " ", "PCL"], ["Clout", " ", "CLOUT"], ["Utrust", " ", "UTK"], ["SwissBorg", " ", "CHSB"], ["Neumark", " ", "NEU"], ["Lamden", " ", "TAU"], ["Teky", " ", "MEK"], ["Titanium Blockchain", " ", "BAR"], ["FLIP token", " ", "FLP"], ["PlaykeyToken", " ", "PKT"], ["Wolk", " ", "WLK"], ["Envion", " ", "EVN"], ["Castle Peak", " ", "CPG"], ["BetterBetting", " ", "BETR"], ["IdontKnow", " ", "ARCT"], ["DecentBet", " ", "DBET"], ["Bit Public Talent Network", " ", "BPTN"], ["Bezop", " ", "BEZ"], ["Universa", " ", "UTNP"], ["Career Trust Ecosystem", " ", "CTE"], ["COPYTRACK", " ", "CPY"], ["BlockMason", " ", "BCPT"], ["SONM", " ", "SNM"], ["Achain", " ", "ACT"], ["LIFEtoken", " ", "LIFE"], ["investFeed", " ", "IFT"], ["Dentacoin", " ", "DCN"], ["Chronologic", " ", "DAY"], ["Ada", " ", "ADA"], ["WildCrypto", " ", "WILD"], ["Lumen", " ", "XLM"], ["IOTA", " ", "IOTA"], ["eSportsRewardToken", " ", "ERT"], ["LADACoin", " ", "LDC"], ["GoByte", " ", "GBX"], ["Nano", " ", "NANO"], ["UNCoin", " ", "UNC"], ["Golem", " ", "GNT"], ["Bitcoin core", " ", "BBC"], ["GreenEnergyToken", " ", "GET"]];
 
     return {
         HITBTC: HITBTC
@@ -18385,7 +18745,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var HUOBI = [["SwftCoin", "swftcbtc", "SWFTC"], ["Everex", "evxbtc", "EVX"], ["Bitcoin Cash", "bchbtc", "BCH"], ["Time New Bank", "tnbbtc", "TNB"], ["Streamr", "datbtc", "DAT"], ["LinkEye", "letbtc", "LET"], ["Status Network Token", "sntbtc", "SNT"], ["WePower Network", "wprbtc", "WPR"], ["UTRUST", "utkbtc", "UTK"], ["Super Bitcoin", "sbtcbtc", "SBTC"], ["Monaco", "mcobtc", "MCO"], ["QunQun", "qunbtc", "QUN"], ["WAX", "waxbtc", "WAX"], ["Neo", "neobtc", "NEO"], ["Salt", "saltbtc", "SALT"], ["Bytom", "btmbtc", "BTM"], ["EchoLink", "ekobtc", "EKO"], ["Appcoins", "appcbtc", "APPC"], ["CometCoin", "cmtbtc", "CMT"], ["Request Network", "reqbtc", "REQ"], ["ICON", "icxbtc", "ICX"], ["Odyssey", "ocnbtc", "OCN"], ["Zcash", "zecbtc", "ZEC"], ["All Sports", "socbtc", "SOC"], ["ælf", "elfbtc", "ELF"], ["DeepBrain Chain", "dbcbtc", "DBC"], ["PowerLedger", "powrbtc", "POWR"], ["DATA", "dtabtc", "DTA"], ["SunContract", "sncbtc", "SNC"], ["CoinMeet", "meebtc", "MEE"], ["Nebulas", "nasbtc", "NAS"], ["EOS", "eosbtc", "EOS"], ["IOST", "iostbtc", "IOST"], ["Raiden Network Token", "rdnbtc", "RDN"], ["Lunyr", "lunbtc", "LUN"], ["Genaro Network", "gnxbtc", "GNX"], ["Elastos", "elabtc", "ELA"], ["BitcoinX", "bcxbtc", "BCX"], ["SmartMesh", "smtbtc", "SMT"], ["ITC", "itcbtc", "ITC"], ["OmiseGO", "omgbtc", "OMG"], ["STK token", "stkbtc", "STK"], ["MediShares", "mdsbtc", "MDS"], ["AdEx", "adxbtc", "ADX"], ["Ethereum Classic", "etcbtc", "ETC"], ["KyberNetworkCrystal", "kncbtc", "KNC"], ["Civic", "cvcbtc", "CVC"], ["Bitcoin Gold", "btgbtc", "BTG"], ["EduCoin", "edubtc", "EDU"], ["METAL", "mtlbtc", "MTL"], ["Waykichain", "wiccbtc", "WICC"], ["ChainLink", "linkbtc", "LINK"], ["Dash", "dashbtc", "DASH"], ["Tierion", "tntbtc", "TNT"], ["Theta", "thetabtc", "THETA"], ["Decentraland", "manabtc", "MANA"], ["Ripple", "xrpbtc", "XRP"], ["Bitcoin Diamond", "bcdbtc", "BCD"], ["Huobi Token", "htbtc", "HT"], ["Ripio Credit Network", "rcnbtc", "RCN"], ["Bluzelle", "blzbtc", "BLZ"], ["TenX Pay Token", "paybtc", "PAY"], ["Sirin Labs", "srnbtc", "SRN"], ["Bitcoin File", "bifibtc", "BIFI"], ["Achain", "actbtc", "ACT"], ["Simple Token", "ostbtc", "OST"], ["Storj", "storjbtc", "STORJ"], ["HSHARE", "hsrbtc", "HSR"], ["VeChain", "venbtc", "VEN"], ["Golem", "gntbtc", "GNT"], ["TRON", "trxbtc", "TRX"], ["Zilliqa", "zilbtc", "ZIL"], ["Lisk", "lskbtc", "LSK"], ["Litecoin", "ltcbtc", "LTC"], ["Yee", "yeebtc", "YEE"], ["Ruff", "ruffbtc", "RUFF"], ["AirSwap", "astbtc", "AST"], ["Digix DAO", "dgdbtc", "DGD"], ["0x", "zrxbtc", "ZRX"], ["Ethereum", "ethbtc", "ETH"], ["Enigma", "engbtc", "ENG"], ["Red Pulse", "rpxbtc", "RPX"], ["Matryx", "mtxbtc", "MTX"], ["AIDOC", "aidocbtc", "AIDOC"], ["Qtum", "qtumbtc", "QTUM"], ["Quantstamp", "qspbtc", "QSP"], ["Basic Attention Token", "batbtc", "BAT"], ["QASH", "qashbtc", "QASH"], ["NEM", "xembtc", "XEM"], ["Gas", "gasbtc", "GAS"], ["Medicalchain", "mtnbtc", "MTN"], ["Chat", "chatbtc", "CHAT"], ["ZILLA", "zlabtc", "ZLA"], ["Topchain", "topcbtc", "TOPC"], ["Propy", "propybtc", "PROPY"]];
+    var HUOBI = [["SwftCoin", "swftcbtc", "SWFTC"], ["Everex", "evxbtc", "EVX"], ["Bitcoin Cash", "bchbtc", "BCH"], ["Time New Bank", "tnbbtc", "TNB"], ["Streamr", "datbtc", "DAT"], ["LinkEye", "letbtc", "LET"], ["Status Network Token", "sntbtc", "SNT"], ["WePower Network", "wprbtc", "WPR"], ["UTRUST", "utkbtc", "UTK"], ["Super Bitcoin", "sbtcbtc", "SBTC"], ["Monaco", "mcobtc", "MCO"], ["QunQun", "qunbtc", "QUN"], ["WAX", "waxbtc", "WAX"], ["Neo", "neobtc", "NEO"], ["Salt", "saltbtc", "SALT"], ["Bytom", "btmbtc", "BTM"], ["EchoLink", "ekobtc", "EKO"], ["Appcoins", "appcbtc", "APPC"], ["CometCoin", "cmtbtc", "CMT"], ["Request Network", "reqbtc", "REQ"], ["ICON", "icxbtc", "ICX"], ["Odyssey", "ocnbtc", "OCN"], ["Zcash", "zecbtc", "ZEC"], ["All Sports", "socbtc", "SOC"], ["ælf", "elfbtc", "ELF"], ["DeepBrain Chain", "dbcbtc", "DBC"], ["PowerLedger", "powrbtc", "POWR"], ["DATA", "dtabtc", "DTA"], ["SunContract", "sncbtc", "SNC"], ["CoinMeet", "meebtc", "MEE"], ["Nebulas", "nasbtc", "NAS"], ["EOS", "eosbtc", "EOS"], ["IOST", "iostbtc", "IOST"], ["Raiden Network Token", "rdnbtc", "RDN"], ["Lunyr", "lunbtc", "LUN"], ["Genaro Network", "gnxbtc", "GNX"], ["Elastos", "elabtc", "ELA"], ["BitcoinX", "bcxbtc", "BCX"], ["SmartMesh", "smtbtc", "SMT"], ["ITC", "itcbtc", "ITC"], ["OmiseGO", "omgbtc", "OMG"], ["STK token", "stkbtc", "STK"], ["MediShares", "mdsbtc", "MDS"], ["AdEx", "adxbtc", "ADX"], ["Ethereum Classic", "etcbtc", "ETC"], ["KyberNetworkCrystal", "kncbtc", "KNC"], ["Civic", "cvcbtc", "CVC"], ["Bitcoin Gold", "btgbtc", "BTG"], ["EduCoin", "edubtc", "EDU"], ["METAL", "mtlbtc", "MTL"], ["Waykichain", "wiccbtc", "WICC"], ["ChainLink", "linkbtc", "LINK"], ["Dash", "dashbtc", "DASH"], ["Tierion", "tntbtc", "TNT"], ["Theta", "thetabtc", "THETA"], ["Decentraland", "manabtc", "MANA"], ["Ripple", "xrpbtc", "XRP"], ["Bitcoin Diamond", "bcdbtc", "BCD"], ["Huobi Token", "htbtc", "HT"], ["Ripio Credit Network", "rcnbtc", "RCN"], ["Bluzelle", "blzbtc", "BLZ"], ["TenX Pay Token", "paybtc", "PAY"], ["Sirin Labs", "srnbtc", "SRN"], ["Bitcoin File", "bifibtc", "BIFI"], ["Achain", "actbtc", "ACT"], ["Simple Token", "ostbtc", "OST"], ["Storj", "storjbtc", "STORJ"], ["HSHARE", "hsrbtc", "HSR"], ["VeChain", "venbtc", "VEN"], ["Golem", "gntbtc", "GNT"], ["TRON", "trxbtc", "TRX"], ["Zilliqa", "zilbtc", "ZIL"], ["Lisk", "lskbtc", "LSK"], ["Litecoin", "ltcbtc", "LTC"], ["Yee", "yeebtc", "YEE"], ["Ruff", "ruffbtc", "RUFF"], ["AirSwap", "astbtc", "AST"], ["Digix DAO", "dgdbtc", "DGD"], ["0x", "zrxbtc", "ZRX"], ["Ethereum", "ethbtc", "ETH"], ["Enigma", "engbtc", "ENG"], ["Red Pulse", "rpxbtc", "RPX"], ["Matryx", "mtxbtc", "MTX"], ["AIDOC", "aidocbtc", "AIDOC"], ["Qtum", "qtumbtc", "QTUM"], ["Quantstamp", "qspbtc", "QSP"], ["Basic Attention Token", "batbtc", "BAT"], ["QASH", "qashbtc", "QASH"], ["NEM", "xembtc", "XEM"], ["Gas", "gasbtc", "GAS"], ["Medicalchain", "mtnbtc", "MTN"], ["Chat", "chatbtc", "CHAT"], ["ZILLA", "zlabtc", "ZLA"], ["Topchain", "topcbtc", "TOPC"], ["Propy", "propybtc", "PROPY"], ["Ada", " ", "ADA"], ["STEEM", " ", "STEEM"], ["IOTA", " ", "IOTA"], ["BitShares", " ", "BTS"]];
 
     return {
         HUOBI: HUOBI
@@ -18425,7 +18785,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var KUCOIN = [["Ethereum", " ", "ETH"], ["Neo", " ", "NEO"], ["Odyssey", " ", "OCN"], ["Fortuna", " ", "FOTA"], ["Covesting", " ", "COV"], ["CoinMeet", " ", "MEE"], ["Zeepin", " ", "ZPT"], ["Hacken", " ", "HKN"], ["LOCIcoin", " ", "LOCI"], ["Restart Energy", " ", "MWAT"], ["THEKEY", " ", "TKY"], ["Trinity Network Credit", " ", "TNC"], ["Nano", " ", "XRB"], ["aXpire", " ", "AXP"], ["CoinFi", " ", "COFI"], ["CargoX", " ", "CXO"], ["Iungo", " ", "ING"], ["KuCoin Shares", " ", "KCS"], ["Medicalchain", " ", "MTN"], ["Pareto Network", " ", "PARETO"], ["Telcoin", " ", "TEL"], ["adbank", " ", "ADB"], ["BOScoin", " ", "BOS"], ["Hawala.Today", " ", "HAT"], ["High Performance Blockchain", " ", "HPB"], ["IOStoken", " ", "IOST"], ["Block Array", " ", "ARY"], ["DeepBrain Chain", " ", "DBC"], ["Selfkey", " ", "KEY"], ["Red Pulse", " ", "RPX"], ["carVertical", " ", "CV"], ["Dragonchain", " ", "DRGN"], ["Litecoin", " ", "LTC"], ["QLINK", " ", "QLC"], ["Trade Token", " ", "TIO"], ["Centra", " ", "CTR"], ["SingularityNET", " ", "AGI"], ["Dent", " ", "DENT"], ["Catcoin", " ", "CAT"], ["Achain", " ", "ACT"], ["Bitcoin Cash", " ", "BCH"], ["CanYaCoin", " ", "CAN"], ["EOS", " ", "EOS"], ["Ethereum Classic", " ", "ETC"], ["Gas", " ", "GAS"], ["Dash", " ", "DASH"], ["GeneChain", " ", "DNA"], ["eBTC", " ", "EBTC"], ["Oyster", " ", "PRL"], ["UTRUST", " ", "UTK"], ["Change", " ", "CAG"], ["Bounty0x", " ", "BNTY"], ["Elixir", " ", "ELIX"], ["Enjin Coin", " ", "ENJ"], ["Aigang", " ", "AIX"], ["VeChain", " ", "VEN"], ["Aion", " ", "AION"], ["Streamr", " ", "DAT"], ["Qtum", " ", "QTUM"], ["Walton", " ", "WTC"], ["DigiByte", " ", "DGB"], ["Snovio", " ", "SNOV"], ["Ambrosus", " ", "AMB"], ["Bitmark", " ", "BTM"], ["RChain", " ", "RHOC"], ["Solaris", " ", "XLR"], ["Asch", " ", "XAS"], ["Po.et", " ", "POE"], ["Unikoin Gold", " ", "UKG"], ["ClearPoll", " ", "POLL"], ["Flixx", " ", "FLIXX"], ["INS Ecosystem", " ", "INS"], ["OmiseGO", " ", "OMG"], ["TrueFlip", " ", "TFL"], ["EthLend", " ", "LEND"], ["KyberNetworkCrystal", " ", "KNC"], ["Bitcoin Diamond", " ", "BCD"], ["Everex", " ", "EVX"], ["LAToken", " ", "LA"], ["DeepOnion", " ", "ONION"], ["PowerLedger", " ", "POWR"], ["SONM", " ", "SNM"], ["Bitcoin Gold", " ", "BTG"], ["HSHARE", " ", "HSR"], ["Publica", " ", "PBL"], ["Modum", " ", "MOD"], ["Populous", " ", "PPT"], ["BlockMason", " ", "BCPT"], ["Genesis Vision", " ", "GVT"], ["Decision Token", " ", "HST"], ["Pura", " ", "PURA"], ["Status Network Token", " ", "SNT"], ["Substratum", " ", "SUB"], ["Neblio", " ", "NEBL"], ["Civic", " ", "CVC"], ["Monetha", " ", "MTH"], ["Stox", " ", "STX"], ["Nuls", " ", "NULS"], ["TenX Pay Token", " ", "PAY"], ["Raiden Network Token", " ", "RDN"], ["Request Network", " ", "REQ"], ["Quantstamp", " ", "QSP"], ["Black Hole Coin", " ", "BHC"]];
+    var KUCOIN = [["Ethereum", " ", "ETH"], ["Neo", " ", "NEO"], ["Odyssey", " ", "OCN"], ["Fortuna", " ", "FOTA"], ["Covesting", " ", "COV"], ["CoinMeet", " ", "MEE"], ["Zeepin", " ", "ZPT"], ["Hacken", " ", "HKN"], ["LOCIcoin", " ", "LOCI"], ["Restart Energy", " ", "MWAT"], ["THEKEY", " ", "TKY"], ["Trinity Network Credit", " ", "TNC"], ["Nano", " ", "XRB"], ["aXpire", " ", "AXP"], ["CoinFi", " ", "COFI"], ["CargoX", " ", "CXO"], ["Iungo", " ", "ING"], ["KuCoin Shares", " ", "KCS"], ["Medicalchain", " ", "MTN"], ["Pareto Network", " ", "PARETO"], ["Telcoin", " ", "TEL"], ["adbank", " ", "ADB"], ["BOScoin", " ", "BOS"], ["Hawala.Today", " ", "HAT"], ["High Performance Blockchain", " ", "HPB"], ["IOStoken", " ", "IOST"], ["Block Array", " ", "ARY"], ["DeepBrain Chain", " ", "DBC"], ["Selfkey", " ", "KEY"], ["Red Pulse", " ", "RPX"], ["carVertical", " ", "CV"], ["Dragonchain", " ", "DRGN"], ["Litecoin", " ", "LTC"], ["QLINK", " ", "QLC"], ["Trade Token", " ", "TIO"], ["Centra", " ", "CTR"], ["SingularityNET", " ", "AGI"], ["Dent", " ", "DENT"], ["Catcoin", " ", "CAT"], ["Achain", " ", "ACT"], ["Bitcoin Cash", " ", "BCH"], ["CanYaCoin", " ", "CAN"], ["EOS", " ", "EOS"], ["Ethereum Classic", " ", "ETC"], ["Gas", " ", "GAS"], ["Dash", " ", "DASH"], ["GeneChain", " ", "DNA"], ["eBTC", " ", "EBTC"], ["Oyster", " ", "PRL"], ["UTRUST", " ", "UTK"], ["Change", " ", "CAG"], ["Bounty0x", " ", "BNTY"], ["Elixir", " ", "ELIX"], ["Enjin Coin", " ", "ENJ"], ["Aigang", " ", "AIX"], ["VeChain", " ", "VEN"], ["Aion", " ", "AION"], ["Streamr", " ", "DAT"], ["Qtum", " ", "QTUM"], ["Walton", " ", "WTC"], ["DigiByte", " ", "DGB"], ["Snovio", " ", "SNOV"], ["Ambrosus", " ", "AMB"], ["Bitmark", " ", "BTM"], ["RChain", " ", "RHOC"], ["Solaris", " ", "XLR"], ["Asch", " ", "XAS"], ["Po.et", " ", "POE"], ["Unikoin Gold", " ", "UKG"], ["ClearPoll", " ", "POLL"], ["Flixx", " ", "FLIXX"], ["INS Ecosystem", " ", "INS"], ["OmiseGO", " ", "OMG"], ["TrueFlip", " ", "TFL"], ["EthLend", " ", "LEND"], ["KyberNetworkCrystal", " ", "KNC"], ["Bitcoin Diamond", " ", "BCD"], ["Everex", " ", "EVX"], ["LAToken", " ", "LA"], ["DeepOnion", " ", "ONION"], ["PowerLedger", " ", "POWR"], ["SONM", " ", "SNM"], ["Bitcoin Gold", " ", "BTG"], ["HSHARE", " ", "HSR"], ["Publica", " ", "PBL"], ["Modum", " ", "MOD"], ["Populous", " ", "PPT"], ["BlockMason", " ", "BCPT"], ["Genesis Vision", " ", "GVT"], ["Decision Token", " ", "HST"], ["Pura", " ", "PURA"], ["Status Network Token", " ", "SNT"], ["Substratum", " ", "SUB"], ["Neblio", " ", "NEBL"], ["Civic", " ", "CVC"], ["Monetha", " ", "MTH"], ["Stox", " ", "STX"], ["Nuls", " ", "NULS"], ["TenX Pay Token", " ", "PAY"], ["Raiden Network Token", " ", "RDN"], ["Request Network", " ", "REQ"], ["Quantstamp", " ", "QSP"], ["Black Hole Coin", " ", "BHC"], ["Electroneum", " ", "ETN"], ["KickCoin", " ", "KICK"], ["Decentraland", " ", "MANA"], ["Bread", " ", "BRD"], ["ælf", " ", "ELF"], ["Aeron", " ", "CAPP"], ["SunContract", " ", "SNC"], ["Aeron", " ", "ARN"], ["Havecoin", " ", "HAV"], ["SportyFi", " ", "SPF"], ["Chronobank", " ", "TIME"]];
 
     return {
         KUCOIN: KUCOIN
@@ -18445,7 +18805,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var LIQUI = [["Litecoin", " ", "LTC"], ["STEEM", " ", "STEEM"], ["Steem Dollars", " ", "SBD"], ["Dash", " ", "DASH"], ["DECENT", " ", "DCT"], ["Iconomi", " ", "ICN"], ["Ethereum", " ", "ETH"], ["ZCoin", " ", "XZC"], ["Golos", " ", "GOLOS"], ["Gbg", " ", "GBG"], ["Golem", " ", "GNT"], ["Wings DAO", " ", "WINGS"], ["Pluton", " ", "PLU"], ["vSlice", " ", "VSL"], ["Firstblood", " ", "1ST"], ["Waves", " ", "WAVES"], ["Incent", " ", "INCNT"], ["Melon", " ", "MLN"], ["Chronobank", " ", "TIME"], ["Augur", " ", "REP"], ["Edgeless", " ", "EDG"], ["iEx.ec", " ", "RLC"], ["Trustcoin", " ", "TRST"], ["Gnosis", " ", "GNO"], ["Guppy", " ", "GUP"], ["Token-as-a-Service", " ", "TAAS"], ["Lunyr", " ", "LUN"], ["TokenCard", " ", "TKN"], ["Humaniq", " ", "HMQ"], ["Aragon", " ", "ANT"], ["Basic Attention Token", " ", "BAT"], ["Quantum Resistant Ledger", " ", "QRL"], ["Bancor", " ", "BNT"], ["MobileGo", " ", "MGO"], ["Mysterium", " ", "MYST"], ["SingularDTV", " ", "SNGLS"], ["Patientory", " ", "PTOY"], ["Cofound.it", " ", "CFI"], ["SONM", " ", "SNM"], ["Status Network Token", " ", "SNT"], ["Monaco", " ", "MCO"], ["Storj", " ", "STORJ"], ["AdEx", " ", "ADX"], ["EOS", " ", "EOS"], ["TenX Pay Token", " ", "PAY"], ["Sphre", " ", "XID"], ["OmiseGO", " ", "OMG"], ["Santiment", " ", "SAN"], ["Qtum", " ", "QTUM"], ["Civic", " ", "CVC"], ["NetCoin", " ", "NET"], ["Digix DAO", " ", "DGD"], ["OpenANX", " ", "OAX"], ["Bitcoin Cash", " ", "BCC"], ["district0x", " ", "DNT"], ["Stox", " ", "STX"], ["0x", " ", "ZRX"], ["Tierion", " ", "TNT"], ["Aeternity", " ", "AE"], ["VeChain", " ", "VEN"], ["Black Moon", " ", "BMC"], ["Decentraland", " ", "MANA"], ["Propy", " ", "PRO"], ["KyberNetworkCrystal", " ", "KNC"], ["Salt", " ", "SALT"], ["Indorse Token", " ", "IND"], ["TRON", " ", "TRX"], ["Enigma", " ", "ENG"], ["AirSwap", " ", "AST"], ["Request Network", " ", "REQ"], ["Neumark", " ", "NEU"], ["SIRIN LABS Token", " ", "SRN"], ["INS Ecosystem", " ", "INS"], ["Aion", " ", "AION"], ["WePower", " ", "WPR"], ["Republic Protocol", " ", "REN"]];
+    var LIQUI = [["Litecoin", " ", "LTC"], ["STEEM", " ", "STEEM"], ["Steem Dollars", " ", "SBD"], ["Dash", " ", "DASH"], ["DECENT", " ", "DCT"], ["Iconomi", " ", "ICN"], ["Ethereum", " ", "ETH"], ["ZCoin", " ", "XZC"], ["Golos", " ", "GOLOS"], ["Gbg", " ", "GBG"], ["Golem", " ", "GNT"], ["Wings DAO", " ", "WINGS"], ["Pluton", " ", "PLU"], ["vSlice", " ", "VSL"], ["Firstblood", " ", "1ST"], ["Waves", " ", "WAVES"], ["Incent", " ", "INCNT"], ["Melon", " ", "MLN"], ["Chronobank", " ", "TIME"], ["Augur", " ", "REP"], ["Edgeless", " ", "EDG"], ["iEx.ec", " ", "RLC"], ["Trustcoin", " ", "TRST"], ["Gnosis", " ", "GNO"], ["Guppy", " ", "GUP"], ["Token-as-a-Service", " ", "TAAS"], ["Lunyr", " ", "LUN"], ["TokenCard", " ", "TKN"], ["Humaniq", " ", "HMQ"], ["Aragon", " ", "ANT"], ["Basic Attention Token", " ", "BAT"], ["Quantum Resistant Ledger", " ", "QRL"], ["Bancor", " ", "BNT"], ["MobileGo", " ", "MGO"], ["Mysterium", " ", "MYST"], ["SingularDTV", " ", "SNGLS"], ["Patientory", " ", "PTOY"], ["Cofound.it", " ", "CFI"], ["SONM", " ", "SNM"], ["Status Network Token", " ", "SNT"], ["Monaco", " ", "MCO"], ["Storj", " ", "STORJ"], ["AdEx", " ", "ADX"], ["EOS", " ", "EOS"], ["TenX Pay Token", " ", "PAY"], ["Sphre", " ", "XID"], ["OmiseGO", " ", "OMG"], ["Santiment", " ", "SAN"], ["Qtum", " ", "QTUM"], ["Civic", " ", "CVC"], ["NetCoin", " ", "NET"], ["Digix DAO", " ", "DGD"], ["OpenANX", " ", "OAX"], ["Bitcoin Cash", " ", "BCC"], ["district0x", " ", "DNT"], ["Stox", " ", "STX"], ["0x", " ", "ZRX"], ["Tierion", " ", "TNT"], ["Aeternity", " ", "AE"], ["VeChain", " ", "VEN"], ["Black Moon", " ", "BMC"], ["Decentraland", " ", "MANA"], ["Propy", " ", "PRO"], ["KyberNetworkCrystal", " ", "KNC"], ["Salt", " ", "SALT"], ["Indorse Token", " ", "IND"], ["TRON", " ", "TRX"], ["Enigma", " ", "ENG"], ["AirSwap", " ", "AST"], ["Request Network", " ", "REQ"], ["Neumark", " ", "NEU"], ["SIRIN LABS Token", " ", "SRN"], ["INS Ecosystem", " ", "INS"], ["Aion", " ", "AION"], ["WePower", " ", "WPR"], ["Republic Protocol", " ", "REN"], ["LADACoin", " ", "LDC"], ["Enjin Coin", " ", "ENJ"]];
     return {
         LIQUI: LIQUI
     };
@@ -18464,7 +18824,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var LIVECOIN = [["Bancor", "", "BNT"], ["Groestlcoin", "", "GRS"], ["Peerplays", "", "PPY"], ["Bata", "", "BTA"], ["Status", "", "SNT"], ["Chronologic", "", "DAY"], ["LeoCoin", "", "LEO"], ["Artemine", "", "ARTE"], ["VeriCoin", "", "VRC"], ["Obits", "", "OBITS"], ["Espers", "", "ESP"], ["Waves", "", "WAVES"], ["ItiCoin", "", "ITI"], ["SoarCoin", "", "SOAR"], ["WiCoin", "", "WIC"], ["LatiumX", "", "LATX"], ["Iconomi", "", "ICN"], ["Shift", "", "SHIFT"], ["Opendollar", "", "OD"], ["Peercoin", "", "PPC"], ["TRON", "", "TRX"], ["Transfercoin", "", "TX"], ["Rialto", "", "XRL"], ["Token-as-a-Service", "", "TAAS"], ["ReeCoin", "", "REE"], ["Reciprocation", "", "ECHO"], ["Paragon", "", "PRG"], ["WeTrust", "", "TRST"], ["Metal", "", "MTL"], ["FUNCOIN", "", "FUNC"], ["GOAL Bonanza", "", "GOAL"], ["ETHEREUM PLUS", "", "ETHP"], ["CCBrother", "", "CBR"], ["Monaco", "", "MCO"], ["Sibcoin", "", "SIB"], ["CryCash", "", "CRC"], ["Rubies", "", "RBIES"], ["Enjin Coin", "", "ENJ"], ["HellenicCoin", "", "HNC"], ["EventChain", "", "EVC"], ["IPBC", "", "IPBC"], ["Golem", "", "GNT"], ["FuBi", "", "FU"], ["Spectrecoin", "", "XSPEC"], ["AllSafe", "", "ASAFE2"], ["B2BX", "", "B2B"], ["Decision Token", "", "HST"], ["Moin", "", "MOIN"], ["VEROS", "", "VRS"], ["SolarCoin", "", "SLR"], ["VeChain", "", "VEN"], ["BioCoin", "", "BIO"], ["SysCoin", "", "SYS"], ["BitSend", "", "BSD"], ["OTN", "", "OTN"], ["TrumpCoin", "", "TRUMP"], ["Noku EUR", "", "EURN"], ["CommodityAdNetworkToken", "", "CDX"], ["Oxycoin", "", "OXY"], ["Escroco", "", "ESC"], ["Voise", "", "VOISE"], ["DOLLAR Online", "", "DOLLAR"], ["FirstBlood", "", "FIRSTBLOOD"], ["SwissBorg", "", "CHSB"], ["ArtexCoin", "", "ATX"], ["BlackCoin", "", "BLK"], ["CLP Token", "", "CLPC"], ["Novacoin", "", "NVC"], ["Eternity", "", "ENT"], ["Bricktox", "", "XBT"], ["Qtum", "", "QTUM"], ["Edgeless", "", "EDG"], ["Chronobank", "", "TIME"], ["Dimecoin", "", "DIME"], ["KAPU", "", "KAPU"], ["Fincoin", "", "FNC"], ["NEO", "", "NEO"], ["Bit Public Talent Network", "", "BPTN"], ["Namecoin", "", "NMC"], ["Gold Reward Token", "", "GRX"], ["DigixDAO", "", "DGD"], ["Adelphoi Coin", "", "ADL"], ["Zilbercoin", "", "ZBC"], ["BITPARK COIN", "", "BPC"], ["Rawcoin", "", "XRC"], ["MonaCoin", "", "MONA"], ["Dynamic Trading Rights", "", "DTR"], ["EROSCOIN", "", "ERO"], ["EOS", "", "EOS"], ["Waves EncryptoTel", "", "WETT"], ["GOLOS", "", "GOLOS"], ["CloakCoin", "", "CLOAK"], ["VeriumReserve", "", "VRM"], ["Aragon", "", "ANT"], ["Minexcoin", "", "MNX"], ["Viberate", "", "VIB"], ["Dash", "", "DASH"], ["MobileGo", "", "MGO"], ["KickCoin", "", "KICK"], ["IFAN", "", "IFAN"], ["VaultCoin", "", "VLTC"], ["Melon", "", "MLN"], ["Quantum", "", "QAU"], ["FunFair", "", "FUN"], ["CryptoCarbon", "", "CCRB"], ["Ethereum", "", "ETH"], ["Spacoin", "", "SPA"], ["Bitcoin Cash", "", "BCH"], ["TrueFlip", "", "TFL"], ["TheWallcoin", "", "TWC"], ["0x", "", "ZRX"], ["indaHash Coin", "", "IDH"], ["PiplCoin", "", "PIPL"], ["GoldBlocks", "", "GB"], ["View.ly", "", "VIEW"], ["Doge", "", "DOGE"], ["BitShares", "", "BTS"], ["Monero", "", "XMR"], ["UNCoin", "", "UNC"], ["ARK", "", "ARK"], ["DigiByte", "", "DGB"], ["Minereum", "", "MNE"], ["Storj", "", "STORJ"], ["Augur", "", "REP"], ["ModulTrade", "", "MTRC"], ["Xaurum", "", "XAUR"], ["Creditbit", "", "CRBIT"], ["vSlice", "", "VSL"], ["PINCOIN", "", "PIN"], ["CrevaCoin", "", "CREVA"], ["Gnosis", "", "GNO"], ["LunaCoin", "", "LUNA"], ["Capricoin", "", "CPC"], ["PHI Token", "", "PHI"], ["Diamond", "", "DMD"], ["Matchpool", "", "GUP"], ["BlueCoin", "", "BLU"], ["PutinCoin", "", "PUT"], ["Litecoin", "", "LTC"], ["First Bitcoin", "", "BIT"], ["Universal Royal Coin", "", "UNRC"], ["Kyber Network", "", "KNC"], ["DrAgoNCoin", "", "DANC"], ["Ethos", "", "ETHOS"], ["Dignity", "", "DIG"], ["InsaneCoin", "", "INSN"], ["TerraNova", "", "TER"], ["Karbo", "", "KRB"], ["Elcoin", "", "EL"], ["Stratis", "", "STRAT"], ["Populous", "", "PPT"], ["Cloud", "", "CLD"], ["Flixx", "", "FLIXX"], ["MicroMoney", "", "AMM"], ["Mojocoin", "", "MOJO"], ["Namaste", "", "NAM"], ["ArcticCoin", "", "ARC"], ["ATMChain", "", "ATM"], ["E-Dinar Coin", "", "EDR"], ["SingularDTV", "", "SNGLS"], ["JOYREUM", "", "JOY"], ["ECOMCASH", "", "ECIO"], ["Civic", "", "CVC"], ["Avoncoin", "", "ACN"], ["WINGS DAO", "", "WINGS"], ["PIVXCoin", "", "PIVX"], ["DynamicCoin", "", "DMC"], ["Adzcoin", "", "ADZ"], ["Macro", "", "MCR"], ["TokenCard", "", "TKN"], ["GongYiCoin", "", "GYC"], ["Uquid Coin", "", "UQC"], ["Nitro", "", "NOX"], ["OmiseGO", "", "OMG"], ["Hive token", "", "HVN"], ["InsurePal token", "", "IPL"], ["ESR token", "", "ESR"], ["President Trump", "", "PRES"], ["Ethereum EncryptoTel", "", "EETT"], ["Ultimate Secure Cash", "", "USC"], ["iExec RLC", "", "RLC"], ["Ormeus Coin", "", "ORME"], ["Noku Master Token", "", "NOKU"], ["Nxt", "", "NXT"], ["Sumokoin", "", "SUMO"], ["Lisk", "", "LSK"], ["CureCoin", "", "CURE"], ["PostCoin", "", "POST"], ["Emercoin", "", "EMC"], ["Robomed Network Token", "", "RBM"], ["Yocoin", "", "YOC"], ["Moonstone DAC", "", "XMS"], ["TechShares", "", "THS"], ["NEM", "", "XEM"], ["KeplerShares", "", "KPL"], ["Incent", "", "INCNT"], ["GameCredits", "", "GAME"], ["Master Swiscoin", "", "MSCN"], ["Ambrosus", "", "AMB"], ["SportyFi", "", "SPF"], ["SexCoin", "", "SXC"], ["Orectic", "", "ORE"], ["BitBar", "", "BTB"], ["LandCoin", "", "LDC"], ["ICOS", "", "ICOS"], ["FLIP token", "", "FLP"], ["RouletteCoin", "", "RLT"], ["Honor", "", "HNR"], ["Burst", "", "BURST"], ["Propy", "", "PRO"], ["Dubaicoin", "", "DBIX"], ["Basic Attention Token", "", "BAT"], ["Covesting", "", "COV"], ["TenX", "", "PAY"], ["42-coin", "", "FORTYTWO"], ["Polybius Token", "", "PLBT"], ["StakeNet", "", "XSN"]];
+    var LIVECOIN = [["Bancor", "", "BNT"], ["Groestlcoin", "", "GRS"], ["Peerplays", "", "PPY"], ["Bata", "", "BTA"], ["Status", "", "SNT"], ["Chronologic", "", "DAY"], ["LeoCoin", "", "LEO"], ["Artemine", "", "ARTE"], ["VeriCoin", "", "VRC"], ["Obits", "", "OBITS"], ["Espers", "", "ESP"], ["Waves", "", "WAVES"], ["ItiCoin", "", "ITI"], ["SoarCoin", "", "SOAR"], ["WiCoin", "", "WIC"], ["LatiumX", "", "LATX"], ["Iconomi", "", "ICN"], ["Shift", "", "SHIFT"], ["Opendollar", "", "OD"], ["Peercoin", "", "PPC"], ["TRON", "", "TRX"], ["Transfercoin", "", "TX"], ["Rialto", "", "XRL"], ["Token-as-a-Service", "", "TAAS"], ["ReeCoin", "", "REE"], ["Reciprocation", "", "ECHO"], ["Paragon", "", "PRG"], ["WeTrust", "", "TRST"], ["Metal", "", "MTL"], ["FUNCOIN", "", "FUNC"], ["GOAL Bonanza", "", "GOAL"], ["ETHEREUM PLUS", "", "ETHP"], ["CCBrother", "", "CBR"], ["Monaco", "", "MCO"], ["Sibcoin", "", "SIB"], ["CryCash", "", "CRC"], ["Rubies", "", "RBIES"], ["Enjin Coin", "", "ENJ"], ["HellenicCoin", "", "HNC"], ["EventChain", "", "EVC"], ["IPBC", "", "IPBC"], ["Golem", "", "GNT"], ["FuBi", "", "FU"], ["Spectrecoin", "", "XSPEC"], ["AllSafe", "", "ASAFE2"], ["B2BX", "", "B2B"], ["Decision Token", "", "HST"], ["Moin", "", "MOIN"], ["VEROS", "", "VRS"], ["SolarCoin", "", "SLR"], ["VeChain", "", "VEN"], ["BioCoin", "", "BIO"], ["SysCoin", "", "SYS"], ["BitSend", "", "BSD"], ["OTN", "", "OTN"], ["TrumpCoin", "", "TRUMP"], ["Noku EUR", "", "EURN"], ["CommodityAdNetworkToken", "", "CDX"], ["Oxycoin", "", "OXY"], ["Escroco", "", "ESC"], ["Voise", "", "VOISE"], ["DOLLAR Online", "", "DOLLAR"], ["FirstBlood", "", "FIRSTBLOOD"], ["SwissBorg", "", "CHSB"], ["ArtexCoin", "", "ATX"], ["BlackCoin", "", "BLK"], ["CLP Token", "", "CLPC"], ["Novacoin", "", "NVC"], ["Eternity", "", "ENT"], ["Bricktox", "", "XBT"], ["Qtum", "", "QTUM"], ["Edgeless", "", "EDG"], ["Chronobank", "", "TIME"], ["Dimecoin", "", "DIME"], ["KAPU", "", "KAPU"], ["Fincoin", "", "FNC"], ["NEO", "", "NEO"], ["Bit Public Talent Network", "", "BPTN"], ["Namecoin", "", "NMC"], ["Gold Reward Token", "", "GRX"], ["DigixDAO", "", "DGD"], ["Adelphoi Coin", "", "ADL"], ["Zilbercoin", "", "ZBC"], ["BITPARK COIN", "", "BPC"], ["Rawcoin", "", "XRC"], ["MonaCoin", "", "MONA"], ["Dynamic Trading Rights", "", "DTR"], ["EROSCOIN", "", "ERO"], ["EOS", "", "EOS"], ["Waves EncryptoTel", "", "WETT"], ["GOLOS", "", "GOLOS"], ["CloakCoin", "", "CLOAK"], ["VeriumReserve", "", "VRM"], ["Aragon", "", "ANT"], ["Minexcoin", "", "MNX"], ["Viberate", "", "VIB"], ["Dash", "", "DASH"], ["MobileGo", "", "MGO"], ["KickCoin", "", "KICK"], ["IFAN", "", "IFAN"], ["VaultCoin", "", "VLTC"], ["Melon", "", "MLN"], ["Quantum", "", "QAU"], ["FunFair", "", "FUN"], ["CryptoCarbon", "", "CCRB"], ["Ethereum", "", "ETH"], ["Spacoin", "", "SPA"], ["Bitcoin Cash", "", "BCH"], ["TrueFlip", "", "TFL"], ["TheWallcoin", "", "TWC"], ["0x", "", "ZRX"], ["indaHash Coin", "", "IDH"], ["PiplCoin", "", "PIPL"], ["GoldBlocks", "", "GB"], ["View.ly", "", "VIEW"], ["Doge", "", "DOGE"], ["BitShares", "", "BTS"], ["Monero", "", "XMR"], ["UNCoin", "", "UNC"], ["ARK", "", "ARK"], ["DigiByte", "", "DGB"], ["Minereum", "", "MNE"], ["Storj", "", "STORJ"], ["Augur", "", "REP"], ["ModulTrade", "", "MTRC"], ["Xaurum", "", "XAUR"], ["Creditbit", "", "CRBIT"], ["vSlice", "", "VSL"], ["PINCOIN", "", "PIN"], ["CrevaCoin", "", "CREVA"], ["Gnosis", "", "GNO"], ["LunaCoin", "", "LUNA"], ["Capricoin", "", "CPC"], ["PHI Token", "", "PHI"], ["Diamond", "", "DMD"], ["Matchpool", "", "GUP"], ["BlueCoin", "", "BLU"], ["PutinCoin", "", "PUT"], ["Litecoin", "", "LTC"], ["First Bitcoin", "", "BIT"], ["Universal Royal Coin", "", "UNRC"], ["Kyber Network", "", "KNC"], ["DrAgoNCoin", "", "DANC"], ["Ethos", "", "ETHOS"], ["Dignity", "", "DIG"], ["InsaneCoin", "", "INSN"], ["TerraNova", "", "TER"], ["Karbo", "", "KRB"], ["Elcoin", "", "EL"], ["Stratis", "", "STRAT"], ["Populous", "", "PPT"], ["Cloud", "", "CLD"], ["Flixx", "", "FLIXX"], ["MicroMoney", "", "AMM"], ["Mojocoin", "", "MOJO"], ["Namaste", "", "NAM"], ["ArcticCoin", "", "ARC"], ["ATMChain", "", "ATM"], ["E-Dinar Coin", "", "EDR"], ["SingularDTV", "", "SNGLS"], ["JOYREUM", "", "JOY"], ["ECOMCASH", "", "ECIO"], ["Civic", "", "CVC"], ["Avoncoin", "", "ACN"], ["WINGS DAO", "", "WINGS"], ["PIVXCoin", "", "PIVX"], ["DynamicCoin", "", "DMC"], ["Adzcoin", "", "ADZ"], ["Macro", "", "MCR"], ["TokenCard", "", "TKN"], ["GongYiCoin", "", "GYC"], ["Uquid Coin", "", "UQC"], ["Nitro", "", "NOX"], ["OmiseGO", "", "OMG"], ["Hive token", "", "HVN"], ["InsurePal token", "", "IPL"], ["ESR token", "", "ESR"], ["President Trump", "", "PRES"], ["Ethereum EncryptoTel", "", "EETT"], ["Ultimate Secure Cash", "", "USC"], ["iExec RLC", "", "RLC"], ["Ormeus Coin", "", "ORME"], ["Noku Master Token", "", "NOKU"], ["Nxt", "", "NXT"], ["Sumokoin", "", "SUMO"], ["Lisk", "", "LSK"], ["CureCoin", "", "CURE"], ["PostCoin", "", "POST"], ["Emercoin", "", "EMC"], ["Robomed Network Token", "", "RBM"], ["Yocoin", "", "YOC"], ["Moonstone DAC", "", "XMS"], ["TechShares", "", "THS"], ["NEM", "", "XEM"], ["KeplerShares", "", "KPL"], ["Incent", "", "INCNT"], ["GameCredits", "", "GAME"], ["Master Swiscoin", "", "MSCN"], ["Ambrosus", "", "AMB"], ["SportyFi", "", "SPF"], ["SexCoin", "", "SXC"], ["Orectic", "", "ORE"], ["BitBar", "", "BTB"], ["LandCoin", "", "LDC"], ["ICOS", "", "ICOS"], ["FLIP token", "", "FLP"], ["RouletteCoin", "", "RLT"], ["Honor", "", "HNR"], ["Burst", "", "BURST"], ["Propy", "", "PRO"], ["Dubaicoin", "", "DBIX"], ["Basic Attention Token", "", "BAT"], ["Covesting", "", "COV"], ["TenX", "", "PAY"], ["42-coin", "", "FORTYTWO"], ["Polybius Token", "", "PLBT"], ["StakeNet", "", "XSN"], ["VIU", "", "VIU"], ["eosDAC", "", "EOSDAC"], ["FireLotto", "", "FLOT"], ["Canabio", "", "CNB"], ["ELI token", "", "ELI"], ["HeartBout", "", "HB"], ["FirstBlood", "", "FirstBlood"], ["AB-CHAIN RTB token", "", "RTB"], ["Transcodium", "", "TNS"], ["Waves EncryptoTel", "", "wETT"], ["FuzeX", "", "FXT"], ["Noah Coin", "", "NOAH"], ["MTCoin", "", "MTCoin"], ["Skychain", "", "SKCH"], ["Wagerr", "", "WGR"], ["TPICoin", "", "TPI"], ["ModulTrade", "", "MTRc"], ["Ethereum EncryptoTel", "", "eETT"], ["Spindle", "", "SPD"]];
 
     return {
         LIVECOIN: LIVECOIN
