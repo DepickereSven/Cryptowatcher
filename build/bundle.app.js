@@ -24584,6 +24584,8 @@ var updateGraphForLocalStorage = __webpack_require__(456);
 
 module.exports = function () {
 
+    var $container = $('.container');
+
     function showTheForm() {
         var $selShortName = $('#coin-info #the-sell-form .media-body .media-heading')[0].innerHTML;
         var $selLongName = $('#coin-info #the-sell-form .media-body p')[0].innerHTML;
@@ -24600,7 +24602,6 @@ module.exports = function () {
     function isOffline() {
         var $alert = $('.alert');
         var $sync = $('.refresh .btn');
-        console.log($sync);
         if (window.navigator.onLine) {
             $alert.hide();
             $sync.prop('disabled', false).removeClass('disabled');
@@ -24613,12 +24614,12 @@ module.exports = function () {
     var init = function init() {
         $('.container #form-exchange').on('change keyup paste click', '#searchBar', doSearch.forACertainCoin);
         $('.container #header-all-new').on('click', '.navbar-brand', changeToNewOrAllCoins.andBack);
-        $('.container').on('click', '.generateMoreHtml', add.moreCoins);
-        $('.container').on('click', '.row', generate.theInfoForTheCertainCoin);
-        $('.container').on('click', '.update-info', showTheForm);
+        $container.on('click', '.generateMoreHtml', add.moreCoins);
+        $container.on('click', '.row', generate.theInfoForTheCertainCoin);
+        $container.on('click', '.update-info', showTheForm);
         $('.container .get-back').on('click', goBackToView);
         $('.container #all-new-coins').on('click', '.refresh .btn', refresh.theNewCoins);
-        $('.container').on('click', '#get-chart', showModal.showModal);
+        $container.on('click', '#get-chart', showModal.showModal);
         $('#show-more-graph .pagination').on('click', 'a', updateGraphForLocalStorage.getDataToUpdateChart);
         loadAllNewCoins.loadNewCoins();
         loadAllCurrentCoins.loadAllCoins();
@@ -24681,6 +24682,10 @@ module.exports = function () {
     function forACertainCoin() {
         var searchData = $('#searchBar').val().toLowerCase();
         var foundData = void 0;
+        var $searchItems = $('#search-items');
+        var ifNew = void 0;
+        var coinData = void 0;
+        $searchItems.hide();
         if (searchData === " " || searchData === "") {
             if ($('#All').hasClass('active')) {
                 $('#all-coins').show();
@@ -24688,32 +24693,43 @@ module.exports = function () {
                 $('#all-new-coins').show();
             }
         } else {
-            $('#search-items').show();
+            $('#coin-info').hide();
+            $searchItems.show();
             if ($('#All').hasClass('active')) {
                 $('#all-coins').hide();
-                foundData = searchForAllCoins(searchData);
+                coinData = allCoinData.allCoins;
+                ifNew = 'a';
             } else {
-                var coinData = loadTheNewCoins.getTheNewCoins();
+                coinData = loadTheNewCoins.getTheNewCoins();
                 $('#all-new-coins').hide();
-                foundData = searchForNewCoins(searchData, coinData);
+                ifNew = 'n';
             }
-            var value = foundData.map(function (el) {
-                return GUIModule.generateTheHTMLOfFullAndShortName(el, 0);
+            foundData = searchForMatchingNames(searchData, coinData);
+            var newCompleteData = makeListOfNewSearchedCoins(foundData, coinData);
+            var value = newCompleteData.map(function (el) {
+                return GUIModule.generateTheHTMLOfFullAndShortName(el.element, el.indexValue, ifNew);
             });
-            $("#search-items").html(generateTheHTML(foundData, value));
+            $searchItems.html(generateTheHTML(newCompleteData, value));
         }
     }
 
-    function searchForAllCoins(searchData) {
-        return allCoinData.allCoins.filter(function (el) {
+    function searchForMatchingNames(searchData, coinData) {
+        return coinData.map(function (el) {
             return el.longName.toLowerCase().indexOf(searchData) >= 0 || el.shortName.toLowerCase().indexOf(searchData) >= 0;
         });
     }
 
-    function searchForNewCoins(searchData, coinData) {
-        return coinData.filter(function (el) {
-            return el.longName.toLowerCase().indexOf(searchData) >= 0 || el.shortName.toLowerCase().indexOf(searchData) >= 0;
+    function makeListOfNewSearchedCoins(searchData, coinData) {
+        var newObject = [];
+        searchData.map(function (el, index) {
+            if (el === true) {
+                newObject.push({
+                    indexValue: index,
+                    element: coinData[index]
+                });
+            }
         });
+        return newObject;
     }
 
     function generateTheHTML(foundData, value) {
@@ -24834,7 +24850,7 @@ module.exports = function () {
         var $sel = $(this);
         var elNumber = $(this).attr('id');
         var $parent = $sel.parent();
-        var allOrNew = $parent.attr('id') === 'all-coins';
+        var allOrNew = elNumber.indexOf('a') >= 0;
         $parent.hide();
         $('#coin-info, .list-exchanges').show(generateRefreshHTML.generateRefreshHTML());
         var data = '';
@@ -24846,6 +24862,7 @@ module.exports = function () {
             data = loadTheNewCoins.getTheNewCoins();
             data = data[elNumber];
         }
+        console.log(data, elNumber);
         generateCoinInfo.forOneCoin({
             coinData: data,
             allOrNew: allOrNew
@@ -25839,7 +25856,7 @@ module.exports = function () {
             needReq: true,
             req: {
                 multi: false,
-                fun: requestModule.fetchRequestForGettingTheNames,
+                fun: requestModule.fetchRequestForGettingTheNamesTroughProxy,
                 url: {
                     url1: url.REST_TICKER_COINBENE
                 }
