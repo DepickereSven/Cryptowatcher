@@ -18260,8 +18260,6 @@ var generateRefreshHTML = __webpack_require__(97);
 
 module.exports = function () {
 
-    var dateTime = "24 May 2018";
-
     function loadNewCoins() {
         if (!controlIf.weHaveNewCoins()) {
             $('#all-new-coins').html(generateRefreshHTML.generateRefreshHTML());
@@ -18269,7 +18267,7 @@ module.exports = function () {
             var coinData = loadTheNewCoins.getTheNewCoins();
             var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins, 'n', 25);
             globalVars.var.counterNewCoins = value.counter;
-            $("#all-new-coins").html('\n                   <div class="newInfo">\n                       <h1 class="info-many-coins">Current ' + coinData.length + ' new listing of coins\n                            <small class="timestamp">Last time refreshed ' + dateTime + '</small>\n                       </h1>\n                       <div class="refresh">\n                           <button type="button" class="btn btn-coinchecker"><i class="fas fa-fw fa-sync"></i></button>\n                       </div>\n                   </div>\n                   ' + value.$resultaatString + '\n                   <button class="btn btn-coinchecker load-more-new generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+            $("#all-new-coins").html('\n                   <div class="newInfo">\n                       <h1 class="info-many-coins">Current ' + coinData.length + ' new listing of coins\n                            <small class="timestamp">Last time refreshed ' + localStorage.getItem("timeNewCoins") + '</small>\n                       </h1>\n                       <div class="refresh">\n                           <button type="button" class="btn btn-coinchecker"><i class="fas fa-fw fa-sync"></i></button>\n                       </div>\n                   </div>\n                   ' + value.$resultaatString + '\n                   <button class="btn btn-coinchecker load-more-new generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
         }
     }
 
@@ -24654,10 +24652,12 @@ var globalVars = __webpack_require__(96);
 
 module.exports = function () {
 
+    var dateTime = "24 May 2018";
+
     function loadAllCoins() {
         var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins, 'a', 25);
         globalVars.var.counterAllCoins = value.counter;
-        $("#all-coins").html('\n        <h1 class="info-many-coins">Current ' + allCoinData.allCoins.length + ' coins available\n            <small class="timestamp">Last time refreshed ' + localStorage.getItem("timeNewCoins") + '</small>\n        </h1>\n       ' + value.$resultaatString + '\n       <button class="btn btn-coinchecker load-more-all generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+        $("#all-coins").html('\n        <h1 class="info-many-coins">Current ' + allCoinData.allCoins.length + ' coins available\n            <small class="timestamp">Last time refreshed ' + dateTime + '}</small>\n        </h1>\n       ' + value.$resultaatString + '\n       <button class="btn btn-coinchecker load-more-all generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
     }
 
     return {
