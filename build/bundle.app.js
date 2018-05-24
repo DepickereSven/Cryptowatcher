@@ -161,7 +161,7 @@ module.exports = function (it) {
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var store = __webpack_require__(51)('wks');
+var store = __webpack_require__(52)('wks');
 var uid = __webpack_require__(34);
 var Symbol = __webpack_require__(2).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
@@ -185,8 +185,8 @@ $exports.store = store;
  * Created by svend on 25/04/2018.
  */
 
-var dataArray = __webpack_require__(380);
 var newCoinVars = __webpack_require__(139);
+var allCoinData = __webpack_require__(51);
 
 module.exports = function () {
 
@@ -204,12 +204,12 @@ module.exports = function () {
     }
 
     function getComparedArray(firstExchangeArray, exchangeName) {
-        var secondExchangeArray = dataArray.array;
+        var secondExchangeArray = allCoinData.allCoins;
 
         for (var i = 0; i < firstExchangeArray.length; i++) {
             for (var f = 0; f < secondExchangeArray.length; f++) {
-                if (firstExchangeArray[i][2] === secondExchangeArray[f][0]) {
-                    firstExchangeArray[i][0] = secondExchangeArray[f][1];
+                if (firstExchangeArray[i][2] === secondExchangeArray[f].shortName) {
+                    firstExchangeArray[i][0] = secondExchangeArray[f].longName;
                 }
             }
         }
@@ -674,7 +674,7 @@ if (__webpack_require__(7)) {
   var global = __webpack_require__(2);
   var fails = __webpack_require__(3);
   var $export = __webpack_require__(0);
-  var $typed = __webpack_require__(61);
+  var $typed = __webpack_require__(62);
   var $buffer = __webpack_require__(92);
   var ctx = __webpack_require__(20);
   var anInstance = __webpack_require__(41);
@@ -698,11 +698,11 @@ if (__webpack_require__(7)) {
   var uid = __webpack_require__(34);
   var wks = __webpack_require__(5);
   var createArrayMethod = __webpack_require__(28);
-  var createArrayIncludes = __webpack_require__(52);
-  var speciesConstructor = __webpack_require__(59);
+  var createArrayIncludes = __webpack_require__(53);
+  var speciesConstructor = __webpack_require__(60);
   var ArrayIterators = __webpack_require__(88);
   var Iterators = __webpack_require__(46);
-  var $iterDetect = __webpack_require__(56);
+  var $iterDetect = __webpack_require__(57);
   var setSpecies = __webpack_require__(40);
   var arrayFill = __webpack_require__(87);
   var arrayCopyWithin = __webpack_require__(115);
@@ -1156,7 +1156,7 @@ if (__webpack_require__(7)) {
 
 var Map = __webpack_require__(120);
 var $export = __webpack_require__(0);
-var shared = __webpack_require__(51)('metadata');
+var shared = __webpack_require__(52)('metadata');
 var store = shared.store || (shared.store = new (__webpack_require__(123))());
 
 var getOrCreateMetadataMap = function (target, targetKey, create) {
@@ -1587,373 +1587,6 @@ module.exports = function (it) {
 
 /***/ }),
 /* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var global = __webpack_require__(2);
-var SHARED = '__core-js_shared__';
-var store = global[SHARED] || (global[SHARED] = {});
-module.exports = function (key) {
-  return store[key] || (store[key] = {});
-};
-
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// false -> Array#indexOf
-// true  -> Array#includes
-var toIObject = __webpack_require__(17);
-var toLength = __webpack_require__(9);
-var toAbsoluteIndex = __webpack_require__(37);
-module.exports = function (IS_INCLUDES) {
-  return function ($this, el, fromIndex) {
-    var O = toIObject($this);
-    var length = toLength(O.length);
-    var index = toAbsoluteIndex(fromIndex, length);
-    var value;
-    // Array#includes uses SameValueZero equality algorithm
-    // eslint-disable-next-line no-self-compare
-    if (IS_INCLUDES && el != el) while (length > index) {
-      value = O[index++];
-      // eslint-disable-next-line no-self-compare
-      if (value != value) return true;
-    // Array#indexOf ignores holes, Array#includes - not
-    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {
-      if (O[index] === el) return IS_INCLUDES || index || 0;
-    } return !IS_INCLUDES && -1;
-  };
-};
-
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports) {
-
-exports.f = Object.getOwnPropertySymbols;
-
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.2.2 IsArray(argument)
-var cof = __webpack_require__(21);
-module.exports = Array.isArray || function isArray(arg) {
-  return cof(arg) == 'Array';
-};
-
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.2.8 IsRegExp(argument)
-var isObject = __webpack_require__(4);
-var cof = __webpack_require__(21);
-var MATCH = __webpack_require__(5)('match');
-module.exports = function (it) {
-  var isRegExp;
-  return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == 'RegExp');
-};
-
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var ITERATOR = __webpack_require__(5)('iterator');
-var SAFE_CLOSING = false;
-
-try {
-  var riter = [7][ITERATOR]();
-  riter['return'] = function () { SAFE_CLOSING = true; };
-  // eslint-disable-next-line no-throw-literal
-  Array.from(riter, function () { throw 2; });
-} catch (e) { /* empty */ }
-
-module.exports = function (exec, skipClosing) {
-  if (!skipClosing && !SAFE_CLOSING) return false;
-  var safe = false;
-  try {
-    var arr = [7];
-    var iter = arr[ITERATOR]();
-    iter.next = function () { return { done: safe = true }; };
-    arr[ITERATOR] = function () { return iter; };
-    exec(arr);
-  } catch (e) { /* empty */ }
-  return safe;
-};
-
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// 21.2.5.3 get RegExp.prototype.flags
-var anObject = __webpack_require__(1);
-module.exports = function () {
-  var that = anObject(this);
-  var result = '';
-  if (that.global) result += 'g';
-  if (that.ignoreCase) result += 'i';
-  if (that.multiline) result += 'm';
-  if (that.unicode) result += 'u';
-  if (that.sticky) result += 'y';
-  return result;
-};
-
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var hide = __webpack_require__(13);
-var redefine = __webpack_require__(14);
-var fails = __webpack_require__(3);
-var defined = __webpack_require__(25);
-var wks = __webpack_require__(5);
-
-module.exports = function (KEY, length, exec) {
-  var SYMBOL = wks(KEY);
-  var fns = exec(defined, SYMBOL, ''[KEY]);
-  var strfn = fns[0];
-  var rxfn = fns[1];
-  if (fails(function () {
-    var O = {};
-    O[SYMBOL] = function () { return 7; };
-    return ''[KEY](O) != 7;
-  })) {
-    redefine(String.prototype, KEY, strfn);
-    hide(RegExp.prototype, SYMBOL, length == 2
-      // 21.2.5.8 RegExp.prototype[@@replace](string, replaceValue)
-      // 21.2.5.11 RegExp.prototype[@@split](string, limit)
-      ? function (string, arg) { return rxfn.call(string, this, arg); }
-      // 21.2.5.6 RegExp.prototype[@@match](string)
-      // 21.2.5.9 RegExp.prototype[@@search](string)
-      : function (string) { return rxfn.call(string, this); }
-    );
-  }
-};
-
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.3.20 SpeciesConstructor(O, defaultConstructor)
-var anObject = __webpack_require__(1);
-var aFunction = __webpack_require__(12);
-var SPECIES = __webpack_require__(5)('species');
-module.exports = function (O, D) {
-  var C = anObject(O).constructor;
-  var S;
-  return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
-};
-
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var global = __webpack_require__(2);
-var $export = __webpack_require__(0);
-var redefine = __webpack_require__(14);
-var redefineAll = __webpack_require__(43);
-var meta = __webpack_require__(31);
-var forOf = __webpack_require__(42);
-var anInstance = __webpack_require__(41);
-var isObject = __webpack_require__(4);
-var fails = __webpack_require__(3);
-var $iterDetect = __webpack_require__(56);
-var setToStringTag = __webpack_require__(44);
-var inheritIfRequired = __webpack_require__(74);
-
-module.exports = function (NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
-  var Base = global[NAME];
-  var C = Base;
-  var ADDER = IS_MAP ? 'set' : 'add';
-  var proto = C && C.prototype;
-  var O = {};
-  var fixMethod = function (KEY) {
-    var fn = proto[KEY];
-    redefine(proto, KEY,
-      KEY == 'delete' ? function (a) {
-        return IS_WEAK && !isObject(a) ? false : fn.call(this, a === 0 ? 0 : a);
-      } : KEY == 'has' ? function has(a) {
-        return IS_WEAK && !isObject(a) ? false : fn.call(this, a === 0 ? 0 : a);
-      } : KEY == 'get' ? function get(a) {
-        return IS_WEAK && !isObject(a) ? undefined : fn.call(this, a === 0 ? 0 : a);
-      } : KEY == 'add' ? function add(a) { fn.call(this, a === 0 ? 0 : a); return this; }
-        : function set(a, b) { fn.call(this, a === 0 ? 0 : a, b); return this; }
-    );
-  };
-  if (typeof C != 'function' || !(IS_WEAK || proto.forEach && !fails(function () {
-    new C().entries().next();
-  }))) {
-    // create collection constructor
-    C = common.getConstructor(wrapper, NAME, IS_MAP, ADDER);
-    redefineAll(C.prototype, methods);
-    meta.NEED = true;
-  } else {
-    var instance = new C();
-    // early implementations not supports chaining
-    var HASNT_CHAINING = instance[ADDER](IS_WEAK ? {} : -0, 1) != instance;
-    // V8 ~  Chromium 40- weak-collections throws on primitives, but should return false
-    var THROWS_ON_PRIMITIVES = fails(function () { instance.has(1); });
-    // most early implementations doesn't supports iterables, most modern - not close it correctly
-    var ACCEPT_ITERABLES = $iterDetect(function (iter) { new C(iter); }); // eslint-disable-line no-new
-    // for early implementations -0 and +0 not the same
-    var BUGGY_ZERO = !IS_WEAK && fails(function () {
-      // V8 ~ Chromium 42- fails only with 5+ elements
-      var $instance = new C();
-      var index = 5;
-      while (index--) $instance[ADDER](index, index);
-      return !$instance.has(-0);
-    });
-    if (!ACCEPT_ITERABLES) {
-      C = wrapper(function (target, iterable) {
-        anInstance(target, C, NAME);
-        var that = inheritIfRequired(new Base(), target, C);
-        if (iterable != undefined) forOf(iterable, IS_MAP, that[ADDER], that);
-        return that;
-      });
-      C.prototype = proto;
-      proto.constructor = C;
-    }
-    if (THROWS_ON_PRIMITIVES || BUGGY_ZERO) {
-      fixMethod('delete');
-      fixMethod('has');
-      IS_MAP && fixMethod('get');
-    }
-    if (BUGGY_ZERO || HASNT_CHAINING) fixMethod(ADDER);
-    // weak collections should not contains .clear method
-    if (IS_WEAK && proto.clear) delete proto.clear;
-  }
-
-  setToStringTag(C, NAME);
-
-  O[NAME] = C;
-  $export($export.G + $export.W + $export.F * (C != Base), O);
-
-  if (!IS_WEAK) common.setStrong(C, NAME, IS_MAP);
-
-  return C;
-};
-
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var global = __webpack_require__(2);
-var hide = __webpack_require__(13);
-var uid = __webpack_require__(34);
-var TYPED = uid('typed_array');
-var VIEW = uid('view');
-var ABV = !!(global.ArrayBuffer && global.DataView);
-var CONSTR = ABV;
-var i = 0;
-var l = 9;
-var Typed;
-
-var TypedArrayConstructors = (
-  'Int8Array,Uint8Array,Uint8ClampedArray,Int16Array,Uint16Array,Int32Array,Uint32Array,Float32Array,Float64Array'
-).split(',');
-
-while (i < l) {
-  if (Typed = global[TypedArrayConstructors[i++]]) {
-    hide(Typed.prototype, TYPED, true);
-    hide(Typed.prototype, VIEW, true);
-  } else CONSTR = false;
-}
-
-module.exports = {
-  ABV: ABV,
-  CONSTR: CONSTR,
-  TYPED: TYPED,
-  VIEW: VIEW
-};
-
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// Forced replacement prototype accessors methods
-module.exports = __webpack_require__(35) || !__webpack_require__(3)(function () {
-  var K = Math.random();
-  // In FF throws only define methods
-  // eslint-disable-next-line no-undef, no-useless-call
-  __defineSetter__.call(null, K, function () { /* empty */ });
-  delete __webpack_require__(2)[K];
-});
-
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// https://tc39.github.io/proposal-setmap-offrom/
-var $export = __webpack_require__(0);
-
-module.exports = function (COLLECTION) {
-  $export($export.S, COLLECTION, { of: function of() {
-    var length = arguments.length;
-    var A = new Array(length);
-    while (length--) A[length] = arguments[length];
-    return new this(A);
-  } });
-};
-
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// https://tc39.github.io/proposal-setmap-offrom/
-var $export = __webpack_require__(0);
-var aFunction = __webpack_require__(12);
-var ctx = __webpack_require__(20);
-var forOf = __webpack_require__(42);
-
-module.exports = function (COLLECTION) {
-  $export($export.S, COLLECTION, { from: function from(source /* , mapFn, thisArg */) {
-    var mapFn = arguments[1];
-    var mapping, A, n, cb;
-    aFunction(this);
-    mapping = mapFn !== undefined;
-    if (mapping) aFunction(mapFn);
-    if (source == undefined) return new this();
-    A = [];
-    if (mapping) {
-      n = 0;
-      cb = ctx(mapFn, arguments[2], 2);
-      forOf(source, false, function (nextItem) {
-        A.push(cb(nextItem, n++));
-      });
-    } else {
-      forOf(source, false, A.push, A);
-    }
-    return new this(A);
-  } });
-};
-
-
-/***/ }),
-/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11297,6 +10930,373 @@ module.exports = function () {
 }();
 
 /***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(2);
+var SHARED = '__core-js_shared__';
+var store = global[SHARED] || (global[SHARED] = {});
+module.exports = function (key) {
+  return store[key] || (store[key] = {});
+};
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// false -> Array#indexOf
+// true  -> Array#includes
+var toIObject = __webpack_require__(17);
+var toLength = __webpack_require__(9);
+var toAbsoluteIndex = __webpack_require__(37);
+module.exports = function (IS_INCLUDES) {
+  return function ($this, el, fromIndex) {
+    var O = toIObject($this);
+    var length = toLength(O.length);
+    var index = toAbsoluteIndex(fromIndex, length);
+    var value;
+    // Array#includes uses SameValueZero equality algorithm
+    // eslint-disable-next-line no-self-compare
+    if (IS_INCLUDES && el != el) while (length > index) {
+      value = O[index++];
+      // eslint-disable-next-line no-self-compare
+      if (value != value) return true;
+    // Array#indexOf ignores holes, Array#includes - not
+    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {
+      if (O[index] === el) return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
+};
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+exports.f = Object.getOwnPropertySymbols;
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.2.2 IsArray(argument)
+var cof = __webpack_require__(21);
+module.exports = Array.isArray || function isArray(arg) {
+  return cof(arg) == 'Array';
+};
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.2.8 IsRegExp(argument)
+var isObject = __webpack_require__(4);
+var cof = __webpack_require__(21);
+var MATCH = __webpack_require__(5)('match');
+module.exports = function (it) {
+  var isRegExp;
+  return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == 'RegExp');
+};
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var ITERATOR = __webpack_require__(5)('iterator');
+var SAFE_CLOSING = false;
+
+try {
+  var riter = [7][ITERATOR]();
+  riter['return'] = function () { SAFE_CLOSING = true; };
+  // eslint-disable-next-line no-throw-literal
+  Array.from(riter, function () { throw 2; });
+} catch (e) { /* empty */ }
+
+module.exports = function (exec, skipClosing) {
+  if (!skipClosing && !SAFE_CLOSING) return false;
+  var safe = false;
+  try {
+    var arr = [7];
+    var iter = arr[ITERATOR]();
+    iter.next = function () { return { done: safe = true }; };
+    arr[ITERATOR] = function () { return iter; };
+    exec(arr);
+  } catch (e) { /* empty */ }
+  return safe;
+};
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 21.2.5.3 get RegExp.prototype.flags
+var anObject = __webpack_require__(1);
+module.exports = function () {
+  var that = anObject(this);
+  var result = '';
+  if (that.global) result += 'g';
+  if (that.ignoreCase) result += 'i';
+  if (that.multiline) result += 'm';
+  if (that.unicode) result += 'u';
+  if (that.sticky) result += 'y';
+  return result;
+};
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var hide = __webpack_require__(13);
+var redefine = __webpack_require__(14);
+var fails = __webpack_require__(3);
+var defined = __webpack_require__(25);
+var wks = __webpack_require__(5);
+
+module.exports = function (KEY, length, exec) {
+  var SYMBOL = wks(KEY);
+  var fns = exec(defined, SYMBOL, ''[KEY]);
+  var strfn = fns[0];
+  var rxfn = fns[1];
+  if (fails(function () {
+    var O = {};
+    O[SYMBOL] = function () { return 7; };
+    return ''[KEY](O) != 7;
+  })) {
+    redefine(String.prototype, KEY, strfn);
+    hide(RegExp.prototype, SYMBOL, length == 2
+      // 21.2.5.8 RegExp.prototype[@@replace](string, replaceValue)
+      // 21.2.5.11 RegExp.prototype[@@split](string, limit)
+      ? function (string, arg) { return rxfn.call(string, this, arg); }
+      // 21.2.5.6 RegExp.prototype[@@match](string)
+      // 21.2.5.9 RegExp.prototype[@@search](string)
+      : function (string) { return rxfn.call(string, this); }
+    );
+  }
+};
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.3.20 SpeciesConstructor(O, defaultConstructor)
+var anObject = __webpack_require__(1);
+var aFunction = __webpack_require__(12);
+var SPECIES = __webpack_require__(5)('species');
+module.exports = function (O, D) {
+  var C = anObject(O).constructor;
+  var S;
+  return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
+};
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var global = __webpack_require__(2);
+var $export = __webpack_require__(0);
+var redefine = __webpack_require__(14);
+var redefineAll = __webpack_require__(43);
+var meta = __webpack_require__(31);
+var forOf = __webpack_require__(42);
+var anInstance = __webpack_require__(41);
+var isObject = __webpack_require__(4);
+var fails = __webpack_require__(3);
+var $iterDetect = __webpack_require__(57);
+var setToStringTag = __webpack_require__(44);
+var inheritIfRequired = __webpack_require__(74);
+
+module.exports = function (NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
+  var Base = global[NAME];
+  var C = Base;
+  var ADDER = IS_MAP ? 'set' : 'add';
+  var proto = C && C.prototype;
+  var O = {};
+  var fixMethod = function (KEY) {
+    var fn = proto[KEY];
+    redefine(proto, KEY,
+      KEY == 'delete' ? function (a) {
+        return IS_WEAK && !isObject(a) ? false : fn.call(this, a === 0 ? 0 : a);
+      } : KEY == 'has' ? function has(a) {
+        return IS_WEAK && !isObject(a) ? false : fn.call(this, a === 0 ? 0 : a);
+      } : KEY == 'get' ? function get(a) {
+        return IS_WEAK && !isObject(a) ? undefined : fn.call(this, a === 0 ? 0 : a);
+      } : KEY == 'add' ? function add(a) { fn.call(this, a === 0 ? 0 : a); return this; }
+        : function set(a, b) { fn.call(this, a === 0 ? 0 : a, b); return this; }
+    );
+  };
+  if (typeof C != 'function' || !(IS_WEAK || proto.forEach && !fails(function () {
+    new C().entries().next();
+  }))) {
+    // create collection constructor
+    C = common.getConstructor(wrapper, NAME, IS_MAP, ADDER);
+    redefineAll(C.prototype, methods);
+    meta.NEED = true;
+  } else {
+    var instance = new C();
+    // early implementations not supports chaining
+    var HASNT_CHAINING = instance[ADDER](IS_WEAK ? {} : -0, 1) != instance;
+    // V8 ~  Chromium 40- weak-collections throws on primitives, but should return false
+    var THROWS_ON_PRIMITIVES = fails(function () { instance.has(1); });
+    // most early implementations doesn't supports iterables, most modern - not close it correctly
+    var ACCEPT_ITERABLES = $iterDetect(function (iter) { new C(iter); }); // eslint-disable-line no-new
+    // for early implementations -0 and +0 not the same
+    var BUGGY_ZERO = !IS_WEAK && fails(function () {
+      // V8 ~ Chromium 42- fails only with 5+ elements
+      var $instance = new C();
+      var index = 5;
+      while (index--) $instance[ADDER](index, index);
+      return !$instance.has(-0);
+    });
+    if (!ACCEPT_ITERABLES) {
+      C = wrapper(function (target, iterable) {
+        anInstance(target, C, NAME);
+        var that = inheritIfRequired(new Base(), target, C);
+        if (iterable != undefined) forOf(iterable, IS_MAP, that[ADDER], that);
+        return that;
+      });
+      C.prototype = proto;
+      proto.constructor = C;
+    }
+    if (THROWS_ON_PRIMITIVES || BUGGY_ZERO) {
+      fixMethod('delete');
+      fixMethod('has');
+      IS_MAP && fixMethod('get');
+    }
+    if (BUGGY_ZERO || HASNT_CHAINING) fixMethod(ADDER);
+    // weak collections should not contains .clear method
+    if (IS_WEAK && proto.clear) delete proto.clear;
+  }
+
+  setToStringTag(C, NAME);
+
+  O[NAME] = C;
+  $export($export.G + $export.W + $export.F * (C != Base), O);
+
+  if (!IS_WEAK) common.setStrong(C, NAME, IS_MAP);
+
+  return C;
+};
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(2);
+var hide = __webpack_require__(13);
+var uid = __webpack_require__(34);
+var TYPED = uid('typed_array');
+var VIEW = uid('view');
+var ABV = !!(global.ArrayBuffer && global.DataView);
+var CONSTR = ABV;
+var i = 0;
+var l = 9;
+var Typed;
+
+var TypedArrayConstructors = (
+  'Int8Array,Uint8Array,Uint8ClampedArray,Int16Array,Uint16Array,Int32Array,Uint32Array,Float32Array,Float64Array'
+).split(',');
+
+while (i < l) {
+  if (Typed = global[TypedArrayConstructors[i++]]) {
+    hide(Typed.prototype, TYPED, true);
+    hide(Typed.prototype, VIEW, true);
+  } else CONSTR = false;
+}
+
+module.exports = {
+  ABV: ABV,
+  CONSTR: CONSTR,
+  TYPED: TYPED,
+  VIEW: VIEW
+};
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// Forced replacement prototype accessors methods
+module.exports = __webpack_require__(35) || !__webpack_require__(3)(function () {
+  var K = Math.random();
+  // In FF throws only define methods
+  // eslint-disable-next-line no-undef, no-useless-call
+  __defineSetter__.call(null, K, function () { /* empty */ });
+  delete __webpack_require__(2)[K];
+});
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// https://tc39.github.io/proposal-setmap-offrom/
+var $export = __webpack_require__(0);
+
+module.exports = function (COLLECTION) {
+  $export($export.S, COLLECTION, { of: function of() {
+    var length = arguments.length;
+    var A = new Array(length);
+    while (length--) A[length] = arguments[length];
+    return new this(A);
+  } });
+};
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// https://tc39.github.io/proposal-setmap-offrom/
+var $export = __webpack_require__(0);
+var aFunction = __webpack_require__(12);
+var ctx = __webpack_require__(20);
+var forOf = __webpack_require__(42);
+
+module.exports = function (COLLECTION) {
+  $export($export.S, COLLECTION, { from: function from(source /* , mapFn, thisArg */) {
+    var mapFn = arguments[1];
+    var mapping, A, n, cb;
+    aFunction(this);
+    mapping = mapFn !== undefined;
+    if (mapping) aFunction(mapFn);
+    if (source == undefined) return new this();
+    A = [];
+    if (mapping) {
+      n = 0;
+      cb = ctx(mapFn, arguments[2], 2);
+      forOf(source, false, function (nextItem) {
+        A.push(cb(nextItem, n++));
+      });
+    } else {
+      forOf(source, false, A.push, A);
+    }
+    return new this(A);
+  } });
+};
+
+
+/***/ }),
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11350,7 +11350,7 @@ module.exports = function (name) {
 /* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(51)('keys');
+var shared = __webpack_require__(52)('keys');
 var uid = __webpack_require__(34);
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
@@ -11599,7 +11599,7 @@ module.exports = function (Constructor, NAME, next) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // helper for String#{startsWith, endsWith, includes}
-var isRegExp = __webpack_require__(55);
+var isRegExp = __webpack_require__(56);
 var defined = __webpack_require__(25);
 
 module.exports = function (that, searchString, NAME) {
@@ -11942,7 +11942,7 @@ module.exports.f = function (C) {
 var global = __webpack_require__(2);
 var DESCRIPTORS = __webpack_require__(7);
 var LIBRARY = __webpack_require__(35);
-var $typed = __webpack_require__(61);
+var $typed = __webpack_require__(62);
 var hide = __webpack_require__(13);
 var redefineAll = __webpack_require__(43);
 var fails = __webpack_require__(3);
@@ -12241,9 +12241,9 @@ var GUIModule = __webpack_require__(95);
 
 module.exports = function () {
 
-    function toGenerate(coins, counter, newOrAllCoins) {
+    function toGenerate(coins, counter, newOrAllCoins, countUpValue) {
         var $resultaatString = "";
-        var maxValue = counter + 25;
+        var maxValue = counter + countUpValue;
         for (counter; counter < maxValue; counter++) {
             $resultaatString += "" + GUIModule.generateTheHTMLOfFullAndShortName(coins[counter], counter, newOrAllCoins);
         }
@@ -12404,7 +12404,7 @@ exports.f = __webpack_require__(5);
 
 var has = __webpack_require__(16);
 var toIObject = __webpack_require__(17);
-var arrayIndexOf = __webpack_require__(52)(false);
+var arrayIndexOf = __webpack_require__(53)(false);
 var IE_PROTO = __webpack_require__(69)('IE_PROTO');
 
 module.exports = function (object, names) {
@@ -12473,7 +12473,7 @@ module.exports.f = function getOwnPropertyNames(it) {
 
 // 19.1.2.1 Object.assign(target, source, ...)
 var getKeys = __webpack_require__(36);
-var gOPS = __webpack_require__(53);
+var gOPS = __webpack_require__(54);
 var pIE = __webpack_require__(49);
 var toObject = __webpack_require__(11);
 var IObject = __webpack_require__(48);
@@ -12752,7 +12752,7 @@ module.exports = function (done, value) {
 // 21.2.5.3 get RegExp.prototype.flags()
 if (__webpack_require__(7) && /./g.flags != 'g') __webpack_require__(8).f(RegExp.prototype, 'flags', {
   configurable: true,
-  get: __webpack_require__(57)
+  get: __webpack_require__(58)
 });
 
 
@@ -12798,7 +12798,7 @@ var validate = __webpack_require__(47);
 var MAP = 'Map';
 
 // 23.1 Map Objects
-module.exports = __webpack_require__(60)(MAP, function (get) {
+module.exports = __webpack_require__(61)(MAP, function (get) {
   return function Map() { return get(this, arguments.length > 0 ? arguments[0] : undefined); };
 }, {
   // 23.1.3.6 Map.prototype.get(key)
@@ -12975,7 +12975,7 @@ var validate = __webpack_require__(47);
 var SET = 'Set';
 
 // 23.2 Set Objects
-module.exports = __webpack_require__(60)(SET, function (get) {
+module.exports = __webpack_require__(61)(SET, function (get) {
   return function Set() { return get(this, arguments.length > 0 ? arguments[0] : undefined); };
 }, {
   // 23.2.3.1 Set.prototype.add(value)
@@ -13028,7 +13028,7 @@ var methods = {
 };
 
 // 23.3 WeakMap Objects
-var $WeakMap = module.exports = __webpack_require__(60)(WEAK_MAP, wrapper, methods, weak, true, true);
+var $WeakMap = module.exports = __webpack_require__(61)(WEAK_MAP, wrapper, methods, weak, true, true);
 
 // IE11 WeakMap frozen keys fix
 if (fails(function () { return new $WeakMap().set((Object.freeze || Object)(tmp), 7).get(tmp) != 7; })) {
@@ -13165,7 +13165,7 @@ module.exports = function (it) {
 
 // all object keys, includes non-enumerable and symbols
 var gOPN = __webpack_require__(39);
-var gOPS = __webpack_require__(53);
+var gOPS = __webpack_require__(54);
 var anObject = __webpack_require__(1);
 var Reflect = __webpack_require__(2).Reflect;
 module.exports = Reflect && Reflect.ownKeys || function ownKeys(it) {
@@ -13182,7 +13182,7 @@ module.exports = Reflect && Reflect.ownKeys || function ownKeys(it) {
 "use strict";
 
 // https://tc39.github.io/proposal-flatMap/#sec-FlattenIntoArray
-var isArray = __webpack_require__(54);
+var isArray = __webpack_require__(55);
 var isObject = __webpack_require__(4);
 var toLength = __webpack_require__(9);
 var ctx = __webpack_require__(20);
@@ -18260,14 +18260,16 @@ var generateRefreshHTML = __webpack_require__(97);
 
 module.exports = function () {
 
+    var dateTime = "24 May 2018";
+
     function loadNewCoins() {
         if (!controlIf.weHaveNewCoins()) {
             $('#all-new-coins').html(generateRefreshHTML.generateRefreshHTML());
         } else {
             var coinData = loadTheNewCoins.getTheNewCoins();
-            var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins, 'n');
+            var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins, 'n', 25);
             globalVars.var.counterNewCoins = value.counter;
-            $("#all-new-coins").html('\n                   <div class="newInfo">\n                       <h1 class="info-many-coins">Current ' + coinData.length + ' new listing of coins</h1>\n                       <div class="refresh">\n                           <button type="button" class="btn btn-coinchecker"><i class="fas fa-fw fa-sync"></i></button>\n                       </div>\n                   </div>\n                   ' + value.$resultaatString + '\n                   <button class="btn btn-coinchecker load-more-new generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+            $("#all-new-coins").html('\n                   <div class="newInfo">\n                       <h1 class="info-many-coins">Current ' + coinData.length + ' new listing of coins\n                            <small class="timestamp">Last time refreshed ' + dateTime + '</small>\n                       </h1>\n                       <div class="refresh">\n                           <button type="button" class="btn btn-coinchecker"><i class="fas fa-fw fa-sync"></i></button>\n                       </div>\n                   </div>\n                   ' + value.$resultaatString + '\n                   <button class="btn btn-coinchecker load-more-new generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
         }
     }
 
@@ -18311,29 +18313,29 @@ module.exports = function () {
  */
 
 var AdiosMarket = __webpack_require__(377);
-var Binance = __webpack_require__(381);
-var Bitfinex = __webpack_require__(384);
-var Bitstamp = __webpack_require__(387);
-var Bittrex = __webpack_require__(390);
-var BitZ = __webpack_require__(393);
-var CCex = __webpack_require__(396);
-var Coinbene = __webpack_require__(399);
-var CoinEgg = __webpack_require__(402);
-var CoinExchange = __webpack_require__(405);
-var Cryptopia = __webpack_require__(408);
-var Exmo = __webpack_require__(411);
-var ExTrade = __webpack_require__(414);
-var EXX = __webpack_require__(417);
-var Gdax = __webpack_require__(420);
-var Gemini = __webpack_require__(423);
-var HitBtc = __webpack_require__(426);
-var Huobi = __webpack_require__(429);
-var Kraken = __webpack_require__(432);
-var Kucoin = __webpack_require__(435);
-var Liqui = __webpack_require__(438);
-var Livecoin = __webpack_require__(441);
-var Poloniex = __webpack_require__(444);
-var TuxExchange = __webpack_require__(447);
+var Binance = __webpack_require__(380);
+var Bitfinex = __webpack_require__(383);
+var Bitstamp = __webpack_require__(386);
+var Bittrex = __webpack_require__(389);
+var BitZ = __webpack_require__(392);
+var CCex = __webpack_require__(395);
+var Coinbene = __webpack_require__(398);
+var CoinEgg = __webpack_require__(401);
+var CoinExchange = __webpack_require__(404);
+var Cryptopia = __webpack_require__(407);
+var Exmo = __webpack_require__(410);
+var ExTrade = __webpack_require__(413);
+var EXX = __webpack_require__(416);
+var Gdax = __webpack_require__(419);
+var Gemini = __webpack_require__(422);
+var HitBtc = __webpack_require__(425);
+var Huobi = __webpack_require__(428);
+var Kraken = __webpack_require__(431);
+var Kucoin = __webpack_require__(434);
+var Liqui = __webpack_require__(437);
+var Livecoin = __webpack_require__(440);
+var Poloniex = __webpack_require__(443);
+var TuxExchange = __webpack_require__(446);
 
 module.exports = function () {
 
@@ -18423,7 +18425,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var BINANCE = [["Ada", " ", "ADA"], ["AdEx", " ", "ADX"], ["Aion", " ", "AION"], ["Amber", " ", "AMB"], ["Ark", " ", "ARK"], ["Aeron", " ", "ARN"], ["AirSwap", " ", "AST"], ["Basic Attention Token", " ", "BAT"], ["Bitcoin Diamond", " ", "BCD"], ["BlockMason", " ", "BCPT"], ["Binance Coin", " ", "BNB"], ["Bancor", " ", "BNT"], ["Ethos", " ", "BQX"], ["Bread", " ", "BRD"], ["Bitcoin Gold", " ", "BTG"], ["BitShares", " ", "BTS"], ["Coindash", " ", "CDT"], ["CometCoin", " ", "CMT"], ["Cindicator", " ", "CND"], ["Centra", " ", "CTR"], ["Dash", " ", "DASH"], ["Digix DAO", " ", "DGD"], ["Agrello", " ", "DLT"], ["district0x", " ", "DNT"], ["ElaCoin", " ", "ELC"], ["ælf", " ", "ELF"], ["Enigma", " ", "ENG"], ["Enjin Coin", " ", "ENJ"], ["EOS", " ", "EOS"], ["Ethereum Classic", " ", "ETC"], ["Ethereum", " ", "ETH"], ["Everex", " ", "EVX"], ["Ethos", " ", "Ethos"], ["FuelCoin", " ", "FUEL"], ["FunFair", " ", "FUN"], ["Gas", " ", "GAS"], ["Gifto", " ", "GTO"], ["Genesis Vision", " ", "GVT"], ["GXShares", " ", "GXS"], ["Health Care Chain", " ", "HCC"], ["HSHARE", " ", "HSR"], ["Iconomi", " ", "ICN"], ["ICON", " ", "ICX"], ["IOTA", " ", "IOTA"], ["Komodo", " ", "KMD"], ["KyberNetworkCrystal", " ", "KNC"], ["EthLend", " ", "LEND"], ["ChainLink", " ", "LINK"], ["LLToken", " ", "LLT"], ["Loopring", " ", "LRC"], ["Lisk", " ", "LSK"], ["Litecoin", " ", "LTC"], ["Decentraland", " ", "MANA"], ["Monaco", " ", "MCO"], ["Moeda Loyalty Points", " ", "MDA"], ["Modum", " ", "MOD"], ["Monetha", " ", "MTH"], ["METAL", " ", "MTL"], ["Neblio", " ", "NEBL"], ["Neo", " ", "NEO"], ["Nuls", " ", "NULS"], ["OpenAnx", " ", "OAX"], ["OmiseGO", " ", "OMG"], ["Simple Token", " ", "OST"], ["Po.et", " ", "POE"], ["PowerLedger", " ", "POWR"], ["Populous", " ", "PPT"], ["Quantstamp", " ", "QSP"], ["Qtum", " ", "QTUM"], ["Ripio Credit Network", " ", "RCN"], ["Raiden Network Token", " ", "RDN"], ["Request Network", " ", "REQ"], ["Salt", " ", "SALT"], ["SingularDTV", " ", "SNGLS"], ["SONM", " ", "SNM"], ["Status Network Token", " ", "SNT"], ["STORJ", " ", "STORJ"], ["Stratis", " ", "STRAT"], ["Substratum", " ", "SUB"], ["Time New Bank", " ", "TNB"], ["Tierion", " ", "TNT"], ["TRON", " ", "TRX"], ["VeChain", " ", "VEN"], ["Viberate", " ", "VIB"], ["WaBi", " ", "WABI"], ["Waves", " ", "WAVES"], ["Walton", " ", "WTC"], ["Lumen", " ", "XLM"], ["Monero", " ", "XMR"], ["Ripple", " ", "XRP"], ["Verge", " ", "XVG"], ["ZCoin", " ", "XZC"], ["Yoyow", " ", "YOYO"], ["Zcash", " ", "ZEC"], ["0x", " ", "ZRX"], ["Bitcoin Cash", " ", "BCC"], ["Eidoo", " ", "EDO"], ["Wings DAO", " ", "WINGS"], ["NAVCoin", " ", "NAV"], ["Lunyr", " ", "LUN"], ["TRIG Token", " ", "TRIG"], ["AppCoins", " ", "APPC"], ["Vibe Coin", " ", "VIBE"], ["iEx.ec", " ", "RLC"], ["INS Ecosystem", " ", "INS"], ["Pivx", " ", "PIVX"], ["IOStoken", " ", "IOST"], ["Chat", " ", "CHAT"], ["STEEM", " ", "STEEM"], ["NANO", " ", "NANO"], ["Viacoin", " ", "VIA"], ["Bluzelle", " ", "BLZ"], ["Aeternity", " ", "AE"], ["Red Pulse", " ", "RPX"], ["Nucleus Vision", " ", "NCASH"], ["POA Network", " ", "POA"], ["Zilliqa", " ", "ZIL"], ["Ontology", " ", "ONT"], ["STORM", " ", "STORM"], ["NEM", " ", "XEM"], ["Wancoin", " ", "WAN"], ["WePower", " ", "WPR"], ["Qlink", " ", "QLC"], ["Syscoin", " ", "SYS"], ["Groestlcoin", " ", "GRS"], ["CloakCoin", " ", "CLOAK"], ["Golem", " ", "GNT"], ["Loom Network", " ", "LOOM"], ["Bytecoin", " ", "BCN"], ["Augur", " ", "REP"]];
+    var BINANCE = [["Ada", " ", "ADA"], ["AdEx", " ", "ADX"], ["Aion", " ", "AION"], ["Amber", " ", "AMB"], ["Ark", " ", "ARK"], ["Aeron", " ", "ARN"], ["AirSwap", " ", "AST"], ["Basic Attention Token", " ", "BAT"], ["Bitcoin Diamond", " ", "BCD"], ["BlockMason", " ", "BCPT"], ["Binance Coin", " ", "BNB"], ["Bancor", " ", "BNT"], ["Ethos", " ", "BQX"], ["Bread", " ", "BRD"], ["Bitcoin Gold", " ", "BTG"], ["BitShares", " ", "BTS"], ["Coindash", " ", "CDT"], ["CometCoin", " ", "CMT"], ["Cindicator", " ", "CND"], ["Centra", " ", "CTR"], ["Dash", " ", "DASH"], ["Digix DAO", " ", "DGD"], ["Agrello", " ", "DLT"], ["district0x", " ", "DNT"], ["ElaCoin", " ", "ELC"], ["ælf", " ", "ELF"], ["Enigma", " ", "ENG"], ["Enjin Coin", " ", "ENJ"], ["EOS", " ", "EOS"], ["Ethereum Classic", " ", "ETC"], ["Ethereum", " ", "ETH"], ["Everex", " ", "EVX"], ["Ethos", " ", "Ethos"], ["FuelCoin", " ", "FUEL"], ["FunFair", " ", "FUN"], ["Gas", " ", "GAS"], ["Gifto", " ", "GTO"], ["Genesis Vision", " ", "GVT"], ["GXShares", " ", "GXS"], ["Health Care Chain", " ", "HCC"], ["HSHARE", " ", "HSR"], ["Iconomi", " ", "ICN"], ["ICON", " ", "ICX"], ["IOTA", " ", "IOTA"], ["Komodo", " ", "KMD"], ["KyberNetworkCrystal", " ", "KNC"], ["EthLend", " ", "LEND"], ["ChainLink", " ", "LINK"], ["LLToken", " ", "LLT"], ["Loopring", " ", "LRC"], ["Lisk", " ", "LSK"], ["Litecoin", " ", "LTC"], ["Decentraland", " ", "MANA"], ["Monaco", " ", "MCO"], ["Moeda Loyalty Points", " ", "MDA"], ["Modum", " ", "MOD"], ["Monetha", " ", "MTH"], ["METAL", " ", "MTL"], ["Neblio", " ", "NEBL"], ["Neo", " ", "NEO"], ["Nuls", " ", "NULS"], ["OpenAnx", " ", "OAX"], ["OmiseGO", " ", "OMG"], ["Simple Token", " ", "OST"], ["Po.et", " ", "POE"], ["PowerLedger", " ", "POWR"], ["Populous", " ", "PPT"], ["Quantstamp", " ", "QSP"], ["Qtum", " ", "QTUM"], ["Ripio Credit Network", " ", "RCN"], ["Raiden Network Token", " ", "RDN"], ["Request Network", " ", "REQ"], ["Salt", " ", "SALT"], ["SingularDTV", " ", "SNGLS"], ["SONM", " ", "SNM"], ["Status Network Token", " ", "SNT"], ["STORJ", " ", "STORJ"], ["Stratis", " ", "STRAT"], ["Substratum", " ", "SUB"], ["Time New Bank", " ", "TNB"], ["Tierion", " ", "TNT"], ["TRON", " ", "TRX"], ["VeChain", " ", "VEN"], ["Viberate", " ", "VIB"], ["WaBi", " ", "WABI"], ["Waves", " ", "WAVES"], ["Walton", " ", "WTC"], ["Lumen", " ", "XLM"], ["Monero", " ", "XMR"], ["Ripple", " ", "XRP"], ["Verge", " ", "XVG"], ["ZCoin", " ", "XZC"], ["Yoyow", " ", "YOYO"], ["Zcash", " ", "ZEC"], ["0x", " ", "ZRX"], ["Bitcoin Cash", " ", "BCC"], ["Eidoo", " ", "EDO"], ["Wings DAO", " ", "WINGS"], ["NAVCoin", " ", "NAV"], ["Lunyr", " ", "LUN"], ["TRIG Token", " ", "TRIG"], ["AppCoins", " ", "APPC"], ["Vibe Coin", " ", "VIBE"], ["iEx.ec", " ", "RLC"], ["INS Ecosystem", " ", "INS"], ["Pivx", " ", "PIVX"], ["IOStoken", " ", "IOST"], ["Chat", " ", "CHAT"], ["STEEM", " ", "STEEM"], ["NANO", " ", "NANO"], ["Viacoin", " ", "VIA"], ["Bluzelle", " ", "BLZ"], ["Aeternity", " ", "AE"], ["Red Pulse", " ", "RPX"], ["Nucleus Vision", " ", "NCASH"], ["POA Network", " ", "POA"], ["Zilliqa", " ", "ZIL"], ["Ontology", " ", "ONT"], ["STORM", " ", "STORM"], ["NEM", " ", "XEM"], ["Wancoin", " ", "WAN"], ["WePower", " ", "WPR"], ["Qlink", " ", "QLC"], ["Syscoin", " ", "SYS"], ["Groestlcoin", " ", "GRS"], ["CloakCoin", " ", "CLOAK"], ["Golem", " ", "GNT"], ["Loom Network", " ", "LOOM"], ["Bytecoin", " ", "BCN"], ["Augur", " ", "REP"], ["TrueUSD", " ", "TUSD"], ["ZenCash", " ", "ZEN"], ["Skycoin", " ", "SKY"]];
 
     return {
         BINANCE: BINANCE
@@ -18483,7 +18485,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var BITTREX = [["2GIVE", "", "2GIVE"], ["ArtByte", "", "ABY"], ["Ada", "", "ADA"], ["adToken", "", "ADT"], ["AdEx", "", "ADX"], ["Aeon", "", "AEON"], ["SynereoAmp", "", "AMP"], ["Aragon", "", "ANT"], ["Ardor", "", "ARDR"], ["Ark", "", "ARK"], ["AuroraCoin", "", "AUR"], ["Basic Attention Token", "", "BAT"], ["BitBay", "", "BAY"], ["Bitcoin Cash", "", "BCC"], ["BlockMason Credit Protocol", "", "BCPT"], ["BitCrystals", "", "BCY"], ["BitBean", "", "BITB"], ["Blitzcash", "", "BLITZ"], ["BlackCoin", "", "BLK"], ["Blocknet", "", "BLOCK"], ["Bancor", "", "BNT"], ["Breakout", "", "BRK"], ["Breakout Stake", "", "BRX"], ["BitSend", "", "BSD"], ["Bitcoin Gold", "", "BTG"], ["BURST", "", "BURST"], ["Bytecent", "", "BYC"], ["CannabisCoin", "", "CANN"], ["Cofound.it", "", "CFI"], ["CLAMs", "", "CLAM"], ["CloakCoin", "", "CLOAK"], ["Circuits of Value", "", "COVAL"], ["CreditBit", "", "CRB"], ["Crown", "", "CRW"], ["CureCoin", "", "CURE"], ["Civic", "", "CVC"], ["Dash", "", "DASH"], ["Decred", "", "DCR"], ["Digibyte", "", "DGB"], ["Diamond", "", "DMD"], ["DMarket", "", "DMT"], ["district0x", "", "DNT"], ["Dogecoin", "", "DOGE"], ["DopeCoin", "", "DOPE"], ["Databits", "", "DTB"], ["Dynamic", "", "DYN"], ["eBoost", "", "EBST"], ["Edgeless", "", "EDG"], ["ElectronicGulden", "", "EFL"], ["EverGreenCoin", "", "EGC"], ["EmerCoin", "", "EMC"], ["Einsteinium", "", "EMC2"], ["Enigma", "", "ENG"], ["EnergyCoin", "", "ENRG"], ["EuropeCoin", "", "ERC"], ["Ethereum Classic", "", "ETC"], ["Ethereum", "", "ETH"], ["ExclusiveCoin", "", "EXCL"], ["Expanse", "", "EXP"], ["Factom", "", "FCT"], ["FoldingCoin", "", "FLDC"], ["Feathercoin", "", "FTC"], ["Gambit", "", "GAM"], ["GameCredits", "", "GAME"], ["Gbg", "", "GBG"], ["Bytes", "", "GBYTE"], ["GeoCoin", "", "GEO"], ["GoldCoin", "", "GLD"], ["Gnosis", "", "GNO"], ["Golem", "", "GNT"], ["Golos", "", "GOLOS"], ["GridCoin", "", "GRC"], ["Groestlcoin", "", "GRS"], ["Guppy", "", "GUP"], ["Humaniq", "", "HMQ"], ["Ignis", "", "IGNIS"], ["Incent", "", "INCNT"], ["I/OCoin", "", "IOC"], ["Ion", "", "ION"], ["Internet Of People", "", "IOP"], ["Kore", "", "KORE"], ["LBRY Credits", "", "LBC"], ["Legends", "", "LGD"], ["Lomocoin", "", "LMC"], ["Loopring", "", "LRC"], ["Lisk", "", "LSK"], ["Litecoin", "", "LTC"], ["Lunyr", "", "LUN"], ["Decentraland", "", "MANA"], ["Monaco", "", "MCO"], ["Memetic", "", "MEME"], ["Mercury", "", "MER"], ["Melon", "", "MLN"], ["MonaCoin", "", "MONA"], ["MonetaryUnit", "", "MUE"], ["Musicoin", "", "MUSIC"], ["NAVCoin", "", "NAV"], ["Nubits", "", "NBT"], ["Neo", "", "NEO"], ["NeosCoin", "", "NEOS"], ["Gulden", "", "NLG"], ["Numeraire", "", "NMR"], ["Nexium", "", "NXC"], ["Nexus", "", "NXS"], ["NXT", "", "NXT"], ["OkCash", "", "OK"], ["OmiseGO", "", "OMG"], ["OmniCoin", "", "OMNI"], ["Particl", "", "PART"], ["TenX Pay Token", "", "PAY"], ["PinkCoin", "", "PINK"], ["Pivx", "", "PIVX"], ["Polymath", "", "POLY"], ["PotCoin", "", "POT"], ["PowerLedger", "", "POWR"], ["Peercoin", "", "PPC"], ["Propy", "", "PRO"], ["PesetaCoin ", "", "PTC"], ["Patientory", "", "PTOY"], ["Quantum Resistant Ledger", "", "QRL"], ["Qtum", "", "QTUM"], ["Qwark", "", "QWARK"], ["Radium", "", "RADS"], ["RubyCoin", "", "RBY"], ["Ripio Credit Network", "", "RCN"], ["ReddCoin", "", "RDD"], ["Augur", "", "REP"], ["iEx.ec", "", "RLC"], ["RevolutionVR", "", "RVR"], ["Salt", "", "SALT"], ["SteemDollars", "", "SBD"], ["Siacoin", "", "SC"], ["Sequence", "", "SEQ"], ["Shift", "", "SHIFT"], ["Siberian Chervonets", "", "SIB"], ["SolarCoin", "", "SLR"], ["SaluS", "", "SLS"], ["Synergy", "", "SNRG"], ["Status Network Token", "", "SNT"], ["Sphere", "", "SPHR"], ["SpreadCoin", "", "SPR"], ["Sirin Token", "", "SRN"], ["STEEM", "", "STEEM"], ["STORJ", "", "STORJ"], ["Stratis", "", "STRAT"], ["Bitswift", "", "SWIFT"], ["Swarm City Token", "", "SWT"], ["SysCoin", "", "SYS"], ["HempCoin", "", "THC"], ["Blocktix", "", "TIX"], ["Tokes", "", "TKS"], ["Trustcoin", "", "TRST"], ["TrustPlus", "", "TRUST"], ["Tron", "", "TRX"], ["TrueUSD", "", "TUSD"], ["TransferCoin", "", "TX"], ["Ubiq", "", "UBQ"], ["UnikoinGold", "", "UKG"], ["UpToken", "", "UP"], ["BLOCKv", "", "VEE"], ["ViaCoin", "", "VIA"], ["Viberate", "", "VIB"], ["VeriCoin", "", "VRC"], ["Verium", "", "VRM"], ["Vertcoin", "", "VTC"], ["vTorrent", "", "VTR"], ["Waves", "", "WAVES"], ["Worldwide Asset Exchange", "", "WAX"], ["Wings DAO", "", "WINGS"], ["Counterparty", "", "XCP"], ["DigitalNote", "", "XDN"], ["Elastic", "", "XEL"], ["NewEconomyMovement", "", "XEM"], ["Lumen", "", "XLM"], ["Magi", "", "XMG"], ["Monero", "", "XMR"], ["Myriad", "", "XMY"], ["Ripple", "", "XRP"], ["StealthCoin", "", "XST"], ["Verge", "", "XVG"], ["WhiteCoin", "", "XWC"], ["ZCoin", "", "XZC"], ["Zclassic", "", "ZCL"], ["ZCash", "", "ZEC"], ["ZenCash", "", "ZEN"], ["0x Protocol", "", "ZRX"], ["AidCoin", "", "AID"], ["Bloom", "", "BLT"], ["DECENT", "", "DCT"], ["Florincoin", "", "FLO"], ["Komodo", "", "KMD"], ["STORM", "", "STORM"], ["Syndicate", "", "SYNX"], ["Vcash", "", "XVC"]];
+    var BITTREX = [["2GIVE", "", "2GIVE"], ["ArtByte", "", "ABY"], ["Ada", "", "ADA"], ["adToken", "", "ADT"], ["AdEx", "", "ADX"], ["Aeon", "", "AEON"], ["SynereoAmp", "", "AMP"], ["Aragon", "", "ANT"], ["Ardor", "", "ARDR"], ["Ark", "", "ARK"], ["AuroraCoin", "", "AUR"], ["Basic Attention Token", "", "BAT"], ["BitBay", "", "BAY"], ["Bitcoin Cash", "", "BCC"], ["BlockMason Credit Protocol", "", "BCPT"], ["BitCrystals", "", "BCY"], ["BitBean", "", "BITB"], ["Blitzcash", "", "BLITZ"], ["BlackCoin", "", "BLK"], ["Blocknet", "", "BLOCK"], ["Bancor", "", "BNT"], ["Breakout", "", "BRK"], ["Breakout Stake", "", "BRX"], ["BitSend", "", "BSD"], ["Bitcoin Gold", "", "BTG"], ["BURST", "", "BURST"], ["Bytecent", "", "BYC"], ["CannabisCoin", "", "CANN"], ["Cofound.it", "", "CFI"], ["CLAMs", "", "CLAM"], ["CloakCoin", "", "CLOAK"], ["Circuits of Value", "", "COVAL"], ["CreditBit", "", "CRB"], ["Crown", "", "CRW"], ["CureCoin", "", "CURE"], ["Civic", "", "CVC"], ["Dash", "", "DASH"], ["Decred", "", "DCR"], ["Digibyte", "", "DGB"], ["Diamond", "", "DMD"], ["DMarket", "", "DMT"], ["district0x", "", "DNT"], ["Dogecoin", "", "DOGE"], ["DopeCoin", "", "DOPE"], ["Databits", "", "DTB"], ["Dynamic", "", "DYN"], ["eBoost", "", "EBST"], ["Edgeless", "", "EDG"], ["ElectronicGulden", "", "EFL"], ["EverGreenCoin", "", "EGC"], ["EmerCoin", "", "EMC"], ["Einsteinium", "", "EMC2"], ["Enigma", "", "ENG"], ["EnergyCoin", "", "ENRG"], ["EuropeCoin", "", "ERC"], ["Ethereum Classic", "", "ETC"], ["Ethereum", "", "ETH"], ["ExclusiveCoin", "", "EXCL"], ["Expanse", "", "EXP"], ["Factom", "", "FCT"], ["FoldingCoin", "", "FLDC"], ["Feathercoin", "", "FTC"], ["Gambit", "", "GAM"], ["GameCredits", "", "GAME"], ["Gbg", "", "GBG"], ["Bytes", "", "GBYTE"], ["GeoCoin", "", "GEO"], ["GoldCoin", "", "GLD"], ["Gnosis", "", "GNO"], ["Golem", "", "GNT"], ["Golos", "", "GOLOS"], ["GridCoin", "", "GRC"], ["Groestlcoin", "", "GRS"], ["Guppy", "", "GUP"], ["Humaniq", "", "HMQ"], ["Ignis", "", "IGNIS"], ["Incent", "", "INCNT"], ["I/OCoin", "", "IOC"], ["Ion", "", "ION"], ["Internet Of People", "", "IOP"], ["Kore", "", "KORE"], ["LBRY Credits", "", "LBC"], ["Legends", "", "LGD"], ["Lomocoin", "", "LMC"], ["Loopring", "", "LRC"], ["Lisk", "", "LSK"], ["Litecoin", "", "LTC"], ["Lunyr", "", "LUN"], ["Decentraland", "", "MANA"], ["Monaco", "", "MCO"], ["Memetic", "", "MEME"], ["Mercury", "", "MER"], ["Melon", "", "MLN"], ["MonaCoin", "", "MONA"], ["MonetaryUnit", "", "MUE"], ["Musicoin", "", "MUSIC"], ["NAVCoin", "", "NAV"], ["Nubits", "", "NBT"], ["Neo", "", "NEO"], ["NeosCoin", "", "NEOS"], ["Gulden", "", "NLG"], ["Numeraire", "", "NMR"], ["Nexium", "", "NXC"], ["Nexus", "", "NXS"], ["NXT", "", "NXT"], ["OkCash", "", "OK"], ["OmiseGO", "", "OMG"], ["OmniCoin", "", "OMNI"], ["Particl", "", "PART"], ["TenX Pay Token", "", "PAY"], ["PinkCoin", "", "PINK"], ["Pivx", "", "PIVX"], ["Polymath", "", "POLY"], ["PotCoin", "", "POT"], ["PowerLedger", "", "POWR"], ["Peercoin", "", "PPC"], ["Propy", "", "PRO"], ["PesetaCoin ", "", "PTC"], ["Patientory", "", "PTOY"], ["Quantum Resistant Ledger", "", "QRL"], ["Qtum", "", "QTUM"], ["Qwark", "", "QWARK"], ["Radium", "", "RADS"], ["RubyCoin", "", "RBY"], ["Ripio Credit Network", "", "RCN"], ["ReddCoin", "", "RDD"], ["Augur", "", "REP"], ["iEx.ec", "", "RLC"], ["RevolutionVR", "", "RVR"], ["Salt", "", "SALT"], ["SteemDollars", "", "SBD"], ["Siacoin", "", "SC"], ["Sequence", "", "SEQ"], ["Shift", "", "SHIFT"], ["Siberian Chervonets", "", "SIB"], ["SolarCoin", "", "SLR"], ["SaluS", "", "SLS"], ["Synergy", "", "SNRG"], ["Status Network Token", "", "SNT"], ["Sphere", "", "SPHR"], ["SpreadCoin", "", "SPR"], ["Sirin Token", "", "SRN"], ["STEEM", "", "STEEM"], ["STORJ", "", "STORJ"], ["Stratis", "", "STRAT"], ["Bitswift", "", "SWIFT"], ["Swarm City Token", "", "SWT"], ["SysCoin", "", "SYS"], ["HempCoin", "", "THC"], ["Blocktix", "", "TIX"], ["Tokes", "", "TKS"], ["Trustcoin", "", "TRST"], ["TrustPlus", "", "TRUST"], ["Tron", "", "TRX"], ["TrueUSD", "", "TUSD"], ["TransferCoin", "", "TX"], ["Ubiq", "", "UBQ"], ["UnikoinGold", "", "UKG"], ["UpToken", "", "UP"], ["BLOCKv", "", "VEE"], ["ViaCoin", "", "VIA"], ["Viberate", "", "VIB"], ["VeriCoin", "", "VRC"], ["Verium", "", "VRM"], ["Vertcoin", "", "VTC"], ["vTorrent", "", "VTR"], ["Waves", "", "WAVES"], ["Worldwide Asset Exchange", "", "WAX"], ["Wings DAO", "", "WINGS"], ["Counterparty", "", "XCP"], ["DigitalNote", "", "XDN"], ["Elastic", "", "XEL"], ["NewEconomyMovement", "", "XEM"], ["Lumen", "", "XLM"], ["Magi", "", "XMG"], ["Monero", "", "XMR"], ["Myriad", "", "XMY"], ["Ripple", "", "XRP"], ["StealthCoin", "", "XST"], ["Verge", "", "XVG"], ["WhiteCoin", "", "XWC"], ["ZCoin", "", "XZC"], ["Zclassic", "", "ZCL"], ["ZCash", "", "ZEC"], ["ZenCash", "", "ZEN"], ["0x Protocol", "", "ZRX"], ["AidCoin", "", "AID"], ["Bloom", "", "BLT"], ["DECENT", "", "DCT"], ["Florincoin", "", "FLO"], ["Komodo", "", "KMD"], ["STORM", "", "STORM"], ["Syndicate", "", "SYNX"], ["Vcash", "", "XVC"], ["NAGA", "", "NGC"], ["UnbreakableCoin", "", "UNB"]];
 
     return {
         BITTREX: BITTREX
@@ -18503,7 +18505,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var BITZ = [["Litecoin", " ", "LTC"], ["Ethereum", " ", "ETH"], ["ZCash", " ", "ZEC"], ["Factom", " ", "FCT"], ["Lisk", " ", "LSK"], ["BitCore", " ", "BTX"], ["Bitcoin Cash", " ", "BCH"], ["Qtum", " ", "QTUM"], ["Dash", " ", "DASH"], ["GameCredits", " ", "GAME"], ["Ark", " ", "ARK"], ["Sharechain", " ", "SSS"], ["LeoCoin", " ", "LEO"], ["Viuly", " ", "VIU"], ["DigiByte", " ", "DGB"], ["Particl", " ", "PART"], ["Bitcoin Gold", " ", "BTG"], ["Bitcoin Diamond", " ", "BCD"], ["TRON", " ", "TRX"], ["Aeron", " ", "ARN"], ["HollyWoodCoin", " ", "HWC"], ["Oxycoin", " ", "OXY"], ["Monaco", " ", "MCO"], ["UniversalCurrency", " ", "UNIT"], ["Pylon Network", " ", "PYLNT"], ["Nano", " ", "XRB"], ["Metaverse", " ", "ETP"], ["Rebellious", " ", "REBL"], ["AI Doctor", " ", "AIDOC"], ["Data Delivery Network", " ", "DDN"], ["PutinCoin", " ", "PUT"], ["ATMChain", " ", "ATM"], ["ZenGold", " ", "ZGC"], ["SophiaTX", " ", "SPHTX"], ["Nework", " ", "NKC"], ["OceanChain", " ", "OC"], ["Odyssey", " ", "OCN"], ["Bounty0x", " ", "BNTY"], ["Ink", " ", "INK"], ["EDUCare", " ", "EKT"], ["Primecoin", " ", "XPM"], ["Dogecoin", " ", "DOGE"], ["Ethereum Classic", " ", "ETC"], ["MazaCoin", " ", "MZC"], ["GXShares", " ", "GXS"], ["HSHARE", " ", "HSR"], ["BlackCoin", " ", "BLK"], ["Nuls", " ", "NULS"], ["VOISE", " ", "VOISE"], ["TenX Pay Token", " ", "PAY"], ["EOS", " ", "EOS"], ["OmiseGO", " ", "OMG"], ["YBCoin Token", " ", "YBCT"], ["Open Trading Network", " ", "OTN"], ["Peercoin", " ", "PPC"], ["Asch", " ", "XAS"], ["Engine Chain Coin", " ", "EGCC"], ["PhoenixCoin", " ", "PXC"], ["Bitvote", " ", "BTV"], ["Qube", " ", "QUBE"], ["Lampix", " ", "PIX"], ["Super Game Chain", " ", "SGCC"], ["Ubique Chain of Things", " ", "UCT"], ["HPB Blockchain", " ", "HPB"], ["TheKey", " ", "TKY"], ["Penta", " ", "PNT"], ["TrustNote", " ", "TTT"], ["ProChain", " ", "PRA"], ["TokenStars", " ", "TEAM"]];
+    var BITZ = [["Litecoin", " ", "LTC"], ["Ethereum", " ", "ETH"], ["ZCash", " ", "ZEC"], ["Factom", " ", "FCT"], ["Lisk", " ", "LSK"], ["BitCore", " ", "BTX"], ["Bitcoin Cash", " ", "BCH"], ["Qtum", " ", "QTUM"], ["Dash", " ", "DASH"], ["GameCredits", " ", "GAME"], ["Ark", " ", "ARK"], ["Sharechain", " ", "SSS"], ["LeoCoin", " ", "LEO"], ["Viuly", " ", "VIU"], ["DigiByte", " ", "DGB"], ["Particl", " ", "PART"], ["Bitcoin Gold", " ", "BTG"], ["Bitcoin Diamond", " ", "BCD"], ["TRON", " ", "TRX"], ["Aeron", " ", "ARN"], ["HollyWoodCoin", " ", "HWC"], ["Oxycoin", " ", "OXY"], ["Monaco", " ", "MCO"], ["UniversalCurrency", " ", "UNIT"], ["Pylon Network", " ", "PYLNT"], ["Nano", " ", "XRB"], ["Metaverse", " ", "ETP"], ["Rebellious", " ", "REBL"], ["AI Doctor", " ", "AIDOC"], ["Data Delivery Network", " ", "DDN"], ["PutinCoin", " ", "PUT"], ["ATMChain", " ", "ATM"], ["ZenGold", " ", "ZGC"], ["SophiaTX", " ", "SPHTX"], ["Nework", " ", "NKC"], ["OceanChain", " ", "OC"], ["Odyssey", " ", "OCN"], ["Bounty0x", " ", "BNTY"], ["Ink", " ", "INK"], ["EDUCare", " ", "EKT"], ["Primecoin", " ", "XPM"], ["Dogecoin", " ", "DOGE"], ["Ethereum Classic", " ", "ETC"], ["MazaCoin", " ", "MZC"], ["GXShares", " ", "GXS"], ["HSHARE", " ", "HSR"], ["BlackCoin", " ", "BLK"], ["Nuls", " ", "NULS"], ["VOISE", " ", "VOISE"], ["TenX Pay Token", " ", "PAY"], ["EOS", " ", "EOS"], ["OmiseGO", " ", "OMG"], ["YBCoin Token", " ", "YBCT"], ["Open Trading Network", " ", "OTN"], ["Peercoin", " ", "PPC"], ["Asch", " ", "XAS"], ["Engine Chain Coin", " ", "EGCC"], ["PhoenixCoin", " ", "PXC"], ["Bitvote", " ", "BTV"], ["Qube", " ", "QUBE"], ["Lampix", " ", "PIX"], ["Super Game Chain", " ", "SGCC"], ["Ubique Chain of Things", " ", "UCT"], ["HPB Blockchain", " ", "HPB"], ["TheKey", " ", "TKY"], ["Penta", " ", "PNT"], ["TrustNote", " ", "TTT"], ["ProChain", " ", "PRA"], ["TokenStars", " ", "TEAM"], ["Credits", " ", "CRE"]];
 
     return {
         BITZ: BITZ
@@ -18543,7 +18545,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var COINBENE = [["Leek Coin", " ", "LEEK"], ["TokenClub", " ", "TCT"], ["HEROcoin", " ", "PLAY"], ["Litecoin", " ", "LTC"], ["Ethereum", " ", "ETH"], ["AI Doctor", " ", "AIDOC"], ["EZToken", " ", "EZT"], ["Bezop", " ", "BEZ"], ["United Crypto Community", " ", "UCOM"], ["Ducat", " ", "DUC"], ["Travelflex", " ", "TRF"], ["ArtexCoin", " ", "ATX"], ["OrmeusCoin", " ", "ORME"], ["ZenDao", " ", "ZDC"], ["SRCOIN", " ", "SRCOIN"], ["Ellaism", " ", "SHE"], ["Metaverse", " ", "ETP"], ["ZenGold", " ", "ZGC"]];
+    var COINBENE = [["Leek Coin", " ", "LEEK"], ["TokenClub", " ", "TCT"], ["HEROcoin", " ", "PLAY"], ["Litecoin", " ", "LTC"], ["Ethereum", " ", "ETH"], ["AI Doctor", " ", "AIDOC"], ["EZToken", " ", "EZT"], ["Bezop", " ", "BEZ"], ["United Crypto Community", " ", "UCOM"], ["Ducat", " ", "DUC"], ["Travelflex", " ", "TRF"], ["ArtexCoin", " ", "ATX"], ["OrmeusCoin", " ", "ORME"], ["ZenDao", " ", "ZDC"], ["SRCOIN", " ", "SRCOIN"], ["Ellaism", " ", "SHE"], ["Metaverse", " ", "ETP"], ["ZenGold", " ", "ZGC"], ["BCash", " ", "BCH"], ["CanYa", " ", "CAN"], ["Clout", " ", "CLOUT"], ["ITC", " ", "ITC"], ["Ripple", " ", "XRP"]];
 
     return {
         COINBENE: COINBENE
@@ -18563,7 +18565,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var COINEGG = [["ZcCoin", " ", "ZCC"], ["Bitcoin Pay", " ", "BTP"], ["Super Bitcoin", " ", "SBTC"], ["TransferCoin", " ", "TFC"], ["MonkeyTreasureCoin", " ", "MTC"], ["BlackCoin", " ", "BLK"], ["VeriCoin", " ", "VRC"], ["KentCoin", " ", "KTC"], ["Primecoin", " ", "XPM"], ["FirstCryptoETF", " ", "ETF"], ["WiCoin", " ", "WIC"], ["GameCredits", " ", "GAME"], ["Mermaid Coin", " ", "MRYC"], ["Lepaoquan", " ", "HLB"], ["YiBitcoin", " ", "YTC"], ["Metacoin", " ", "MET"], ["Qiecoin", " ", "QEC"], ["Moving Cloud Coin", " ", "MCC"], ["Lucky Coin", " ", "LKC"], ["RioCoin", " ", "RIO"], ["JuBaoCoin", " ", "JBC"], ["SharkTrust", " ", "SKT"], ["PGC", " ", "PGC"], ["Red Sea Shells", " ", "RSS"], ["ZetaCoin", " ", "ZET"], ["FreezeCoin", " ", "FZ"], ["Peercoin", " ", "PPC"], ["EarthCoin", " ", "EAC"], ["Polcoin", " ", "PLC"], ["Vertcoin", " ", "VTC"], ["InfiniteCoin", " ", "IFC"], ["NXT", " ", "NXT"], ["GooCoin", " ", "GOOC"], ["TRON", " ", "TRX"], ["INT Token", " ", "INT"], ["Lumen", " ", "XLM"], ["Lisk", " ", "LSK"], ["Dogecoin", " ", "DOGE"], ["Ethereum Classic", " ", "ETC"], ["TigerCoin", " ", "TGC"], ["HeroChain", " ", "HEC"], ["Ink", " ", "INK"], ["Energo Labs", " ", "TSL"], ["IPchain ", " ", "IPC"], ["Bitcoin Diamond", " ", "BCD"], ["BitcoinX", " ", "BCX"], ["Bitcoin World", " ", "BTW"], ["Cubits", " ", "QBT"], ["Bmbchain", " ", "BMB"], ["IPTChain", " ", "IPT"], ["READ", " ", "READ"], ["Ti-Value", " ", "TV"], ["Maverick System", " ", "MVC"], ["CFUN", " ", "CFUN"], ["ABitcoin", " ", "ABTC"], ["Charter", " ", "CAF"], ["Fast Bitcoin", " ", "FBTC"], ["Quantum Bitcoin", " ", "QBTC"], ["AICHAIN", " ", "AIT"], ["MUSK Token", " ", "MUSK"], ["Smart Sharing Protocol", " ", "SSP"], ["AI Doctor", " ", "AIDOC"], ["UnlimitedIP", " ", "UIP"], ["Cnet", " ", "CNET"], ["OneCoin", " ", "OC"], ["Hotchain", " ", "HOTC"], ["LiteBitcoin", " ", "LBTC"], ["UnitedBitcoin", " ", "UBTC"], ["Asch", " ", "XAS"], ["EOS", " ", "EOS"], ["Bytom", " ", "BTM"], ["Bitcoin Cash", " ", "BCH"], ["Litecoin", " ", "LTC"], ["SAFE", " ", "SAFE"], ["COINMEET", " ", "MEE"], ["Ripple", " ", "XRP"], ["Achain", " ", "ACT"], ["Halal Chain System", " ", "HLC"], ["BitShares", " ", "BTS"], ["FORTUNA", " ", "FOTA"], ["Ruff", " ", "RUFF"], ["Neo", " ", "NEO"], ["Qtum", " ", "QTUM"], ["Ethereum", " ", "ETH"], ["Aifuns", " ", "AIF"]];
+    var COINEGG = [["ZcCoin", " ", "ZCC"], ["Bitcoin Pay", " ", "BTP"], ["Super Bitcoin", " ", "SBTC"], ["TransferCoin", " ", "TFC"], ["MonkeyTreasureCoin", " ", "MTC"], ["BlackCoin", " ", "BLK"], ["VeriCoin", " ", "VRC"], ["KentCoin", " ", "KTC"], ["Primecoin", " ", "XPM"], ["FirstCryptoETF", " ", "ETF"], ["WiCoin", " ", "WIC"], ["GameCredits", " ", "GAME"], ["Mermaid Coin", " ", "MRYC"], ["Lepaoquan", " ", "HLB"], ["YiBitcoin", " ", "YTC"], ["Metacoin", " ", "MET"], ["Qiecoin", " ", "QEC"], ["Moving Cloud Coin", " ", "MCC"], ["Lucky Coin", " ", "LKC"], ["RioCoin", " ", "RIO"], ["JuBaoCoin", " ", "JBC"], ["SharkTrust", " ", "SKT"], ["PGC", " ", "PGC"], ["Red Sea Shells", " ", "RSS"], ["ZetaCoin", " ", "ZET"], ["FreezeCoin", " ", "FZ"], ["Peercoin", " ", "PPC"], ["EarthCoin", " ", "EAC"], ["Polcoin", " ", "PLC"], ["Vertcoin", " ", "VTC"], ["InfiniteCoin", " ", "IFC"], ["NXT", " ", "NXT"], ["GooCoin", " ", "GOOC"], ["TRON", " ", "TRX"], ["INT Token", " ", "INT"], ["Lumen", " ", "XLM"], ["Lisk", " ", "LSK"], ["Dogecoin", " ", "DOGE"], ["Ethereum Classic", " ", "ETC"], ["TigerCoin", " ", "TGC"], ["HeroChain", " ", "HEC"], ["Ink", " ", "INK"], ["Energo Labs", " ", "TSL"], ["IPchain ", " ", "IPC"], ["Bitcoin Diamond", " ", "BCD"], ["BitcoinX", " ", "BCX"], ["Bitcoin World", " ", "BTW"], ["Cubits", " ", "QBT"], ["Bmbchain", " ", "BMB"], ["IPTChain", " ", "IPT"], ["READ", " ", "READ"], ["Ti-Value", " ", "TV"], ["Maverick System", " ", "MVC"], ["CFUN", " ", "CFUN"], ["ABitcoin", " ", "ABTC"], ["Charter", " ", "CAF"], ["Fast Bitcoin", " ", "FBTC"], ["Quantum Bitcoin", " ", "QBTC"], ["AICHAIN", " ", "AIT"], ["MUSK Token", " ", "MUSK"], ["Smart Sharing Protocol", " ", "SSP"], ["AI Doctor", " ", "AIDOC"], ["UnlimitedIP", " ", "UIP"], ["Cnet", " ", "CNET"], ["OneCoin", " ", "OC"], ["Hotchain", " ", "HOTC"], ["LiteBitcoin", " ", "LBTC"], ["UnitedBitcoin", " ", "UBTC"], ["Asch", " ", "XAS"], ["EOS", " ", "EOS"], ["Bytom", " ", "BTM"], ["Bitcoin Cash", " ", "BCH"], ["Litecoin", " ", "LTC"], ["SAFE", " ", "SAFE"], ["COINMEET", " ", "MEE"], ["Ripple", " ", "XRP"], ["Achain", " ", "ACT"], ["Halal Chain System", " ", "HLC"], ["BitShares", " ", "BTS"], ["FORTUNA", " ", "FOTA"], ["Ruff", " ", "RUFF"], ["Neo", " ", "NEO"], ["Qtum", " ", "QTUM"], ["Ethereum", " ", "ETH"], ["Aifuns", " ", "AIF"], ["Waykichain", " ", "WICC"], ["SpaceChain", " ", "SPC"], ["Ontology", " ", "ONT"]];
 
     return {
         COINEGG: COINEGG
@@ -18603,7 +18605,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var CRYPTOPIA = [["Money", " ", "$$$"], ["$PAC", " ", "$PAC"], ["Elite", " ", "1337"], ["21Million", " ", "21M"], ["300 Token", " ", "300"], ["42-coin", " ", "42"], ["SixEleven", " ", "611"], ["808", " ", "808"], ["OctoCoin", " ", "888"], ["8Bit", " ", "8BIT"], ["Alphabit", " ", "ABC"], ["ArtByte", " ", "ABY"], ["Asiacoin", " ", "AC"], ["AC3", " ", "AC3"], ["Adcoin", " ", "ACC"], ["ACoin", " ", "ACOIN"], ["AudioCoin", " ", "ADC"], ["Adshares", " ", "ADST"], ["AmigaCoin", " ", "AGA"], ["Alexandrite", " ", "ALEX"], ["ALIS", " ", "ALIS"], ["Allion", " ", "ALL"], ["AltCoin", " ", "ALT"], ["Synereo AMP", " ", "AMP"], ["AnimeCoin", " ", "ANI"], ["APX", " ", "APX"], ["ArcticCoin", " ", "ARC"], ["AquariusCoin", " ", "ARCO"], ["Argentum", " ", "ARG"], ["ArgusCoin", " ", "ARGUS"], ["Aricoin", " ", "ARI"], ["Ark", " ", "ARK"], ["Athenian Warrior Token", " ", "ATH"], ["Atmos", " ", "ATMOS"], ["Atomiccoin", " ", "ATOM"], ["AurumCoin", " ", "AU"], ["AuroraCoin", " ", "AUR"], ["Aureus", " ", "AURS"], ["BatCoin", " ", "BAT"], ["BitBay", " ", "BAY"], ["Bitcoin Fast", " ", "BCF"], ["BCash", " ", "BCH"], ["BlockMason", " ", "BCPT"], ["BitDeal", " ", "BDL"], ["Bean Cash", " ", "BEAN"], ["BeezerCoin", " ", "BEEZ"], ["BenjiRolls", " ", "BENJI"], ["BERNcash", " ", "BERN"], ["BestChain", " ", "BEST"], ["Bongger", " ", "BGR"], ["BipCoin", " ", "BIP"], ["BirdCoin", " ", "BIRD"], ["Bismuth", " ", "BIS"], ["Bitcoin Green", " ", "BITG"], ["Bitstar", " ", "BITS"], ["BlockCat", " ", "BKCAT"], ["Blakecoin", " ", "BLC"], ["BlackCoin", " ", "BLK"], ["Blocknet", " ", "BLOCK"], ["BlazeCoin", " ", "BLZ"], ["BraveNewCoin", " ", "BNC"], ["BnrtxCoin", " ", "BNX"], ["BolivarCoin", " ", "BOLI"], ["Bonpay", " ", "BON"], ["BlockOptions", " ", "BOP"], ["Blockpool", " ", "BPL"], ["BorgCoin", " ", "BRG"], ["Bitradio", " ", "BRO"], ["BitSend", " ", "BSD"], ["GlobalBoost-Y", " ", "BSTY"], ["BATA", " ", "BTA"], ["BitBar", " ", "BTB"], ["BitcoinDark", " ", "BTCD"], ["Bitcoin Scrypt", " ", "BTCS"], ["Bitcloud", " ", "BTDX"], ["Bitgem", " ", "BTG"], ["Bytom", " ", "BTM"], ["BitCore", " ", "BTX"], ["SwagBucks", " ", "BUCKS"], ["Bumbacoin", " ", "BUMBA"], ["BunnyCoin", " ", "BUN"], ["BVBCoin", " ", "BVB"], ["Bulwark", " ", "BWK"], ["Bitcedi", " ", "BXC"], ["Coin2", " ", "C2"], ["CacheCoin", " ", "CACH"], ["CanYa", " ", "CAN"], ["Cannabiscoin", " ", "CANN"], ["Cappasity", " ", "CAPP"], ["CareerCoin", " ", "CAR"], ["Catcoin", " ", "CAT"], ["Bullion", " ", "CBX"], ["CoolInDarkCoin", " ", "CC"], ["CryptoClub", " ", "CCB"], ["CannaCoin", " ", "CCN"], ["Canada eCoin", " ", "CDN"], ["CryptopiaFeeShare", " ", "CEFS"], ["Centrality", " ", "CENNZ"], ["CoffeeCoin", " ", "CFC"], ["ChanCoin", " ", "CHAN"], ["ChainCoin", " ", "CHC"], ["ChessCoin", " ", "CHESS"], ["CryptoJacks", " ", "CJ"], ["Coinlancer", " ", "CL"], ["ClamCoin", " ", "CLAM"], ["CloakCoin", " ", "CLOAK"], ["CompCoin", " ", "CMP"], ["CampusCoin", " ", "CMPCO"], ["CometCoin", " ", "CMT"], ["Cannation", " ", "CNNC"], ["Coino", " ", "CNO"], ["Bitcoal", " ", "COAL"], ["ColossusXT", " ", "COLX"], ["Compound Coin", " ", "COMP"], ["PayCon", " ", "CON"], ["CopperCoin", " ", "COPPER"], ["Corion", " ", "COR"], ["CompuCoin", " ", "CPN"], ["ConquestCoin", " ", "CQST"], ["Crave", " ", "CRAVE"], ["CrowdCoin", " ", "CRC"], ["CreativeCoin", " ", "CREA"], ["CREAMcoin", " ", "CRM"], ["CryptoRuble", " ", "CRUR"], ["ChronosCoin", " ", "CRX"], ["CryptCoin", " ", "CRYPT"], ["Coimatic 3", " ", "CTIC3"], ["Coinonat", " ", "CXT"], ["DALECOIN", " ", "DALC"], ["DARK", " ", "DARK"], ["DA$", " ", "DAS"], ["Dash", " ", "DASH"], ["DaxxCoin", " ", "DAXX"], ["DecentBet", " ", "DBET"], ["DubaiCoin", " ", "DBIX"], ["Dentacoin", " ", "DCN"], ["Decred", " ", "DCR"], ["DinastyCoin", " ", "DCY"], ["DDF", " ", "DDF"], ["Deutsche eMark", " ", "DEM"], ["Deuscoin", " ", "DEUS"], ["Deviant", " ", "DEV"], ["DigiByte", " ", "DGB"], ["Digitalcoin", " ", "DGC"], ["DigiPulse", " ", "DGPT"], ["Dimecoin", " ", "DIME"], ["Divi Exchange Token", " ", "DIVX"], ["GeneChain", " ", "DNA"], ["Denarius", " ", "DNR"], ["Dogecoin", " ", "DOGE"], ["DonationCoin", " ", "DON"], ["DopeCoin", " ", "DOPE"], ["Dotcoin", " ", "DOT"], ["DigitalPrice", " ", "DP"], ["DA Power Play", " ", "DPP"], ["DCORP", " ", "DRP"], ["DRP Utility", " ", "DRPU"], ["Droxne", " ", "DRXNE"], ["Parallelcoin", " ", "DUO"], ["EmbargoCoin", " ", "EBG"], ["Eclipse", " ", "EC"], ["Electra", " ", "ECA"], ["ECOcoin", " ", "ECO"], ["EcoBit", " ", "ECOB"], ["EducoinV", " ", "EDC"], ["Eddiecoin", " ", "EDDIE"], ["EDRcoin", " ", "EDRC"], ["E-Gulden", " ", "EFL"], ["EverGreenCoin", " ", "EGC"], ["ElaCoin", " ", "ELC"], ["Ellaism", " ", "ELLA"], ["Elements", " ", "ELM"], ["EmerCoin", " ", "EMC"], ["Einsteinium", " ", "EMC2"], ["Emerald Crypto", " ", "EMD"], ["Enjin Coin", " ", "ENJ"], ["ExperienceCoin", " ", "EPC"], ["Equitrade", " ", "EQT"], ["Eryllium", " ", "ERY"], ["Ethereum Classic", " ", "ETC"], ["Ethereum", " ", "ETH"], ["Ethereum Dark", " ", "ETHD"], ["Electroneum", " ", "ETN"], ["EncryptoTel", " ", "ETT"], ["Eurocoin", " ", "EUC"], ["Evilcoin", " ", "EVIL"], ["Evotion", " ", "EVO"], ["Everus", " ", "EVR"], ["Expanse", " ", "EXP"], ["FuelCoin", " ", "FC2"], ["FacileCoin", " ", "FCN"], ["Factom", " ", "FCT"], ["FireFlyCoin", " ", "FFC"], ["FujiCoin", " ", "FJC"], ["FLASH", " ", "FLASH"], ["Flaxscript", " ", "FLAX"], ["FloripaCoin", " ", "FLN"], ["FlutterCoin", " ", "FLT"], ["FonzieCoin", " ", "FONZ"], ["Fortcoin", " ", "FORT"], ["FireRoosterCoin", " ", "FRC"], ["Francs", " ", "FRN"], ["FastCoin", " ", "FST"], ["Feathercoin", " ", "FTC"], ["FeatherCoinClassic", " ", "FTCC"], ["Cypherfunks", " ", "FUNK"], ["Futereum X", " ", "FUTX"], ["FuzzBalls", " ", "FUZZ"], ["GaiaCoin", " ", "GAIA"], ["GameCredits", " ", "GAME"], ["Gapcoin", " ", "GAP"], ["GayMoney", " ", "GAY"], ["GoByte", " ", "GBX"], ["Byteball Bytes", " ", "GBYTE"], ["GCoin", " ", "GCN"], ["GrandCoin", " ", "GDC"], ["GeertCoin", " ", "GEERT"], ["GeoCoin", " ", "GEO"], ["GoldCoin", " ", "GLD"], ["Gnosis", " ", "GNO"], ["Gainer", " ", "GNR"], ["Golem", " ", "GNT"], ["GoldPieces", " ", "GP"], ["GoldPressedLatinum ", " ", "GPL"], ["GPUCoin", " ", "GPU"], ["Granite", " ", "GRN"], ["Groestlcoin", " ", "GRS"], ["GrowthCoin", " ", "GRW"], ["Growers Intl", " ", "GRWI"], ["GunCoin", " ", "GUN"], ["GroinCoin", " ", "GXG"], ["Hackspace", " ", "HAC"], ["Halcyon", " ", "HAL"], ["Havecoin", " ", "HAV"], ["HomeblockCoin", " ", "HBC"], ["HoboNickels", " ", "HBN"], ["HarvestCoin", " ", "HC"], ["HodlBucks", " ", "HDLB"], ["HeatLedger", " ", "HEAT"], ["Helium", " ", "HLM"], ["InterstellarHoldings", " ", "HOLD"], ["HSHARE", " ", "HSR"], ["Decision Token", " ", "HST"], ["Hush", " ", "HUSH"], ["HexxCoin", " ", "HXX"], ["HyperStake", " ", "HYP"], ["I0Coin", " ", "I0C"], ["IgnitionCoin", " ", "IC"], ["ICOBid", " ", "ICOB"], ["InflationCoin", " ", "IFLT"], ["investFeed", " ", "IFT"], ["Independent Money System", " ", "IMS"], ["InCoin", " ", "IN"], ["Influxcoin", " ", "INFX"], ["Innova", " ", "INN"], ["InPay", " ", "INPAY"], ["Insane", " ", "INSN"], ["Iquant Chain", " ", "IQT"], ["IrishCoin", " ", "IRL"], ["ItiCoin", " ", "ITI"], ["IXCoin", " ", "IXC"], ["IZEcoin", " ", "IZE"], ["KashCoin", " ", "KASH"], ["Kayicoin", " ", "KAYI"], ["Kubera", " ", "KBR"], ["KlondikeCoin", " ", "KDC"], ["Darsek", " ", "KED"], ["Kekcoin", " ", "KEK"], ["KangarooBits", " ", "KGB"], ["King93", " ", "KING"], ["Komodo", " ", "KMD"], ["KyberNetworkCrystal", " ", "KNC"], ["KoboCoin", " ", "KOBO"], ["Karbo", " ", "KRB"], ["Kronecoin", " ", "KRONE"], ["KumaCoin", " ", "KUMA"], ["Kurrent", " ", "KURT"], ["KushCoin", " ", "KUSH"], ["LanaCoin", " ", "LANA"], ["LBRY Credits", " ", "LBC"], ["LiteBitcoin", " ", "LBTC"], ["litecoinPlus", " ", "LCP"], ["LADACoin", " ", "LDC"], ["LiteDoge", " ", "LDOGE"], ["LeaCoin", " ", "LEA"], ["Leafcoin", " ", "LEAF"], ["LemonCoin", " ", "LEMON"], ["LFTCCoin", " ", "LFTC"], ["Lina", " ", "LINA"], ["LindaCoin", " ", "LINDA"], ["Linx", " ", "LINX"], ["Lithiumcoin", " ", "LIT"], ["LiZi", " ", "LIZI"], ["Lottocoin", " ", "LOT"], ["LiteBar", " ", "LTB"], ["Litecoin", " ", "LTC"], ["LitecoinUltra", " ", "LTCU"], ["Luxcoin", " ", "LUX"], ["Lycancoin", " ", "LYC"], ["Lynx", " ", "LYNX"], ["MachineCoin", " ", "MAC"], ["Magnet", " ", "MAG"], ["MagicCoin", " ", "MAGE"], ["MagnetCoin", " ", "MAGN"], ["MaidSafeCoin", " ", "MAID"], ["MarijuanaCoin", " ", "MAR"], ["Bitmark", " ", "MARKS"], ["Mars", " ", "MARS"], ["MarxCoin", " ", "MARX"], ["MatrixCoin", " ", "MATRX"], ["Embers", " ", "MBRS"], ["Musiconomi", " ", "MCI"], ["Macron", " ", "MCRN"], ["MegaCoin", " ", "MEC"], ["MobileGo", " ", "MGO"], ["MegaX", " ", "MGX"], ["Minex", " ", "MINEX"], ["Mintcoin", " ", "MINT"], ["Melite", " ", "MLITE"], ["Minereum", " ", "MNE"], ["Mineum", " ", "MNM"], ["MOIN", " ", "MOIN"], ["MojoCoin", " ", "MOJO"], ["MonkeyProject", " ", "MONK"], ["MotoCoin", " ", "MOTO"], ["Mothership", " ", "MSP"], ["Mustangcoin", " ", "MST"], ["Metal", " ", "MTL"], ["MetalMusicCoin", " ", "MTLMC"], ["MasterNodeCoin", " ", "MTNC"], ["Musicoin", " ", "MUSIC"], ["MyBit", " ", "MYB"], ["MazaCoin", " ", "MZC"], ["NAMO COIN", " ", "NAMO"], ["NavCoin", " ", "NAV"], ["NeuroDAO", " ", "NDAO"], ["Neblio", " ", "NEBL"], ["Neo", " ", "NEO"], ["NetCoin", " ", "NET"], ["Netko", " ", "NETKO"], ["NevaCoin", " ", "NEVA"], ["Incakoin", " ", "NKA"], ["NoLimitCoin", " ", "NLC2"], ["NameCoin", " ", "NMC"], ["Numus", " ", "NMS"], ["NobleCoin", " ", "NOBL"], ["Neutron", " ", "NTRN"], ["NovaCoin", " ", "NVC"], ["Nexus", " ", "NXS"], ["NyanCoin", " ", "NYAN"], ["Obsidian", " ", "ODN"], ["Cthulhu Offerings", " ", "OFF"], ["OKCash", " ", "OK"], ["OmiseGo", " ", "OMG"], ["DeepOnion", " ", "ONION"], ["Om", " ", "OOO"], ["Opalcoin", " ", "OPAL"], ["OP Coin", " ", "OPC"], ["OrbitCoin", " ", "ORB"], ["Galactrum", " ", "ORE"], ["OrmeusCoin", " ", "ORME"], ["Open Source Coin", " ", "OSC"], ["Open Trading Network", " ", "OTN"], ["OX Fina", " ", "OX"], ["OzzieCoin", " ", "OZC"], ["PakCoin", " ", "PAK"], ["PascalLite", " ", "PASL"], ["TenX", " ", "PAY"], ["Publica", " ", "PBL"], ["PolishCoin", " ", "PCC"], ["PioneerCoin", " ", "PCOIN"], ["Penguin", " ", "PENG"], ["PepeCoin", " ", "PEPE"], ["Photon", " ", "PHO"], ["Phore", " ", "PHR"], ["PhilosopherStone", " ", "PHS"], ["PiggyCoin", " ", "PIGGY"], ["PinkCoin", " ", "PINK"], ["Pirl", " ", "PIRL"], ["PIVX", " ", "PIVX"], ["Polcoin", " ", "PLC"], ["Pillar", " ", "PLR"], ["PlexCoin", " ", "PLX"], ["PandaCoin", " ", "PND"], ["Polis", " ", "POLIS"], ["ClearPoll", " ", "POLL"], ["PopularCoin", " ", "POP"], ["PostCoin", " ", "POST"], ["Potcoin", " ", "POT"], ["PowerLedger", " ", "POWR"], ["PeerCoin", " ", "PPC"], ["Prototanium", " ", "PR"], ["OysterPearl", " ", "PRL"], ["ProCurrency", " ", "PROC"], ["PesetaCoin", " ", "PTC"], ["Pura", " ", "PURA"], ["PutinCoin", " ", "PUT"], ["PhoenixCoin", " ", "PXC"], ["Prime-XI", " ", "PXI"], ["Qubitcoin", " ", "Q2C"], ["Cubits", " ", "QBT"], ["Quark", " ", "QRK"], ["Quatloo", " ", "QTL"], ["Qwark", " ", "QWARK"], ["Revain", " ", "R"], ["Condensate", " ", "RAIN"], ["Rabbitcoin", " ", "RBBT"], ["Rimbit", " ", "RBT"], ["RubyCoin", " ", "RBY"], ["RussiaCoin", " ", "RC"], ["Reddcoin", " ", "RDD"], ["RedCoin", " ", "RED"], ["Augur", " ", "REP"], ["PickleRicks", " ", "RICKS"], ["Etheriya", " ", "RIYA"], ["RoyalKingdomCoin", " ", "RKC"], ["RenosCoin", " ", "RNS"], ["RonPaulCoin", " ", "RPC"], ["Rupee", " ", "RUP"], ["SagaCoin", " ", "SAGA"], ["SharkCoin", " ", "SAK"], ["BeachCoin", " ", "SAND"], ["SBC Coin", " ", "SBC"], ["Sociall", " ", "SCL"], ["Soma", " ", "SCT"], ["Senderon", " ", "SDRN"], ["Selencoin", " ", "SEL"], ["SocialSend", " ", "SEND"], ["SolarflareCoin", " ", "SFC"], ["SHACoin2", " ", "SHA"], ["Shrooms", " ", "SHRM"], ["SiberianChervonets", " ", "SIB"], ["SJWCoin", " ", "SJW"], ["SkeinCoin", " ", "SKC"], ["SkinCoin", " ", "SKIN"], ["SakuraCoin", " ", "SKR"], ["Skrilla", " ", "SKRL"], ["Skycoin", " ", "SKY"], ["Sterlingcoin", " ", "SLG"], ["SlothCoin", " ", "SLOTH"], ["SmartCoin", " ", "SMC"], ["SoilCoin", " ", "SOIL"], ["Songcoin", " ", "SONG"], ["SoonCoin", " ", "SOON"], ["SpaceCoin", " ", "SPACE"], ["SpankChain", " ", "SPANK"], ["SpartanCoin", " ", "SPN"], ["SpreadCoin", " ", "SPR"], ["Spots", " ", "SPT"], ["SquallCoin", " ", "SQL"], ["SecureCoin", " ", "SRC"], ["StartCoin", " ", "START"], ["StopTrumpCoin", " ", "STC"], ["Steneum", " ", "STN"], ["Stratis", " ", "STRAT"], ["StarCredits", " ", "STRC"], ["Sativacoin", " ", "STV"], ["Sumokoin", " ", "SUMO"], ["Swingcoin", " ", "SWING"], ["Sexcoin", " ", "SXC"], ["Tajcoin", " ", "TAJ"], ["TEKcoin", " ", "TEK"], ["TerraNova", " ", "TER"], ["TeslaCoin", " ", "TES"], ["TigerCoin", " ", "TGC"], ["TitCoin", " ", "TIT"], ["Blocktix", " ", "TIX"], ["TOACoin", " ", "TOA"], ["TokugawaCoin", " ", "TOK"], ["TopCoin", " ", "TOP"], ["TurboStake", " ", "TRBO"], ["TerraCoin", " ", "TRC"], ["Triangles", " ", "TRI"], ["TruckCoin", " ", "TRK"], ["Trumpcoin", " ", "TRUMP"], ["Tron", " ", "TRX"], ["TattooCoin", " ", "TSE"], ["TittieCoin", " ", "TTC"], ["Trinity", " ", "TTY"], ["TransferCoin", " ", "TX"], ["Trezarcoin", " ", "TZC"], ["Ubiq", " ", "UBQ"], ["Upfiring", " ", "UFR"], ["Unitus", " ", "UIS"], ["UniversalMolecule", " ", "UMO"], ["UniCoin", " ", "UNIC"], ["Unify", " ", "UNIFY"], ["UniversalCurrency", " ", "UNIT"], ["GameUnits", " ", "UNITS"], ["Unobtanium", " ", "UNO"], ["UR", " ", "UR"], ["Ultracoin", " ", "UTC"], ["Version", " ", "V"], ["Vade", " ", "VADE"], ["VaderCorpCoin", " ", "VCC"], ["PureVidz", " ", "VIDZ"], ["Vice Industry Token", " ", "VIT"], ["Vivo", " ", "VIVO"], ["VOISE", " ", "VOISE"], ["VapersCoin", " ", "VPRC"], ["VeriCoin", " ", "VRC"], ["Verium", " ", "VRM"], ["VirtaUniqueCoin", " ", "VUC"], ["Wincoin", " ", "WC"], ["WorldCoin", " ", "WDC"], ["Weed", " ", "WEED"], ["WildCrypto", " ", "WILD"], ["MyWishToken", " ", "WISH"], ["WirelessCoin", " ", "WLC"], ["WarCoin", " ", "WRC"], ["Wispr", " ", "WSP"], ["WeAreSatoshi", " ", "WSX"], ["WayaWolfCoin", " ", "WW"], ["BitcoinPlus", " ", "XBC"], ["Billionaire Token", " ", "XBL"], ["BeatCoin", " ", "XBTS"], ["XTRABYTES", " ", "XBY"], ["Xcoin", " ", "XCO"], ["COPICO", " ", "XCPO"], ["Creatio", " ", "XCRE"], ["C-bit", " ", "XCT"], ["CoinonatX", " ", "XCXT"], ["NewEconomyMovement", " ", "XEM"], ["FootyCash", " ", "XFT"], ["XGOX", " ", "XGOX"], ["Sphre", " ", "XID"], ["JouleCoin", " ", "XJO"], ["LeviarCoin", " ", "XLC"], ["Monoeci", " ", "XMCC"], ["Magi", " ", "XMG"], ["Monero", " ", "XMR"], ["Myriad", " ", "XMY"], ["Experience Points", " ", "XP"], ["PetroDollar", " ", "XPD"], ["PrimeCoin", " ", "XPM"], ["PlatinumBar", " ", "XPTX"], ["RateCoin", " ", "XRA"], ["Revolvercoin", " ", "XRE"], ["Royalties", " ", "XRY"], ["SpectreCoin", " ", "XSPEC"], ["StealthCoin", " ", "XST"], ["Verge", " ", "XVG"], ["ZCoin", " ", "XZC"], ["YobitCoin", " ", "YOVI"], ["Zap", " ", "ZAP"], ["Zclassic", " ", "ZCL"], ["ZCash", " ", "ZEC"], ["ZeitCoin", " ", "ZEIT"], ["ZenCash", " ", "ZEN"], ["Zero", " ", "ZER"], ["ZetaCoin", " ", "ZET"], ["BitZeny", " ", "ZNY"], ["Zoin", " ", "ZOI"], ["ZSEcoin", " ", "ZSE"], ["Amon", " ", "AMN"], ["EOS", " ", "EOS"], ["EtherZero", " ", "ETZ"], ["Fantasy Cash", " ", "FANS"], ["Global Cryptocurrency", " ", "GCC"], ["indaHash", " ", "IDH"], ["Live Stars Token", " ", "LIVE"], ["Lisk", " ", "LSK"], ["LWF", " ", "LWF"], ["NulleX", " ", "NLX"], ["Oxycoin", " ", "OXY"], ["ProudMoney", " ", "PROUD"], ["Sirin Labs Token", " ", "SRN"], ["StakeNet", " ", "XSN"]];
+    var CRYPTOPIA = [["Money", " ", "$$$"], ["$PAC", " ", "$PAC"], ["Elite", " ", "1337"], ["21Million", " ", "21M"], ["300 Token", " ", "300"], ["42-coin", " ", "42"], ["SixEleven", " ", "611"], ["808", " ", "808"], ["OctoCoin", " ", "888"], ["8Bit", " ", "8BIT"], ["Alphabit", " ", "ABC"], ["ArtByte", " ", "ABY"], ["Asiacoin", " ", "AC"], ["AC3", " ", "AC3"], ["Adcoin", " ", "ACC"], ["ACoin", " ", "ACOIN"], ["AudioCoin", " ", "ADC"], ["Adshares", " ", "ADST"], ["AmigaCoin", " ", "AGA"], ["Alexandrite", " ", "ALEX"], ["ALIS", " ", "ALIS"], ["Allion", " ", "ALL"], ["AltCoin", " ", "ALT"], ["Synereo AMP", " ", "AMP"], ["AnimeCoin", " ", "ANI"], ["APX", " ", "APX"], ["ArcticCoin", " ", "ARC"], ["AquariusCoin", " ", "ARCO"], ["Argentum", " ", "ARG"], ["ArgusCoin", " ", "ARGUS"], ["Aricoin", " ", "ARI"], ["Ark", " ", "ARK"], ["Athenian Warrior Token", " ", "ATH"], ["Atmos", " ", "ATMOS"], ["Atomiccoin", " ", "ATOM"], ["AurumCoin", " ", "AU"], ["AuroraCoin", " ", "AUR"], ["Aureus", " ", "AURS"], ["BatCoin", " ", "BAT"], ["BitBay", " ", "BAY"], ["Bitcoin Fast", " ", "BCF"], ["BCash", " ", "BCH"], ["BlockMason", " ", "BCPT"], ["BitDeal", " ", "BDL"], ["Bean Cash", " ", "BEAN"], ["BeezerCoin", " ", "BEEZ"], ["BenjiRolls", " ", "BENJI"], ["BERNcash", " ", "BERN"], ["BestChain", " ", "BEST"], ["Bongger", " ", "BGR"], ["BipCoin", " ", "BIP"], ["BirdCoin", " ", "BIRD"], ["Bismuth", " ", "BIS"], ["Bitcoin Green", " ", "BITG"], ["Bitstar", " ", "BITS"], ["BlockCat", " ", "BKCAT"], ["Blakecoin", " ", "BLC"], ["BlackCoin", " ", "BLK"], ["Blocknet", " ", "BLOCK"], ["BlazeCoin", " ", "BLZ"], ["BraveNewCoin", " ", "BNC"], ["BnrtxCoin", " ", "BNX"], ["BolivarCoin", " ", "BOLI"], ["Bonpay", " ", "BON"], ["BlockOptions", " ", "BOP"], ["Blockpool", " ", "BPL"], ["BorgCoin", " ", "BRG"], ["Bitradio", " ", "BRO"], ["BitSend", " ", "BSD"], ["GlobalBoost-Y", " ", "BSTY"], ["BATA", " ", "BTA"], ["BitBar", " ", "BTB"], ["BitcoinDark", " ", "BTCD"], ["Bitcoin Scrypt", " ", "BTCS"], ["Bitcloud", " ", "BTDX"], ["Bitgem", " ", "BTG"], ["Bytom", " ", "BTM"], ["BitCore", " ", "BTX"], ["SwagBucks", " ", "BUCKS"], ["Bumbacoin", " ", "BUMBA"], ["BunnyCoin", " ", "BUN"], ["BVBCoin", " ", "BVB"], ["Bulwark", " ", "BWK"], ["Bitcedi", " ", "BXC"], ["Coin2", " ", "C2"], ["CacheCoin", " ", "CACH"], ["CanYa", " ", "CAN"], ["Cannabiscoin", " ", "CANN"], ["Cappasity", " ", "CAPP"], ["CareerCoin", " ", "CAR"], ["Catcoin", " ", "CAT"], ["Bullion", " ", "CBX"], ["CoolInDarkCoin", " ", "CC"], ["CryptoClub", " ", "CCB"], ["CannaCoin", " ", "CCN"], ["Canada eCoin", " ", "CDN"], ["CryptopiaFeeShare", " ", "CEFS"], ["Centrality", " ", "CENNZ"], ["CoffeeCoin", " ", "CFC"], ["ChanCoin", " ", "CHAN"], ["ChainCoin", " ", "CHC"], ["ChessCoin", " ", "CHESS"], ["CryptoJacks", " ", "CJ"], ["Coinlancer", " ", "CL"], ["ClamCoin", " ", "CLAM"], ["CloakCoin", " ", "CLOAK"], ["CompCoin", " ", "CMP"], ["CampusCoin", " ", "CMPCO"], ["CometCoin", " ", "CMT"], ["Cannation", " ", "CNNC"], ["Coino", " ", "CNO"], ["Bitcoal", " ", "COAL"], ["ColossusXT", " ", "COLX"], ["Compound Coin", " ", "COMP"], ["PayCon", " ", "CON"], ["CopperCoin", " ", "COPPER"], ["Corion", " ", "COR"], ["CompuCoin", " ", "CPN"], ["ConquestCoin", " ", "CQST"], ["Crave", " ", "CRAVE"], ["CrowdCoin", " ", "CRC"], ["CreativeCoin", " ", "CREA"], ["CREAMcoin", " ", "CRM"], ["CryptoRuble", " ", "CRUR"], ["ChronosCoin", " ", "CRX"], ["CryptCoin", " ", "CRYPT"], ["Coimatic 3", " ", "CTIC3"], ["Coinonat", " ", "CXT"], ["DALECOIN", " ", "DALC"], ["DARK", " ", "DARK"], ["DA$", " ", "DAS"], ["Dash", " ", "DASH"], ["DaxxCoin", " ", "DAXX"], ["DecentBet", " ", "DBET"], ["DubaiCoin", " ", "DBIX"], ["Dentacoin", " ", "DCN"], ["Decred", " ", "DCR"], ["DinastyCoin", " ", "DCY"], ["DDF", " ", "DDF"], ["Deutsche eMark", " ", "DEM"], ["Deuscoin", " ", "DEUS"], ["Deviant", " ", "DEV"], ["DigiByte", " ", "DGB"], ["Digitalcoin", " ", "DGC"], ["DigiPulse", " ", "DGPT"], ["Dimecoin", " ", "DIME"], ["Divi Exchange Token", " ", "DIVX"], ["GeneChain", " ", "DNA"], ["Denarius", " ", "DNR"], ["Dogecoin", " ", "DOGE"], ["DonationCoin", " ", "DON"], ["DopeCoin", " ", "DOPE"], ["Dotcoin", " ", "DOT"], ["DigitalPrice", " ", "DP"], ["DA Power Play", " ", "DPP"], ["DCORP", " ", "DRP"], ["DRP Utility", " ", "DRPU"], ["Droxne", " ", "DRXNE"], ["Parallelcoin", " ", "DUO"], ["EmbargoCoin", " ", "EBG"], ["Eclipse", " ", "EC"], ["Electra", " ", "ECA"], ["ECOcoin", " ", "ECO"], ["EcoBit", " ", "ECOB"], ["EducoinV", " ", "EDC"], ["Eddiecoin", " ", "EDDIE"], ["EDRcoin", " ", "EDRC"], ["E-Gulden", " ", "EFL"], ["EverGreenCoin", " ", "EGC"], ["ElaCoin", " ", "ELC"], ["Ellaism", " ", "ELLA"], ["Elements", " ", "ELM"], ["EmerCoin", " ", "EMC"], ["Einsteinium", " ", "EMC2"], ["Emerald Crypto", " ", "EMD"], ["Enjin Coin", " ", "ENJ"], ["ExperienceCoin", " ", "EPC"], ["Equitrade", " ", "EQT"], ["Eryllium", " ", "ERY"], ["Ethereum Classic", " ", "ETC"], ["Ethereum", " ", "ETH"], ["Ethereum Dark", " ", "ETHD"], ["Electroneum", " ", "ETN"], ["EncryptoTel", " ", "ETT"], ["Eurocoin", " ", "EUC"], ["Evilcoin", " ", "EVIL"], ["Evotion", " ", "EVO"], ["Everus", " ", "EVR"], ["Expanse", " ", "EXP"], ["FuelCoin", " ", "FC2"], ["FacileCoin", " ", "FCN"], ["Factom", " ", "FCT"], ["FireFlyCoin", " ", "FFC"], ["FujiCoin", " ", "FJC"], ["FLASH", " ", "FLASH"], ["Flaxscript", " ", "FLAX"], ["FloripaCoin", " ", "FLN"], ["FlutterCoin", " ", "FLT"], ["FonzieCoin", " ", "FONZ"], ["Fortcoin", " ", "FORT"], ["FireRoosterCoin", " ", "FRC"], ["Francs", " ", "FRN"], ["FastCoin", " ", "FST"], ["Feathercoin", " ", "FTC"], ["FeatherCoinClassic", " ", "FTCC"], ["Cypherfunks", " ", "FUNK"], ["Futereum X", " ", "FUTX"], ["FuzzBalls", " ", "FUZZ"], ["GaiaCoin", " ", "GAIA"], ["GameCredits", " ", "GAME"], ["Gapcoin", " ", "GAP"], ["GayMoney", " ", "GAY"], ["GoByte", " ", "GBX"], ["Byteball Bytes", " ", "GBYTE"], ["GCoin", " ", "GCN"], ["GrandCoin", " ", "GDC"], ["GeertCoin", " ", "GEERT"], ["GeoCoin", " ", "GEO"], ["GoldCoin", " ", "GLD"], ["Gnosis", " ", "GNO"], ["Gainer", " ", "GNR"], ["Golem", " ", "GNT"], ["GoldPieces", " ", "GP"], ["GoldPressedLatinum ", " ", "GPL"], ["GPUCoin", " ", "GPU"], ["Granite", " ", "GRN"], ["Groestlcoin", " ", "GRS"], ["GrowthCoin", " ", "GRW"], ["Growers Intl", " ", "GRWI"], ["GunCoin", " ", "GUN"], ["GroinCoin", " ", "GXG"], ["Hackspace", " ", "HAC"], ["Halcyon", " ", "HAL"], ["Havecoin", " ", "HAV"], ["HomeblockCoin", " ", "HBC"], ["HoboNickels", " ", "HBN"], ["HarvestCoin", " ", "HC"], ["HodlBucks", " ", "HDLB"], ["HeatLedger", " ", "HEAT"], ["Helium", " ", "HLM"], ["InterstellarHoldings", " ", "HOLD"], ["HSHARE", " ", "HSR"], ["Decision Token", " ", "HST"], ["Hush", " ", "HUSH"], ["HexxCoin", " ", "HXX"], ["HyperStake", " ", "HYP"], ["I0Coin", " ", "I0C"], ["IgnitionCoin", " ", "IC"], ["ICOBid", " ", "ICOB"], ["InflationCoin", " ", "IFLT"], ["investFeed", " ", "IFT"], ["Independent Money System", " ", "IMS"], ["InCoin", " ", "IN"], ["Influxcoin", " ", "INFX"], ["Innova", " ", "INN"], ["InPay", " ", "INPAY"], ["Insane", " ", "INSN"], ["Iquant Chain", " ", "IQT"], ["IrishCoin", " ", "IRL"], ["ItiCoin", " ", "ITI"], ["IXCoin", " ", "IXC"], ["IZEcoin", " ", "IZE"], ["KashCoin", " ", "KASH"], ["Kayicoin", " ", "KAYI"], ["Kubera", " ", "KBR"], ["KlondikeCoin", " ", "KDC"], ["Darsek", " ", "KED"], ["Kekcoin", " ", "KEK"], ["KangarooBits", " ", "KGB"], ["King93", " ", "KING"], ["Komodo", " ", "KMD"], ["KyberNetworkCrystal", " ", "KNC"], ["KoboCoin", " ", "KOBO"], ["Karbo", " ", "KRB"], ["Kronecoin", " ", "KRONE"], ["KumaCoin", " ", "KUMA"], ["Kurrent", " ", "KURT"], ["KushCoin", " ", "KUSH"], ["LanaCoin", " ", "LANA"], ["LBRY Credits", " ", "LBC"], ["LiteBitcoin", " ", "LBTC"], ["litecoinPlus", " ", "LCP"], ["LADACoin", " ", "LDC"], ["LiteDoge", " ", "LDOGE"], ["LeaCoin", " ", "LEA"], ["Leafcoin", " ", "LEAF"], ["LemonCoin", " ", "LEMON"], ["LFTCCoin", " ", "LFTC"], ["Lina", " ", "LINA"], ["LindaCoin", " ", "LINDA"], ["Linx", " ", "LINX"], ["Lithiumcoin", " ", "LIT"], ["LiZi", " ", "LIZI"], ["Lottocoin", " ", "LOT"], ["LiteBar", " ", "LTB"], ["Litecoin", " ", "LTC"], ["LitecoinUltra", " ", "LTCU"], ["Luxcoin", " ", "LUX"], ["Lycancoin", " ", "LYC"], ["Lynx", " ", "LYNX"], ["MachineCoin", " ", "MAC"], ["Magnet", " ", "MAG"], ["MagicCoin", " ", "MAGE"], ["MagnetCoin", " ", "MAGN"], ["MaidSafeCoin", " ", "MAID"], ["MarijuanaCoin", " ", "MAR"], ["Bitmark", " ", "MARKS"], ["Mars", " ", "MARS"], ["MarxCoin", " ", "MARX"], ["MatrixCoin", " ", "MATRX"], ["Embers", " ", "MBRS"], ["Musiconomi", " ", "MCI"], ["Macron", " ", "MCRN"], ["MegaCoin", " ", "MEC"], ["MobileGo", " ", "MGO"], ["MegaX", " ", "MGX"], ["Minex", " ", "MINEX"], ["Mintcoin", " ", "MINT"], ["Melite", " ", "MLITE"], ["Minereum", " ", "MNE"], ["Mineum", " ", "MNM"], ["MOIN", " ", "MOIN"], ["MojoCoin", " ", "MOJO"], ["MonkeyProject", " ", "MONK"], ["MotoCoin", " ", "MOTO"], ["Mothership", " ", "MSP"], ["Mustangcoin", " ", "MST"], ["Metal", " ", "MTL"], ["MetalMusicCoin", " ", "MTLMC"], ["MasterNodeCoin", " ", "MTNC"], ["Musicoin", " ", "MUSIC"], ["MyBit", " ", "MYB"], ["MazaCoin", " ", "MZC"], ["NAMO COIN", " ", "NAMO"], ["NavCoin", " ", "NAV"], ["NeuroDAO", " ", "NDAO"], ["Neblio", " ", "NEBL"], ["Neo", " ", "NEO"], ["NetCoin", " ", "NET"], ["Netko", " ", "NETKO"], ["NevaCoin", " ", "NEVA"], ["Incakoin", " ", "NKA"], ["NoLimitCoin", " ", "NLC2"], ["NameCoin", " ", "NMC"], ["Numus", " ", "NMS"], ["NobleCoin", " ", "NOBL"], ["Neutron", " ", "NTRN"], ["NovaCoin", " ", "NVC"], ["Nexus", " ", "NXS"], ["NyanCoin", " ", "NYAN"], ["Obsidian", " ", "ODN"], ["Cthulhu Offerings", " ", "OFF"], ["OKCash", " ", "OK"], ["OmiseGo", " ", "OMG"], ["DeepOnion", " ", "ONION"], ["Om", " ", "OOO"], ["Opalcoin", " ", "OPAL"], ["OP Coin", " ", "OPC"], ["OrbitCoin", " ", "ORB"], ["Galactrum", " ", "ORE"], ["OrmeusCoin", " ", "ORME"], ["Open Source Coin", " ", "OSC"], ["Open Trading Network", " ", "OTN"], ["OX Fina", " ", "OX"], ["OzzieCoin", " ", "OZC"], ["PakCoin", " ", "PAK"], ["PascalLite", " ", "PASL"], ["TenX", " ", "PAY"], ["Publica", " ", "PBL"], ["PolishCoin", " ", "PCC"], ["PioneerCoin", " ", "PCOIN"], ["Penguin", " ", "PENG"], ["PepeCoin", " ", "PEPE"], ["Photon", " ", "PHO"], ["Phore", " ", "PHR"], ["PhilosopherStone", " ", "PHS"], ["PiggyCoin", " ", "PIGGY"], ["PinkCoin", " ", "PINK"], ["Pirl", " ", "PIRL"], ["PIVX", " ", "PIVX"], ["Polcoin", " ", "PLC"], ["Pillar", " ", "PLR"], ["PlexCoin", " ", "PLX"], ["PandaCoin", " ", "PND"], ["Polis", " ", "POLIS"], ["ClearPoll", " ", "POLL"], ["PopularCoin", " ", "POP"], ["PostCoin", " ", "POST"], ["Potcoin", " ", "POT"], ["PowerLedger", " ", "POWR"], ["PeerCoin", " ", "PPC"], ["Prototanium", " ", "PR"], ["OysterPearl", " ", "PRL"], ["ProCurrency", " ", "PROC"], ["PesetaCoin", " ", "PTC"], ["Pura", " ", "PURA"], ["PutinCoin", " ", "PUT"], ["PhoenixCoin", " ", "PXC"], ["Prime-XI", " ", "PXI"], ["Qubitcoin", " ", "Q2C"], ["Cubits", " ", "QBT"], ["Quark", " ", "QRK"], ["Quatloo", " ", "QTL"], ["Qwark", " ", "QWARK"], ["Revain", " ", "R"], ["Condensate", " ", "RAIN"], ["Rabbitcoin", " ", "RBBT"], ["Rimbit", " ", "RBT"], ["RubyCoin", " ", "RBY"], ["RussiaCoin", " ", "RC"], ["Reddcoin", " ", "RDD"], ["RedCoin", " ", "RED"], ["Augur", " ", "REP"], ["PickleRicks", " ", "RICKS"], ["Etheriya", " ", "RIYA"], ["RoyalKingdomCoin", " ", "RKC"], ["RenosCoin", " ", "RNS"], ["RonPaulCoin", " ", "RPC"], ["Rupee", " ", "RUP"], ["SagaCoin", " ", "SAGA"], ["SharkCoin", " ", "SAK"], ["BeachCoin", " ", "SAND"], ["SBC Coin", " ", "SBC"], ["Sociall", " ", "SCL"], ["Soma", " ", "SCT"], ["Senderon", " ", "SDRN"], ["Selencoin", " ", "SEL"], ["SocialSend", " ", "SEND"], ["SolarflareCoin", " ", "SFC"], ["SHACoin2", " ", "SHA"], ["Shrooms", " ", "SHRM"], ["SiberianChervonets", " ", "SIB"], ["SJWCoin", " ", "SJW"], ["SkeinCoin", " ", "SKC"], ["SkinCoin", " ", "SKIN"], ["SakuraCoin", " ", "SKR"], ["Skrilla", " ", "SKRL"], ["Skycoin", " ", "SKY"], ["Sterlingcoin", " ", "SLG"], ["SlothCoin", " ", "SLOTH"], ["SmartCoin", " ", "SMC"], ["SoilCoin", " ", "SOIL"], ["Songcoin", " ", "SONG"], ["SoonCoin", " ", "SOON"], ["SpaceCoin", " ", "SPACE"], ["SpankChain", " ", "SPANK"], ["SpartanCoin", " ", "SPN"], ["SpreadCoin", " ", "SPR"], ["Spots", " ", "SPT"], ["SquallCoin", " ", "SQL"], ["SecureCoin", " ", "SRC"], ["StartCoin", " ", "START"], ["StopTrumpCoin", " ", "STC"], ["Steneum", " ", "STN"], ["Stratis", " ", "STRAT"], ["StarCredits", " ", "STRC"], ["Sativacoin", " ", "STV"], ["Sumokoin", " ", "SUMO"], ["Swingcoin", " ", "SWING"], ["Sexcoin", " ", "SXC"], ["Tajcoin", " ", "TAJ"], ["TEKcoin", " ", "TEK"], ["TerraNova", " ", "TER"], ["TeslaCoin", " ", "TES"], ["TigerCoin", " ", "TGC"], ["TitCoin", " ", "TIT"], ["Blocktix", " ", "TIX"], ["TOACoin", " ", "TOA"], ["TokugawaCoin", " ", "TOK"], ["TopCoin", " ", "TOP"], ["TurboStake", " ", "TRBO"], ["TerraCoin", " ", "TRC"], ["Triangles", " ", "TRI"], ["TruckCoin", " ", "TRK"], ["Trumpcoin", " ", "TRUMP"], ["Tron", " ", "TRX"], ["TattooCoin", " ", "TSE"], ["TittieCoin", " ", "TTC"], ["Trinity", " ", "TTY"], ["TransferCoin", " ", "TX"], ["Trezarcoin", " ", "TZC"], ["Ubiq", " ", "UBQ"], ["Upfiring", " ", "UFR"], ["Unitus", " ", "UIS"], ["UniversalMolecule", " ", "UMO"], ["UniCoin", " ", "UNIC"], ["Unify", " ", "UNIFY"], ["UniversalCurrency", " ", "UNIT"], ["GameUnits", " ", "UNITS"], ["Unobtanium", " ", "UNO"], ["UR", " ", "UR"], ["Ultracoin", " ", "UTC"], ["Version", " ", "V"], ["Vade", " ", "VADE"], ["VaderCorpCoin", " ", "VCC"], ["PureVidz", " ", "VIDZ"], ["Vice Industry Token", " ", "VIT"], ["Vivo", " ", "VIVO"], ["VOISE", " ", "VOISE"], ["VapersCoin", " ", "VPRC"], ["VeriCoin", " ", "VRC"], ["Verium", " ", "VRM"], ["VirtaUniqueCoin", " ", "VUC"], ["Wincoin", " ", "WC"], ["WorldCoin", " ", "WDC"], ["Weed", " ", "WEED"], ["WildCrypto", " ", "WILD"], ["MyWishToken", " ", "WISH"], ["WirelessCoin", " ", "WLC"], ["WarCoin", " ", "WRC"], ["Wispr", " ", "WSP"], ["WeAreSatoshi", " ", "WSX"], ["WayaWolfCoin", " ", "WW"], ["BitcoinPlus", " ", "XBC"], ["Billionaire Token", " ", "XBL"], ["BeatCoin", " ", "XBTS"], ["XTRABYTES", " ", "XBY"], ["Xcoin", " ", "XCO"], ["COPICO", " ", "XCPO"], ["Creatio", " ", "XCRE"], ["C-bit", " ", "XCT"], ["CoinonatX", " ", "XCXT"], ["NewEconomyMovement", " ", "XEM"], ["FootyCash", " ", "XFT"], ["XGOX", " ", "XGOX"], ["Sphre", " ", "XID"], ["JouleCoin", " ", "XJO"], ["LeviarCoin", " ", "XLC"], ["Monoeci", " ", "XMCC"], ["Magi", " ", "XMG"], ["Monero", " ", "XMR"], ["Myriad", " ", "XMY"], ["Experience Points", " ", "XP"], ["PetroDollar", " ", "XPD"], ["PrimeCoin", " ", "XPM"], ["PlatinumBar", " ", "XPTX"], ["RateCoin", " ", "XRA"], ["Revolvercoin", " ", "XRE"], ["Royalties", " ", "XRY"], ["SpectreCoin", " ", "XSPEC"], ["StealthCoin", " ", "XST"], ["Verge", " ", "XVG"], ["ZCoin", " ", "XZC"], ["YobitCoin", " ", "YOVI"], ["Zap", " ", "ZAP"], ["Zclassic", " ", "ZCL"], ["ZCash", " ", "ZEC"], ["ZeitCoin", " ", "ZEIT"], ["ZenCash", " ", "ZEN"], ["Zero", " ", "ZER"], ["ZetaCoin", " ", "ZET"], ["BitZeny", " ", "ZNY"], ["Zoin", " ", "ZOI"], ["ZSEcoin", " ", "ZSE"], ["Amon", " ", "AMN"], ["EOS", " ", "EOS"], ["EtherZero", " ", "ETZ"], ["Fantasy Cash", " ", "FANS"], ["Global Cryptocurrency", " ", "GCC"], ["indaHash", " ", "IDH"], ["Live Stars Token", " ", "LIVE"], ["Lisk", " ", "LSK"], ["LWF", " ", "LWF"], ["NulleX", " ", "NLX"], ["Oxycoin", " ", "OXY"], ["ProudMoney", " ", "PROUD"], ["Sirin Labs Token", " ", "SRN"], ["StakeNet", " ", "XSN"], ["Ada", " ", "ADA"], ["EZToken", " ", "EZT"], ["TrueUSD", " ", "TUSD"]];
 
     return {
         CRYPTOPIA: CRYPTOPIA
@@ -18725,7 +18727,7 @@ module.exports = function () {
 
     var HITBTC = [["Bytecoin", " ", "BCN"], ["Dash", " ", "DASH"], ["Dogecoin", " ", "DOGE"], ["DashCoin", " ", "DSH"], ["EmerCoin", " ", "EMC"], ["Ethereum", " ", "ETH"], ["FacileCoin", " ", "FCN"], ["Lisk", " ", "LSK"], ["Litecoin", " ", "LTC"], ["NXT", " ", "NXT"], ["QuazarCoin", " ", "QCN"], ["Steem Dollars", " ", "SBD"], ["Siacoin", " ", "SC"], ["STEEM", " ", "STEEM"], ["DigitalNote", " ", "XDN"], ["NEM", " ", "XEM"], ["Monero", " ", "XMR"], ["Ardor", " ", "ARDR"], ["Zcash", " ", "ZEC"], ["Waves", " ", "WAVES"], ["MaidSafeCoin", " ", "MAID"], ["Synereo AMP", " ", "AMP"], ["Bus token", " ", "BUS"], ["Digix DAO", " ", "DGD"], ["Iconomi", " ", "ICN"], ["SingularDTV", " ", "SNGLS"], ["Firstblood", " ", "1ST"], ["Trustcoin", " ", "TRST"], ["Chronobank", " ", "TIME"], ["Gnosis", " ", "GNO"], ["Augur", " ", "REP"], ["ZrCoin", " ", "ZRC"], ["BOScoin", " ", "BOS"], ["DECENT", " ", "DCT"], ["Aragon", " ", "ANT"], ["Aeon", " ", "AEON"], ["Guppy", " ", "GUP"], ["Pluton", " ", "PLU"], ["Lunyr", " ", "LUN"], ["Token-as-a-Service", " ", "TAAS"], ["Nexium", " ", "NXC"], ["Edgeless", " ", "EDG"], ["iEx.ec", " ", "RLC"], ["Swarm City Token", " ", "SWT"], ["TokenCard", " ", "TKN"], ["Wings DAO", " ", "WINGS"], ["Xaurum", " ", "XAUR"], ["Aeternity", " ", "AE"], ["Patientory", " ", "PTOY"], ["Ethereum Classic", " ", "ETC"], ["Cofound.it", " ", "CFI"], ["Polybius", " ", "PLBT"], ["Bancor", " ", "BNT"], ["IdontKnow", " ", "XDNCO"], ["Tezos", " ", "XTZ"], ["Etheroll", " ", "DICE"], ["Ripple", " ", "XRP"], ["Stratis", " ", "STRAT"], ["EOS", " ", "EOS"], ["Minereum", " ", "MNE"], ["Agrello", " ", "DLT"], ["Quantum", " ", "QAU"], ["district0x", " ", "DNT"], ["Flypme", " ", "FYP"], ["Opus", " ", "OPT"], ["Stox", " ", "STX"], ["Tierion", " ", "TNT"], ["Catcoin", " ", "CAT"], ["Bitcoin Cash", " ", "BCH"], ["SunContract", " ", "SNC"], ["OpenANX", " ", "OAX"], ["0x", " ", "ZRX"], ["Rivetz", " ", "RVT"], ["ICOBox", " ", "ICOS"], ["Peercoin", " ", "PPC"], ["Veritaseum", " ", "VERI"], ["Paragon", " ", "PRG"], ["Black Moon", " ", "BMC"], ["Cindicator", " ", "CND"], ["SkinCoin", " ", "SKIN"], ["MobileGo", " ", "EMGO"], ["FunFair", " ", "FUN"], ["Hive Project", " ", "HVN"], ["FuelCoin", " ", "FUEL"], ["Po.et", " ", "POE"], ["MCAP", " ", "MCAP"], ["Airtoken", " ", "AIR"], ["Ambrosus", " ", "AMB"], ["Fujinto", " ", "NTO"], ["ICOBI", " ", "ICO"], ["CryptoPing", " ", "PING"], ["GameCredits", " ", "GAME"], ["Happycoin", " ", "HPC"], ["Monetha", " ", "MTH"], ["MobileGo", " ", "WMGO"], ["Loopring", " ", "LRC"], ["ICON", " ", "ICX"], ["Neo", " ", "NEO"], ["BitDice", " ", "CSNO"], ["OrmeusCoin", " ", "ORME"], ["Lampix", " ", "PIX"], ["KickCoin", " ", "KICK"], ["YOYOW", " ", "YOYOW"], ["MIPSToken", " ", "MIPS"], ["Coindash", " ", "CDT"], ["Verge", " ", "XVG"], ["DigiByte", " ", "DGB"], ["Latium", " ", "LAT"], ["Vibe Coin", " ", "VIBE"], ["VOISE", " ", "VOISE"], ["Enjin Coin", " ", "ENJ"], ["Zeus Shield Coin", " ", "ZSC"], ["EthBits", " ", "ETBS"], ["TRON", " ", "TRX"], ["VeChain", " ", "VEN"], ["Maecenas", " ", "ART"], ["Everex", " ", "EVX"], ["BetKing Bankroll Token", " ", "BKB"], ["Exchangen", " ", "EXN"], ["Target Coin", " ", "TGT"], ["UG Token", " ", "UGT"], ["Centra", " ", "CTR"], ["BMChain", " ", "BMT"], ["Substratum", " ", "SUB"], ["Walton", " ", "WTC"], ["Cryptonex", " ", "CNX"], ["ATB Coin", " ", "ATB"], ["Obsidian", " ", "ODN"], ["Bitmark", " ", "BTM"], ["SegWit2x", " ", "B2X"], ["ATMChain", " ", "ATM"], ["Viberate", " ", "VIB"], ["OmiseGO", " ", "OMG"], ["TenX Pay Token", " ", "PAY"], ["COSS", " ", "COSS"], ["Populous", " ", "PPT"], ["Status Network Token", " ", "SNT"], ["Bitcoin Gold", " ", "BTG"], ["SmartCash", " ", "SMART"], ["Exchange Union", " ", "XUC"], ["Coinlancer", " ", "CL"], ["Cloud With Me", " ", "CLD"], ["Elements", " ", "ELM"], ["Eidoo", " ", "EDO"], ["ClearPoll", " ", "POLL"], ["iXledger", " ", "IXT"], ["Authorship Token", " ", "ATS"], ["Social", " ", "SCL"], ["ATLANT Token", " ", "ATL"], ["Metaverse", " ", "ETP"], ["Octanox", " ", "OTX"], ["DRP Utility", " ", "DRPU"], ["Neblio", " ", "NEBL"], ["Hackspace", " ", "HAC"], ["Car Taxi", " ", "CTX"], ["Elementrem", " ", "ELE"], ["Aeron", " ", "ARN"], ["SISA Token", " ", "SISA"], ["Student Coin", " ", "STU"], ["Indicoin", " ", "INDI"], ["BitCore", " ", "BTX"], ["Pillar", " ", "PLR"], ["Suretly", " ", "SUR"], ["Ethos", " ", "BQX"],
     // ["IdontKnow"," ","ITS"],
-    ["MicroMoney", " ", "AMM"], ["DubaiCoin", " ", "DBIX"], ["Presearch", " ", "PRE"], ["Kubera", " ", "KBR"], ["TBOT", " ", "TBT"], ["EROSCOIN", " ", "ERO"], ["SMSCoin", " ", "SMS"], ["Zap", " ", "ZAP"], ["DOVU", " ", "DOV"], ["Farad", " ", "FRD"], ["Open Trading Network", " ", "OTN"], ["HSHARE", " ", "HSR"], ["EthLend", " ", "LEND"], ["WarCoin", " ", "WRC"], ["LockChain", " ", "LOC"], ["SwftCoin", " ", "SWFTC"], ["STORM", " ", "STORM"], ["DIMCOIN", " ", "DIM"], ["NAGA", " ", "NGC"], ["Monaco", " ", "MCO"], ["Decentraland", " ", "MANA"], ["EtherEcash", " ", "ECH"], ["DATA", " ", "DATA"], ["United Traders Token", " ", "UTT"], ["Komodo", " ", "KMD"], ["Qtum", " ", "QTUM"], ["EchoLink", " ", "EKO"], ["AdEx", " ", "ADX"], ["Trade Token", " ", "TIO"], ["IdontKnow", " ", "WAX"], ["UltimateCoin", " ", "ULTC"], ["Energy Eco Token", " ", "EET"], ["Crypto20", " ", "C20"], ["indaHash", " ", "IDH"], ["InsurePal", " ", "IPL"], ["Covesting", " ", "COV"], ["Sentinel", " ", "SENT"], ["SmartMesh", " ", "SMT"], ["W3coin", " ", "W3C"], ["Cashaa", " ", "CAS"], ["Chat", " ", "CHAT"], ["GreenMed", " ", "GRMD"], ["Animation Vision Cash", " ", "AVH"], ["Peculium", " ", "PCL"], ["Clout", " ", "CLOUT"], ["Utrust", " ", "UTK"], ["SwissBorg", " ", "CHSB"], ["Neumark", " ", "NEU"], ["Lamden", " ", "TAU"], ["Teky", " ", "MEK"], ["Titanium Blockchain", " ", "BAR"], ["FLIP token", " ", "FLP"], ["PlaykeyToken", " ", "PKT"], ["Wolk", " ", "WLK"], ["Envion", " ", "EVN"], ["Castle Peak", " ", "CPG"], ["BetterBetting", " ", "BETR"], ["IdontKnow", " ", "ARCT"], ["DecentBet", " ", "DBET"], ["Bit Public Talent Network", " ", "BPTN"], ["Bezop", " ", "BEZ"], ["Universa", " ", "UTNP"], ["Career Trust Ecosystem", " ", "CTE"], ["COPYTRACK", " ", "CPY"], ["BlockMason", " ", "BCPT"], ["SONM", " ", "SNM"], ["Achain", " ", "ACT"], ["LIFEtoken", " ", "LIFE"], ["investFeed", " ", "IFT"], ["Dentacoin", " ", "DCN"], ["Chronologic", " ", "DAY"], ["Ada", " ", "ADA"], ["WildCrypto", " ", "WILD"], ["Lumen", " ", "XLM"], ["IOTA", " ", "IOTA"], ["eSportsRewardToken", " ", "ERT"], ["LADACoin", " ", "LDC"], ["GoByte", " ", "GBX"], ["Nano", " ", "NANO"], ["UNCoin", " ", "UNC"], ["Golem", " ", "GNT"], ["Bitcoin core", " ", "BBC"], ["GreenEnergyToken", " ", "GET"]];
+    ["MicroMoney", " ", "AMM"], ["DubaiCoin", " ", "DBIX"], ["Presearch", " ", "PRE"], ["Kubera", " ", "KBR"], ["TBOT", " ", "TBT"], ["EROSCOIN", " ", "ERO"], ["SMSCoin", " ", "SMS"], ["Zap", " ", "ZAP"], ["DOVU", " ", "DOV"], ["Farad", " ", "FRD"], ["Open Trading Network", " ", "OTN"], ["HSHARE", " ", "HSR"], ["EthLend", " ", "LEND"], ["WarCoin", " ", "WRC"], ["LockChain", " ", "LOC"], ["SwftCoin", " ", "SWFTC"], ["STORM", " ", "STORM"], ["DIMCOIN", " ", "DIM"], ["NAGA", " ", "NGC"], ["Monaco", " ", "MCO"], ["Decentraland", " ", "MANA"], ["EtherEcash", " ", "ECH"], ["DATA", " ", "DATA"], ["United Traders Token", " ", "UTT"], ["Komodo", " ", "KMD"], ["Qtum", " ", "QTUM"], ["EchoLink", " ", "EKO"], ["AdEx", " ", "ADX"], ["Trade Token", " ", "TIO"], ["IdontKnow", " ", "WAX"], ["UltimateCoin", " ", "ULTC"], ["Energy Eco Token", " ", "EET"], ["Crypto20", " ", "C20"], ["indaHash", " ", "IDH"], ["InsurePal", " ", "IPL"], ["Covesting", " ", "COV"], ["Sentinel", " ", "SENT"], ["SmartMesh", " ", "SMT"], ["W3coin", " ", "W3C"], ["Cashaa", " ", "CAS"], ["Chat", " ", "CHAT"], ["GreenMed", " ", "GRMD"], ["Animation Vision Cash", " ", "AVH"], ["Peculium", " ", "PCL"], ["Clout", " ", "CLOUT"], ["Utrust", " ", "UTK"], ["SwissBorg", " ", "CHSB"], ["Neumark", " ", "NEU"], ["Lamden", " ", "TAU"], ["Teky", " ", "MEK"], ["Titanium Blockchain", " ", "BAR"], ["FLIP token", " ", "FLP"], ["PlaykeyToken", " ", "PKT"], ["Wolk", " ", "WLK"], ["Envion", " ", "EVN"], ["Castle Peak", " ", "CPG"], ["BetterBetting", " ", "BETR"], ["IdontKnow", " ", "ARCT"], ["DecentBet", " ", "DBET"], ["Bit Public Talent Network", " ", "BPTN"], ["Bezop", " ", "BEZ"], ["Universa", " ", "UTNP"], ["Career Trust Ecosystem", " ", "CTE"], ["COPYTRACK", " ", "CPY"], ["BlockMason", " ", "BCPT"], ["SONM", " ", "SNM"], ["Achain", " ", "ACT"], ["LIFEtoken", " ", "LIFE"], ["investFeed", " ", "IFT"], ["Dentacoin", " ", "DCN"], ["Chronologic", " ", "DAY"], ["Ada", " ", "ADA"], ["WildCrypto", " ", "WILD"], ["Lumen", " ", "XLM"], ["IOTA", " ", "IOTA"], ["eSportsRewardToken", " ", "ERT"], ["LADACoin", " ", "LDC"], ["GoByte", " ", "GBX"], ["Nano", " ", "NANO"], ["UNCoin", " ", "UNC"], ["Golem", " ", "GNT"], ["Bitcoin core", " ", "BBC"], ["GreenEnergyToken", " ", "GET"], ["Matryx", " ", "MTX"], ["Noah Coin", " ", "NOAH"], ["All Sports", " ", "SOC"], ["Odyssey", " ", "OCN"], ["Telcoin", " ", "TEL"], ["VitalCoin", " ", "VIT"], ["aXpire", " ", "AXP"], ["Red Pulse", " ", "RPX"], ["FORTUNA", " ", "FOTA"], ["Ontology", " ", "ONT"], ["NANJCOIN", " ", "NANJ"], ["MonkeyTreasureCoin", " ", "MTC"], ["Penta", " ", "PNT"], ["FuzeX", " ", "FXT"], ["Spindle", " ", "SPD"]];
 
     return {
         HITBTC: HITBTC
@@ -18745,7 +18747,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var HUOBI = [["SwftCoin", "swftcbtc", "SWFTC"], ["Everex", "evxbtc", "EVX"], ["Bitcoin Cash", "bchbtc", "BCH"], ["Time New Bank", "tnbbtc", "TNB"], ["Streamr", "datbtc", "DAT"], ["LinkEye", "letbtc", "LET"], ["Status Network Token", "sntbtc", "SNT"], ["WePower Network", "wprbtc", "WPR"], ["UTRUST", "utkbtc", "UTK"], ["Super Bitcoin", "sbtcbtc", "SBTC"], ["Monaco", "mcobtc", "MCO"], ["QunQun", "qunbtc", "QUN"], ["WAX", "waxbtc", "WAX"], ["Neo", "neobtc", "NEO"], ["Salt", "saltbtc", "SALT"], ["Bytom", "btmbtc", "BTM"], ["EchoLink", "ekobtc", "EKO"], ["Appcoins", "appcbtc", "APPC"], ["CometCoin", "cmtbtc", "CMT"], ["Request Network", "reqbtc", "REQ"], ["ICON", "icxbtc", "ICX"], ["Odyssey", "ocnbtc", "OCN"], ["Zcash", "zecbtc", "ZEC"], ["All Sports", "socbtc", "SOC"], ["ælf", "elfbtc", "ELF"], ["DeepBrain Chain", "dbcbtc", "DBC"], ["PowerLedger", "powrbtc", "POWR"], ["DATA", "dtabtc", "DTA"], ["SunContract", "sncbtc", "SNC"], ["CoinMeet", "meebtc", "MEE"], ["Nebulas", "nasbtc", "NAS"], ["EOS", "eosbtc", "EOS"], ["IOST", "iostbtc", "IOST"], ["Raiden Network Token", "rdnbtc", "RDN"], ["Lunyr", "lunbtc", "LUN"], ["Genaro Network", "gnxbtc", "GNX"], ["Elastos", "elabtc", "ELA"], ["BitcoinX", "bcxbtc", "BCX"], ["SmartMesh", "smtbtc", "SMT"], ["ITC", "itcbtc", "ITC"], ["OmiseGO", "omgbtc", "OMG"], ["STK token", "stkbtc", "STK"], ["MediShares", "mdsbtc", "MDS"], ["AdEx", "adxbtc", "ADX"], ["Ethereum Classic", "etcbtc", "ETC"], ["KyberNetworkCrystal", "kncbtc", "KNC"], ["Civic", "cvcbtc", "CVC"], ["Bitcoin Gold", "btgbtc", "BTG"], ["EduCoin", "edubtc", "EDU"], ["METAL", "mtlbtc", "MTL"], ["Waykichain", "wiccbtc", "WICC"], ["ChainLink", "linkbtc", "LINK"], ["Dash", "dashbtc", "DASH"], ["Tierion", "tntbtc", "TNT"], ["Theta", "thetabtc", "THETA"], ["Decentraland", "manabtc", "MANA"], ["Ripple", "xrpbtc", "XRP"], ["Bitcoin Diamond", "bcdbtc", "BCD"], ["Huobi Token", "htbtc", "HT"], ["Ripio Credit Network", "rcnbtc", "RCN"], ["Bluzelle", "blzbtc", "BLZ"], ["TenX Pay Token", "paybtc", "PAY"], ["Sirin Labs", "srnbtc", "SRN"], ["Bitcoin File", "bifibtc", "BIFI"], ["Achain", "actbtc", "ACT"], ["Simple Token", "ostbtc", "OST"], ["Storj", "storjbtc", "STORJ"], ["HSHARE", "hsrbtc", "HSR"], ["VeChain", "venbtc", "VEN"], ["Golem", "gntbtc", "GNT"], ["TRON", "trxbtc", "TRX"], ["Zilliqa", "zilbtc", "ZIL"], ["Lisk", "lskbtc", "LSK"], ["Litecoin", "ltcbtc", "LTC"], ["Yee", "yeebtc", "YEE"], ["Ruff", "ruffbtc", "RUFF"], ["AirSwap", "astbtc", "AST"], ["Digix DAO", "dgdbtc", "DGD"], ["0x", "zrxbtc", "ZRX"], ["Ethereum", "ethbtc", "ETH"], ["Enigma", "engbtc", "ENG"], ["Red Pulse", "rpxbtc", "RPX"], ["Matryx", "mtxbtc", "MTX"], ["AIDOC", "aidocbtc", "AIDOC"], ["Qtum", "qtumbtc", "QTUM"], ["Quantstamp", "qspbtc", "QSP"], ["Basic Attention Token", "batbtc", "BAT"], ["QASH", "qashbtc", "QASH"], ["NEM", "xembtc", "XEM"], ["Gas", "gasbtc", "GAS"], ["Medicalchain", "mtnbtc", "MTN"], ["Chat", "chatbtc", "CHAT"], ["ZILLA", "zlabtc", "ZLA"], ["Topchain", "topcbtc", "TOPC"], ["Propy", "propybtc", "PROPY"], ["Ada", " ", "ADA"], ["STEEM", " ", "STEEM"], ["IOTA", " ", "IOTA"], ["BitShares", " ", "BTS"]];
+    var HUOBI = [["SwftCoin", "swftcbtc", "SWFTC"], ["Everex", "evxbtc", "EVX"], ["Bitcoin Cash", "bchbtc", "BCH"], ["Time New Bank", "tnbbtc", "TNB"], ["Streamr", "datbtc", "DAT"], ["LinkEye", "letbtc", "LET"], ["Status Network Token", "sntbtc", "SNT"], ["WePower Network", "wprbtc", "WPR"], ["UTRUST", "utkbtc", "UTK"], ["Super Bitcoin", "sbtcbtc", "SBTC"], ["Monaco", "mcobtc", "MCO"], ["QunQun", "qunbtc", "QUN"], ["WAX", "waxbtc", "WAX"], ["Neo", "neobtc", "NEO"], ["Salt", "saltbtc", "SALT"], ["Bytom", "btmbtc", "BTM"], ["EchoLink", "ekobtc", "EKO"], ["Appcoins", "appcbtc", "APPC"], ["CometCoin", "cmtbtc", "CMT"], ["Request Network", "reqbtc", "REQ"], ["ICON", "icxbtc", "ICX"], ["Odyssey", "ocnbtc", "OCN"], ["Zcash", "zecbtc", "ZEC"], ["All Sports", "socbtc", "SOC"], ["ælf", "elfbtc", "ELF"], ["DeepBrain Chain", "dbcbtc", "DBC"], ["PowerLedger", "powrbtc", "POWR"], ["DATA", "dtabtc", "DTA"], ["SunContract", "sncbtc", "SNC"], ["CoinMeet", "meebtc", "MEE"], ["Nebulas", "nasbtc", "NAS"], ["EOS", "eosbtc", "EOS"], ["IOST", "iostbtc", "IOST"], ["Raiden Network Token", "rdnbtc", "RDN"], ["Lunyr", "lunbtc", "LUN"], ["Genaro Network", "gnxbtc", "GNX"], ["Elastos", "elabtc", "ELA"], ["BitcoinX", "bcxbtc", "BCX"], ["SmartMesh", "smtbtc", "SMT"], ["ITC", "itcbtc", "ITC"], ["OmiseGO", "omgbtc", "OMG"], ["STK token", "stkbtc", "STK"], ["MediShares", "mdsbtc", "MDS"], ["AdEx", "adxbtc", "ADX"], ["Ethereum Classic", "etcbtc", "ETC"], ["KyberNetworkCrystal", "kncbtc", "KNC"], ["Civic", "cvcbtc", "CVC"], ["Bitcoin Gold", "btgbtc", "BTG"], ["EduCoin", "edubtc", "EDU"], ["METAL", "mtlbtc", "MTL"], ["Waykichain", "wiccbtc", "WICC"], ["ChainLink", "linkbtc", "LINK"], ["Dash", "dashbtc", "DASH"], ["Tierion", "tntbtc", "TNT"], ["Theta", "thetabtc", "THETA"], ["Decentraland", "manabtc", "MANA"], ["Ripple", "xrpbtc", "XRP"], ["Bitcoin Diamond", "bcdbtc", "BCD"], ["Huobi Token", "htbtc", "HT"], ["Ripio Credit Network", "rcnbtc", "RCN"], ["Bluzelle", "blzbtc", "BLZ"], ["TenX Pay Token", "paybtc", "PAY"], ["Sirin Labs", "srnbtc", "SRN"], ["Bitcoin File", "bifibtc", "BIFI"], ["Achain", "actbtc", "ACT"], ["Simple Token", "ostbtc", "OST"], ["Storj", "storjbtc", "STORJ"], ["HSHARE", "hsrbtc", "HSR"], ["VeChain", "venbtc", "VEN"], ["Golem", "gntbtc", "GNT"], ["TRON", "trxbtc", "TRX"], ["Zilliqa", "zilbtc", "ZIL"], ["Lisk", "lskbtc", "LSK"], ["Litecoin", "ltcbtc", "LTC"], ["Yee", "yeebtc", "YEE"], ["Ruff", "ruffbtc", "RUFF"], ["AirSwap", "astbtc", "AST"], ["Digix DAO", "dgdbtc", "DGD"], ["0x", "zrxbtc", "ZRX"], ["Ethereum", "ethbtc", "ETH"], ["Enigma", "engbtc", "ENG"], ["Red Pulse", "rpxbtc", "RPX"], ["Matryx", "mtxbtc", "MTX"], ["AIDOC", "aidocbtc", "AIDOC"], ["Qtum", "qtumbtc", "QTUM"], ["Quantstamp", "qspbtc", "QSP"], ["Basic Attention Token", "batbtc", "BAT"], ["QASH", "qashbtc", "QASH"], ["NEM", "xembtc", "XEM"], ["Gas", "gasbtc", "GAS"], ["Medicalchain", "mtnbtc", "MTN"], ["Chat", "chatbtc", "CHAT"], ["ZILLA", "zlabtc", "ZLA"], ["Topchain", "topcbtc", "TOPC"], ["Propy", "propybtc", "PROPY"], ["Ada", " ", "ADA"], ["STEEM", " ", "STEEM"], ["IOTA", " ", "IOTA"], ["BitShares", " ", "BTS"], ["Wancoin", " ", "WAN"], ["BnkToTheFuture", " ", "BFT"], ["Ontology", " ", "ONT"]];
 
     return {
         HUOBI: HUOBI
@@ -18785,7 +18787,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var KUCOIN = [["Ethereum", " ", "ETH"], ["Neo", " ", "NEO"], ["Odyssey", " ", "OCN"], ["Fortuna", " ", "FOTA"], ["Covesting", " ", "COV"], ["CoinMeet", " ", "MEE"], ["Zeepin", " ", "ZPT"], ["Hacken", " ", "HKN"], ["LOCIcoin", " ", "LOCI"], ["Restart Energy", " ", "MWAT"], ["THEKEY", " ", "TKY"], ["Trinity Network Credit", " ", "TNC"], ["Nano", " ", "XRB"], ["aXpire", " ", "AXP"], ["CoinFi", " ", "COFI"], ["CargoX", " ", "CXO"], ["Iungo", " ", "ING"], ["KuCoin Shares", " ", "KCS"], ["Medicalchain", " ", "MTN"], ["Pareto Network", " ", "PARETO"], ["Telcoin", " ", "TEL"], ["adbank", " ", "ADB"], ["BOScoin", " ", "BOS"], ["Hawala.Today", " ", "HAT"], ["High Performance Blockchain", " ", "HPB"], ["IOStoken", " ", "IOST"], ["Block Array", " ", "ARY"], ["DeepBrain Chain", " ", "DBC"], ["Selfkey", " ", "KEY"], ["Red Pulse", " ", "RPX"], ["carVertical", " ", "CV"], ["Dragonchain", " ", "DRGN"], ["Litecoin", " ", "LTC"], ["QLINK", " ", "QLC"], ["Trade Token", " ", "TIO"], ["Centra", " ", "CTR"], ["SingularityNET", " ", "AGI"], ["Dent", " ", "DENT"], ["Catcoin", " ", "CAT"], ["Achain", " ", "ACT"], ["Bitcoin Cash", " ", "BCH"], ["CanYaCoin", " ", "CAN"], ["EOS", " ", "EOS"], ["Ethereum Classic", " ", "ETC"], ["Gas", " ", "GAS"], ["Dash", " ", "DASH"], ["GeneChain", " ", "DNA"], ["eBTC", " ", "EBTC"], ["Oyster", " ", "PRL"], ["UTRUST", " ", "UTK"], ["Change", " ", "CAG"], ["Bounty0x", " ", "BNTY"], ["Elixir", " ", "ELIX"], ["Enjin Coin", " ", "ENJ"], ["Aigang", " ", "AIX"], ["VeChain", " ", "VEN"], ["Aion", " ", "AION"], ["Streamr", " ", "DAT"], ["Qtum", " ", "QTUM"], ["Walton", " ", "WTC"], ["DigiByte", " ", "DGB"], ["Snovio", " ", "SNOV"], ["Ambrosus", " ", "AMB"], ["Bitmark", " ", "BTM"], ["RChain", " ", "RHOC"], ["Solaris", " ", "XLR"], ["Asch", " ", "XAS"], ["Po.et", " ", "POE"], ["Unikoin Gold", " ", "UKG"], ["ClearPoll", " ", "POLL"], ["Flixx", " ", "FLIXX"], ["INS Ecosystem", " ", "INS"], ["OmiseGO", " ", "OMG"], ["TrueFlip", " ", "TFL"], ["EthLend", " ", "LEND"], ["KyberNetworkCrystal", " ", "KNC"], ["Bitcoin Diamond", " ", "BCD"], ["Everex", " ", "EVX"], ["LAToken", " ", "LA"], ["DeepOnion", " ", "ONION"], ["PowerLedger", " ", "POWR"], ["SONM", " ", "SNM"], ["Bitcoin Gold", " ", "BTG"], ["HSHARE", " ", "HSR"], ["Publica", " ", "PBL"], ["Modum", " ", "MOD"], ["Populous", " ", "PPT"], ["BlockMason", " ", "BCPT"], ["Genesis Vision", " ", "GVT"], ["Decision Token", " ", "HST"], ["Pura", " ", "PURA"], ["Status Network Token", " ", "SNT"], ["Substratum", " ", "SUB"], ["Neblio", " ", "NEBL"], ["Civic", " ", "CVC"], ["Monetha", " ", "MTH"], ["Stox", " ", "STX"], ["Nuls", " ", "NULS"], ["TenX Pay Token", " ", "PAY"], ["Raiden Network Token", " ", "RDN"], ["Request Network", " ", "REQ"], ["Quantstamp", " ", "QSP"], ["Black Hole Coin", " ", "BHC"], ["Electroneum", " ", "ETN"], ["KickCoin", " ", "KICK"], ["Decentraland", " ", "MANA"], ["Bread", " ", "BRD"], ["ælf", " ", "ELF"], ["Aeron", " ", "CAPP"], ["SunContract", " ", "SNC"], ["Aeron", " ", "ARN"], ["Havecoin", " ", "HAV"], ["SportyFi", " ", "SPF"], ["Chronobank", " ", "TIME"]];
+    var KUCOIN = [["Ethereum", " ", "ETH"], ["Neo", " ", "NEO"], ["Odyssey", " ", "OCN"], ["Fortuna", " ", "FOTA"], ["Covesting", " ", "COV"], ["CoinMeet", " ", "MEE"], ["Zeepin", " ", "ZPT"], ["Hacken", " ", "HKN"], ["LOCIcoin", " ", "LOCI"], ["Restart Energy", " ", "MWAT"], ["THEKEY", " ", "TKY"], ["Trinity Network Credit", " ", "TNC"], ["Nano", " ", "XRB"], ["aXpire", " ", "AXP"], ["CoinFi", " ", "COFI"], ["CargoX", " ", "CXO"], ["Iungo", " ", "ING"], ["KuCoin Shares", " ", "KCS"], ["Medicalchain", " ", "MTN"], ["Pareto Network", " ", "PARETO"], ["Telcoin", " ", "TEL"], ["adbank", " ", "ADB"], ["BOScoin", " ", "BOS"], ["Hawala.Today", " ", "HAT"], ["High Performance Blockchain", " ", "HPB"], ["IOStoken", " ", "IOST"], ["Block Array", " ", "ARY"], ["DeepBrain Chain", " ", "DBC"], ["Selfkey", " ", "KEY"], ["Red Pulse", " ", "RPX"], ["carVertical", " ", "CV"], ["Dragonchain", " ", "DRGN"], ["Litecoin", " ", "LTC"], ["QLINK", " ", "QLC"], ["Trade Token", " ", "TIO"], ["Centra", " ", "CTR"], ["SingularityNET", " ", "AGI"], ["Dent", " ", "DENT"], ["Catcoin", " ", "CAT"], ["Achain", " ", "ACT"], ["Bitcoin Cash", " ", "BCH"], ["CanYaCoin", " ", "CAN"], ["EOS", " ", "EOS"], ["Ethereum Classic", " ", "ETC"], ["Gas", " ", "GAS"], ["Dash", " ", "DASH"], ["GeneChain", " ", "DNA"], ["eBTC", " ", "EBTC"], ["Oyster", " ", "PRL"], ["UTRUST", " ", "UTK"], ["Change", " ", "CAG"], ["Bounty0x", " ", "BNTY"], ["Elixir", " ", "ELIX"], ["Enjin Coin", " ", "ENJ"], ["Aigang", " ", "AIX"], ["VeChain", " ", "VEN"], ["Aion", " ", "AION"], ["Streamr", " ", "DAT"], ["Qtum", " ", "QTUM"], ["Walton", " ", "WTC"], ["DigiByte", " ", "DGB"], ["Snovio", " ", "SNOV"], ["Ambrosus", " ", "AMB"], ["Bitmark", " ", "BTM"], ["RChain", " ", "RHOC"], ["Solaris", " ", "XLR"], ["Asch", " ", "XAS"], ["Po.et", " ", "POE"], ["Unikoin Gold", " ", "UKG"], ["ClearPoll", " ", "POLL"], ["Flixx", " ", "FLIXX"], ["INS Ecosystem", " ", "INS"], ["OmiseGO", " ", "OMG"], ["TrueFlip", " ", "TFL"], ["EthLend", " ", "LEND"], ["KyberNetworkCrystal", " ", "KNC"], ["Bitcoin Diamond", " ", "BCD"], ["Everex", " ", "EVX"], ["LAToken", " ", "LA"], ["DeepOnion", " ", "ONION"], ["PowerLedger", " ", "POWR"], ["SONM", " ", "SNM"], ["Bitcoin Gold", " ", "BTG"], ["HSHARE", " ", "HSR"], ["Publica", " ", "PBL"], ["Modum", " ", "MOD"], ["Populous", " ", "PPT"], ["BlockMason", " ", "BCPT"], ["Genesis Vision", " ", "GVT"], ["Decision Token", " ", "HST"], ["Pura", " ", "PURA"], ["Status Network Token", " ", "SNT"], ["Substratum", " ", "SUB"], ["Neblio", " ", "NEBL"], ["Civic", " ", "CVC"], ["Monetha", " ", "MTH"], ["Stox", " ", "STX"], ["Nuls", " ", "NULS"], ["TenX Pay Token", " ", "PAY"], ["Raiden Network Token", " ", "RDN"], ["Request Network", " ", "REQ"], ["Quantstamp", " ", "QSP"], ["Black Hole Coin", " ", "BHC"], ["Electroneum", " ", "ETN"], ["KickCoin", " ", "KICK"], ["Decentraland", " ", "MANA"], ["Bread", " ", "BRD"], ["ælf", " ", "ELF"], ["Aeron", " ", "CAPP"], ["SunContract", " ", "SNC"], ["Aeron", " ", "ARN"], ["Havecoin", " ", "HAV"], ["SportyFi", " ", "SPF"], ["Chronobank", " ", "TIME"], ["Wancoin", " ", "WAN"], ["Loom Network", " ", "LOOM"], ["Ontology", " ", "ONT"], ["SophiaTX", " ", "SPHTX"], ["Sirin Token", " ", "SRN"], ["WePower", " ", "WPR"], ["SwissBorg", " ", "CHSB"], ["STK token", " ", "STK"], ["Zilliqa", " ", "ZIL"], ["Polymath", " ", "POLY"], ["DATA", " ", "DTA"], ["Wax", " ", "WAX"], ["ITC", " ", "ITC"], ["HEROcoin", " ", "PLAY"]];
 
     return {
         KUCOIN: KUCOIN
@@ -18805,7 +18807,7 @@ module.exports = function () {
 
 module.exports = function () {
 
-    var LIQUI = [["Litecoin", " ", "LTC"], ["STEEM", " ", "STEEM"], ["Steem Dollars", " ", "SBD"], ["Dash", " ", "DASH"], ["DECENT", " ", "DCT"], ["Iconomi", " ", "ICN"], ["Ethereum", " ", "ETH"], ["ZCoin", " ", "XZC"], ["Golos", " ", "GOLOS"], ["Gbg", " ", "GBG"], ["Golem", " ", "GNT"], ["Wings DAO", " ", "WINGS"], ["Pluton", " ", "PLU"], ["vSlice", " ", "VSL"], ["Firstblood", " ", "1ST"], ["Waves", " ", "WAVES"], ["Incent", " ", "INCNT"], ["Melon", " ", "MLN"], ["Chronobank", " ", "TIME"], ["Augur", " ", "REP"], ["Edgeless", " ", "EDG"], ["iEx.ec", " ", "RLC"], ["Trustcoin", " ", "TRST"], ["Gnosis", " ", "GNO"], ["Guppy", " ", "GUP"], ["Token-as-a-Service", " ", "TAAS"], ["Lunyr", " ", "LUN"], ["TokenCard", " ", "TKN"], ["Humaniq", " ", "HMQ"], ["Aragon", " ", "ANT"], ["Basic Attention Token", " ", "BAT"], ["Quantum Resistant Ledger", " ", "QRL"], ["Bancor", " ", "BNT"], ["MobileGo", " ", "MGO"], ["Mysterium", " ", "MYST"], ["SingularDTV", " ", "SNGLS"], ["Patientory", " ", "PTOY"], ["Cofound.it", " ", "CFI"], ["SONM", " ", "SNM"], ["Status Network Token", " ", "SNT"], ["Monaco", " ", "MCO"], ["Storj", " ", "STORJ"], ["AdEx", " ", "ADX"], ["EOS", " ", "EOS"], ["TenX Pay Token", " ", "PAY"], ["Sphre", " ", "XID"], ["OmiseGO", " ", "OMG"], ["Santiment", " ", "SAN"], ["Qtum", " ", "QTUM"], ["Civic", " ", "CVC"], ["NetCoin", " ", "NET"], ["Digix DAO", " ", "DGD"], ["OpenANX", " ", "OAX"], ["Bitcoin Cash", " ", "BCC"], ["district0x", " ", "DNT"], ["Stox", " ", "STX"], ["0x", " ", "ZRX"], ["Tierion", " ", "TNT"], ["Aeternity", " ", "AE"], ["VeChain", " ", "VEN"], ["Black Moon", " ", "BMC"], ["Decentraland", " ", "MANA"], ["Propy", " ", "PRO"], ["KyberNetworkCrystal", " ", "KNC"], ["Salt", " ", "SALT"], ["Indorse Token", " ", "IND"], ["TRON", " ", "TRX"], ["Enigma", " ", "ENG"], ["AirSwap", " ", "AST"], ["Request Network", " ", "REQ"], ["Neumark", " ", "NEU"], ["SIRIN LABS Token", " ", "SRN"], ["INS Ecosystem", " ", "INS"], ["Aion", " ", "AION"], ["WePower", " ", "WPR"], ["Republic Protocol", " ", "REN"], ["LADACoin", " ", "LDC"], ["Enjin Coin", " ", "ENJ"]];
+    var LIQUI = [["Litecoin", " ", "LTC"], ["STEEM", " ", "STEEM"], ["Steem Dollars", " ", "SBD"], ["Dash", " ", "DASH"], ["DECENT", " ", "DCT"], ["Iconomi", " ", "ICN"], ["Ethereum", " ", "ETH"], ["ZCoin", " ", "XZC"], ["Golos", " ", "GOLOS"], ["Gbg", " ", "GBG"], ["Golem", " ", "GNT"], ["Wings DAO", " ", "WINGS"], ["Pluton", " ", "PLU"], ["vSlice", " ", "VSL"], ["Firstblood", " ", "1ST"], ["Waves", " ", "WAVES"], ["Incent", " ", "INCNT"], ["Melon", " ", "MLN"], ["Chronobank", " ", "TIME"], ["Augur", " ", "REP"], ["Edgeless", " ", "EDG"], ["iEx.ec", " ", "RLC"], ["Trustcoin", " ", "TRST"], ["Gnosis", " ", "GNO"], ["Guppy", " ", "GUP"], ["Token-as-a-Service", " ", "TAAS"], ["Lunyr", " ", "LUN"], ["TokenCard", " ", "TKN"], ["Humaniq", " ", "HMQ"], ["Aragon", " ", "ANT"], ["Basic Attention Token", " ", "BAT"], ["Quantum Resistant Ledger", " ", "QRL"], ["Bancor", " ", "BNT"], ["MobileGo", " ", "MGO"], ["Mysterium", " ", "MYST"], ["SingularDTV", " ", "SNGLS"], ["Patientory", " ", "PTOY"], ["Cofound.it", " ", "CFI"], ["SONM", " ", "SNM"], ["Status Network Token", " ", "SNT"], ["Monaco", " ", "MCO"], ["Storj", " ", "STORJ"], ["AdEx", " ", "ADX"], ["EOS", " ", "EOS"], ["TenX Pay Token", " ", "PAY"], ["Sphre", " ", "XID"], ["OmiseGO", " ", "OMG"], ["Santiment", " ", "SAN"], ["Qtum", " ", "QTUM"], ["Civic", " ", "CVC"], ["NetCoin", " ", "NET"], ["Digix DAO", " ", "DGD"], ["OpenANX", " ", "OAX"], ["Bitcoin Cash", " ", "BCC"], ["district0x", " ", "DNT"], ["Stox", " ", "STX"], ["0x", " ", "ZRX"], ["Tierion", " ", "TNT"], ["Aeternity", " ", "AE"], ["VeChain", " ", "VEN"], ["Black Moon", " ", "BMC"], ["Decentraland", " ", "MANA"], ["Propy", " ", "PRO"], ["KyberNetworkCrystal", " ", "KNC"], ["Salt", " ", "SALT"], ["Indorse Token", " ", "IND"], ["TRON", " ", "TRX"], ["Enigma", " ", "ENG"], ["AirSwap", " ", "AST"], ["Request Network", " ", "REQ"], ["Neumark", " ", "NEU"], ["SIRIN LABS Token", " ", "SRN"], ["INS Ecosystem", " ", "INS"], ["Aion", " ", "AION"], ["WePower", " ", "WPR"], ["Republic Protocol", " ", "REN"], ["LADACoin", " ", "LDC"], ["Enjin Coin", " ", "ENJ"], ["SingularityNET", " ", "AGI"]];
     return {
         LIQUI: LIQUI
     };
@@ -18882,7 +18884,7 @@ module.exports = function () {
  * Created by svend on 02/02/2018.
  */
 
-var constModule = __webpack_require__(450);
+var constModule = __webpack_require__(449);
 var request = __webpack_require__(10);
 
 module.exports = function () {
@@ -19016,7 +19018,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 var exchangeModule = __webpack_require__(137);
 var newCoinVars = __webpack_require__(139);
 var generateHTMLForNewCoins = __webpack_require__(135);
-var orderTheCoin = __webpack_require__(453);
+var orderTheCoin = __webpack_require__(452);
 
 module.exports = function () {
     var allNewCoins = function () {
@@ -19192,6 +19194,7 @@ module.exports = function () {
         }
         newDataArrayOfNewCoins = orderTheCoin.orderAlphaForShortName(newDataArrayOfNewCoins);
         localStorage.setItem("newCoins", JSON.stringify(newDataArrayOfNewCoins));
+        localStorage.setItem("timeNewCoins", JSON.stringify(new Date().toString().split(' ').splice(1, 3).join(' ')));
         if (continueOrNot) {
             generateHTMLForNewCoins.loadNewCoins();
         }
@@ -19214,7 +19217,7 @@ module.exports = function () {
  */
 __webpack_require__(168);
 var initModule = __webpack_require__(133);
-var hideIt = __webpack_require__(457);
+var hideIt = __webpack_require__(456);
 
 var _module = function () {
 
@@ -19499,14 +19502,14 @@ var $export = __webpack_require__(0);
 var redefine = __webpack_require__(14);
 var META = __webpack_require__(31).KEY;
 var $fails = __webpack_require__(3);
-var shared = __webpack_require__(51);
+var shared = __webpack_require__(52);
 var setToStringTag = __webpack_require__(44);
 var uid = __webpack_require__(34);
 var wks = __webpack_require__(5);
 var wksExt = __webpack_require__(100);
 var wksDefine = __webpack_require__(68);
 var enumKeys = __webpack_require__(171);
-var isArray = __webpack_require__(54);
+var isArray = __webpack_require__(55);
 var anObject = __webpack_require__(1);
 var isObject = __webpack_require__(4);
 var toIObject = __webpack_require__(17);
@@ -19641,7 +19644,7 @@ if (!USE_NATIVE) {
   $DP.f = $defineProperty;
   __webpack_require__(39).f = gOPNExt.f = $getOwnPropertyNames;
   __webpack_require__(49).f = $propertyIsEnumerable;
-  __webpack_require__(53).f = $getOwnPropertySymbols;
+  __webpack_require__(54).f = $getOwnPropertySymbols;
 
   if (DESCRIPTORS && !__webpack_require__(35)) {
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
@@ -19732,7 +19735,7 @@ setToStringTag(global.JSON, 'JSON', true);
 
 // all enumerable object keys, includes symbols
 var getKeys = __webpack_require__(36);
-var gOPS = __webpack_require__(53);
+var gOPS = __webpack_require__(54);
 var pIE = __webpack_require__(49);
 module.exports = function (it) {
   var result = getKeys(it);
@@ -21151,7 +21154,7 @@ module.exports = function (hint) {
 // 22.1.2.2 / 15.4.3.2 Array.isArray(arg)
 var $export = __webpack_require__(0);
 
-$export($export.S, 'Array', { isArray: __webpack_require__(54) });
+$export($export.S, 'Array', { isArray: __webpack_require__(55) });
 
 
 /***/ }),
@@ -21169,7 +21172,7 @@ var toLength = __webpack_require__(9);
 var createProperty = __webpack_require__(84);
 var getIterFn = __webpack_require__(85);
 
-$export($export.S + $export.F * !__webpack_require__(56)(function (iter) { Array.from(iter); }), 'Array', {
+$export($export.S + $export.F * !__webpack_require__(57)(function (iter) { Array.from(iter); }), 'Array', {
   // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
   from: function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
     var O = toObject(arrayLike);
@@ -21331,7 +21334,7 @@ $export($export.P + $export.F * !STRICT, 'Array', {
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(4);
-var isArray = __webpack_require__(54);
+var isArray = __webpack_require__(55);
 var SPECIES = __webpack_require__(5)('species');
 
 module.exports = function (original) {
@@ -21457,7 +21460,7 @@ $export($export.P + $export.F * !__webpack_require__(22)([].reduceRight, true), 
 "use strict";
 
 var $export = __webpack_require__(0);
-var $indexOf = __webpack_require__(52)(false);
+var $indexOf = __webpack_require__(53)(false);
 var $native = [].indexOf;
 var NEGATIVE_ZERO = !!$native && 1 / [1].indexOf(1, -0) < 0;
 
@@ -21582,8 +21585,8 @@ var global = __webpack_require__(2);
 var inheritIfRequired = __webpack_require__(74);
 var dP = __webpack_require__(8).f;
 var gOPN = __webpack_require__(39).f;
-var isRegExp = __webpack_require__(55);
-var $flags = __webpack_require__(57);
+var isRegExp = __webpack_require__(56);
+var $flags = __webpack_require__(58);
 var $RegExp = global.RegExp;
 var Base = $RegExp;
 var proto = $RegExp.prototype;
@@ -21631,7 +21634,7 @@ __webpack_require__(40)('RegExp');
 
 __webpack_require__(117);
 var anObject = __webpack_require__(1);
-var $flags = __webpack_require__(57);
+var $flags = __webpack_require__(58);
 var DESCRIPTORS = __webpack_require__(7);
 var TO_STRING = 'toString';
 var $toString = /./[TO_STRING];
@@ -21660,7 +21663,7 @@ if (__webpack_require__(3)(function () { return $toString.call({ source: 'a', fl
 /***/ (function(module, exports, __webpack_require__) {
 
 // @@match logic
-__webpack_require__(58)('match', 1, function (defined, MATCH, $match) {
+__webpack_require__(59)('match', 1, function (defined, MATCH, $match) {
   // 21.1.3.11 String.prototype.match(regexp)
   return [function match(regexp) {
     'use strict';
@@ -21676,7 +21679,7 @@ __webpack_require__(58)('match', 1, function (defined, MATCH, $match) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // @@replace logic
-__webpack_require__(58)('replace', 2, function (defined, REPLACE, $replace) {
+__webpack_require__(59)('replace', 2, function (defined, REPLACE, $replace) {
   // 21.1.3.14 String.prototype.replace(searchValue, replaceValue)
   return [function replace(searchValue, replaceValue) {
     'use strict';
@@ -21694,7 +21697,7 @@ __webpack_require__(58)('replace', 2, function (defined, REPLACE, $replace) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // @@search logic
-__webpack_require__(58)('search', 1, function (defined, SEARCH, $search) {
+__webpack_require__(59)('search', 1, function (defined, SEARCH, $search) {
   // 21.1.3.15 String.prototype.search(regexp)
   return [function search(regexp) {
     'use strict';
@@ -21710,9 +21713,9 @@ __webpack_require__(58)('search', 1, function (defined, SEARCH, $search) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // @@split logic
-__webpack_require__(58)('split', 2, function (defined, SPLIT, $split) {
+__webpack_require__(59)('split', 2, function (defined, SPLIT, $split) {
   'use strict';
-  var isRegExp = __webpack_require__(55);
+  var isRegExp = __webpack_require__(56);
   var _split = $split;
   var $push = [].push;
   var $SPLIT = 'split';
@@ -21797,7 +21800,7 @@ var isObject = __webpack_require__(4);
 var aFunction = __webpack_require__(12);
 var anInstance = __webpack_require__(41);
 var forOf = __webpack_require__(42);
-var speciesConstructor = __webpack_require__(59);
+var speciesConstructor = __webpack_require__(60);
 var task = __webpack_require__(89).set;
 var microtask = __webpack_require__(90)();
 var newPromiseCapabilityModule = __webpack_require__(91);
@@ -22020,7 +22023,7 @@ $export($export.S + $export.F * (LIBRARY || !USE_NATIVE), PROMISE, {
     return promiseResolve(LIBRARY && this === Wrapper ? $Promise : this, x);
   }
 });
-$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(56)(function (iter) {
+$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(57)(function (iter) {
   $Promise.all(iter)['catch'](empty);
 })), PROMISE, {
   // 25.4.4.1 Promise.all(iterable)
@@ -22077,7 +22080,7 @@ var validate = __webpack_require__(47);
 var WEAK_SET = 'WeakSet';
 
 // 23.4 WeakSet Objects
-__webpack_require__(60)(WEAK_SET, function (get) {
+__webpack_require__(61)(WEAK_SET, function (get) {
   return function WeakSet() { return get(this, arguments.length > 0 ? arguments[0] : undefined); };
 }, {
   // 23.4.3.1 WeakSet.prototype.add(value)
@@ -22094,14 +22097,14 @@ __webpack_require__(60)(WEAK_SET, function (get) {
 "use strict";
 
 var $export = __webpack_require__(0);
-var $typed = __webpack_require__(61);
+var $typed = __webpack_require__(62);
 var buffer = __webpack_require__(92);
 var anObject = __webpack_require__(1);
 var toAbsoluteIndex = __webpack_require__(37);
 var toLength = __webpack_require__(9);
 var isObject = __webpack_require__(4);
 var ArrayBuffer = __webpack_require__(2).ArrayBuffer;
-var speciesConstructor = __webpack_require__(59);
+var speciesConstructor = __webpack_require__(60);
 var $ArrayBuffer = buffer.ArrayBuffer;
 var $DataView = buffer.DataView;
 var $isView = $typed.ABV && ArrayBuffer.isView;
@@ -22145,7 +22148,7 @@ __webpack_require__(40)(ARRAY_BUFFER);
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(0);
-$export($export.G + $export.W + $export.F * !__webpack_require__(61).ABV, {
+$export($export.G + $export.W + $export.F * !__webpack_require__(62).ABV, {
   DataView: __webpack_require__(92).DataView
 });
 
@@ -22593,7 +22596,7 @@ if (setProto) $export($export.S, 'Reflect', {
 
 // https://github.com/tc39/Array.prototype.includes
 var $export = __webpack_require__(0);
-var $includes = __webpack_require__(52)(true);
+var $includes = __webpack_require__(53)(true);
 
 $export($export.P, 'Array', {
   includes: function includes(el /* , fromIndex = 0 */) {
@@ -22754,8 +22757,8 @@ __webpack_require__(45)('trimRight', function ($trim) {
 var $export = __webpack_require__(0);
 var defined = __webpack_require__(25);
 var toLength = __webpack_require__(9);
-var isRegExp = __webpack_require__(55);
-var getFlags = __webpack_require__(57);
+var isRegExp = __webpack_require__(56);
+var getFlags = __webpack_require__(58);
 var RegExpProto = RegExp.prototype;
 
 var $RegExpStringIterator = function (regexp, string) {
@@ -22865,7 +22868,7 @@ var aFunction = __webpack_require__(12);
 var $defineProperty = __webpack_require__(8);
 
 // B.2.2.2 Object.prototype.__defineGetter__(P, getter)
-__webpack_require__(7) && $export($export.P + __webpack_require__(62), 'Object', {
+__webpack_require__(7) && $export($export.P + __webpack_require__(63), 'Object', {
   __defineGetter__: function __defineGetter__(P, getter) {
     $defineProperty.f(toObject(this), P, { get: aFunction(getter), enumerable: true, configurable: true });
   }
@@ -22884,7 +22887,7 @@ var aFunction = __webpack_require__(12);
 var $defineProperty = __webpack_require__(8);
 
 // B.2.2.3 Object.prototype.__defineSetter__(P, setter)
-__webpack_require__(7) && $export($export.P + __webpack_require__(62), 'Object', {
+__webpack_require__(7) && $export($export.P + __webpack_require__(63), 'Object', {
   __defineSetter__: function __defineSetter__(P, setter) {
     $defineProperty.f(toObject(this), P, { set: aFunction(setter), enumerable: true, configurable: true });
   }
@@ -22904,7 +22907,7 @@ var getPrototypeOf = __webpack_require__(19);
 var getOwnPropertyDescriptor = __webpack_require__(18).f;
 
 // B.2.2.4 Object.prototype.__lookupGetter__(P)
-__webpack_require__(7) && $export($export.P + __webpack_require__(62), 'Object', {
+__webpack_require__(7) && $export($export.P + __webpack_require__(63), 'Object', {
   __lookupGetter__: function __lookupGetter__(P) {
     var O = toObject(this);
     var K = toPrimitive(P, true);
@@ -22929,7 +22932,7 @@ var getPrototypeOf = __webpack_require__(19);
 var getOwnPropertyDescriptor = __webpack_require__(18).f;
 
 // B.2.2.5 Object.prototype.__lookupSetter__(P)
-__webpack_require__(7) && $export($export.P + __webpack_require__(62), 'Object', {
+__webpack_require__(7) && $export($export.P + __webpack_require__(63), 'Object', {
   __lookupSetter__: function __lookupSetter__(P) {
     var O = toObject(this);
     var K = toPrimitive(P, true);
@@ -22966,7 +22969,7 @@ $export($export.P + $export.R, 'Set', { toJSON: __webpack_require__(130)('Set') 
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://tc39.github.io/proposal-setmap-offrom/#sec-map.of
-__webpack_require__(63)('Map');
+__webpack_require__(64)('Map');
 
 
 /***/ }),
@@ -22974,7 +22977,7 @@ __webpack_require__(63)('Map');
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://tc39.github.io/proposal-setmap-offrom/#sec-set.of
-__webpack_require__(63)('Set');
+__webpack_require__(64)('Set');
 
 
 /***/ }),
@@ -22982,7 +22985,7 @@ __webpack_require__(63)('Set');
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://tc39.github.io/proposal-setmap-offrom/#sec-weakmap.of
-__webpack_require__(63)('WeakMap');
+__webpack_require__(64)('WeakMap');
 
 
 /***/ }),
@@ -22990,7 +22993,7 @@ __webpack_require__(63)('WeakMap');
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://tc39.github.io/proposal-setmap-offrom/#sec-weakset.of
-__webpack_require__(63)('WeakSet');
+__webpack_require__(64)('WeakSet');
 
 
 /***/ }),
@@ -22998,7 +23001,7 @@ __webpack_require__(63)('WeakSet');
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://tc39.github.io/proposal-setmap-offrom/#sec-map.from
-__webpack_require__(64)('Map');
+__webpack_require__(65)('Map');
 
 
 /***/ }),
@@ -23006,7 +23009,7 @@ __webpack_require__(64)('Map');
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://tc39.github.io/proposal-setmap-offrom/#sec-set.from
-__webpack_require__(64)('Set');
+__webpack_require__(65)('Set');
 
 
 /***/ }),
@@ -23014,7 +23017,7 @@ __webpack_require__(64)('Set');
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://tc39.github.io/proposal-setmap-offrom/#sec-weakmap.from
-__webpack_require__(64)('WeakMap');
+__webpack_require__(65)('WeakMap');
 
 
 /***/ }),
@@ -23022,7 +23025,7 @@ __webpack_require__(64)('WeakMap');
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://tc39.github.io/proposal-setmap-offrom/#sec-weakset.from
-__webpack_require__(64)('WeakSet');
+__webpack_require__(65)('WeakSet');
 
 
 /***/ }),
@@ -23251,7 +23254,7 @@ $export($export.S, 'Math', { signbit: function signbit(x) {
 var $export = __webpack_require__(0);
 var core = __webpack_require__(23);
 var global = __webpack_require__(2);
-var speciesConstructor = __webpack_require__(59);
+var speciesConstructor = __webpack_require__(60);
 var promiseResolve = __webpack_require__(119);
 
 $export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
@@ -24576,10 +24579,10 @@ var doSearch = __webpack_require__(372);
 var changeToNewOrAllCoins = __webpack_require__(373);
 var add = __webpack_require__(374);
 var generate = __webpack_require__(375);
-var refresh = __webpack_require__(452);
-var atTopLevel = __webpack_require__(454);
-var showModal = __webpack_require__(455);
-var updateGraphForLocalStorage = __webpack_require__(456);
+var refresh = __webpack_require__(451);
+var atTopLevel = __webpack_require__(453);
+var showModal = __webpack_require__(454);
+var updateGraphForLocalStorage = __webpack_require__(455);
 // const createOneObjectWithAllCoins = require('./util/updateCoinList/createOneObjectWithAllCoins');
 
 module.exports = function () {
@@ -24646,15 +24649,15 @@ module.exports = function () {
  */
 
 var certainAmoutOfCoins = __webpack_require__(94);
-var allCoinData = __webpack_require__(65);
+var allCoinData = __webpack_require__(51);
 var globalVars = __webpack_require__(96);
 
 module.exports = function () {
 
     function loadAllCoins() {
-        var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins, 'a');
+        var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins, 'a', 25);
         globalVars.var.counterAllCoins = value.counter;
-        $("#all-coins").html('\n        <h1 class="info-many-coins">Current ' + allCoinData.allCoins.length + ' coins available</h1>\n       ' + value.$resultaatString + '\n       <button class="btn btn-coinchecker load-more-all generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+        $("#all-coins").html('\n        <h1 class="info-many-coins">Current ' + allCoinData.allCoins.length + ' coins available\n            <small class="timestamp">Last time refreshed ' + localStorage.getItem("timeNewCoins") + '</small>\n        </h1>\n       ' + value.$resultaatString + '\n       <button class="btn btn-coinchecker load-more-all generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
     }
 
     return {
@@ -24673,7 +24676,7 @@ module.exports = function () {
  * Created by svend on 03/05/2018.
  */
 
-var allCoinData = __webpack_require__(65);
+var allCoinData = __webpack_require__(51);
 var loadTheNewCoins = __webpack_require__(66);
 var GUIModule = __webpack_require__(95);
 
@@ -24794,7 +24797,7 @@ module.exports = function () {
  */
 
 var certainAmoutOfCoins = __webpack_require__(94);
-var allCoinData = __webpack_require__(65);
+var allCoinData = __webpack_require__(51);
 var globalVars = __webpack_require__(96);
 var loadTheNewCoins = __webpack_require__(66);
 
@@ -24810,16 +24813,32 @@ module.exports = function () {
     }
 
     function moreNewCoins() {
+        var countUpValue = 25;
         var coinData = loadTheNewCoins.getTheNewCoins();
-        var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins, 'n');
+        if (!(coinData.length > globalVars.var.counterNewCoins + 25)) {
+            countUpValue = coinData.length - globalVars.var.counterNewCoins;
+        }
+        var value = certainAmoutOfCoins.toGenerate(coinData, globalVars.var.counterNewCoins, 'n', countUpValue);
         globalVars.var.counterNewCoins = value.counter;
-        $("#all-new-coins").append('\n           ' + value.$resultaatString + '\n           <button class="btn btn-coinchecker load-more-new generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+        if (countUpValue === 25) {
+            $("#all-new-coins").append('\n           ' + value.$resultaatString + '\n           <button class="btn btn-coinchecker load-more-new generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+        } else {
+            $("#all-new-coins").append('\n           ' + value.$resultaatString);
+        }
     }
 
     function moreAllCoins() {
-        var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins, 'a');
+        var countUpValue = 25;
+        if (!(allCoinData.allCoins.length > globalVars.var.counterAllCoins + 25)) {
+            countUpValue = allCoinData.allCoins.length - globalVars.var.counterAllCoins;
+        }
+        var value = certainAmoutOfCoins.toGenerate(allCoinData.allCoins, globalVars.var.counterAllCoins, 'a', countUpValue);
         globalVars.var.counterAllCoins = value.counter;
-        $("#all-coins").append('\n           ' + value.$resultaatString + '\n           <button class="btn btn-coinchecker load-more-all generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+        if (countUpValue === 25) {
+            $("#all-coins").append('\n           ' + value.$resultaatString + '\n           <button class="btn btn-coinchecker load-more-all generateMoreHtml">Load more<i class="fas fa-fw fa-spinner"></i></button>');
+        } else {
+            $("#all-coins").append('\n           ' + value.$resultaatString);
+        }
     }
 
     return {
@@ -24838,7 +24857,7 @@ module.exports = function () {
  * Created by svend on 03/05/2018.
  */
 
-var allCoinData = __webpack_require__(65);
+var allCoinData = __webpack_require__(51);
 var generateCoinInfo = __webpack_require__(376);
 var loadTheNewCoins = __webpack_require__(66);
 var generateRefreshHTML = __webpack_require__(97);
@@ -24862,7 +24881,6 @@ module.exports = function () {
             data = loadTheNewCoins.getTheNewCoins();
             data = data[elNumber];
         }
-        console.log(data, elNumber);
         generateCoinInfo.forOneCoin({
             coinData: data,
             allOrNew: allOrNew
@@ -24891,7 +24909,7 @@ var getImageNames = __webpack_require__(134);
 var GUIModule = __webpack_require__(95);
 var exchangeData = __webpack_require__(137);
 var request = __webpack_require__(163);
-var graph = __webpack_require__(451);
+var graph = __webpack_require__(450);
 
 module.exports = function () {
     var forOneCoin = function () {
@@ -25149,29 +25167,13 @@ module.exports = function () {
 "use strict";
 
 
-module.exports = function () {
-
-    var array = [["$$$", "Money", ["Cryptopia"]], ["1337", "1337", ["Cryptopia", "CoinExchange"]], ["1EX", "1EX", ["1ExTrade"]], ["1ST", "Firstblood", ["Bittrex", "HitBtc", "Livecoin"]], ["21M", "21Million", ["Cryptopia"]], ["2GIVE", "2GIVE", ["Bittrex"]], ["300", "300 Token", ["Cryptopia"]], ["42", "42-coin", ["Cryptopia", "Livecoin"]], ["420G", "Ganjacoin", ["CoinExchange"]], ["4CHN", "ChanCoin", ["Cryptopia"]], ["611", "SixEleven", ["Cryptopia", "CoinExchange"]], ["808", "808", ["Cryptopia"]], ["888", "OctoCoin", ["Cryptopia"]], ["8BIT", "8Bit", ["Cryptopia"]], ["ABC", "Alphabit", ["Cryptopia"]], ["ABN", "ABNCoin", ["Livecoin"]], ["ABY", "ArtByte", ["Bittrex", "Cryptopia"]], ["AC", "Asiacoin", ["Cryptopia"]], ["ACC", "Adcoin", ["Cryptopia", "CoinExchange"]], ["ACES", "AcesCoin", ["CoinExchange"]], ["ACN", "Avoncoin", ["Livecoin"]], ["ACOIN", "ACoin", ["Cryptopia", "CoinExchange"]], ["ACP", "AnarchistsPrime", ["CoinExchange"]], ["ADA", "Ada", ["Bittrex", "Binance"]], ["ADC", "AudioCoin", ["Cryptopia", "Bluetrade"]], ["ADCN", "AsiaDigiCoin", ["CoinExchange"]], ["ADK", "Aidos Kuneen", ["AidosMarket"]], ["ADST", "Adshares", ["Cryptopia", "CoinExchange"]], ["ADT", "adToken", ["Bittrex"]], ["ADX", "AdEx", ["Bittrex", "Binance"]], ["ADZ", "Adzcoin", ["CoinExchange", "Livecoin"]], ["AE", "Aeternity", ["HitBtc"]], ["AEON", "Aeon", ["Bittrex", "HitBtc"]], ["AGRI", "AgriNovusCoin", ["CoinExchange"]], ["AGRS", "IDNI Agoras", ["Bittrex"]], ["AI", "PolyAi", ["CoinExchange"]], ["AION", "Aion", ["Binance"]], ["AIR", "Airtoken", ["HitBtc"]], ["AKY", "AkuyaCoin", ["CoinExchange"]], ["ALEX", "Alexandrite", ["Cryptopia"]], ["ALIS", "ALIS", ["Cryptopia", "CoinExchange"]], ["ALL", "Allion", ["Cryptopia", "CoinExchange"]], ["ALT", "AltCoin", ["Cryptopia"]], ["AMB", "Ambrosus", ["Binance", "HitBtc"]], ["AMC", "AngelaMerkelCoin", ["CoinExchange"]], ["AMM", "MicroMoney", ["HitBtc", "Livecoin"]], ["AMMO", "AmmoRewards", ["CoinExchange"]], ["AMP", "Synereo AMP", ["Poloniex", "Bittrex", "Cryptopia", "HitBtc"]], ["AMS", "Amsterdamcoin", ["CoinExchange"]], ["ANI", "AnimeCoin", ["Cryptopia"]], ["ANT", "Aragon", ["Bittrex", "HitBtc", "Livecoin"]], ["ANTX", "Antimatter", ["CoinExchange"]], ["ANY", "Anycoin", ["CoinExchange"]], ["APX", "Apx", ["Bittrex", "Cryptopia"]], ["ARC", "ArcticCoin", ["Cryptopia", "Livecoin"]], ["ARCO", "AquariusCoin", ["Cryptopia"]], ["ARDR", "Ardor", ["Poloniex", "Bittrex", "HitBtc"]], ["ARG", "Argentum", ["Cryptopia", "CoinExchange"]], ["ARGUS", "ArgusCoin", ["Cryptopia", "CoinExchange"]], ["ARI", "Aricoin", ["Cryptopia"]], ["ARK", "Ark", ["Bittrex", "Cryptopia", "Binance"]], ["ARN", "Aeron", ["Binance", "HitBtc"]], ["ART", "Maecenas", ["HitBtc"]], ["ARTE", "Artemine", ["Livecoin"]], ["ASAFE2", "AllSafe", ["Livecoin"]], ["ASN", "Aseancoin", ["CoinExchange"]], ["AST", "AirSwap", ["Binance"]], ["ATB", "ATB Coin", ["HitBtc"]], ["ATH", "Athenian Warrior Token", ["Cryptopia"]], ["ATL", "ATLANT Token", ["HitBtc"]], ["ATM", "ATMChain", ["HitBtc", "Livecoin"]], ["ATMS", "Atmos", ["Cryptopia"]], ["ATOM", "Atomiccoin", ["Cryptopia", "CoinExchange"]], ["ATS", "Authorship Token", ["HitBtc"]], ["ATX", "ArtexCoin", ["CoinExchange", "Livecoin"]], ["AU", "AurumCoin", ["Cryptopia", "CoinExchange"]], ["AUR", "AuroraCoin", ["Bittrex", "Cryptopia"]], ["AURS", "Aureus", ["Cryptopia"]], ["AVT", "Aventus", ["Bitfinex"]], ["B2B", "B2B", ["CoinExchange"]], ["B3", "B3Coin", ["CoinExchange"]], ["BAKED", "BAKEDcoin", ["CoinExchange"]], ["BAT", "Basic Attention Token", ["Bittrex", "Binance", "Livecoin"]], ["BAY", "BitBay", ["Bittrex", "Cryptopia"]], ["BBC", "Bitcoin core", ["Bitfinex"]], ["BCC", "BitConnect Coin", ["Binance", "HitBtc", "CoinExchange", "EXX", "Bluetrade", "Livecoin"]], ["BCD", "Bitcoin Diamond", ["Binance", "EXX"]], ["BCF", "Bitcoin Fast", ["Cryptopia"]], ["BCH", "Bitcoin Cash", ["Kraken", "Poloniex", "Bittrex", "Cryptopia", "Bitfinex", "Gdax", "Exmo", "HitBtc", "CoinExchange", "Livecoin"]], ["BCM", "BitcoinMetal", ["CoinExchange"]], ["BCN", "Bytecoin", ["Poloniex", "HitBtc"]], ["BCPT", "BlockMason", ["Cryptopia", "Binance"]], ["BCU", "Bitcoin Unlimited", ["Bitfinex"]], ["BCY", "BitCrystals", ["Poloniex", "Bittrex", "TuxExchange"]], ["BDL", "BitDeal", ["Cryptopia", "CoinExchange"]], ["BEER", "Beerhouse", ["CoinExchange"]], ["BEEZ", "BeezerCoin", ["Cryptopia"]], ["BELA", "Bela", ["Poloniex", "CoinExchange"]], ["BENJI", "BenjiRolls", ["Cryptopia", "CoinExchange"]], ["BERN", "BERNcash", ["Cryptopia"]], ["BEST", "BestChain", ["Cryptopia"]], ["BET", "Betacoin", ["CoinExchange"]], ["BFI", "BitFinTech", ["CoinExchange"]], ["BIGUP", "Bigup", ["CoinExchange"]], ["BIO", "BioCoin", ["Livecoin"]], ["BIP", "BipCoin", ["Cryptopia"]], ["BIRDS", "BirdsCoin", ["CoinExchange"]], ["BIS", "Bismuth", ["Cryptopia"]], ["BIT", "First Bitcoin", ["Livecoin"]], ["BITB", "BitBean", ["Bittrex", "Cryptopia", "CoinExchange", "Bluetrade"]], ["BITS", "Bitstar", ["Cryptopia"]], ["BIXC", "Bixc", ["CoinExchange"]], ["BIZ", "BizCoin", ["CoinExchange"]], ["BKB", "BetKing Bankroll Token", ["HitBtc"]], ["BKCAT", "BlockCat", ["Cryptopia"]], ["BLAS", "BlakeStarCoin", ["CoinExchange"]], ["BLAZR", "BlazerCoin", ["CoinExchange"]], ["BLC", "Blakecoin", ["Cryptopia"]], ["BLITZ", "Blitzcash", ["Bittrex"]], ["BLK", "BlackCoin", ["Poloniex", "Bittrex", "Cryptopia", "TuxExchange", "CoinExchange", "Bluetrade", "Livecoin"]], ["BLN", "Boleno", ["CoinExchange"]], ["BLOCK", "BlockNet", ["Bittrex"]], ["BLU", "BlueCoin", ["Livecoin"]], ["BLUE", "EthereumBlue", ["CoinExchange"]], ["BMC", "Black Moon", ["HitBtc"]], ["BMT", "BMChain", ["HitBtc"]], ["BNB", "Binance Coin", ["Binance"]], ["BNC", "BraveNewCoin", ["Cryptopia"]], ["BNT", "Bancor", ["Bittrex", "Binance", "HitBtc", "Livecoin"]], ["BNX", "BnrtxCoin", ["Cryptopia"]], ["BOAT", "Doubloons", ["CoinExchange"]], ["BOLI", "BolivarCoin", ["Cryptopia"]], ["BON", "Bonpay", ["Cryptopia", "CoinExchange", "CoinExchange"]], ["BOP", "BlockOptions", ["Cryptopia"]], ["BOPS", "Beonpush", ["CoinExchange"]], ["BOS", "BOScoin", ["HitBtc"]], ["BPC", "BITPARK COIN", ["Livecoin"]], ["BPL", "Blockpool", ["Cryptopia"]], ["BPOK", "BitPokemonGo", ["CoinExchange"]], ["BQ", "Bitqy", ["CoinExchange"]], ["BRAT", "Brat", ["CoinExchange"]], ["BRC", "BinaryCoin", ["CoinExchange"]], ["BRD", "Bread", ["Binance"]], ["BRIT", "Britcoin", ["CoinExchange"]], ["BRK", "Breakout", ["Bittrex"]], ["BRO", "Bitradio", ["Cryptopia"]], ["BRX", "Breakout Stake", ["Bittrex"]], ["BSD", "BitSend", ["Bittrex", "Cryptopia", "Livecoin"]], ["BSN", "Bastone", ["CoinExchange"]], ["BSR", "BitSoar", ["CoinExchange"]], ["BSTY", "GlobalBoost-Y", ["Cryptopia", "Bluetrade"]], ["BTA", "BATA", ["Cryptopia", "Bluetrade", "Bluetrade", "Livecoin"]], ["BTB", "BitBar", ["Cryptopia", "Livecoin"]], ["BTBc", "Bitbase", ["CoinExchange"]], ["BTC", "Bitcoin", ["Kraken", "Bitfinex", "Bitstamp", "Coinspot", "Gdax", "1ExTrade", "Gemini", "Exmo", "Livecoin"]], ["BTCD", "BitcoinDark", ["Poloniex", "Bittrex", "Cryptopia", "Bluetrade"]], ["BTCRED", "BitcoinRed", ["CoinExchange"]], ["BTCRF", "BitcoinRefill", ["CoinExchange"]], ["BTCS", "Bitcoin Scrypt", ["Cryptopia"]], ["BTDX", "Bitcloud", ["Cryptopia", "CoinExchange"]], ["BTE", "BitSerial", ["CoinExchange"]], ["BTG", "Bitcoin Gold", ["Bittrex", "Cryptopia", "Bitfinex", "Binance", "HitBtc", "EXX", "Bluetrade"]], ["BTM", "Bitmark", ["Poloniex", "Cryptopia", "HitBtc", "EXX"]], ["BTPL", "BitcoinPlanet", ["CoinExchange"]], ["BTS", "BitShares", ["Poloniex", "Binance", "EXX", "Livecoin"]], ["BTX", "BitCore", ["Cryptopia", "HitBtc"]], ["BUCKS", "SwagBucks", ["Cryptopia"]], ["BULLS", "Bullshitcoin", ["CoinExchange"]], ["BUMBA", "Bumbacoin", ["Cryptopia"]], ["BURST", "Burst", ["Poloniex", "Bittrex", "Livecoin"]], ["BUS", "Bus token", ["HitBtc"]], ["BUZZ", "Buzzcoin", ["CoinExchange"]], ["BVB", "BVBCoin", ["Cryptopia"]], ["BWK", "Bulwark", ["Cryptopia"]], ["BXC", "Bitcedi", ["Cryptopia"]], ["BXT", "Bittoken", ["CoinExchange"]], ["BYC", "Bytecent", ["Bittrex"]], ["C2", "Coin2", ["Cryptopia"]], ["C47", "Code47", ["CoinExchange"]], ["CACH", "CacheCoin", ["Cryptopia", "CoinExchange"]], ["CALC", "Caliphcoin", ["CoinExchange"]], ["CANN", "CannabisCoin", ["Bittrex", "Cryptopia", "CoinExchange"]], ["CAP", "BottleCaps", ["Cryptopia"]], ["CAPP", "Aeron", ["HitBtc"]], ["CAR", "CareerCoin", ["Cryptopia"]], ["CAT", "Catcoin", ["Cryptopia", "HitBtc"]], ["CBANK", "CryptoBank", ["CoinExchange"]], ["CBX", "CryptoBullion", ["Cryptopia"]], ["CC", "CoolInDarkCoin", ["Cryptopia"]], ["CCN", "CannaCoin", ["Cryptopia"]], ["CCRB", "CryptoCarbon", ["Livecoin"]], ["CDN", "Canada eCoin", ["Cryptopia", "Bluetrade"]], ["CDT", "Coindash", ["Binance", "HitBtc"]], ["CDX", "CommodityAdNetwork", ["CoinExchange", "Livecoin"]], ["CEFS", "CryptopiaFeeShare", ["Cryptopia"]], ["CFC", "CoffeeCoin", ["Cryptopia"]], ["CFI", "Cofound.it", ["Bittrex", "HitBtc"]], ["CFT", "CryptoForecast", ["Cryptopia"]], ["CFUN", "CFUN", ["EXX"]], ["CHAT", "Chat", ["EXX"]], ["CHBT", "CHBToken", ["1ExTrade"]], ["CHC", "ChainCoin", ["Cryptopia"]], ["CHEAP", "CheapCoin", ["CoinExchange"]], ["CHESS", "ChessCoin", ["Cryptopia"]], ["CHIEF", "TheChiefCoin", ["Cryptopia"]], ["CHILI", "ChiliCoin", ["CoinExchange"]], ["CHIPS", "Chips", ["CoinExchange"]], ["CJ", "CryptoJacks", ["Cryptopia", "CoinExchange"]], ["CL", "Coinlancer", ["HitBtc"]], ["CLAM", "CLAMS", ["Poloniex", "Bittrex", "Cryptopia", "Bluetrade"]], ["CLD", "Cloud With Me", ["HitBtc", "Livecoin"]], ["CLOAK", "CloakCoin", ["Bittrex", "Cryptopia", "Livecoin"]], ["CLPC", "CLP Token", ["Livecoin"]], ["CLT", "CryptoLottoToken", ["CoinExchange"]], ["CLUB", "ClubCoin", ["Bittrex"]], ["CMP", "CompCoin", ["Cryptopia"]], ["CMPCO", "CampusCoin", ["Cryptopia", "CoinExchange"]], ["CMT", "CometCoin", ["Cryptopia", "Binance"]], ["CMX", "CoinMiningIndex", ["CoinExchange"]], ["CND", "Cindicator", ["Binance", "HitBtc"]], ["CNNC", "Cannation", ["Cryptopia", "CoinExchange"]], ["CNO", "Coino", ["Cryptopia"]], ["CNT", "Centurioncoin", ["CoinExchange"]], ["CNX", "Cryptonex", ["HitBtc"]], ["CO2", "ClimateCoin", ["CoinExchange"]], ["COAL", "Bitcoal", ["Cryptopia"]], ["COMP", "Compound Coin", ["Cryptopia"]], ["CON", "PayCon", ["Cryptopia"]], ["COOC", "CoochieCoin", ["CoinExchange"]], ["COPPER", "CopperCoin", ["Cryptopia"]], ["COR", "Corion", ["Cryptopia"]], ["CORG", "CorgiCoin", ["Cryptopia"]], ["COSS", "COSS", ["HitBtc"]], ["COUPE", "Coupecoin", ["CoinExchange"]], ["COVAL", "Circuits of Value", ["Bittrex"]], ["CPC", "CapriCoin", ["Bittrex", "Livecoin"]], ["CPN", "CompuCoin", ["Cryptopia"]], ["CQST", "ConquestCoin", ["Cryptopia", "CoinExchange"]], ["CRAVE", "Crave", ["Cryptopia"]], ["CRB", "CreditBit", ["Bittrex", "Livecoin"]], ["CRDNC", "CredenceCoin", ["CoinExchange"]], ["CREA", "CreativeCoin", ["Cryptopia", "CoinExchange"]], ["CREAK", "Creakcoin", ["CoinExchange"]], ["CREVA", "CrevaCoin", ["Livecoin"]], ["CRM", "CREAMcoin", ["Cryptopia"]], ["CRMSN", "Crimsoncoin", ["CoinExchange"]], ["CRN", "CoronaCoin", ["CoinExchange"]], ["CRUR", "CryptoRuble", ["Cryptopia"]], ["CRW", "Crown", ["Bittrex", "CoinExchange"]], ["CRX", "ChronosCoin", ["Cryptopia"]], ["CRYPT", "CryptCoin", ["Cryptopia"]], ["CSNO", "BitDice", ["HitBtc"]], ["CTIC2", "Coimatic2", ["CoinExchange"]], ["CTIC3", "Coimatic 3", ["Cryptopia"]], ["CTR", "Centra", ["Cryptopia", "Binance", "HitBtc", "Livecoin"]], ["CTX", "Car Taxi", ["HitBtc"]], ["CUBE", "DigiCube", ["CoinExchange"]], ["CURE", "CureCoin", ["Bittrex", "Livecoin"]], ["CVC", "Civic", ["Poloniex", "Bittrex", "Livecoin"]], ["CXT", "Coinonat", ["Cryptopia", "CoinExchange"]], ["CYCLONE", "CycloneCoin", ["CoinExchange"]], ["CYDER", "Cyder", ["CoinExchange"]], ["DAG", "DashGold", ["CoinExchange"]], ["DALC", "DALECOIN", ["Cryptopia", "CoinExchange"]], ["DANC", "DrAgoNCoin", ["Livecoin"]], ["DARI", "DariCoin", ["CoinExchange"]], ["DARK", "DARK", ["Cryptopia"]], ["DAS", "DA$", ["Cryptopia"]], ["DASH", "Dash", ["Kraken", "Poloniex", "Bittrex", "Cryptopia", "Bitfinex", "Exmo", "Binance", "TuxExchange", "HitBtc", "CoinExchange", "Bluetrade", "Livecoin"]], ["DAT", "Streamr", ["Bitfinex"]], ["DAV", "DavorCoin", ["CoinExchange"]], ["DAXX", "DaxxCoin", ["Cryptopia"]], ["DAY", "Chronologic", ["Livecoin"]], ["DBET", "DecentBet", ["Cryptopia"]], ["DBIX", "DubaiCoin", ["Cryptopia", "HitBtc", "CoinExchange", "Livecoin"]], ["DCN", "Dentacoin", ["Cryptopia", "CoinExchange"]], ["DCR", "Decred", ["Poloniex", "Bittrex", "Cryptopia", "TuxExchange", "Bluetrade"]], ["DCT", "DECENT", ["Bittrex", "HitBtc"]], ["DCY", "DinastyCoin", ["Cryptopia"]], ["DDF", "DDF", ["Cryptopia"]], ["DEM", "Deutsche eMark", ["Cryptopia", "CoinExchange"]], ["DEUS", "Deuscoin", ["Cryptopia"]], ["DFS", "DFSCoin", ["Cryptopia", "CoinExchange"]], ["DGB", "DigiByte", ["Poloniex", "Bittrex", "Cryptopia", "HitBtc", "CoinExchange", "Livecoin"]], ["DGC", "Digitalcoin", ["Cryptopia", "CoinExchange", "Bluetrade"]], ["DGD", "Digix DAO", ["Bittrex", "Binance", "HitBtc", "Livecoin"]], ["DGPT", "DigiPulse", ["Cryptopia"]], ["DIBC", "DIBCOIN", ["Livecoin"]], ["DICE", "Etheroll", ["HitBtc"]], ["DIM", "DIMCOIN", ["HitBtc"]], ["DIME", "Dimecoin", ["CoinExchange", "Livecoin"]], ["DIVX", "Divi Exchange Token", ["Cryptopia"]], ["DLT", "Agrello", ["Binance", "HitBtc"]], ["DMB", "DigitalMoneyBits", ["CoinExchange"]], ["DMC", "DynamicCoin", ["CoinExchange", "Livecoin"]], ["DMD", "Diamond", ["Bittrex", "Livecoin"]], ["DNA", "GeneChain", ["Cryptopia"]], ["DNCV2", "DronecoinV2", ["CoinExchange"]], ["DNE", "Daneton", ["CoinExchange"]], ["DNR", "Denarius", ["Cryptopia", "CoinExchange"]], ["DNT", "district0x", ["Bittrex", "Binance", "HitBtc"]], ["DOGE", "Dogecoin", ["Kraken", "Poloniex", "Bittrex", "Cryptopia", "Coinspot", "Exmo", "TuxExchange", "HitBtc", "CoinExchange", "Bluetrade", "Livecoin"]], ["DOGEJ", "DogeJunior", ["CoinExchange"]], ["DOLLAR", "DOLLAR Online", ["Livecoin"]], ["DON", "DonationCoin", ["Cryptopia"]], ["DOPE", "DopeCoin", ["Bittrex", "Cryptopia"]], ["DOT", "Dotcoin", ["Cryptopia"]], ["DOV", "DOVU", ["HitBtc"]], ["DP", "DigitalPrice", ["Cryptopia", "CoinExchange", "Bluetrade"]], ["DPC", "Digital Price Classic", ["Bluetrade"]], ["DPP", "DA Power Play", ["Cryptopia"]], ["DRP", "DCORP", ["Cryptopia"]], ["DRS", "DigitalRupees", ["CoinExchange"]], ["DRXNE", "Droxne", ["Cryptopia"]], ["DSE", "Disse", ["CoinExchange"]], ["DSH", "DashCoin", ["Cryptopia", "HitBtc"]], ["DTB", "Databits", ["Bittrex", "TuxExchange"]], ["DTCT", "DetectorToken", ["CoinExchange"]], ["DTR", "Dynamic Trading Rights", ["Livecoin"]], ["DUO", "Parallelcoin", ["Cryptopia"]], ["DUTCH", "DutchCoin", ["CoinExchange"]], ["DYN", "Dynamic", ["Bittrex"]], ["EBC", "eBullionCoin", ["CoinExchange"]], ["EBG", "EmbargoCoin", ["Cryptopia"]], ["EBST", "eBoost", ["Bittrex"]], ["EBT", "EbitTreeCoin", ["CoinExchange"]], ["EBTC", "eBTC", ["HitBtc", "HitBtc", "HitBtc"]], ["EBTCOLD", "eBTC Old", ["HitBtc", "HitBtc", "HitBtc"]], ["EC", "Eclipse", ["Cryptopia"]], ["ECC", "E-CurrencyCoin", ["CoinExchange"]], ["ECN", "E-Coin", ["CoinExchange"]], ["ECO", "ECOcoin", ["Cryptopia"]], ["ECOB", "EcoBit", ["Cryptopia"]], ["EDC", "EducoinV", ["Cryptopia"]], ["EDDIE", "Eddiecoin", ["Cryptopia"]], ["EDG", "Edgeless", ["Bittrex", "HitBtc", "Livecoin"]], ["EDO", "Eidoo", ["Bitfinex", "HitBtc"]], ["EDR", "E-Dinar Coin", ["Livecoin"]], ["EDRC", "EDRcoin", ["Cryptopia", "CoinExchange"]], ["EFL", "ElectronicGulden", ["Bittrex", "Cryptopia", "Bluetrade"]], ["EGC", "EverGreenCoin", ["Bittrex", "Cryptopia", "CoinExchange"]], ["ELC", "ElaCoin", ["Cryptopia"]], ["ELCO", "ELcoin", ["CoinExchange", "Livecoin"]], ["ELE", "Elementrem", ["HitBtc"]], ["ELF", "ælf", ["Binance"]], ["ELIX", "Elixir", ["CoinExchange"]], ["ELLA", "Ellaism", ["Cryptopia"]], ["ELM", "Elements", ["Cryptopia", "HitBtc"]], ["ELS", "Elysium", ["CoinExchange"]], ["ELT", "ELTCoin", ["CoinExchange"]], ["EMC", "EmerCoin", ["Bittrex", "Cryptopia", "TuxExchange", "HitBtc", "CoinExchange", "Livecoin"]], ["EMC2", "Einsteinium", ["Poloniex", "Bittrex", "Cryptopia"]], ["EMD", "Emerald Crypto", ["Cryptopia"]], ["EMGO", "MobileGo", ["HitBtc", "Livecoin"]], ["EMIRG", "EmiratesGoldCoin", ["CoinExchange"]], ["ENG", "Enigma", ["Bittrex", "Binance"]], ["ENJ", "Enjin Coin", ["Cryptopia", "Binance", "HitBtc", "Livecoin"]], ["ENRG", "EnergyCoin", ["Bittrex"]], ["ENT", "Eternity", ["Livecoin"]], ["ENTRC", "EnterCoin", ["CoinExchange"]], ["ENZO", "ENZOLimited", ["CoinExchange"]], ["EOS", "EOS", ["Kraken", "Bitfinex", "Binance", "HitBtc", "EXX", "Livecoin"]], ["EQL", "Equal", ["CoinExchange"]], ["EQT", "Equitrade", ["Cryptopia", "CoinExchange"]], ["ERC", "EuropeCoin", ["Bittrex"]], ["ERO", "EROSCOIN", ["HitBtc", "Livecoin"]], ["ERSO", "JynErso", ["CoinExchange"]], ["ERT", "eSportsRewardToken", ["CoinExchange"]], ["ERY", "Eryllium", ["Cryptopia", "CoinExchange"]], ["ESC", "Escroco", ["Livecoin"]], ["ESP", "Espers", ["CoinExchange", "Livecoin"]], ["ETBS", "EthBits", ["HitBtc", "CoinExchange"]], ["ETC", "Ethereum Classic", ["Kraken", "Poloniex", "Bittrex", "Cryptopia", "Bitfinex", "Exmo", "Binance", "HitBtc", "CoinExchange", "EXX"]], ["ETF", "FirstCryptoETF", ["EXX"]], ["ETG", "EthereumGold", ["CoinExchange"]], ["ETH", "Ethereum", ["Kraken", "Poloniex", "Bittrex", "Cryptopia", "Bitfinex", "Bitstamp", "Gdax", "Gemini", "Exmo", "Binance", "TuxExchange", "HitBtc", "CoinExchange", "EXX", "Bluetrade", "Livecoin"]], ["ETHD", "Ethereum Dark", ["Cryptopia", "CoinExchange"]], ["ETHP", "ETHEREUM PLUS", ["Livecoin"]], ["ETN", "Electroneum", ["Cryptopia", "CoinExchange"]], ["ETP", "Metaverse", ["Bitfinex", "HitBtc"]], ["ETT", "EncryptoTel", ["Cryptopia"]], ["EUC", "Eurocoin", ["Cryptopia"]], ["EUROP", "EuropeUnited", ["CoinExchange"]], ["EVC", "EventChain", ["Livecoin"]], ["EVIL", "Evilcoin", ["Cryptopia"]], ["EVO", "Evotion", ["Cryptopia"]], ["EVR", "Everus", ["Cryptopia"]], ["EVX", "Everex", ["Binance", "HitBtc"]], ["EXCL", "ExclusiveCoin", ["Bittrex", "CoinExchange"]], ["EXN", "Exchangen", ["HitBtc"]], ["EXP", "Expanse", ["Poloniex", "Bittrex", "Cryptopia", "Bluetrade"]], ["Ethos", "Ethos", ["Binance", "Livecoin"]], ["Ethos", "Ethos", ["HitBtc", "CoinExchange"]], ["FAIR", "FairCoin", ["Bittrex", "CoinExchange"]], ["FAP", "FAPcoin", ["CoinExchange"]], ["FAZZ", "FazzCoin", ["Cryptopia", "CoinExchange"]], ["FCH", "FastCash", ["CoinExchange"]], ["FCN", "FacileCoin", ["Cryptopia", "HitBtc"]], ["FCT", "Factom", ["Poloniex", "Bittrex", "Cryptopia"]], ["FFC", "FireFlyCoin", ["Cryptopia"]], ["FGZ", "FreeGameZoneCoin", ["CoinExchange"]], ["FJC", "FujiCoin", ["Cryptopia", "Bluetrade"]], ["FLASH", "FLASH", ["Cryptopia"]], ["FLAX", "Flaxscript", ["Cryptopia"]], ["FLDC", "FoldingCoin", ["Poloniex", "Bittrex"]], ["FLIK", "Flik", ["CoinExchange"]], ["FLIXX", "Flixx", ["Livecoin"]], ["FLO", "Florincoin", ["Poloniex", "Bittrex"]], ["FLT", "FlutterCoin", ["Cryptopia"]], ["FNC", "Fincoin", ["Livecoin"]], ["FONZ", "FonzieCoin", ["Cryptopia"]], ["FORT", "Fortcoin", ["Cryptopia"]], ["FRC", "FireRoosterCoin", ["Cryptopia"]], ["FRD", "Farad", ["HitBtc"]], ["FRN", "Francs", ["Cryptopia"]], ["FRST", "FirstCoin", ["Livecoin"]], ["FRT", "Fortesque", ["CoinExchange"]], ["FST", "FastCoin", ["Cryptopia", "Livecoin"]], ["FSX", "Frost", ["CoinExchange"]], ["FTC", "Feathercoin", ["Bittrex", "Cryptopia", "CoinExchange"]], ["FU", "FuBi", ["Livecoin"]], ["FUEL", "FuelCoin", ["Cryptopia", "Binance", "HitBtc"]], ["FUN", "FunFair", ["Bittrex", "Binance", "HitBtc", "Livecoin"]], ["FUNC", "FUNCOIN", ["Livecoin"]], ["FUZZ", "FuzzBalls", ["Cryptopia"]], ["FXE", "Futurxe", ["CoinExchange"]], ["FYP", "Flypme", ["HitBtc"]], ["GAIA", "GaiaCoin", ["Cryptopia"]], ["GAIN", "UGAIN", ["CoinExchange"]], ["GAM", "Gambit", ["Bittrex"]], ["GAME", "GameCredits", ["Poloniex", "Bittrex", "Cryptopia", "HitBtc", "Livecoin"]], ["GAP", "Gapcoin", ["Cryptopia"]], ["GAS", "Gas", ["Poloniex", "Binance"]], ["GAY", "GayMoney", ["Cryptopia"]], ["GB", "GoldBlocks", ["CoinExchange", "Bluetrade", "Livecoin"]], ["GBG", "Gbg", ["Bittrex"]], ["GBX", "GoByte", ["Cryptopia", "CoinExchange"]], ["GBYTE", "Byteball", ["Bittrex", "Cryptopia"]], ["GCR", "GlobalCurrencyReserve", ["Bittrex"]], ["GDC", "GoldenCryptoCoin", ["CoinExchange"]], ["GEERT", "GeertCoin", ["Cryptopia", "CoinExchange"]], ["GEO", "GeoCoin", ["Bittrex", "Cryptopia"]], ["GET", "GreenEnergyToken", ["CoinExchange"]], ["GFC", "Guficoin", ["CoinExchange"]], ["GLD", "GoldCoin", ["Bittrex", "Cryptopia"]], ["GLS", "GlassCoin", ["CoinExchange"]], ["GLT", "GlobalToken", ["CoinExchange"]], ["GMB", "Gambleo", ["CoinExchange"]], ["GMX", "GoldMaxCoin", ["CoinExchange"]], ["GNO", "Gnosis", ["Kraken", "Poloniex", "Bittrex", "Cryptopia", "HitBtc", "Livecoin"]], ["GNT", "Golem", ["Poloniex", "Bittrex", "Cryptopia", "TuxExchange", "Livecoin"]], ["GOLD", "GoldenCoin", ["CoinExchange"]], ["GOLF", "Golfcoin", ["CoinExchange"]], ["GOLOS", "Golos", ["Bittrex", "Livecoin"]], ["GOOD", "Goodomy", ["CoinExchange"]], ["GP", "GoldPieces", ["Cryptopia", "CoinExchange"]], ["GPL", "GoldPressedLatinum ", ["Cryptopia"]], ["GPU", "GPUCoin", ["Cryptopia"]], ["GRC", "Gridcoin Research", ["Poloniex", "Bittrex"]], ["GRE", "Greencoin", ["CoinExchange"]], ["GREENF", "GreenFingers", ["CoinExchange"]], ["GRMD", "GreenMed", ["CoinExchange"]], ["GRN", "Granite", ["Cryptopia"]], ["GRPH", "s3ntigrapH", ["HitBtc"]], ["GRS", "Groestlcoin", ["Bittrex", "Cryptopia", "CoinExchange", "Livecoin"]], ["GRW", "GrowthCoin", ["Cryptopia"]], ["GRWI", "Growers Intl", ["Cryptopia"]], ["GRX", "GoldRewardToken", ["CoinExchange", "Livecoin"]], ["GTC", "GlobalTourCoin", ["CoinExchange"]], ["GTO", "Gifto", ["Binance"]], ["GUN", "GunCoin", ["Cryptopia"]], ["GUP", "Guppy", ["Bittrex", "HitBtc", "Livecoin"]], ["GVT", "Genesis Vision", ["Binance"]], ["GWC", "WildersCoin", ["CoinExchange"]], ["GXS", "GXShares", ["Binance"]], ["GYC", "GongYiCoin", ["Livecoin"]], ["HAC", "Hackspace", ["Cryptopia", "HitBtc"]], ["HAL", "Halcyon", ["Cryptopia"]], ["HALLO", "Halloweencoin", ["CoinExchange"]], ["HAV", "Havecoin", ["Cryptopia"]], ["HBN", "HoboNickels", ["Cryptopia"]], ["HC", "HarvestCoin", ["Cryptopia", "CoinExchange"]], ["HDLB", "HodlBucks", ["Cryptopia"]], ["HEALTHY", "HealthyFoodProgram", ["CoinExchange"]], ["HEAT", "HeatLedger", ["Cryptopia"]], ["HIGH", "Highgain", ["CoinExchange"]], ["HLM", "Helium", ["Cryptopia"]], ["HMC", "HarmonyCoin", ["CoinExchange"]], ["HMQ", "Humaniq", ["Bittrex"]], ["HNC", "Huncoin", ["CoinExchange", "Livecoin"]], ["HOC", "Huobicoin", ["CoinExchange"]], ["HODL", "Hodlcoin", ["CoinExchange"]], ["HOLD", "InterstellarHoldings", ["Cryptopia"]], ["HOLLY", "Hollyweed", ["CoinExchange"]], ["HONEY", "Honey", ["CoinExchange"]], ["HOPE", "Hopecoin", ["CoinExchange"]], ["HPC", "Happycoin", ["HitBtc", "CoinExchange"]], ["HSR", "HSHARE", ["Cryptopia", "Binance", "HitBtc", "EXX"]], ["HST", "Decision Token", ["Cryptopia", "Livecoin"]], ["HTML", "Htmlcoin", ["Bluetrade"]], ["HUB", "Hubcoin", ["CoinExchange"]], ["HUC", "Huntercoin", ["Poloniex"]], ["HUSH", "Hush", ["Cryptopia"]], ["HVN", "Hive Project", ["HitBtc", "Livecoin"]], ["HXX", "HexxCoin", ["Cryptopia"]], ["HYP", "HyperStake", ["Cryptopia", "CoinExchange"]], ["HYPER", "Hyper", ["CoinExchange"]], ["I0C", "I0Coin", ["Cryptopia"]], ["IBC", "RCoin", ["CoinExchange"]], ["ICE", "iDice", ["CoinExchange"]], ["ICN", "Iconomi", ["Kraken", "Binance", "TuxExchange", "HitBtc", "Livecoin"]], ["ICO", "ICOBI", ["HitBtc"]], ["ICOB", "ICOBid", ["Cryptopia"]], ["ICOS", "ICOBox", ["HitBtc", "Livecoin"]], ["ICOT", "Initial Coin Offering Token", ["CoinExchange"]], ["ICX", "ICON", ["Binance", "HitBtc"]], ["IFLT", "InflationCoin", ["Cryptopia"]], ["IFT", "investFeed", ["Cryptopia", "CoinExchange"]], ["ILC", "ILCoin", ["CoinExchange"]], ["IMS", "Independent Money System", ["Cryptopia"]], ["IMX", "ImpactCoin", ["CoinExchange"]], ["IN", "InCoin", ["Cryptopia"]], ["INCNT", "Incent", ["Bittrex", "Livecoin"]], ["INDI", "Indicoin", ["HitBtc"]], ["INDIA", "IndiaCoin", ["CoinExchange"]], ["INFO", "InfoCoin", ["CoinExchange"]], ["INFX", "InfluxCoin", ["Bittrex", "Cryptopia"]], ["INK", "Ink", ["EXX"]], ["INN", "Innova", ["Cryptopia"]], ["INSN", "Insane", ["Cryptopia", "CoinExchange", "Livecoin"]], ["INXT", "Internxt", ["CoinExchange"]], ["IOC", "IOCoin", ["Bittrex"]], ["IOE", "IOECoin", ["CoinExchange"]], ["ION", "Ion", ["Bittrex"]], ["IOP", "Internet Of People", ["Bittrex"]], ["IOTA", "IOTA", ["Bitfinex", "Binance"]], ["IQT", "Iquant Chain", ["Cryptopia", "CoinExchange"]], ["IRL", "IrishCoin", ["Cryptopia"]], ["ITI", "ItiCoin", ["Cryptopia", "Livecoin"]], ["IXC", "IXCoin", ["Cryptopia", "CoinExchange"]], ["IXT", "iXledger", ["HitBtc"]], ["IZE", "IZEcoin", ["Cryptopia"]], ["JAPAN", "JapanCoin", ["CoinExchange"]], ["JEDI", "JediCoin", ["CoinExchange"]], ["JET", "JetCoin", ["Cryptopia", "CoinExchange"]], ["JIN", "JinCoin", ["CoinExchange"]], ["KASH", "KashCoin", ["Cryptopia"]], ["KAYI", "Kayicoin", ["Cryptopia", "CoinExchange"]], ["KBR", "Kubera", ["Cryptopia", "HitBtc"]], ["KDC", "KlondikeCoin", ["Cryptopia"]], ["KED", "Darsek", ["Cryptopia"]], ["KEK", "Kekcoin", ["Cryptopia"]], ["KGB", "KangarooBits", ["Cryptopia", "CoinExchange"]], ["KICK", "KickCoin", ["Exmo", "HitBtc"]], ["KING", "King93", ["Cryptopia"]], ["KLC", "KiloCoin", ["CoinExchange"]], ["KMD", "Komodo", ["Bittrex", "Cryptopia", "Binance", "CoinExchange"]], ["KNC", "KyberNetworkCrystal", ["Cryptopia", "Binance", "Livecoin"]], ["KOBO", "KoboCoin", ["Cryptopia", "CoinExchange"]], ["KOI", "Koicoin", ["CoinExchange"]], ["KORE", "Kore", ["Bittrex"]], ["KORUNA", "CzechoSlovak KORUNA", ["CoinExchange"]], ["KPL", "KeplerShares", ["Livecoin"]], ["KRA", "Kratomcoin", ["CoinExchange"]], ["KRB", "Karbowanec", ["Cryptopia", "Livecoin"]], ["KRONE", "Kronecoin", ["Cryptopia"]], ["KUBO", "KubosCoin", ["CoinExchange"]], ["KURT", "Kurrent", ["Cryptopia", "CoinExchange"]], ["KUSH", "KushCoin", ["Cryptopia"]], ["LA", "LAToken", ["CoinExchange"]], ["LAMBO", "Lambocoin", ["CoinExchange"]], ["LANA", "LanaCoin", ["Cryptopia"]], ["LAT", "Latium", ["HitBtc"]], ["LBC", "LBRY Credits", ["Poloniex", "Bittrex", "Cryptopia"]], ["LBTC", "LiteBitcoin", ["Cryptopia", "EXX"]], ["LCP", "litecoinPlus", ["Cryptopia"]], ["LCT", "LendConnect", ["CoinExchange"]], ["LDC", "LADACoin", ["Cryptopia", "CoinExchange", "Livecoin"]], ["LDOGE", "LiteDoge", ["Cryptopia"]], ["LEMON", "LemonCoin", ["Cryptopia"]], ["LEND", "EthLend", ["Binance", "HitBtc"]], ["LEO", "LeoCoin", ["Livecoin"]], ["LEPEN", "Le Pen Coin", ["Cryptopia"]], ["LEVO", "LevoCoin", ["CoinExchange"]], ["LGD", "Legends", ["Bittrex"]], ["LIFE", "LIFEtoken", ["HitBtc", "CoinExchange"]], ["LINDA", "LindaCoin", ["Cryptopia", "CoinExchange"]], ["LINK", "ChainLink", ["Binance"]], ["LINX", "Linx", ["Cryptopia", "CoinExchange"]], ["LIT", "Lithiumcoin", ["Cryptopia"]], ["LIZI", "LiZi", ["Cryptopia"]], ["LMC", "Lomocoin", ["Bittrex", "CoinExchange"]], ["LNK", "EthereumLink", ["CoinExchange"]], ["LOC", "LockChain", ["HitBtc"]], ["LRC", "Loopring", ["Binance", "HitBtc", "CoinExchange"]], ["LSK", "Lisk", ["Poloniex", "Bittrex", "Binance", "HitBtc", "Livecoin"]], ["LTB", "LiteBar", ["Cryptopia"]], ["LTC", "Litecoin", ["Kraken", "Poloniex", "Bittrex", "Cryptopia", "Bitfinex", "Bitstamp", "Coinspot", "Gdax", "Exmo", "Binance", "TuxExchange", "HitBtc", "CoinExchange", "EXX", "Bluetrade", "Livecoin"]], ["LTCU", "LitecoinUltra", ["Cryptopia"]], ["LTG", "LiteCoinGold", ["CoinExchange"]], ["LUCK", "Luckcoin", ["CoinExchange"]], ["LUN", "Lunyr", ["Bittrex", "HitBtc"]], ["LUNA", "Lunacoin", ["CoinExchange", "Livecoin"]], ["LUX", "Luxcoin", ["Cryptopia"]], ["LVPS", "LevoPlus", ["CoinExchange"]], ["MAC", "MachineCoin", ["Cryptopia", "CoinExchange"]], ["MAG", "Magnet", ["CoinExchange"]], ["MAGE", "MagicCoin", ["Cryptopia"]], ["MAGN", "MagnetCoin", ["Cryptopia"]], ["MAID", "MaidSafeCoin", ["Poloniex", "Bittrex", "Cryptopia", "HitBtc", "Livecoin"]], ["MALC", "MalaysiaCoin", ["CoinExchange"]], ["MANA", "Decentraland", ["Bittrex", "Binance"]], ["MAR", "MarijuanaCoin", ["Cryptopia"]], ["MARS", "Mars", ["Cryptopia", "CoinExchange"]], ["MARS2", "MarsBux2", ["CoinExchange"]], ["MARX", "MarxCoin", ["Cryptopia"]], ["MAXI", "Maxicoin", ["CoinExchange"]], ["MAY", "TheresaMayCoin", ["CoinExchange"]], ["MBC", "Mobozcoin", ["CoinExchange"]], ["MBIT", "Mbit", ["CoinExchange"]], ["MBRS", "Embers", ["Cryptopia"]], ["MCAP", "MCAP", ["HitBtc"]], ["MCB", "Microbyte", ["CoinExchange"]], ["MCI", "Musiconomi", ["Cryptopia"]], ["MCO", "Monaco", ["Bittrex", "Binance", "EXX", "Livecoin"]], ["MCR", "Macro", ["Livecoin"]], ["MCRN", "Macron", ["Cryptopia"]], ["MDA", "Moeda Loyalty Points", ["Binance"]], ["MEC", "MegaCoin", ["Cryptopia", "CoinExchange"]], ["MEME", "Memetic", ["Bittrex"]], ["MENTAL", "MentalHealthCoin", ["CoinExchange"]], ["MER", "Mercury", ["Bittrex", "CoinExchange"]], ["MET", "Metacoin", ["CoinExchange"]], ["MGM", "Magnumcoin", ["CoinExchange"]], ["MGO", "MobileGo", ["Cryptopia"]], ["MGT", "Magnatum", ["CoinExchange"]], ["MGX", "MegaX", ["Cryptopia"]], ["MILO", "MiloCoin", ["CoinExchange"]], ["MINEX", "Minex", ["Cryptopia", "CoinExchange"]], ["MINT", "Mintcoin", ["Cryptopia", "CoinExchange"]], ["MIPS", "MIPSToken", ["HitBtc", "CoinExchange"]], ["MLITE", "Melite", ["Cryptopia"]], ["MLN", "Melon", ["Kraken", "Bittrex", "Livecoin"]], ["MNE", "Minereum", ["Cryptopia", "HitBtc", "Livecoin"]], ["MNM", "Mineum", ["Cryptopia"]], ["MNX", "Minexcoin", ["Livecoin"]], ["MOD", "Modum", ["Binance"]], ["MOIN", "MOIN", ["Cryptopia", "CoinExchange", "Livecoin"]], ["MOJO", "MojoCoin", ["Cryptopia", "CoinExchange", "Livecoin"]], ["MONA", "MonaCoin", ["Bittrex", "Bluetrade", "Livecoin"]], ["MONK", "MonkeyProject", ["Cryptopia"]], ["MOON", "Mooncoin", ["CoinExchange", "Bluetrade"]], ["MOTO", "MotoCoin", ["Cryptopia"]], ["MSCN", "MasterSwisCoin", ["CoinExchange", "Livecoin"]], ["MSP", "Mothership", ["Cryptopia", "CoinExchange"]], ["MST", "Mustangcoin", ["Cryptopia", "CoinExchange"]], ["MTH", "Monetha", ["Binance", "HitBtc", "CoinExchange"]], ["MTL", "METAL", ["Bittrex", "Cryptopia", "Binance", "Livecoin"]], ["MTLMC", "MetalMusicCoin", ["Cryptopia"]], ["MTNC", "MasterNodeCoin", ["Cryptopia"]], ["MUE", "MonetaryUnit", ["Bittrex", "CoinExchange"]], ["MUSIC", "Musicoin", ["Bittrex", "Cryptopia"]], ["MUX", "Manutax", ["CoinExchange"]], ["MXC", "MatrixCoin", ["CoinExchange"]], ["MXT", "MarteXcoin", ["CoinExchange"]], ["MYB", "MyBit", ["Cryptopia", "CoinExchange"]], ["MYST", "Mysterium", ["Bittrex"]], ["MZC", "MazaCoin", ["Cryptopia"]], ["NAMO", "NAMO COIN", ["Cryptopia"]], ["NAV", "NAVCoin", ["Poloniex", "Bittrex", "Cryptopia"]], ["NBIT", "netBit", ["CoinExchange"]], ["NBT", "Nubits", ["Bittrex"]], ["NBX", "NetBit", ["CoinExchange"]], ["NDAO", "NeuroDAO", ["Cryptopia"]], ["NEBL", "Neblio", ["Cryptopia", "Binance", "HitBtc"]], ["NEO", "Neo", ["Bittrex", "Cryptopia", "Bitfinex", "Binance", "HitBtc", "Livecoin"]], ["NEOG", "NeoGold", ["CoinExchange"]], ["NEON", "Nucleon", ["CoinExchange"]], ["NEOS", "Neoscoin", ["Poloniex", "Bittrex", "Bluetrade"]], ["NET", "NetCoin", ["Cryptopia"]], ["NETKO", "Netko", ["Cryptopia"]], ["NEVA", "NevaCoin", ["Cryptopia"]], ["NGC", "NAGA", ["HitBtc"]], ["NKA", "Incakoin", ["Cryptopia"]], ["NLC2", "NoLimitCoin", ["Cryptopia", "CoinExchange"]], ["NLG", "Gulden", ["Bittrex", "CoinExchange", "Bluetrade"]], ["NMC", "Namecoin", ["Poloniex", "Cryptopia", "TuxExchange", "Bluetrade", "Livecoin"]], ["NMR", "Numeraire", ["Bittrex"]], ["NOBL", "NobleCoin", ["Cryptopia"]], ["NOTE", "DNotes", ["Cryptopia"]], ["NRN", "Neuron", ["CoinExchange"]], ["NRO", "Neuro", ["CoinExchange"]], ["NTC", "Natcoin", ["CoinExchange"]], ["NTO", "Fujinto", ["HitBtc", "CoinExchange"]], ["NTRN", "Neutron", ["Cryptopia"]], ["NUA", "Neulaut", ["CoinExchange"]], ["NULS", "Nuls", ["Binance"]], ["NUMUS", "NumusCash", ["CoinExchange"]], ["NVC", "NovaCoin", ["Cryptopia", "Bluetrade", "Livecoin"]], ["NXC", "Nexium", ["Poloniex", "Bittrex", "HitBtc"]], ["NXS", "Nexus", ["Bittrex", "Cryptopia"]], ["NXT", "NXT", ["Poloniex", "Bittrex", "HitBtc", "Livecoin"]], ["NYAN", "NyanCoin", ["Cryptopia"]], ["OAX", "OpenANX", ["Binance", "HitBtc"]], ["OBITS", "Obits", ["Livecoin"]], ["OC", "OneCoin", ["CoinExchange"]], ["OD", "Opendollar", ["Livecoin"]], ["ODN", "Obsidian", ["Cryptopia", "HitBtc"]], ["OFF", "Cthulhu Offerings", ["Cryptopia"]], ["OGN", "OGNCoin", ["CoinExchange"]], ["OK", "OkCash", ["Bittrex", "Cryptopia", "Bluetrade"]], ["OMG", "OmiseGO", ["Poloniex", "Bittrex", "Cryptopia", "Bitfinex", "Binance", "HitBtc", "Livecoin"]], ["OMNI", "Omni", ["Poloniex", "Bittrex"]], ["ONION", "DeepOnion", ["Cryptopia"]], ["OOO", "Om", ["Cryptopia"]], ["OPAL", "Opalcoin", ["Cryptopia"]], ["OPC", "OP Coin", ["Cryptopia"]], ["OPT", "Opus", ["HitBtc"]], ["ORB", "OrbitCoin", ["Cryptopia"]], ["ORME", "OrmeusCoin", ["Cryptopia", "HitBtc"]], ["ORO", "Orocoin", ["CoinExchange"]], ["OSC", "Open Source Coin", ["Cryptopia"]], ["OST", "Simple Token", ["Binance"]], ["OTN", "Open Trading Network", ["Cryptopia", "HitBtc", "Livecoin"]], ["OTX", "Octanox", ["HitBtc"]], ["OX", "OX Fina", ["Cryptopia"]], ["OXY", "Oxycoin", ["Livecoin"]], ["PAK", "PakCoin", ["Cryptopia"]], ["PARIS", "Pariscoin", ["CoinExchange"]], ["PART", "Particl", ["Bittrex"]], ["PASC", "PascalCoin", ["Poloniex"]], ["PASL", "PascalLite", ["Cryptopia"]], ["PAY", "TenX Pay Token", ["Bittrex", "Cryptopia", "HitBtc", "Livecoin"]], ["PAYU", "PayUToken", ["CoinExchange"]], ["PBL", "Publica", ["Cryptopia"]], ["PCC", "PolishCoin", ["Cryptopia"]], ["PCN", "Peepcoin", ["CoinExchange"]], ["PCOIN", "PioneerCoin", ["Cryptopia"]], ["PCS", "Pabyosicoin Special", ["CoinExchange"]], ["PDC", "Project Decorum", ["Bittrex"]], ["PDG", "PinkDogCoin", ["CoinExchange"]], ["PEC", "PeaceCoin3.6", ["CoinExchange"]], ["PEPE", "PepeCoin", ["Cryptopia"]], ["PEPECASH", "Pepe Cash", ["TuxExchange"]], ["PGL", "ProspectorsGold", ["CoinExchange"]], ["PHN", "Phillion", ["CoinExchange"]], ["PHR", "Phore", ["Cryptopia"]], ["PHS", "PhilosopherStone", ["Cryptopia"]], ["PICO", "Pico", ["CoinExchange"]], ["PIGGY", "PiggyCoin", ["Cryptopia", "CoinExchange"]], ["PING", "CryptoPing", ["HitBtc"]], ["PINK", "Pinkcoin", ["Poloniex", "Bittrex", "Cryptopia"]], ["PIPL", "PiplCoin", ["Livecoin"]], ["PIRL", "Pirl", ["Cryptopia"]], ["PIVX", "Pivx", ["Bittrex", "Cryptopia", "CoinExchange", "Livecoin"]], ["PIX", "Lampix", ["HitBtc", "CoinExchange"]], ["PKB", "ParkByte", ["Bittrex"]], ["PKT", "PlaykeyToken", ["CoinExchange"]], ["PLACO", "PlayerCoin", ["CoinExchange"]], ["PLBT", "Polybius", ["HitBtc", "Livecoin"]], ["PLC", "Polcoin", ["Cryptopia"]], ["PLR", "Pillar", ["Cryptopia", "HitBtc"]], ["PLU", "Pluton", ["HitBtc"]], ["PLX", "PlexCoin", ["Cryptopia", "CoinExchange"]], ["POE", "Po.et", ["Binance", "HitBtc"]], ["POL", "PolarisCoin", ["CoinExchange"]], ["POLL", "ClearPoll", ["Cryptopia", "HitBtc"]], ["POLOB", "PoloBittShares", ["CoinExchange"]], ["POS", "Postoken", ["CoinExchange"]], ["POST", "PostCoin", ["Cryptopia", "CoinExchange", "Livecoin"]], ["POSW", "PoSWallet", ["Cryptopia", "CoinExchange", "Livecoin"]], ["POT", "PotCoin", ["Poloniex", "Bittrex", "Cryptopia", "TuxExchange", "CoinExchange", "Bluetrade"]], ["POWR", "PowerLedger", ["Bittrex", "Cryptopia", "Binance"]], ["PPC", "Peercoin", ["Poloniex", "Bittrex", "Cryptopia", "TuxExchange", "HitBtc", "Bluetrade", "Livecoin"]], ["PPT", "Populous", ["Binance", "HitBtc"]], ["PPY", "Peerplays", ["Livecoin"]], ["PR", "Prototanium", ["Cryptopia"]], ["PRES", "President Trump", ["Livecoin"]], ["PRG", "Paragon", ["HitBtc", "Livecoin"]], ["PRIMU", "Primulon", ["CoinExchange"]], ["PRN", "Protean", ["CoinExchange"]], ["PRO", "Propy", ["Livecoin"]], ["PROC", "ProCurrency", ["Cryptopia"]], ["PRS", "Presearch", ["HitBtc", "CoinExchange"]], ["PRX", "Printerium", ["CoinExchange"]], ["PT", "Porntoken", ["CoinExchange"]], ["PTC", "PesetaCoin ", ["Bittrex", "Cryptopia"]], ["PTOY", "Patientory", ["Bittrex", "HitBtc"]], ["PTS", "PitisCoin", ["CoinExchange"]], ["PURA", "Pura", ["Cryptopia", "CoinExchange"]], ["PURE", "Pure", ["CoinExchange"]], ["PUT", "PutinCoin", ["Cryptopia", "CoinExchange", "Livecoin"]], ["PWC", "Playwincoin", ["CoinExchange"]], ["PXC", "PhoenixCoin", ["Cryptopia"]], ["PXI", "Prime-XI", ["Cryptopia"]], ["Q2C", "Qubitcoin", ["Cryptopia"]], ["QAU", "Quantum", ["HitBtc", "Livecoin"]], ["QBT", "Cubits", ["Cryptopia"]], ["QCN", "QuazarCoin", ["HitBtc"]], ["QRK", "Quark", ["Cryptopia"]], ["QRL", "Quantum Resistant Ledger", ["Bittrex"]], ["QSH", "QASH", ["Bitfinex"]], ["QSP", "Quantstamp", ["Binance"]], ["QTL", "Quatloo", ["Cryptopia"]], ["QTUM", "Qtum", ["Bittrex", "Bitfinex", "Binance", "CoinExchange", "EXX", "Livecoin"]], ["QUANT", "QuantumCoin", ["CoinExchange"]], ["QWARK", "Qwark", ["Bittrex", "Cryptopia"]], ["R", "Revain", ["Cryptopia"]], ["RADS", "Radium", ["Poloniex", "Bittrex"]], ["RAIN", "Condensate", ["Cryptopia", "CoinExchange"]], ["RBIES", "Rubies", ["Livecoin"]], ["RBL", "RoyalBritishLegion", ["CoinExchange"]], ["RBT", "Rimbit", ["Cryptopia"]], ["RBY", "RubyCoin", ["Bittrex", "Cryptopia"]], ["RC", "RussiaCoin", ["Cryptopia"]], ["RCN", "Ripio Credit Network", ["Bittrex", "Binance"]], ["RDC", "RoundCoin", ["CoinExchange"]], ["RDD", "ReddCoin", ["Bittrex", "Cryptopia", "Bluetrade"]], ["RDN", "Raiden Network Token", ["Binance"]], ["REC", "Regalcoin", ["CoinExchange"]], ["RED", "RedCoin", ["Cryptopia"]], ["REE", "ReeCoin", ["Livecoin"]], ["REGA", "Rega", ["CoinExchange"]], ["REP", "Augur", ["Kraken", "Poloniex", "Bittrex", "Cryptopia", "HitBtc", "Livecoin"]], ["REQ", "Request Network", ["Binance"]], ["REX", "REX", ["CoinExchange"]], ["RHO", "Rhodiumcoin", ["CoinExchange"]], ["RIC", "Riecoin", ["Poloniex"]], ["RICKS", "PickleRicks", ["Cryptopia"]], ["RISE", "Rise", ["Bittrex"]], ["RIYA", "Etheriya", ["Cryptopia", "CoinExchange"]], ["RKC", "RoyalKingdomCoin", ["Cryptopia"]], ["RLC", "iEx.ec", ["Bittrex", "HitBtc", "Livecoin"]], ["RLT", "RouletteCoin", ["Livecoin"]], ["RMC", "Remicoin", ["CoinExchange"]], ["RNS", "RenosCoin", ["Cryptopia", "CoinExchange"]], ["ROC", "RoosterCoin", ["CoinExchange"]], ["ROOFS", "Roofs", ["CoinExchange"]], ["RPC", "RonPaulCoin", ["Cryptopia"]], ["RRT", "Recovery Right Tokens", ["Bitfinex"]], ["RUB", "RubbleCoin", ["CoinExchange"]], ["RUNE", "RuneStoneCoin", ["CoinExchange"]], ["RUNNERS", "Runners", ["CoinExchange"]], ["RUP", "Rupee", ["Cryptopia", "CoinExchange"]], ["RVT", "Rivetz", ["HitBtc"]], ["SAK", "SharkCoin", ["Cryptopia"]], ["SALT", "Salt", ["Bittrex", "Binance"]], ["SAN", "Santiment", ["Bitfinex"]], ["SAND", "BeachCoin", ["Cryptopia"]], ["SBC", "SBC Coin", ["Cryptopia"]], ["SBD", "Steem Dollars", ["Poloniex", "Bittrex", "HitBtc"]], ["SBIT", "StackBIT", ["CoinExchange"]], ["SBTC", "Super Bitcoin", ["HitBtc", "HitBtc", "HitBtc", "EXX"]], ["SC", "Siacoin", ["Poloniex", "Bittrex", "HitBtc"]], ["SCL", "Social", ["Cryptopia", "HitBtc", "CoinExchange"]], ["SCORE", "Scorecoin", ["Cryptopia", "CoinExchange"]], ["SDASH", "ScryptDashCoin", ["CoinExchange"]], ["SDRN", "Senderon", ["Cryptopia"]], ["SEL", "Selencoin", ["Cryptopia"]], ["SEND", "SocialSend", ["Cryptopia"]], ["SEQ", "Sequence", ["Bittrex"]], ["SFC", "SolarflareCoin", ["Cryptopia", "CoinExchange"]], ["SFE", "SafeCoin", ["CoinExchange"]], ["SGR", "SugarExchange", ["CoinExchange"]], ["SHA", "SHACoin2", ["Cryptopia"]], ["SHIFT", "Shift", ["Bittrex", "Livecoin"]], ["SHIT", "Shitcoin", ["CoinExchange"]], ["SHM", "Saham", ["CoinExchange"]], ["SHND", "StrongHands", ["CoinExchange"]], ["SHOT", "MoonShot", ["CoinExchange"]], ["SHRM", "Shrooms", ["Cryptopia"]], ["SIB", "Siberian Chervonets", ["Bittrex", "Cryptopia", "Livecoin"]], ["SILK2", "SilkCoin2", ["CoinExchange"]], ["SIMP", "Simplecash", ["CoinExchange"]], ["SISA", "SISA Token", ["HitBtc", "CoinExchange"]], ["SKC", "SkeinCoin", ["Cryptopia"]], ["SKIN", "SkinCoin", ["Cryptopia", "HitBtc"]], ["SKOIN", "Skoincoin", ["CoinExchange"]], ["SKR", "SakuraCoin", ["Cryptopia"]], ["SKULL", "PirateBlocks", ["CoinExchange"]], ["SKY", "Skycoin", ["Cryptopia"]], ["SLEVIN", "Slevin", ["CoinExchange"]], ["SLG", "Sterlingcoin", ["Cryptopia", "Bluetrade"]], ["SLR", "SolarCoin", ["Bittrex", "CoinExchange", "Bluetrade", "Livecoin"]], ["SLS", "SaluS", ["Bittrex"]], ["SMART", "SmartCash", ["Cryptopia", "HitBtc", "CoinExchange"]], ["SMC", "SmartCoin", ["Cryptopia"]], ["SMS", "SMSCoin", ["HitBtc", "CoinExchange"]], ["SNC", "SunContract", ["HitBtc"]], ["SNGLS", "SingularDTV", ["Binance", "HitBtc", "Livecoin"]], ["SNM", "SONM", ["Binance"]], ["SNOW", "SnowCoin", ["CoinExchange"]], ["SNRG", "Synergy", ["Bittrex"]], ["SNT", "Status Network Token", ["Bittrex", "Binance", "HitBtc", "Livecoin"]], ["SOAR", "SoarCoin", ["Livecoin"]], ["SOIL", "SoilCoin", ["Cryptopia"]], ["SOLAR", "Solar", ["CoinExchange"]], ["SONG", "Songcoin", ["Cryptopia"]], ["SOON", "SoonCoin", ["Cryptopia"]], ["SPACE", "SpaceCoin", ["Cryptopia"]], ["SPF", "SportyFi", ["Livecoin"]], ["SPHR", "Sphere", ["Bittrex"]], ["SPR", "SpreadCoin", ["Bittrex", "Cryptopia"]], ["SPRTS", "Sprouts", ["CoinExchange"]], ["SPT", "Spots", ["Cryptopia"]], ["SQL", "SquallCoin", ["Cryptopia"]], ["SRC", "SecureCoin", ["Cryptopia", "CoinExchange"]], ["SST", "SSTCoin", ["CoinExchange"]], ["STARS", "StarCash", ["CoinExchange"]], ["START", "StartCoin", ["Bittrex", "Cryptopia", "Bluetrade"]], ["STC", "StopTrumpCoin", ["Cryptopia"]], ["STEEM", "STEEM", ["Poloniex", "Bittrex", "HitBtc"]], ["STO", "SaveTheOceanCoin", ["CoinExchange"]], ["STORJ", "Storj", ["Poloniex", "Bittrex", "Binance", "Livecoin"]], ["STORM", "STORM", ["HitBtc"]], ["STR", "Stellar", ["Poloniex"]], ["STRAT", "Stratis", ["Poloniex", "Bittrex", "Cryptopia", "Binance", "HitBtc", "Livecoin"]], ["STRC", "StarCredits", ["Cryptopia"]], ["STU", "Student Coin", ["HitBtc"]], ["STV", "Sativacoin", ["Cryptopia"]], ["STX", "Stox", ["HitBtc", "CoinExchange"]], ["SUB", "Substratum", ["Binance", "HitBtc"]], ["SUMO", "Sumokoin", ["Cryptopia", "Livecoin"]], ["SUPER", "SuperCoin", ["CoinExchange"]], ["SUPERMAN", "Superman", ["CoinExchange"]], ["SUR", "Suretly", ["HitBtc"]], ["SURGE", "SurgeCoin", ["CoinExchange"]], ["SWFTC", "SwftCoin", ["HitBtc"]], ["SWIFT", "Bitswift", ["Bittrex"]], ["SWING", "Swingcoin", ["Cryptopia"]], ["SWT", "Swarm City Token", ["Bittrex", "HitBtc"]], ["SXC", "Sexcoin", ["Cryptopia", "Livecoin"]], ["SYNQ", "BitSynq", ["CoinExchange"]], ["SYNX", "Syndicate", ["Bittrex", "Cryptopia", "CoinExchange"]], ["SYS", "Syscoin", ["Poloniex", "Bittrex", "TuxExchange", "Livecoin"]], ["TAAS", "Token-as-a-Service", ["HitBtc", "CoinExchange", "Livecoin"]], ["TAJ", "Tajcoin", ["Cryptopia"]], ["TBS", "The Basis", ["CoinExchange"]], ["TCOIN", "T-Coin", ["CoinExchange"]], ["TEK", "TEKcoin", ["Cryptopia"]], ["TELL", "Tellurion", ["CoinExchange"]], ["TER", "TerraNova", ["Cryptopia", "CoinExchange", "Livecoin"]], ["TES", "TeslaCoin", ["Cryptopia"]], ["TGC", "TigerCoin", ["Cryptopia", "CoinExchange"]], ["TGT", "Target Coin", ["HitBtc", "CoinExchange"]], ["THC", "HempCoin", ["Bittrex"]], ["THS", "TechShares", ["Livecoin"]], ["TIME", "Chronobank", ["HitBtc", "Livecoin"]], ["TIPS", "Fedoracoin", ["CoinExchange"]], ["TIT", "TitCoin", ["Cryptopia"]], ["TIX", "Blocktix", ["Bittrex", "Cryptopia"]], ["TKN", "TokenCard", ["HitBtc", "Livecoin"]], ["TKS", "Tokes", ["Bittrex"]], ["TLE", "TattoocoinLimitedEdition", ["CoinExchange"]], ["TNB", "Time New Bank", ["Binance"]], ["TNT", "Tierion", ["Binance", "HitBtc"]], ["TOA", "TOACoin", ["Cryptopia"]], ["TOK", "TokugawaCoin", ["Cryptopia"]], ["TOP", "TopCoin", ["Cryptopia"]], ["TOPAZ", "TopazCoin", ["CoinExchange"]], ["TOR", "TorCoin", ["CoinExchange"]], ["TPC", "TrumPenceCoin", ["CoinExchange"]], ["TPG", "Trollpayment", ["CoinExchange"]], ["TPI", "TPICoin", ["CoinExchange"]], ["TRANCE", "Trancecoin", ["CoinExchange"]], ["TRC", "TerraCoin", ["Cryptopia", "CoinExchange"]], ["TRI", "Triangles", ["Cryptopia"]], ["TRIG", "TRIG Token", ["Bittrex"]], ["TRK", "TruckCoin", ["Cryptopia"]], ["TROLL", "Trollcoin 2.0", ["Bluetrade"]], ["TRST", "Trustcoin", ["Bittrex", "HitBtc", "Livecoin"]], ["TRUMP", "Trumpcoin", ["Cryptopia", "Livecoin"]], ["TRUST", "TrustPlus", ["Bittrex"]], ["TRUX", "TreauxCoin", ["CoinExchange"]], ["TRX", "TRON", ["Binance", "HitBtc"]], ["TSE", "TattooCoin", ["Cryptopia", "CoinExchange"]], ["TSL", "Energo Labs", ["EXX"]], ["TSTR", "TristarCoin", ["CoinExchange"]], ["TTC", "TittieCoin", ["Cryptopia"]], ["TURBO", "TurboCoin", ["CoinExchange"]], ["TV", "Ti-Value", ["EXX"]], ["TX", "TransferCoin", ["Bittrex", "Cryptopia", "Livecoin"]], ["TZC", "Trezarcoin", ["Cryptopia"]], ["UBQ", "Ubiq", ["Bittrex", "Cryptopia"]], ["UBTC", "UnitedBitcoin", ["EXX"]], ["UFO", "UFOCoin", ["CoinExchange"]], ["UGT", "UG Token", ["HitBtc"]], ["UIS", "Unitus", ["Cryptopia"]], ["UK", "UKCoin", ["CoinExchange"]], ["ULA", "UlaTech", ["CoinExchange"]], ["UMO", "UniversalMolecule", ["Cryptopia"]], ["UNB", "UnbreakableCoin", ["Bittrex"]], ["UNC", "UNCoin", ["Livecoin"]], ["UNIC", "UniCoin", ["Cryptopia"]], ["UNIFY", "Unify", ["Cryptopia", "CoinExchange"]], ["UNIT", "UniversalCurrency", ["Cryptopia", "CoinExchange"]], ["UNITS", "GameUnits", ["Cryptopia"]], ["UNO", "Unobtanium", ["Cryptopia", "CoinExchange", "Bluetrade"]], ["UNRC", "Universal Royal Coin", ["Livecoin"]], ["UNY", "UnityIngot", ["Livecoin"]], ["UP", "UpscaleToken", ["CoinExchange"]], ["UQC", "UquidCoin", ["CoinExchange", "Livecoin"]], ["UR", "UR", ["Cryptopia"]], ["USA", "USACoin", ["CoinExchange"]], ["USDT", "Tether USD", ["Poloniex"]], ["UTC", "Ultracoin", ["Cryptopia"]], ["V", "Version", ["Cryptopia"]], ["VC", "VirtualCoin", ["CoinExchange"]], ["VCC", "VaderCorpCoin", ["Cryptopia"]], ["VEN", "VeChain", ["Binance", "HitBtc"]], ["VERI", "Veritaseum", ["HitBtc"]], ["VGS", "LasVegasCoin", ["CoinExchange"]], ["VIA", "Viacoin", ["Poloniex", "Bittrex"]], ["VIB", "Viberate", ["Bittrex", "Binance", "HitBtc", "Livecoin"]], ["VIBE", "Vibe Coin", ["HitBtc"]], ["VIDZ", "PureVidz", ["Cryptopia", "CoinExchange"]], ["VISIO", "Visio", ["CoinExchange"]], ["VIVO", "Vivo", ["Cryptopia"]], ["VLTC", "Vaultcoin", ["CoinExchange", "Livecoin"]], ["VOISE", "VOISE", ["Cryptopia", "HitBtc", "CoinExchange", "Livecoin"]], ["VOX", "Voxels", ["Bittrex", "CoinExchange", "Livecoin"]], ["VRC", "VeriCoin", ["Poloniex", "Bittrex", "Cryptopia", "Bluetrade", "Livecoin"]], ["VRM", "Verium", ["Bittrex", "Cryptopia", "Livecoin"]], ["VRS", "VEROS", ["Livecoin"]], ["VSL", "vSlice", ["Livecoin"]], ["VSX", "VsyncX", ["CoinExchange"]], ["VTC", "Vertcoin", ["Poloniex", "Bittrex", "Bluetrade"]], ["VTR", "vTorrent", ["Bittrex"]], ["VUC", "VirtaUniqueCoin", ["Cryptopia"]], ["VULCANO", "Vulcanocoin", ["CoinExchange"]], ["WABI", "WaBi", ["Binance"]], ["WASH", "WashingtonCoin", ["CoinExchange"]], ["WAVES", "Waves", ["Bittrex", "Exmo", "Binance", "HitBtc", "Livecoin"]], ["WC", "Wincoin", ["Cryptopia"]], ["WCL", "Wowclassic", ["CoinExchange"]], ["WDC", "WorldCoin", ["Cryptopia", "Bluetrade"]], ["WEED", "Weed", ["Cryptopia"]], ["WIC", "WiCoin", ["Livecoin"]], ["WILD", "WildCrypto", ["Cryptopia"]], ["WINGS", "Wings DAO", ["Bittrex", "HitBtc", "Livecoin"]], ["WINK", "WinkCoin", ["CoinExchange"]], ["WLC", "WirelessCoin", ["Cryptopia"]], ["WMGO", "MobileGo", ["HitBtc"]], ["WOMEN", "WomenCoin", ["CoinExchange"]], ["WORM", "HealthyWormCoin", ["CoinExchange"]], ["WOW", "Wowcoin", ["CoinExchange"]], ["WRC", "WarCoin", ["Cryptopia", "HitBtc"]], ["WRP", "Wrapper", ["CoinExchange"]], ["WSX", "WeAreSatoshi", ["Cryptopia"]], ["WTC", "Walton", ["Binance", "HitBtc"]], ["WTT", "Giga Watt", ["HitBtc"]], ["WW", "WayaWolfCoin", ["Cryptopia"]], ["WYV", "Wyvern", ["CoinExchange"]], ["XAUR", "Xaurum", ["HitBtc", "Livecoin"]], ["XBC", "BitcoinPlus", ["Poloniex", "Cryptopia", "CoinExchange"]], ["XBL", "Billionaire Token", ["Cryptopia", "CoinExchange"]], ["XBTS", "BeatCoin", ["Cryptopia"]], ["XBU", "Ubercoin", ["CoinExchange"]], ["XBY", "XTRABYTES", ["Cryptopia"]], ["XCHE", "CheCoin", ["CoinExchange"]], ["XCO", "Xcoin", ["Cryptopia"]], ["XCP", "Counterparty", ["Poloniex", "Bittrex", "TuxExchange"]], ["XCPO", "COPICO", ["Cryptopia"]], ["XCRE", "Creatio", ["Cryptopia"]], ["XCS", "CybCSec", ["CoinExchange"]], ["XCT", "C-bit", ["Cryptopia", "CoinExchange"]], ["XCXT", "CoinonatX", ["Cryptopia", "CoinExchange"]], ["XDE2", "Xde2", ["CoinExchange"]], ["XDN", "DigitalNote", ["Bittrex", "HitBtc"]], ["XEL", "Elastic", ["Bittrex"]], ["XEM", "NEM", ["Poloniex", "Bittrex", "Cryptopia", "HitBtc", "Livecoin"]], ["XEV", "EvoPoints", ["CoinExchange"]], ["XFT", "FootyCash", ["Cryptopia"]], ["XGOX", "XGOX", ["Cryptopia", "CoinExchange"]], ["XGR", "GoldReserve", ["Cryptopia"]], ["XGTC", "GirlsTokenCoin", ["CoinExchange"]], ["XID", "Sphre", ["Cryptopia"]], ["XJO", "JouleCoin", ["Cryptopia"]], ["XLC", "LeviarCoin", ["Cryptopia", "HitBtc"]], ["XLM", "Lumen", ["Kraken", "Bittrex", "Binance"]], ["XLR", "Solaris", ["CoinExchange"]], ["XMCC", "MonacoCoin", ["Cryptopia", "CoinExchange"]], ["XMG", "Magi", ["Bittrex", "Cryptopia"]], ["XMR", "Monero", ["Kraken", "Poloniex", "Bittrex", "Cryptopia", "Bitfinex", "Exmo", "Binance", "TuxExchange", "HitBtc", "Livecoin"]], ["XMS", "Moonstone DAC", ["Livecoin"]], ["XMY", "Myriad", ["Bittrex", "Cryptopia"]], ["XP", "XP", ["CoinExchange"]], ["XPASC", "PascalClassic", ["CoinExchange"]], ["XPD", "PetroDollar", ["Cryptopia"]], ["XPM", "Primecoin", ["Poloniex", "Cryptopia", "Bluetrade"]], ["XPTX", "PlatinumBar", ["Cryptopia"]], ["XQN", "Quotient", ["CoinExchange"]], ["XRA", "RateCoin", ["Cryptopia"]], ["XRC", "Rawcoin", ["Livecoin"]], ["XRE", "Revolvercoin", ["Cryptopia"]], ["XRL", "Rialto", ["Livecoin"]], ["XRP", "Ripple", ["Kraken", "Poloniex", "Bittrex", "Bitfinex", "Bitstamp", "Exmo", "Binance", "HitBtc"]], ["XRY", "Royalties", ["Cryptopia"]], ["XSA", "Sigma", ["CoinExchange"]], ["XSPEC", "SpectreCoin", ["Cryptopia", "Livecoin"]], ["XST", "StealthCoin", ["Bittrex", "Cryptopia"]], ["XSTC", "Safetradecoin", ["CoinExchange"]], ["XTD", "XTDCoin", ["CoinExchange"]], ["XTZ", "Tezos", ["HitBtc"]], ["XUC", "Exchange Union", ["HitBtc"]], ["XVC", "Vcash", ["Poloniex", "Bittrex"]], ["XVG", "Verge", ["Bittrex", "Cryptopia", "Binance", "HitBtc"]], ["XVP", "Virtacoin Plus", ["Bluetrade"]], ["XVS", "Vsync", ["CoinExchange"]], ["XWC", "WhiteCoin", ["Bittrex", "EXX"]], ["XXX", "XxXCoin", ["CoinExchange"]], ["XYOC", "YocoinClassic", ["CoinExchange"]], ["XYZ", "XYZCoin", ["CoinExchange"]], ["XZC", "ZCoin", ["Bittrex", "Cryptopia", "Binance", "CoinExchange"]], ["XZCD", "ZcoinDark", ["CoinExchange"]], ["YHC", "YokohamaCoin", ["CoinExchange"]], ["YOC", "Yocoin", ["Livecoin"]], ["YOVI", "YobitCoin", ["Cryptopia"]], ["YOYOW", "YOYOW", ["Binance", "HitBtc"]], ["ZAP", "Zap", ["Cryptopia", "HitBtc"]], ["ZBC", "Zilbercoin", ["Livecoin"]], ["ZCC", "ZcCoin", ["CoinExchange"]], ["ZCG", "ZCashGold", ["CoinExchange"]], ["ZCL", "Zclassic", ["Bittrex", "Cryptopia", "CoinExchange"]], ["ZEC", "Zcash", ["Kraken", "Poloniex", "Bittrex", "Cryptopia", "Bitfinex", "Exmo", "Binance", "TuxExchange", "HitBtc", "CoinExchange"]], ["ZEIT", "ZeitCoin", ["Cryptopia", "CoinExchange"]], ["ZEN", "ZenCash", ["Bittrex", "Cryptopia"]], ["ZENI", "Zennies", ["CoinExchange"]], ["ZER", "Zero", ["Cryptopia"]], ["ZET", "ZetaCoin", ["Cryptopia", "Bluetrade"]], ["ZMC", "ZMicron", ["CoinExchange"]], ["ZOI", "Zoin", ["Cryptopia", "CoinExchange"]], ["ZRC", "ZrCoin", ["HitBtc"]], ["ZRX", "0x", ["Poloniex", "Binance", "HitBtc", "Livecoin"]], ["ZSC", "Zeus Shield Coin", ["HitBtc"]], ["ZSE", "ZSEcoin", ["Cryptopia", "CoinExchange"]], ["ZURMO", "XZurmo", ["CoinExchange"]], ["ZZC", "ZoZoCoin", ["CoinExchange"]], ["eETT", "Ethereum EncryptoTel", ["Livecoin"]], ["wETT", "Waves EncryptoTel", ["Livecoin"]]];
-
-    return {
-        array: array
-    };
-}();
-
-/***/ }),
-/* 381 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 /**
  * Created by svend on 06/02/2018.
  */
 
-var url = __webpack_require__(382);
+var url = __webpack_require__(381);
 var array = __webpack_require__(140);
-var getNames = __webpack_require__(383);
+var getNames = __webpack_require__(382);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -25206,7 +25208,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 382 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25230,7 +25232,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 383 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25268,7 +25270,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 384 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25278,9 +25280,9 @@ module.exports = function () {
  * Created by svend on 06/02/2018.
  */
 
-var url = __webpack_require__(385);
+var url = __webpack_require__(384);
 var array = __webpack_require__(141);
-var getNames = __webpack_require__(386);
+var getNames = __webpack_require__(385);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -25315,7 +25317,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 385 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25339,7 +25341,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 386 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25377,7 +25379,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 387 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25387,9 +25389,9 @@ module.exports = function () {
  * Created by svend on 06/02/2018.
  */
 
-var url = __webpack_require__(388);
+var url = __webpack_require__(387);
 var array = __webpack_require__(142);
-var getNames = __webpack_require__(389);
+var getNames = __webpack_require__(388);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -25424,7 +25426,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 388 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25448,7 +25450,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 389 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25486,7 +25488,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 390 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25496,9 +25498,9 @@ module.exports = function () {
  * Created by svend on 06/02/2018.
  */
 
-var url = __webpack_require__(391);
+var url = __webpack_require__(390);
 var array = __webpack_require__(143);
-var getNames = __webpack_require__(392);
+var getNames = __webpack_require__(391);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -25534,7 +25536,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 391 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25560,7 +25562,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 392 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25605,7 +25607,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 393 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25615,9 +25617,9 @@ module.exports = function () {
  * Created by svend on 11/02/2018.
  */
 
-var url = __webpack_require__(394);
+var url = __webpack_require__(393);
 var array = __webpack_require__(144);
-var getNames = __webpack_require__(395);
+var getNames = __webpack_require__(394);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -25652,7 +25654,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 394 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25677,7 +25679,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 395 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25715,7 +25717,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 396 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25725,9 +25727,9 @@ module.exports = function () {
  * Created by svend on 11/02/2018.
  */
 
-var url = __webpack_require__(397);
+var url = __webpack_require__(396);
 var array = __webpack_require__(145);
-var getNames = __webpack_require__(398);
+var getNames = __webpack_require__(397);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -25763,7 +25765,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 397 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25789,7 +25791,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 398 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25831,7 +25833,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 399 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25841,9 +25843,9 @@ module.exports = function () {
  * Created by svend on 11/02/2018.
  */
 
-var url = __webpack_require__(400);
+var url = __webpack_require__(399);
 var array = __webpack_require__(146);
-var getNames = __webpack_require__(401);
+var getNames = __webpack_require__(400);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -25878,7 +25880,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 400 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25902,7 +25904,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 401 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25940,7 +25942,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 402 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25950,9 +25952,9 @@ module.exports = function () {
  * Created by svend on 11/02/2018.
  */
 
-var url = __webpack_require__(403);
+var url = __webpack_require__(402);
 var array = __webpack_require__(147);
-var getNames = __webpack_require__(404);
+var getNames = __webpack_require__(403);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -25987,7 +25989,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 403 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26011,7 +26013,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 404 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26049,7 +26051,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 405 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26059,9 +26061,9 @@ module.exports = function () {
  * Created by svend on 11/02/2018.
  */
 
-var url = __webpack_require__(406);
+var url = __webpack_require__(405);
 var array = __webpack_require__(148);
-var getNames = __webpack_require__(407);
+var getNames = __webpack_require__(406);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -26097,7 +26099,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 406 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26121,7 +26123,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 407 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26160,7 +26162,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 408 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26170,9 +26172,9 @@ module.exports = function () {
  * Created by svend on 06/02/2018.
  */
 
-var url = __webpack_require__(409);
+var url = __webpack_require__(408);
 var array = __webpack_require__(149);
-var getNames = __webpack_require__(410);
+var getNames = __webpack_require__(409);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -26209,7 +26211,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 409 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26235,7 +26237,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 410 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26280,7 +26282,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 411 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26290,9 +26292,9 @@ module.exports = function () {
  * Created by svend on 30/03/2018.
  */
 
-var url = __webpack_require__(412);
+var url = __webpack_require__(411);
 var array = __webpack_require__(150);
-var getNames = __webpack_require__(413);
+var getNames = __webpack_require__(412);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -26327,7 +26329,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 412 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26351,7 +26353,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 413 */
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26389,7 +26391,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 414 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26399,9 +26401,9 @@ module.exports = function () {
  * Created by svend on 06/02/2018.
  */
 
-var url = __webpack_require__(415);
+var url = __webpack_require__(414);
 var array = __webpack_require__(151);
-var getNames = __webpack_require__(416);
+var getNames = __webpack_require__(415);
 module.exports = function () {
 
     var Extrade = {
@@ -26430,7 +26432,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 415 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26451,7 +26453,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 416 */
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26482,7 +26484,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 417 */
+/* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26492,9 +26494,9 @@ module.exports = function () {
  * Created by svend on 29/03/2018.
  */
 
-var url = __webpack_require__(418);
+var url = __webpack_require__(417);
 var array = __webpack_require__(152);
-var getNames = __webpack_require__(419);
+var getNames = __webpack_require__(418);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -26529,7 +26531,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 418 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26553,7 +26555,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 419 */
+/* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26591,7 +26593,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 420 */
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26601,9 +26603,9 @@ module.exports = function () {
  * Created by svend on 06/02/2018.
  */
 
-var url = __webpack_require__(421);
+var url = __webpack_require__(420);
 var array = __webpack_require__(153);
-var getNames = __webpack_require__(422);
+var getNames = __webpack_require__(421);
 
 module.exports = function () {
 
@@ -26633,7 +26635,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 421 */
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26654,7 +26656,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 422 */
+/* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26685,7 +26687,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 423 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26695,9 +26697,9 @@ module.exports = function () {
  * Created by svend on 06/02/2018.
  */
 
-var url = __webpack_require__(424);
+var url = __webpack_require__(423);
 var array = __webpack_require__(154);
-var getNames = __webpack_require__(425);
+var getNames = __webpack_require__(424);
 
 module.exports = function () {
 
@@ -26727,7 +26729,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 424 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26748,7 +26750,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 425 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26779,7 +26781,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 426 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26789,9 +26791,9 @@ module.exports = function () {
  * Created by svend on 11/02/2018.
  */
 
-var url = __webpack_require__(427);
+var url = __webpack_require__(426);
 var array = __webpack_require__(155);
-var getNames = __webpack_require__(428);
+var getNames = __webpack_require__(427);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -26826,7 +26828,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 427 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26851,7 +26853,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 428 */
+/* 427 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26889,7 +26891,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 429 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26899,9 +26901,9 @@ module.exports = function () {
  * Created by svend on 11/02/2018.
  */
 
-var url = __webpack_require__(430);
+var url = __webpack_require__(429);
 var array = __webpack_require__(156);
-var getNames = __webpack_require__(431);
+var getNames = __webpack_require__(430);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -26936,7 +26938,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 430 */
+/* 429 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26960,7 +26962,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 431 */
+/* 430 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26998,7 +27000,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 432 */
+/* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27008,9 +27010,9 @@ module.exports = function () {
  * Created by svend on 06/02/2018.
  */
 
-var url = __webpack_require__(433);
+var url = __webpack_require__(432);
 var array = __webpack_require__(157);
-var getNames = __webpack_require__(434);
+var getNames = __webpack_require__(433);
 
 module.exports = function () {
 
@@ -27040,7 +27042,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 433 */
+/* 432 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27061,7 +27063,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 434 */
+/* 433 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27092,7 +27094,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 435 */
+/* 434 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27102,9 +27104,9 @@ module.exports = function () {
  * Created by svend on 13/02/2018.
  */
 
-var url = __webpack_require__(436);
+var url = __webpack_require__(435);
 var array = __webpack_require__(158);
-var getNames = __webpack_require__(437);
+var getNames = __webpack_require__(436);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -27139,7 +27141,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 436 */
+/* 435 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27163,7 +27165,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 437 */
+/* 436 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27201,7 +27203,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 438 */
+/* 437 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27211,9 +27213,9 @@ module.exports = function () {
  * Created by svend on 11/02/2018.
  */
 
-var url = __webpack_require__(439);
+var url = __webpack_require__(438);
 var array = __webpack_require__(159);
-var getNames = __webpack_require__(440);
+var getNames = __webpack_require__(439);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -27249,7 +27251,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 439 */
+/* 438 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27273,7 +27275,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 440 */
+/* 439 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27311,7 +27313,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 441 */
+/* 440 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27321,9 +27323,9 @@ module.exports = function () {
  * Created by svend on 11/02/2018.
  */
 
-var url = __webpack_require__(442);
+var url = __webpack_require__(441);
 var array = __webpack_require__(160);
-var getNames = __webpack_require__(443);
+var getNames = __webpack_require__(442);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -27359,7 +27361,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 442 */
+/* 441 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27386,7 +27388,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 443 */
+/* 442 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27428,7 +27430,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 444 */
+/* 443 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27438,9 +27440,9 @@ module.exports = function () {
  * Created by svend on 06/02/2018.
  */
 
-var url = __webpack_require__(445);
+var url = __webpack_require__(444);
 var array = __webpack_require__(161);
-var getNames = __webpack_require__(446);
+var getNames = __webpack_require__(445);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -27476,7 +27478,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 445 */
+/* 444 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27502,7 +27504,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 446 */
+/* 445 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27547,7 +27549,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 447 */
+/* 446 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27557,9 +27559,9 @@ module.exports = function () {
  * Created by svend on 17/03/2018.
  */
 
-var url = __webpack_require__(448);
+var url = __webpack_require__(447);
 var array = __webpack_require__(162);
-var getNames = __webpack_require__(449);
+var getNames = __webpack_require__(448);
 var requestModule = __webpack_require__(10);
 
 module.exports = function () {
@@ -27594,7 +27596,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 448 */
+/* 447 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27618,7 +27620,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 449 */
+/* 448 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27656,7 +27658,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 450 */
+/* 449 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27708,7 +27710,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 451 */
+/* 450 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27795,7 +27797,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 452 */
+/* 451 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27821,7 +27823,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 453 */
+/* 452 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27852,7 +27854,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 454 */
+/* 453 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27879,7 +27881,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 455 */
+/* 454 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27905,7 +27907,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 456 */
+/* 455 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27981,7 +27983,7 @@ module.exports = function () {
 }();
 
 /***/ }),
-/* 457 */
+/* 456 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
