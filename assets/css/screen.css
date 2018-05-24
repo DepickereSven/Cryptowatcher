@@ -371,3 +371,7 @@ body .alert span .fa-stack-2x{
 #top li h1{
     color: #fff;
 }
+
+.timestamp{
+    display: block;
+}
