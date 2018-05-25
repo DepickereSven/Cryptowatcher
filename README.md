@@ -111,6 +111,11 @@ Progessive Web App for Cryptowatcher
   * https://api.livecoin.net/exchange/ticker
   * Url to show the coins on the website of Livecoin
     * https://www.livecoin.net/en/trade/orderbook
+    
+### Mercatox
+  *	https://mercatox.com/public/json24 
+  *	Url to show the coins on the website of Mercatox
+    * https://mercatox.com/exchange/{SHORTSYMBOL}/BTC   
    
 ### Poloniex
   * https://poloniex.com/public?command=returnCurrencies
