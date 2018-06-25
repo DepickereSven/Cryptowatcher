@@ -88,7 +88,8 @@
     * https://www.huobi.pro/{SHORTSYMBOL}_btc/exchange/
    
 ### HitBtc
-  * http://api.hitbtc.com/api/1/public/ticker
+  * http://api.hitbtc.com/api/2/public/ticker
+  * http://api.hitbtc.com/api/2/public/currency
   * Url to show the coins on the website of HitBtc
     * https://hitbtc.com/exchange/{SHORTSYMBOL}-to-BTC
    
