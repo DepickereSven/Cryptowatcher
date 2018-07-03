@@ -74,9 +74,9 @@
   * Url to show the coins on the website of EXX
     * https://www.exxvip.com/tradePro/{SHORTSYMBOL}_btc
    
-### GDAX
-  * Url to show the coins on the website of GDAX
-    * https://www.gdax.com/trade/{SHORTSYMBOL}-BTC
+### Coinbase Pro
+  * Url to show the coins on the website of Coinbase Pro
+    * https://pro.coinbase.com/trade/{SHORTSYMBOL}-BTC
    
 ### Gemini
   * Url to show the coins on the website of Gemini
