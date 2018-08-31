@@ -6,6 +6,26 @@
 ### AidosMarket
   * Url to show the coins on the website of AidosMarket
     * https://aidosmarket.com/order-book
+
+### Allcoin
+  * https://www.allcoin.ca/Api_Market/getPriceList
+  * Url to show the coins on the website of Allcoin
+     * https://www.allcoin.comtrade/{SHORTSYMBOL}2btc
+
+### Anybits
+  * https://anybits.com/api/public/ticker
+  * Url to show the coins on the website of Anybits
+     * https://anybits.com/exchange/{SHORTSYMBOL}-btc
+
+### BCEX
+  * https://www.bcex.top/Api_Market/getPriceList
+  * Url to show the coins on the website of BCEX
+     * https://www.bcex.top/trade/{SHORTSYMBOL}2btc
+    
+### BigOne
+  * https://big.one/api/v2/tickers
+  * Url to show the coins on the website of BigOne
+     * https://b1.run/trade/{SHORTSYMBOL}-BTC    
     
 ### Binance
   * https://api.binance.com/api/v1/ticker/24hr
@@ -38,6 +58,12 @@
   * https://c-cex.com/t/prices.json
   * Url to show the coins on the website of C-Cex
     * https://c-cex.com/?p={SHORTSYMBOL}-btc
+    
+### COBINHOOD
+  * https://api.cobinhood.com/v1/market/currencies
+  * https://api.cobinhood.com/v1/market/tickers
+  * Url to show the coins on the website of COBINHOOD
+    * https://cobinhood.com/trade/{SHORTSYMBOL}-BTC    
    
 ### Coinbene
   * https://api.coinbene.com/v1/market/ticker?symbol=all
@@ -116,8 +142,8 @@
 ### Mercatox
   *	https://mercatox.com/public/json24 
   *	Url to show the coins on the website of Mercatox
-    * https://mercatox.com/exchange/{SHORTSYMBOL}/BTC   
-   
+        * https://mercatox.com/exchange/{SHORTSYMBOL}/BTC
+
 ### Poloniex
   * https://poloniex.com/public?command=returnCurrencies
   * https://poloniex.com/public?command=returnTicker
@@ -128,3 +154,11 @@
   * https://tuxexchange.com/api?method=getticker
   * Url to show the coins on the website of TuxExchange
     * https://tuxexchange.com/trade?coin={SHORTSYMBOL}&market=BTC
+
+## Donations are welcome:
+
+BTC: 35nDkYisc58UjkQXBfqeqhYjVV31uYUM96
+
+LTC: LeZTmUNPezQQAmwosbVBNPpjEfhKYEpNNX
+
+ETH: 0x9F9Da7299910bC75d2Bc11fc50bA0d3e9091509D
